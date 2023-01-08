@@ -1,1 +1,138 @@
-/* Insert your styles here */
+body {
+    background-color: black;
+    font-size: 1vw;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    color: #d4af37;
+    padding: 0;
+}
+
+nav {
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.headercontainer {
+    display: flex;
+    margin: -15px auto 5px;
+    max-width: 85%;
+}
+
+.headerlogo {
+    width: 125px;
+    float: left;
+}
+
+.headertitle {
+    padding-left: 10px;
+}
+
+.navul {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    background-color: #7851a9;
+    max-width: 82.5%;
+    margin: 0 auto; 
+    
+}
+
+.navul li {
+    width: 15%;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid red;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    
+
+}
+
+h2,h3,h4{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+main {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.main {
+    min-height: 100vh;
+    color: white;
+}
+
+.mainprices {
+    min-height: 100vh;
+    background-color:#7851a9;
+    color: white;
+}
+
+.mainprices ul {
+    list-style: none;
+    padding: 0;
+}
+
+.seatsection {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+.seating {
+    margin: 10px 5px;
+    min-width: 380px;
+    width: 640px;
+}
+
+.imgdesc {
+    display: flex;
+    max-height: 150px;
+}
+
+.seatimg {
+    width: 300px;
+
+    padding: 0;
+}
+
+.seatdescrip {
+    padding: 0 10px;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.seatinfobar {
+    display: flex;
+    justify-content:space-between;
+    padding: 2px;
+}
+
+.seatinfobar li {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.seatcode li {
+    text-align:center;
+}
+
+.regularprice li {
+    text-align:center;
+}
+
+.discountprice li {
+    text-align:center;
+}
