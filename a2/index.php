@@ -12,27 +12,58 @@
   </head>
 
   <body>
-
-    <header>
-      <div class="headercontainer">
-        <div class="headerlogo"><img src="media/inverted-gold.png" class="logo"> </div>
-        <div class="headertitle"><h1>LUNARDO CINEMA</h1></div>
+    <header> 
+      <div id="header">
+      <img src="media/inverted-gold.png" alt="Lunardo Logo">
+      <h1>LUNARDO CINEMA</h1>
       </div>
     </header>
 
     <nav>
-      <ul class="navul">
-        <li><h2>NOW SHOWING</h2></li>
-        <li><h2>PRICING</h2></li>
-        <li><h2>ABOUT US</h2></li>
+      <ul id="navbar">
+        <li><a href="#aboutus">ABOUT US</a></li>
+        <li><a href="#prices">PRICES</a></li>
+        <li><a href="#nowshowing">NOW SHOWING</a></li>
     </nav>
 
     <main>
-      <div class="main">
-        <img src='media/website-under-construction.png' alt='Section Under Construction' />
-        <p> NOW SHOWING COMING SOON </p>
-      </div>
-      <div class="mainprices">
+      <section id="aboutus">  
+        <h2>ABOUT US</h2>
+        <hr>
+        <div class="aboutus-info">
+          <img src="media/old-cinema.jpg" alt="old cinema sign">
+          <div class="content">
+            <p>"From humble beginnings..."</p>
+            <p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
+            <p>The pandemic was a trying time for us, but we used that down time to focus on giving a much needed facelift to our much loved facilities. These upgrades will ensure we continue to provide the best cinematic experience for years to come.</p>
+          </div>
+        </div>
+        <h2>WHAT'S NEW?</h2>
+        <hr>
+        <div class="aboutus-info">
+          <img src="media/upgraded-seating.jpg" alt="upgraded seating image">
+          <div class="content">
+            <p>"Comfort and luxury while you watch..."</p>
+            <p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
+            <ul>
+              <li>110 degree recline</li>
+              <li>flip up armrest</li>
+              <li>inbuilt cupholders</li>
+              <li>Leather trimmed seating (First Class only)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="aboutus-info"> 
+          <img src="media/dolby.png" alt="dolby logos">
+          <div class="content">
+            <p>"A truly immersive experience..."<p>
+            <p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>
+          </div>
+        </div> 
+        <hr>    
+      </section>  
+
+      <section class="mainprices">
         <h2> PRICES </h2>
         <ul class="seatsection">
           <li class="seating">
@@ -143,11 +174,13 @@
           </li>
         </ul>
         <h4>* The Cinema offers discounted pricing weekday afternoons (ie 12pm weekday matinée sessions) and all day on Mondays. </h4>
-      </div>
+      </section>
+
       <div class="main">
         <img src='media/website-under-construction.png' alt='Section Under Construction' />
-        <h4> ABOUT US COMING SOON </h4>
+        <p> NOW SHOWING COMING SOON </p>
       </div>
+      
     </main>
 
     <footer>
