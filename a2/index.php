@@ -33,7 +33,7 @@
         <div class="aboutus-info">
           <img src="media/old-cinema.jpg" alt="old cinema sign">
           <div class="content">
-            <p>"From humble beginnings..."</p>
+            <p><cite><strong>"From humble beginnings..."</strong></cite></p>
             <p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
             <p>The pandemic was a trying time for us, but we used that down time to focus on giving a much needed facelift to our much loved facilities. These upgrades will ensure we continue to provide the best cinematic experience for years to come.</p>
           </div>
@@ -43,7 +43,7 @@
         <div class="aboutus-info">
           <img src="media/upgraded-seating.jpg" alt="upgraded seating image">
           <div class="content">
-            <p>"Comfort and luxury while you watch..."</p>
+            <p><cite><strong>"Comfort and luxury while you watch..."</strong></cite></p>
             <p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
             <ul>
               <li>110 degree recline</li>
@@ -56,131 +56,235 @@
         <div class="aboutus-info"> 
           <img src="media/dolby.png" alt="dolby logos">
           <div class="content">
-            <p>"A truly immersive experience..."<p>
+            <p><cite><strong>"A truly immersive experience..."</strong></cite><p>
             <p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>
           </div>
         </div> 
         <hr>    
       </section>  
 
-      <section class="mainprices">
+      <section id="prices">
         <h2> PRICES </h2>
-        <ul class="seatsection">
-          <li class="seating">
-            <ul>
-              <li>
-                <ul class="imgdesc">
-                  <li class="seatimg"><img src='media/Profern-Standard-Twin.png' alt='Standard Seat image'></li>
-                  <li class="seatdescrip">
-                    <p>The Profern 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
-                    <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>  
-                  </li>
-                </ul>
-              </li>
-              <li class ="seatpricing">
-                <ul>
-                  <li>
-                    <ul class="seatinfobar">
-                      <li>
-                        <ul class="seattype">
-                          <li>Seat Type</li>
-                          <li>Standard Adult</li>
-                          <li>Standard Concession</li>
-                          <li>Standard Child</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul class="seatcode">
-                          <li>Seat Code</li>
-                          <li>STA</li>
-                          <li>STP</li>
-                          <li>STC</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul class="regularprice">
-                          <li>Regular Price</li>
-                          <li>$21.50</li>
-                          <li>$19.00</li>
-                          <li>$17.50</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul class="discountprice">
-                          <li>Discount* Price</li>
-                          <li>$16.00</li>
-                          <li>$14.50</li>
-                          <li>$13.00</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>  
-              </li>    
-            </ul>  
-          </li>
-          <li class="seating">
-            <ul>
-              <li>
-                <ul class="imgdesc">
-                  <li class="seatimg"><img src='media/Profern-Verona-twin.png' alt='First Class Seat image'></li>
-                  <li class="seatdescrip">
-                    <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-                    <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>  
-                  </li>
-                </ul>
-              </li>
-              <li class ="seatpricing">
-                <ul>
-                  <li>
-                    <ul class="seatinfobar">
-                      <li>
-                        <ul class="seattype">
-                          <li>Seat Type</li>
-                          <li>First Class Adult</li>
-                          <li>First Class Concession</li>
-                          <li>First Class Child</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul class="seatcode">
-                          <li>Seat Code</li>
-                          <li>FCA</li>
-                          <li>FCP</li>
-                          <li>FCC</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul class="regularprice">
-                          <li>Regular Price</li>
-                          <li>$31.50</li>
-                          <li>$28.00</li>
-                          <li>$25.00</li>
-                        </ul>
-                      </li>
-                      <li>
-                        <ul class="discountprice">
-                          <li>Discount* Price</li>
-                          <li>$25.00</li>
-                          <li>$23.50</li>
-                          <li>$22.00</li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>  
-              </li>    
-            </ul>  
-          </li>
-        </ul>
-        <h4>* The Cinema offers discounted pricing weekday afternoons (ie 12pm weekday matinée sessions) and all day on Mondays. </h4>
+        <hr>
+        <div class="box">
+          <div class="innerbox">
+            <div class="seating">
+              <div class="seatimg"><img src='media/Profern-Standard-Twin.png' alt='Standard Seat image'></div>
+              <div class ="seatinfo">
+                <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
+                <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
+              </div>
+            </div>  
+            <table id="pricestable">
+              <tr>
+                <th>Seat Type</th>
+                <th>Seat Code</th>
+                <th>Regular Price</th>
+                <th>Discount* Price</th>
+              </tr>
+              <tr>
+                <td>Standard Adult</td>
+                <td>STA</td>
+                <td>$21.50</td>
+                <td>$16.00</td>
+              </tr>
+              <tr>
+                <td>Standard Concession</td>
+                <td>STP</td>
+                <td>$19.00</td>
+                <td>$14.50</td>
+              </tr>
+              <tr>
+                <td>Standard Child</td>
+                <td>STC</td>
+                <td>$17.50</td>
+                <td>$13.00</td>
+              </tr>
+            </table>
+          </div>
+        
+          <div class="innerbox">
+            <div class="seating">
+              <div class="seatimg"><img src='media/Profern-Verona-Twin.png' alt='First Class Seat image'></div>
+              <div class ="seatinfo">
+                <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+                <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p> 
+              </div>
+            </div>  
+            <table id="pricestable">
+              <tr>
+                <th>Seat Type</th>
+                <th>Seat Code</th>
+                <th>Regular Price</th>
+                <th>Discount* Price</th>
+              </tr>
+              <tr>
+                <td>First Class Adult</td>
+                <td>FCA</td>
+                <td>$31.50</td>
+                <td>$25.00</td>
+              </tr>
+              <tr>
+                <td>First Class Concession</td>
+                <td>FCP</td>
+                <td>$28.00</td>
+                <td>$23.50</td>
+              </tr>
+              <tr>
+                <td>First Class Child</td>
+                <td>FCC</td>
+                <td>$25.00</td>
+                <td>$22.00</td>
+              </tr>
+            </table>
+          </div>
+        </div>  
+        <cite><strong>* The Cinema offers discounted pricing weekday afternoons (ie 12pm weekday matinée sessions) and all day on Mondays. </strong></cite>
+        <hr>
       </section>
 
-      <div class="main">
-        <img src='media/website-under-construction.png' alt='Section Under Construction' />
-        <p> NOW SHOWING COMING SOON </p>
-      </div>
-      
+        
+      <section id="nowshowing">
+        <h2>NOW SHOWING</h2>
+        <hr>
+        <div class="movie-section">
+          <div class="movie-single">
+            <div class="movie-detail">
+              <div class="movie-title">Avatar 2: Way of water</div>
+              <div class="movie-rating">PG-13</div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <img src="media/avatar2.jpg">
+                </div>
+                <div class="card-back">
+                  <p>Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</p>
+  
+                  <p>Session Times</p>
+                  <table>
+                    <tr>
+                      <th>Mon-Tue</th>
+                      <th>Wed-Fri</th>
+                      <th>Sat-Sun</th>
+                    </tr>
+                    <tr>
+                      <td>9pm</td>
+                      <td>9pm</td>
+                      <td>6pm</td>
+                    </tr>
+                  </table>
+                  <div class="booknow">
+                    <h2>BOOK NOW</h2>
+                  </div>
+                </div>
+              </div>    
+            </div>
+          </div>
+
+          <div class="movie-single">
+            <div class="movie-detail">
+              <div class="movie-title">Weird: The Al Yankovic Story</div>
+              <div class="movie-rating">TV-14</div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <img src="media/weird.jpg">
+                </div>
+                <div class="card-back">
+                  <p>Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.</p>
+  
+                  <p>Session Times</p>
+                  <table>
+                    <tr>
+                      <th>Mon-Tue</th>
+                      <th>Wed-Fri</th>
+                      <th>Sat-Sun</th>
+                    </tr>
+                    <tr>
+                      <td>-</td>
+                      <td>12pm</td>
+                      <td>3pm</td>
+                    </tr>
+                  </table>
+                  <div class="booknow">
+                    <h2>BOOK NOW</h2>
+                  </div>
+                </div>
+              </div>    
+            </div>
+          </div>
+
+          <div class="movie-single">
+            <div class="movie-detail">
+              <div class="movie-title">Puss in Boots: The Last Wish</div>
+              <div class="movie-rating">PG</div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <img src="media/pussinboots.jpg">
+                </div>
+                <div class="card-back">
+                  <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
+  
+                  <p>Session Times</p>
+                  <table>
+                    <tr>
+                      <th>Mon-Tue</th>
+                      <th>Wed-Fri</th>
+                      <th>Sat-Sun</th>
+                    </tr>
+                    <tr>
+                      <td>12pm</td>
+                      <td>6pm</td>
+                      <td>12pm</td>
+                    </tr>
+                  </table>
+                  <div class="booknow">
+                    <h2>BOOK NOW</h2>
+                  </div>
+                </div>
+              </div>    
+            </div>
+          </div>
+
+          <div class="movie-single">
+            <div class="movie-detail">
+              <div class="movie-title">Margrete: Queen of the North</div>
+              <div class="movie-rating">MA-15+</div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <img src="media/margrete.jpg">
+                </div>
+                <div class="card-back">
+                  <p>1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.</p>
+  
+                  <p>Session Times</p>
+                  <table>
+                    <tr>
+                      <th>Mon-Tue</th>
+                      <th>Wed-Fri</th>
+                      <th>Sat-Sun</th>
+                    </tr>
+                    <tr>
+                      <td>6pm</td>
+                      <td>-</td>
+                      <td>10pm</td>
+                    </tr>
+                  </table>
+                  <div class="booknow">
+                    <h2>BOOK NOW</h2>
+                  </div>
+                </div>
+              </div>    
+            </div>
+          </div>
+        </div>  
+      </section>      
     </main>
 
     <footer>
