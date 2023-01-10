@@ -6,12 +6,6 @@ body {
     padding: 0;
 }
 
-#bg {
-    max-height: 100%;
-    overflow:hidden;
-    position:relative;
-}
-
 h1,h2,h3,h4,#navbar {
     font-family: 'Bungee', cursive;
     text-align: center;
@@ -115,8 +109,7 @@ section {
     width: 100%;
     margin: 0 auto;
     scroll-margin-top: 8vh;
-    background:   rgba(202, 186, 222, 0.667);
-    border: 2px solid rgba(134, 124, 148);
+    background:   #cabadeaa;
 }
 
 .aboutus-info {
@@ -124,16 +117,6 @@ section {
     flex-wrap: wrap;
     min-width: 380px;
     margin: 0 5% 5%;
-}
-
-.test {
-    width: 90%;
-    margin: 0 auto;
-    left:5%;
-    position: absolute;
-    background-repeat: repeat;
-    opacity: 0.3;
-    z-index: -1;
 }
 
 .aboutus-info img {
@@ -154,7 +137,6 @@ section {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-bottom: 3rem;
 }
 
 .innerbox {
