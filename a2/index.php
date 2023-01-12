@@ -8,14 +8,18 @@
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <script src='../wireframe.js'></script>
   </head>
 
   <body>
+    
     <header> 
       <div id="header-box">
-      <img src="media/inverted-gold.png" alt="Lunardo Logo">
-      <h1>LUNARDO CINEMA</h1>
+        <img id="logo" src="media/logo-gold.png">
+        <div id="headerbg"><img src="media/headerbackground2.png"></div>
+        <div id="company-logo"><img src="media/logo-gold.png" alt="Lunardo Logo"></div>
+        <div id="company-name">Lunardo</div>
       </div>
     </header>
     
@@ -24,10 +28,10 @@
         <li><a href="#aboutus">ABOUT US</a></li>
         <li><a href="#prices">PRICES</a></li>
         <li><a href="#nowshowing">NOW SHOWING</a></li>
+      </ul>
     </nav>
-    
+  
     <main>
-      <div id="bg-image"><img src="media/mgalleryfade.png"></div>
       <section id="aboutus">  
         <h2>ABOUT US</h2>
         <hr>
@@ -64,7 +68,7 @@
         <hr>    
       </section>  
 
-      <section id="prices">
+      <!-- <section id="prices">
         <h2> PRICES </h2>
         <hr>
         <div class="box">
@@ -285,17 +289,17 @@
             </div>
           </div>
         </div>  
-      </section>
-    </main>  
+      </section> -->
+    </main>
 
 
-      <footer>
+      <!-- <footer>
         <div>&copy;<script>
           document.write(new Date().getFullYear());
         </script> Phi Van Bui, s2008156D Group A. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
         <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
         <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-      </footer>
+      </footer> -->
     </div>
   </body>
 </html>
