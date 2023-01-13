@@ -3,11 +3,12 @@ html, body {
     padding: 0;
     height: 100%;
     scroll-behavior: smooth;
+    overflow-x: scroll;
 }
 
 body {
-    background: black;
-    color: white;
+    background-color: black;
+    color: #d4af37;
     font-size: 1rem;
     font-family: 'Rajdhani', sans-serif;
 
@@ -19,87 +20,77 @@ body {
 header {
     width: 100%;
     margin: 0 auto;
+    height: 200px;
 }
 
-#header-box {
-    display: flex;
-    height: 110px;
+#header-bg {
+    position: fixed;
+    background-image: url("media/headerbg.jpg");
+    background-color: black;
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: right;
-}
-
-#headerbg {
-    position: absolute;
+    height: 200px;
     width: 100%;
-    height: 110px;
-    z-index: 2;
-}
-
-#headerbg img {
-    position: absolute;
-    width: auto;
-    height: 110px;
-    right: 0px;
-    z-index: 2;
-}
-
-
-#logo {
-    position: fixed;
-    width: auto;
-    height: 100px;
-    top: 0;
-    left:9px;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-#company-logo {
-    position: fixed;
-    top: 1px;
-    left: 9px;
-    opacity: 0.6;
-    margin-top: -1px;
-    z-index: 3;
+    right: 0;
+    z-index: -1;
 }
 
 #company-name {
+    position: relative;
+    display: inline-block;
     font-family: 'Oleo Script Swash Caps', cursive;
     color: black;
     text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
-    letter-spacing:0.03em;
-    font-size: 3.5rem;
+    letter-spacing:0.1em;
+    font-size: 2.75rem;
+    height: 100%;
+    z-index: 4;
+    transform: rotate(-15deg);
     margin-left: 80px;
-    z-index: 5;
 }
 
 #company-name::first-letter {
-    font-size: 6rem;
-}
-
-
-#company-logo img {
-    width: auto;
-    height: 100px;
-    margin: 0;
+    font-size: 5rem;
 }
 
 nav {
+    display: flex;
     position: sticky;
-    top: 0;
-    margin: 0;
+    top: -100px;
     padding: 0;
-    background-color: black;
     width: 100%;
-    height: 100px;
+    height: 200px;
+    margin-top: -200px;
     z-index: 1;
+    background-image: linear-gradient(70deg, black 40% , transparent 65% );
+}
+
+#logo {
+    position: sticky;
+    top: -90px;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+}
+
+#logo img {
+    position: sticky;
+    top:10px;
+    height: 85px;
+    opacity: 0.6;
+    margin-top: 10px;
+    margin-left: 10px;;
 }
 
 #navbar {
-    display: flex;
-    flex-flow: column;
+    position: absolute;
+    right: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
+    margin-top: 100px;
+    margin-bottom: 0;
 }
 
 #navbar li {
@@ -109,11 +100,14 @@ nav {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
-    text-align: center;
-    background-image: linear-gradient(to left, #d4af37, black);
+    text-align: right;
+    padding-right: 10%;
+    background-image: linear-gradient(280deg, #d4af37, transparent 90%);
     text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
     border-bottom: 2px solid black;
     border-radius: 5px 0 0px 5px;
+    background-color: black;
+
 }
 
 #navbar li:first-child {
@@ -130,7 +124,7 @@ nav {
     display: block;
 }
 
-#navbar a:hover, #navbar a:active, #navbar a:focus {  
+#navbar a:hover, #navbar a:active, #navbar a:focus, #navbar a:target {
     color: #d4af37;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     text-decoration: none;
@@ -139,80 +133,275 @@ nav {
 }
 
 #navbar li:hover {
-    background-image: linear-gradient(to left, rgb(102,111,190), black);
-    padding-left:25vw;
+    background-image: linear-gradient(to left, rgb(102,111,190), transparent);
+    background-color: transparent;
+    padding-left:10vw;
     transition: 0.5s;
+    letter-spacing: 0.1em;
 }
 
+main {
+    z-index:10;
+    background-image: linear-gradient(to bottom, transparent, black 3% );
+}
 
+main img {
+    width: 50px;
+}
 
+section {
+    margin-top: 20px;
+    scroll-margin-top: 120px;
+}
+
+section p {
+    text-align: justify;
+    line-height: 1.3rem;
+}
+
+/* About us */
+
+#aboutus h2, #prices h2, #nowshowing h2 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent 70%);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    letter-spacing: 0.1rem;
+    padding-left: 10%;
+    font-size: 2rem;
+}
+
+#aboutus h2:hover, #prices h2:hover, #nowshowing h2:hover {
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent);
+}
+
+.aboutus-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.aboutus-img {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.aboutus-info img {
+    width: 100%;
+    height: auto;
+}
+
+li {
+    list-style: none;
+}
+
+.content, .seatinfo {
+    padding: 0 5%;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;  
+}
+
+.innerbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.seating {
+    display: flex;
+    flex-flow: column;
+
+}
+
+.seatimg {
+    width: 60%;
+    height: auto;
+    /* background-image: radial-gradient(rgb(102,111,190) 50%, transparent 70%); */
+    background-image: linear-gradient(to right, rgb(102,111,190)40%, transparent 80%);
+}
+
+.seatinfo-top {
+    display: flex;
+}
+
+/* text rotation - https://css-tricks.com/snippets/css/text-rotation/ */
+
+#std-class, #first-class {
+    position: relative;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border-right: 2px solid black;
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    letter-spacing: 0.1rem;
+    width: 40px;
+    text-align: center;
+    margin-left: 25px;
+}
+
+#std-class {
+    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+}
+
+#std-class p, #first-class p {
+    position: absolute;
+    top: 120px;
+    left: 0; 
+    margin-left: 10px;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+    z-index: 10;
+    background: none;
+    color: white;
+    width: 120px;
+    z-index:0;
+}
+
+.seatimg img {
+    width: 100%;
+}
+
+table {
+    width: 95%;
+    margin: 0 auto;
+}
+
+th, td {
+    width: 19%;
+    font-size: 1.5rem;
+    text-align: center;
+    width: max-content;
+    border: 2px solid black;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.nu {
+    border-top: 1px solid white;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.st, .std {
+    background-image:linear-gradient(to bottom, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+}
+
+.fc, .fcd {
+    background-image:linear-gradient(to bottom, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+}
+
+.std, .fcd {
+    color: rgb(102,111,190);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#prices cite {
+    display: block;
+    text-align: end;
+    margin-right: 5%;
+    color: rgb(102,111,190);;
+}
 
 @media (min-width: 768px) {
 
-    #logo, #company-logo img, nav  {
-        height: 150px;
+    body {
+        font-size: 1.2rem;
+    }
+
+    section {
+        scroll-margin-top: 150px;
+    }
+
+    #aboutus {
+        margin-top: 60px;
+    }
+
+    header, #header-bg, #header-blend {
+        height: 230px;
     }
 
     #company-name {
-        margin-left: 15%;
-        margin-top: 20px;
-        font-size: 6rem;
+        font-size: 4.75rem;
+        margin-left: 100px;
     }
 
     #company-name::first-letter {
-        font-size: 10rem;
-    }
-
-    #header-box, #headerbg, #headerbg img  {
-        height: 165px;
+        font-size: 7.5rem;
     }
 
     #navbar li {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+
+    nav {
+        height: 240px;
+        margin-top: -230px;
+    }
+
+    #navbar {
+        margin-bottom: 20px;
+    }
+
+    #logo img {
+        height: 120px;
+    }
+
+    .aboutus-info {
+        flex-flow: row;
+        padding: 10px;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .aboutus-img {
+        width: 300px;
+        margin-left: 5%;
+    }
+
+    .aboutus-img img {
+        width: 300px;
+        border: 2px solid #d4af37;
+        border-radius: 5%;
+    }
+
+    .content {
+        padding: auto 50px;
+        max-width: 60%;
+    }
+
+    .seating {
+        flex-flow: row;
+        border: 3px solid black;
+    }
+
+    .seatimg {
+        width: 300px;
     }
 
 }
 
 @media (min-width: 992px) {
-    
-    header, main, section, #header-box {
-        position: relative;
-        max-width: 1600px;
-        margin: 0 auto;
+
+    body {
+        font-size: 1.5rem;
     }
 
-    nav {
-        max-width: 1600px;
-        margin: 0 auto;
-    }
-    
-    #logo, #company-logo {
-        left: 2%;
+    #navbar li {
+       font-size: 2rem;
     }
 
-    #logo, #company-logo img {
-        height: 200px;
-    }
-    
-    #company-name {
-        margin-left: 15%;
-        margin-top: 20px;
-        font-size: 8rem;
+    table {
+        max-width: 1500px;
     }
 
-    #company-name::first-letter {
-        font-size: 12rem;
+    th, td {
+        font-size: 2rem;
     }
 
-    #header-box, #headerbg, #headerbg img  {
-        height: 200px;
+    #prices cite {
+        margin-right: 10%;
     }
 }
-
-@media (min-width: 1700px) {
-    #logo, #company-logo {
-        left: 9%;
-    }
-
-}
-
