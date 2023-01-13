@@ -20,7 +20,7 @@
     </header>
     
     <nav>
-      <div id="logo"><img src="media/logo-gold.png"></div>
+      <div id="logo"><img src="../../media/logo-gold.png"></div>
       <ul id="navbar">
         <li><a href="#aboutus">ABOUT US</a></li>
         <li><a href="#prices">PRICES</a></li>
@@ -32,7 +32,7 @@
       <section id="aboutus">  
         <h2>About Us</h2>
         <div class="aboutus-info">
-          <div class="aboutus-img"><img src="media/old-cinema.jpg" alt="old cinema sign"></div>
+          <div class="aboutus-img"><img src="../../media/old-cinema.jpg" alt="old cinema sign"></div>
           <div class="content">
             <p><cite><strong>"From humble beginnings..."</strong></cite></p>
             <p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
@@ -41,7 +41,7 @@
         </div>
         <h2>What's New</h2>
         <div class="aboutus-info">
-          <div class="aboutus-img"><img src="media/upgraded-seating.jpg" alt="upgraded seating image"></div>
+          <div class="aboutus-img"><img src="../../media/upgraded-seating.jpg" alt="upgraded seating image"></div>
           <div class="content">
             <p><cite><strong>"Comfort and luxury while you watch..."</strong></cite></p>
             <p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="aboutus-info"> 
-          <div class="aboutus-img"><img src="media/dolby.png" alt="dolby logos"></div>
+          <div class="aboutus-img"><img src="../../media/dolby.png" alt="dolby logos"></div>
           <div class="content">
             <p><cite><strong>"A truly immersive experience..."</strong></cite><p>
             <p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>
@@ -69,7 +69,7 @@
             <div class="seating">
               <div class="seatinfo-top">
                 <div id="std-class"><p>Standard</p></div>
-                <div class="seatimg"><img src='media/Profern-Standard-Twin.png' alt='Standard Seat image'></div>
+                <div class="seatimg"><img src='../../media/Profern-Standard-Twin.png' alt='Standard Seat image'></div>
               </div>
               <div class ="seatinfo">
                 <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
@@ -79,7 +79,7 @@
             <div class="seating">
               <div class="seatinfo-top">
                 <div id="first-class"><p>First Class</p></div>
-                <div class="seatimg"><img src='media/Profern-Verona-Twin.png' alt='First Class Seat image'></div>
+                <div class="seatimg"><img src='../../media/Profern-Verona-Twin.png' alt='First Class Seat image'></div>
               </div>
               <div class ="seatinfo">
                 <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
@@ -170,7 +170,7 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="card-front">
-                    <img src="media/weird.jpg">
+                    <img src="../../media/weird.jpg">
                   </div>
                   <div class="card-back">
                     <p>Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.</p>
@@ -206,7 +206,7 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="card-front">
-                    <img src="media/pussinboots.jpg">
+                    <img src="../../media/pussinboots.jpg">
                   </div>
                   <div class="card-back">
                     <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
@@ -242,7 +242,7 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="card-front">
-                    <img src="media/margrete.jpg">
+                    <img src="../../media/margrete.jpg">
                   </div>
                   <div class="card-back">
                     <p>1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.</p>

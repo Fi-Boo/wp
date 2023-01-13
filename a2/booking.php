@@ -19,7 +19,7 @@
     </header>
     
     <nav>
-      <div id="logo"><img src="media/logo-gold.png"></div>
+      <div id="logo"><img src="../../media/logo-gold.png"></div>
       <ul id="navbar">
         <li>-</li>
         <li><a href="index.php">BACK</a></li>
@@ -37,7 +37,7 @@
               <div id="movie-rating">PG-13</div>
             </div>
             <div id="movie-body">
-              <div id="movieimg"><img src="media/avatar2.jpg" alt="Avatar 2:Way of Water"></div>
+              <div id="movieimg"><img src="../../media/avatar2.jpg" alt="Avatar 2:Way of Water"></div>
               <div id="movie-text">
                 <div id="movie-synopsis">Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</div>
                 <hr>
