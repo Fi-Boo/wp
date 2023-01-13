@@ -12,7 +12,6 @@ body {
     font-size: 1rem;
     font-family: 'Rajdhani', sans-serif;
 
-
 }
 
 /* header - logo */
@@ -413,6 +412,30 @@ footer {
     text-align: justify;
 }
 
+.booknow {
+    display: inline-block;
+    padding: 5px;
+    background:  #d4af37;
+    box-shadow: 
+    inset 0 4px 5px rgba(212,175,55,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+}
+
+.booknow a:link, .booknow a:visited {
+    text-decoration: none;
+    color: red;
+}
+
+.booknow:hover, .booknow a:hover, .booknow a:active, .booknow a:target, .booknow a:focus {
+    text-decoration: none;
+    color: #d4af37;
+    background:  rgb(102,111,190) ;
+    box-shadow: 
+    inset 0 4px 5px rgba(0,0,0,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+}
 
 /* booking form */
 

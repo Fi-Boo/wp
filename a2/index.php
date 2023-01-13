@@ -134,7 +134,7 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="card-front">
-                    <img src="media/avatar2.jpg">
+                    <img src="../../media/avatar2.jpg">
                   </div>
                   <div class="card-back">
                     <p>Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</p>
