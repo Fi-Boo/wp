@@ -20,14 +20,12 @@
     </header>
     
     <nav>
-      <div id="logo">
-      <img src="media/logo-gold.png"></div>
+      <div id="logo"><img src="media/logo-gold.png"></div>
       <ul id="navbar">
         <li><a href="#aboutus">ABOUT US</a></li>
         <li><a href="#prices">PRICES</a></li>
         <li><a href="#nowshowing">NOW SHOWING</a></li>
       </ul>
-    </div>
     </nav>
     
     <main>
@@ -125,35 +123,38 @@
 
       <section id="nowshowing">
         <h2>Now Showing</h2>
-        <div class="movie-section">
+        <div id="movie-section">
           <div class="movie-single">
             <div class="movie-detail">
+              <div class="test"></div>
               <div class="movie-title">Avatar 2: Way of water</div>
               <div class="movie-rating">PG-13</div>
             </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="card-front">
-                  <img src="media/avatar2.jpg">
-                </div>
-                <div class="card-back">
-                  <p>Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</p>
-  
-                  <cite><strong>Session Times</strong></cite>
-                  <table>
-                    <tr>
-                      <th>Mon-Tue</th>
-                      <th>Wed-Fri</th>
-                      <th>Sat-Sun</th>
-                    </tr>
-                    <tr>
-                      <td>9pm</td>
-                      <td>9pm</td>
-                      <td>6pm</td>
-                    </tr>
-                  </table>
-                  <div class="booknow">
-                    <a href="booking.html">BOOK NOW</a>
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="card-front">
+                    <img src="media/avatar2.jpg">
+                  </div>
+                  <div class="card-back">
+                    <p>Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</p>
+    
+                    <cite><strong>Session Times</strong></cite>
+                    <table>
+                      <tr>
+                        <th>Mon-Tue</th>
+                        <th>Wed-Fri</th>
+                        <th>Sat-Sun</th>
+                      </tr>
+                      <tr>
+                        <td>9pm</td>
+                        <td>9pm</td>
+                        <td>6pm</td>
+                      </tr>
+                    </table>
+                    <div class="booknow">
+                      <a href="booking.php?movie=ACT">BOOK NOW</a>
+                    </div>
                   </div>
                 </div>
               </div>    
@@ -165,32 +166,34 @@
               <div class="movie-title">Weird: The Al Yankovic Story</div>
               <div class="movie-rating">TV-14</div>
             </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="card-front">
-                  <img src="media/weird.jpg">
-                </div>
-                <div class="card-back">
-                  <p>Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.</p>
-  
-                  <cite><strong>Session Times</strong></cite>
-                  <table>
-                    <tr>
-                      <th>Mon-Tue</th>
-                      <th>Wed-Fri</th>
-                      <th>Sat-Sun</th>
-                    </tr>
-                    <tr>
-                      <td>-</td>
-                      <td>12pm</td>
-                      <td>3pm</td>
-                    </tr>
-                  </table>
-                  <div class="booknow">
-                    <a href="booking.php">BOOK NOW</a>
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="card-front">
+                    <img src="media/weird.jpg">
                   </div>
-                </div>
-              </div>    
+                  <div class="card-back">
+                    <p>Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.</p>
+    
+                    <cite><strong>Session Times</strong></cite>
+                    <table>
+                      <tr>
+                        <th>Mon-Tue</th>
+                        <th>Wed-Fri</th>
+                        <th>Sat-Sun</th>
+                      </tr>
+                      <tr>
+                        <td>-</td>
+                        <td>12pm</td>
+                        <td>3pm</td>
+                      </tr>
+                    </table>
+                    <div class="booknow">
+                      <a href="booking.php?movie=RMC">BOOK NOW</a>
+                    </div>
+                  </div>
+                </div>    
+              </div>
             </div>
           </div>
 
@@ -199,32 +202,34 @@
               <div class="movie-title">Puss in Boots: The Last Wish</div>
               <div class="movie-rating">PG</div>
             </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="card-front">
-                  <img src="media/pussinboots.jpg">
-                </div>
-                <div class="card-back">
-                  <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
-  
-                  <cite><strong>Session Times</strong></cite>
-                  <table>
-                    <tr>
-                      <th>Mon-Tue</th>
-                      <th>Wed-Fri</th>
-                      <th>Sat-Sun</th>
-                    </tr>
-                    <tr>
-                      <td>12pm</td>
-                      <td>6pm</td>
-                      <td>12pm</td>
-                    </tr>
-                  </table>
-                  <div class="booknow">
-                    <a href="booking.php">BOOK NOW</a>
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="card-front">
+                    <img src="media/pussinboots.jpg">
                   </div>
-                </div>
-              </div>    
+                  <div class="card-back">
+                    <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
+    
+                    <cite><strong>Session Times</strong></cite>
+                    <table>
+                      <tr>
+                        <th>Mon-Tue</th>
+                        <th>Wed-Fri</th>
+                        <th>Sat-Sun</th>
+                      </tr>
+                      <tr>
+                        <td>12pm</td>
+                        <td>6pm</td>
+                        <td>12pm</td>
+                      </tr>
+                    </table>
+                    <div class="booknow">
+                      <a href="booking.php?movie=FAM">BOOK NOW</a>
+                    </div>
+                  </div>
+                </div>    
+              </div>
             </div>
           </div>
 
@@ -233,46 +238,46 @@
               <div class="movie-title">Margrete: Queen of the North</div>
               <div class="movie-rating">MA-15+</div>
             </div>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="card-front">
-                  <img src="media/margrete.jpg">
-                </div>
-                <div class="card-back">
-                  <p>1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.</p>
-  
-                  <cite><strong>Session Times</strong></cite>
-                  <table>
-                    <tr>
-                      <th>Mon-Tue</th>
-                      <th>Wed-Fri</th>
-                      <th>Sat-Sun</th>
-                    </tr>
-                    <tr>
-                      <td>6pm</td>
-                      <td>-</td>
-                      <td>10pm</td>
-                    </tr>
-                  </table>
-                  <div class="booknow">
-                    <a href="booking.php">BOOK NOW</a>
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="card-front">
+                    <img src="media/margrete.jpg">
                   </div>
-                </div>
-              </div>    
+                  <div class="card-back">
+                    <p>1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.</p>
+    
+                    <cite><strong>Session Times</strong></cite>
+                    <table>
+                      <tr>
+                        <th>Mon-Tue</th>
+                        <th>Wed-Fri</th>
+                        <th>Sat-Sun</th>
+                      </tr>
+                      <tr>
+                        <td>6pm</td>
+                        <td>-</td>
+                        <td>10pm</td>
+                      </tr>
+                    </table>
+                    <div class="booknow">
+                      <a href="booking.php?movie=AHF">BOOK NOW</a>
+                    </div>
+                  </div>
+                </div>    
+              </div>
             </div>
           </div>
         </div>  
       </section>
     </main>
 
-
-      <!-- <footer>
-        <div>&copy;<script>
-          document.write(new Date().getFullYear());
-        </script> Phi Van Bui, s2008156D Group A. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-        <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-        <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-      </footer> -->
-    </div>
+    <footer>
+      <div>&copy;<script>
+        document.write(new Date().getFullYear());
+      </script> Phi Van Bui, s2008156D Group A. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
+      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+    </footer>
   </body>
 </html>
