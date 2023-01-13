@@ -52,7 +52,7 @@
       </section>
       <section id ="booking-form">
         <div id ="form-box">
-          <form action="/booking.php" method="post" onsubmit="">
+          <form action="booking.php?movie=ACT" method="post" onsubmit="">
             <input type="hidden" name="movie" value="ACT">
             
             <!-- drop down list-->
@@ -149,7 +149,7 @@
 
             <!-- radio buttons-->
             <fieldset id="booking-day-select">
-              <legend>Select Day/Session</legend>
+              <legend>Select Session</legend>
               <ul id="booking-date">
                 <li>
                   <input type="radio" name="day" value="MON" data-pricing="discprice" required><label> Monday 9PM</label> 
