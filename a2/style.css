@@ -416,7 +416,7 @@ footer {
 
 /* booking form */
 
-main {
+#main-booking {
     background-image: linear-gradient(to left, transparent, rgb(102,111,190) 20%, rgb(102,111,190) 80%, transparent);
 }
 
