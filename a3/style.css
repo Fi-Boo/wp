@@ -1,0 +1,746 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+}
+
+body {
+    background-color: black;
+    color: #d4af37;
+    font-size: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+
+}
+
+/* header - logo */
+
+header {
+    width: 100%;
+    margin: 0 auto;
+    height: 200px;
+}
+
+#header-bg {
+    position: fixed;
+    background-image: url("../../media/headerbg.jpg");
+    background-color: black;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 200px;
+    width: 100%;
+    right: 0;
+    z-index: -1;
+}
+
+#company-name {
+    position: relative;
+    display: inline-block;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    color: black;
+    text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
+    letter-spacing:0.1em;
+    font-size: 2.75rem;
+    height: 100%;
+    z-index: 4;
+    transform: rotate(-15deg);
+    margin-left: 80px;
+}
+
+#company-name::first-letter {
+    font-size: 5rem;
+}
+
+
+/* navbar */
+
+nav {
+    display: flex;
+    position: sticky;
+    top: -100px;
+    padding: 0;
+    width: 100%;
+    height: 200px;
+    margin-top: -200px;
+    z-index: 1;
+    background-image: linear-gradient(70deg, black 40% , transparent 65% );
+}
+
+#logo {
+    position: sticky;
+    top: -90px;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+}
+
+#logo img {
+    position: sticky;
+    top:10px;
+    height: 85px;
+    opacity: 0.6;
+    margin-top: 10px;
+    margin-left: 10px;;
+}
+
+#navbar {
+    position: absolute;
+    right: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+    margin-bottom: 0;
+}
+
+#navbar li {
+    width: 60%;
+    margin: 0 0 0 auto;
+    list-style: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: right;
+    padding-right: 10%;
+    background-image: linear-gradient(280deg, #d4af37, transparent 90%);
+    text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
+    border-bottom: 2px solid black;
+    border-radius: 5px 0 0px 5px;
+    background-color: black;
+
+}
+
+#navbar li:first-child {
+    width: 50%;
+}
+
+#navbar li:last-child {
+    width: 70%;
+}
+
+#navbar a:link, #navbar a:visited {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+#navbar a:hover, #navbar a:active, #navbar a:focus, #navbar a:target {
+    color: #d4af37;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-decoration: none;
+    display: block;
+    transition: color 0.5s;
+}
+
+#navbar li:hover {
+    background-image: linear-gradient(to left, rgb(102,111,190), transparent);
+    background-color: transparent;
+    padding-left:10vw;
+    transition: 0.5s;
+    letter-spacing: 0.1em;
+}
+
+main {
+    z-index:10;
+    background-image: linear-gradient(to bottom, transparent, black 3% );
+}
+
+main img {
+    width: 50px;
+}
+
+section {
+    margin-top: 20px;
+    scroll-margin-top: 120px;
+}
+
+section p {
+    text-align: justify;
+    line-height: 1.3rem;
+}
+
+/* About us */
+
+#aboutus h2, #prices h2, #nowshowing h2 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent 70%);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    letter-spacing: 0.1rem;
+    padding-left: 10%;
+    font-size: 2rem;
+}
+
+#aboutus h2:hover, #prices h2:hover, #nowshowing h2:hover {
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent);
+}
+
+.aboutus-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.aboutus-img {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.aboutus-info img {
+    width: 100%;
+    height: auto;
+}
+
+li {
+    list-style: none;
+}
+
+.content, .seatinfo {
+    padding: 0 5%;
+}
+
+
+/* Prices */
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;  
+    margin-top: 50px;
+}
+
+.innerbox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.seating {
+    display: flex;
+    flex-flow: column;
+
+}
+
+.seatimg {
+    width: 60%;
+    height: auto;
+    /* background-image: radial-gradient(rgb(102,111,190) 50%, transparent 70%); */
+    background-image: linear-gradient(to right, rgb(102,111,190)40%, transparent 80%);
+}
+
+.seatinfo-top {
+    display: flex;
+}
+
+/* text rotation - https://css-tricks.com/snippets/css/text-rotation/ */
+
+#std-class, #first-class {
+    position: relative;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border-right: 2px solid black;
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    letter-spacing: 0.1rem;
+    width: 40px;
+    text-align: center;
+    margin-left: 25px;
+}
+
+#std-class {
+    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+}
+
+#std-class p, #first-class p {
+    position: absolute;
+    top: 120px;
+    left: 0; 
+    margin-left: 10px;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+    z-index: 10;
+    background: none;
+    color: white;
+    width: 120px;
+    z-index:0;
+}
+
+.seatimg img {
+    width: 100%;
+}
+
+table {
+    width: 95%;
+    margin: 50px auto 20px;
+}
+
+th, td {
+    width: 19%;
+    font-size: 1.5rem;
+    text-align: center;
+    width: max-content;
+    border: 2px solid black;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.nu {
+    border-top: 1px solid white;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.st, .std {
+    background-image:linear-gradient(to bottom, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+}
+
+.fc, .fcd {
+    background-image:linear-gradient(to bottom, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+}
+
+.std, .fcd {
+    color: rgb(102,111,190);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#prices cite {
+    display: block;
+    text-align: end;
+    margin-right: 5%;
+    color: rgb(102,111,190);;
+}
+
+/* Now Showing */
+
+#movie-section {
+    margin: 50px 0;
+}
+
+.movie-single {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 20px 0;
+    margin: 0 auto;
+    background-image: linear-gradient(to left, transparent, rgb(102,111,190) 20%, rgb(102,111,190) 80%, transparent);
+}
+
+.movie-detail, #movie-header {
+    display: flex;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    background-image: linear-gradient(to left, #d4af37 40%, transparent 90%);
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+    padding: 20px 0;
+    justify-content: space-evenly;
+}
+
+.flip-card-container {
+    display: flex;
+    flex-flow: column;
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+
+/* flip card CSS - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card */
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    perspective: 2000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    border: 1px solid  #d4af37;
+    box-shadow: 2px 2px black;
+}
+
+.card-front {
+    background-color:#bbb;
+    color: black;
+}
+
+.card-front img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-back {
+    background-image: radial-gradient(#999B9B,rgb(102,111,190));
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card-back p {
+    text-align: justify;
+    padding: 5%;
+}
+
+footer {
+    margin: 10px;
+    text-align: justify;
+}
+
+.booknow a:link, .booknow a:visited {
+    text-decoration: none;
+    color: red;
+    padding: 5px 15px;
+    background:  #d4af37;
+    box-shadow: 
+    inset 0 4px 5px rgba(212,175,55,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+}
+
+.booknow a:hover, .booknow a:active, .booknow a:target, .booknow a:focus {
+    text-decoration: none;
+    color: #d4af37;
+    background:  rgb(102,111,190) ;
+    box-shadow: 
+    inset 0 4px 5px rgba(0,0,0,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+}
+
+/* booking form */
+
+#main-booking {
+    background-image: linear-gradient(to left, transparent, rgb(102,111,190) 20%, rgb(102,111,190) 80%, transparent);
+}
+
+#mainbox {
+    display: flex;
+    flex-flow: column;
+    
+}
+
+#movie-trailer, #movie-details {
+    width: 95%;
+    margin: 0 auto; 
+    max-width: 600px;
+    height: 350px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+iframe {
+    width: 100%;
+    border: 2px solid gold;
+}
+
+#movie-header {
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+#movie-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+#movie-body img {
+    width: 175px;
+    height: auto;
+}
+#movie-text {
+    padding: 5px;
+}
+
+#movie-synopsis {
+    text-align: justify;
+}
+
+#movie-synopsis hr {
+    margin: 20px 0;
+}
+
+#movie-details {
+    height: fit-content;
+}
+
+
+#booking-date {
+    list-style-type: none;
+    margin: 25px 0 0 0;
+    padding: 0;
+}
+
+#booking-date li {
+    float: left;
+    margin: 0 5px 0 0;
+    width: 180px;
+    height: 100px;
+    position: relative;
+}
+  
+#booking-date label, #booking-date input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: grey;
+    box-shadow: 
+    inset 0 4px 5px rgba(255,255,255,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+}
+  
+#booking-date input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+
+}
+  
+#booking-date input[type="radio"]:checked+label, .Checked+label {
+    background: grey;
+    box-shadow: 
+    inset 0 4px 5px rgba(0,0,0,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+    color: gold;
+}
+  
+#booking-date label {
+    padding: 5px;
+    border: 1px solid #CCC;
+    cursor: pointer;
+    z-index: 90;
+}
+  
+#booking-date label:hover {
+    background: #DDD;
+}
+
+#booking-date {
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#your-details label, #ticket-select label {
+    display: inline-block;
+    width: 400px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+#your-details input {
+    width: 400px;
+}
+
+#ticket-select {
+    letter-spacing: 0.1rem;
+}
+
+fieldset {
+    margin: 100px auto;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-image: linear-gradient(to right, transparent, gold, transparent);
+}
+
+form {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+
+    body {
+        font-size: 1.2rem;
+    }
+
+    section {
+        scroll-margin-top: 150px;
+    }
+
+    #aboutus {
+        margin-top: 60px;
+    }
+
+    header, #header-bg, #header-blend {
+        height: 230px;
+    }
+
+    #company-name {
+        font-size: 4.75rem;
+        margin-left: 100px;
+    }
+
+    #company-name::first-letter {
+        font-size: 7.5rem;
+    }
+
+    #navbar li {
+        font-size: 2rem;
+    }
+
+    nav {
+        height: 240px;
+        margin-top: -230px;
+    }
+
+    #navbar {
+        margin-bottom: 20px;
+    }
+
+    #logo img {
+        height: 120px;
+    }
+
+    .aboutus-info {
+        flex-flow: row;
+        padding: 10px;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .aboutus-img {
+        width: 300px;
+        margin-left: 5%;
+    }
+
+    .aboutus-img img {
+        width: 300px;
+        border: 2px solid #d4af37;
+        border-radius: 5%;
+    }
+
+    .content {
+        padding: auto 50px;
+        max-width: 60%;
+    }
+
+    .seating {
+        flex-flow: row;
+        border: 3px solid black;
+    }
+
+    .seatimg {
+        width: 300px;
+    }
+
+    .movie-single {
+        flex-flow: row-reverse;
+        position: relative;
+    }
+
+    .movie-detail {
+        flex-flow: column;
+        height: 200px;
+        width: 100%;
+        top: 50px;
+        position: absolute;
+        z-index: 0;
+        text-align: right;
+        padding-right: 15px;
+    }
+
+    .movie-rating {
+        padding-right: 80px;
+        font-size: 3rem;
+    }
+
+    .flip-card-container {
+        margin-left: 10%;
+    }
+
+    #your-details label {
+        text-align: left;
+        line-height: 2rem;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    body {
+        font-size: 1.5rem;
+    }
+
+    #navbar li {
+       font-size: 2rem;
+    }
+
+    table {
+        max-width: 1500px;
+    }
+
+    th, td {
+        font-size: 2rem;
+    }
+
+    #prices cite {
+        margin-right: 10%;
+    }
+
+    #movie-section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 1100px;
+        margin: 0 auto;
+        background-image: linear-gradient(to left, transparent, rgb(102,111,190) 20%, rgb(102,111,190) 80%, transparent);
+    }
+
+    .movie-single {
+        flex-flow: column;
+        width: 430px;
+    }
+
+    .movie-detail {
+        font-size: 1.75rem;
+        height: fit-content;
+        flex-flow: row;
+        position: static;
+        background-image: linear-gradient(to left, #d4af37 40%, transparent 90%);
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        text-align: center;
+        padding: 20px 0;
+        justify-content: space-evenly;
+    }
+
+    .movie-rating {
+        padding-right: 0;
+        font-size: 1.75rem;
+    }
+
+    .flip-card-container {
+        margin-left: 0;
+    } 
+
+}
+
