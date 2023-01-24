@@ -4,26 +4,31 @@ html, body {
     height: 100%;
     scroll-behavior: smooth;
     overflow-x: scroll;
-}
-
-body {
-    background-color: black;
     color: #d4af37;
     font-size: 1rem;
     font-family: 'Rajdhani', sans-serif;
+}
 
+body {
+    border: 2px solid blue;
 }
 
 /* header - logo */
 
 header {
+    position: sticky;
+    top: 0;
+    background-image: url("../../media/headerbg1600x250.png");
     width: 100%;
+    max-width: 1600px;
+    border: 2px solid red;
     margin: 0 auto;
     height: 200px;
+    z-index: -1;
 }
 
-#header-bg {
-    position: fixed;
+/* #header-bg {
+    position: relative;
     background-image: url("../../media/headerbg.jpg");
     background-color: black;
     background-size: auto 100%;
@@ -33,7 +38,7 @@ header {
     width: 100%;
     right: 0;
     z-index: -1;
-}
+} */
 
 #company-name {
     position: relative;

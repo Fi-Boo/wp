@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lunardo Booking Page</title>
-    
-    <!-- Keep wireframe.css for debugging, add your css to style.css -->
-    <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <script src='../wireframe.js'></script>
-  </head>
-
-  <body>
-  <header> 
-      <div id="header-bg"></div>
-      <div id="company-name">Lunardo</div> 
-    </header>
+<?php
+require "tools.php";
+pageHeader() ?>
     
     <nav>
       <div id="logo"><img src="../../media/logo-gold.png"></div>
