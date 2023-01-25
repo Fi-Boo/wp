@@ -149,7 +149,7 @@
                       </tr>
                     </table>
                     <div class="booknow">
-                      <a href="booking.html">BOOK NOW</a>
+                      <a href="booking.php?movie=ACT">BOOK NOW</a>
                     </div>
                   </div>
                 </div> 
@@ -186,7 +186,7 @@
                       </tr>
                     </table>
                     <div class="booknow">
-                      <a href="booking.php">BOOK NOW</a>
+                      <a href="booking.php?movie=RMC">BOOK NOW</a>
                     </div>
                   </div>
                 </div>
@@ -223,7 +223,7 @@
                       </tr>
                     </table>
                     <div class="booknow">
-                      <a href="booking.php">BOOK NOW</a>
+                      <a href="booking.php?movie=FAM">BOOK NOW</a>
                     </div>
                   </div>
                 </div>    
@@ -260,7 +260,7 @@
                       </tr>
                     </table>
                     <div class="booknow">
-                      <a href="booking.php">BOOK NOW</a>
+                      <a href="booking.php?movie=AHF">BOOK NOW</a>
                     </div>
                   </div>
                 </div>    
