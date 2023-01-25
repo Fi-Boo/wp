@@ -58,7 +58,7 @@
 
             <fieldset id="ticket-select">
               <legend>Select your ticket(s)</legend>
-              <label for="seat[STA]">Standard Adult</label>
+              <label for="seats[STA]">Standard Adult</label>
             <select name="seats[STA]" data-fullprice="21.5" data-discprice="16"> 
               <option value="">please select</option>
               <option value="1">1</option>
@@ -72,7 +72,7 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select><br>
-            <label for="seat[STP]">Standard Concession</label>
+            <label for="seats[STP]">Standard Concession</label>
             <select name="seats[STP]" data-fullprice="19" data-discprice="14.5"> 
               <option value="">please select</option>
               <option value="1">1</option>
@@ -86,7 +86,7 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select><br>
-            <label for="seat[STC]">Standard Child</label>
+            <label for="seats[STC]">Standard Child</label>
             <select name="seats[STC]" data-fullprice="17.5" data-discprice="13"> 
               <option value="">please select</option>
               <option value="1">1</option>
@@ -100,7 +100,7 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select><br>
-            <label for="seat[FCA]">First Class Adult</label>
+            <label for="seats[FCA]">First Class Adult</label>
             <select name="seats[FCA]" data-fullprice="31.5" data-discprice="25"> 
               <option value="">please select</option>
               <option value="1">1</option>
@@ -114,7 +114,7 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select><br>
-            <label for="seat[FCP]">First Class Concession</label>
+            <label for="seats[FCP]">First Class Concession</label>
             <select name="seats[FCP]" data-fullprice="28" data-discprice="23.5"> 
               <option value="">please select</option>
               <option value="1">1</option>
@@ -128,7 +128,7 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select><br>
-            <label for="seat[FCC]">First Class Child</label>
+            <label for="seats[FCC]">First Class Child</label>
             <select name="seats[FCC]" data-fullprice="25" data-discprice="22"> 
               <option value="">please select</option>
               <option value="1">1</option>
