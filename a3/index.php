@@ -25,7 +25,6 @@
         <li><a href="#prices">PRICES</a></li>
         <li><a href="#nowshowing">NOW SHOWING</a></li>
       </ul>
-    </div>
     </nav>
     
     <main>
@@ -134,7 +133,6 @@
                   </div>
                   <div class="card-back">
                     <p>Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</p>
-  
                     <cite><strong>Session Times</strong></cite>
                     <table>
                       <tr>
@@ -171,7 +169,6 @@
                   </div>
                   <div class="card-back">
                     <p>Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.</p>
-  
                     <cite><strong>Session Times</strong></cite>
                     <table>
                       <tr>
@@ -208,7 +205,6 @@
                   </div>
                   <div class="card-back">
                     <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
-  
                     <cite><strong>Session Times</strong></cite>
                     <table>
                       <tr>
@@ -245,7 +241,6 @@
                   </div>
                   <div class="card-back">
                     <p>1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.</p>
-  
                     <cite><strong>Session Times</strong></cite>
                     <table>
                       <tr>

@@ -1,13 +1,29 @@
-<?php
-require "tools.php";
-pageHeader() ?>
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lunardo Cinema Home Page</title>
+
+    <!-- Keep wireframe.css for debugging, add your css to style.css -->
+    <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
+    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <script src='../wireframe.js'></script>
+  </head>
+
+  <body>  
+    <header> 
+      <div id="header-bg"></div>
+      <div id="company-name">Lunardo</div> 
+    </header>
     
     <nav>
-      <div id="logo"><img src="../../media/logo-gold.png"></div>
+      <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
-        <li>-</li>
-        <li><a href="index.php">BACK</a></li>
-        <li>-</li>
+        <li><a href="#aboutus">ABOUT US</a></li>
+        <li><a href="#prices">PRICES</a></li>
+        <li><a href="#nowshowing">NOW SHOWING</a></li>
       </ul>
     </nav>
     
@@ -30,8 +46,7 @@ pageHeader() ?>
                 <div id="movie-stars">C: Sam Worthington, Zoe Saldana, Sugourney Weaver</div>
               </div>
             </div>
-          </div>
-          
+          </div>  
         <div>
       </section>
       <section id ="booking-form">
