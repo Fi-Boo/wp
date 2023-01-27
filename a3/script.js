@@ -12,49 +12,32 @@ x.addEventListener(myFunction)
 
 function myFunction(x) {
     if (x.matches) {
-        window.onscroll = function() {
-            console.clear();
-            console.log("Win Y: "+ window.scrollY);
-            var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
-            console.log(navlinks);
-            var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
-            console.log(sections);
-            for (var a = 0; a < sections.length; a++) {
-                var sectionTop = sections[a].offsetTop-126;
-                var sectionBot = sections[a].offsetTop + sections[a].offsetHeight-126;
-                console.log(sectionTop + ' ' + sectionBot);
-                if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
-                    console.log(sections[a].id + ": current");
-                    navlinks[a+1].classList.add("current");
-                } else {
-                    console.log(sections[a].id + ":");
-                    navlinks[a+1].classList.remove("current");
-                }
-            }
-        }
+        windowScroll(126);
     } else {
-        window.onscroll = function() {
-            console.clear();
-            console.log("Win Y: "+ window.scrollY);
-            var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
-            console.log(navlinks);
-            var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
-            console.log(sections);
-            for (var a = 0; a < sections.length; a++) {
-                var sectionTop = sections[a].offsetTop-101;
-                var sectionBot = sections[a].offsetTop + sections[a].offsetHeight-101;
-                console.log(sectionTop + ' ' + sectionBot);
-                if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
-                    console.log(sections[a].id + ": current");
-                    navlinks[a+1].classList.add("current");
-                } else {
-                    console.log(sections[a].id + ":");
-                    navlinks[a+1].classList.remove("current");
-                }
-            }
-        }
+        windowScroll(100);
     }
 }
 
 
-
+function windowScroll(offsetValue) {
+    window.onscroll = function() {
+        console.clear();
+        console.log("Win Y: "+ window.scrollY);
+        var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
+        console.log(navlinks);
+        var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
+        console.log(sections);
+        for (var a = 0; a < sections.length; a++) {
+            var sectionTop = sections[a].offsetTop-offsetValue;
+            var sectionBot = sections[a].offsetTop + sections[a].offsetHeight-offsetValue;
+            console.log(sectionTop + ' ' + sectionBot);
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
+                console.log(sections[a].id + ": current");
+                navlinks[a+1].classList.add("current");
+            } else {
+                console.log(sections[a].id + ":");
+                navlinks[a+1].classList.remove("current");
+            }
+        }
+    }
+}
