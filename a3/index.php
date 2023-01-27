@@ -10,14 +10,14 @@
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <script src='../wireframe.js'></script>
+    <script src='script.js'></script>
   </head>
 
-  <body>  
-    <header> 
+  <body>
+    <header>
       <div id="header-bg"></div>
-      <div id="company-name">Lunardo</div> 
+      <div id="company-name">Lunardo</div>
     </header>
-    
     <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
@@ -26,9 +26,9 @@
         <li><a href="#nowshowing">NOW SHOWING</a></li>
       </ul>
     </nav>
-    
+
     <main>
-      <section id="aboutus">  
+      <section id="aboutus">
         <div class="section-title"><h2>About Us</h2></div>
         <div class="aboutus-grid">
           <div class="aboutus-content aboutus-img"><img src="../../media/old-cinema.jpg" alt="old cinema sign"></div>
@@ -58,7 +58,7 @@
             <cite><strong>"A truly immersive experience..."</strong></cite>
             <p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>
           </div>
-        </div>   
+        </div>
       </section>
 
       <section id="prices">
@@ -67,7 +67,7 @@
           <div class="prices-content prices-img-block" id="prices-std-img">
             <div id="std-class"><p>Standard</p></div>
             <div class="prices-seat-img"><img src='../../media/Profern-Standard-Twin.png' alt='Standard Seat image'></div>
-          </div>    
+          </div>
           <div class="prices-content" id="prices-std-description">
             <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
             <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
@@ -78,7 +78,7 @@
           </div>
           <div class="prices-content" id="prices-fc-description">
             <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-            <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p> 
+            <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>
           </div>
           <table id="pricestable">
             <tr>
@@ -123,7 +123,7 @@
             <div class="movie-detail">
               <div class="movie-title">Avatar 2: Way of water</div>
               <div class="movie-runtime">3h 12m</div>
-              <div class="movie-rating">PG-13</div> 
+              <div class="movie-rating">PG-13</div>
             </div>
             <div class="flip-card-container">
               <div class="flip-card">
@@ -150,7 +150,7 @@
                       <a href="booking.php?movie=ACT">BOOK NOW</a>
                     </div>
                   </div>
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -159,7 +159,7 @@
             <div class="movie-detail">
               <div class="movie-title">Weird: The Al Yankovic Story</div>
               <div class="movie-runtime">1h 48m</div>
-              <div class="movie-rating">TV-14</div> 
+              <div class="movie-rating">TV-14</div>
             </div>
             <div class="flip-card-container">
               <div class="flip-card">
@@ -187,7 +187,7 @@
                     </div>
                   </div>
                 </div>
-              </div>    
+              </div>
             </div>
           </div>
 
@@ -195,7 +195,7 @@
             <div class="movie-detail">
               <div class="movie-title">Puss in Boots: The Last Wish</div>
               <div class="movie-runtime">1hr 42m</div>
-              <div class="movie-rating">PG</div> 
+              <div class="movie-rating">PG</div>
             </div>
             <div class="flip-card-container">
               <div class="flip-card">
@@ -222,16 +222,16 @@
                       <a href="booking.php?movie=FAM">BOOK NOW</a>
                     </div>
                   </div>
-                </div>    
+                </div>
               </div>
-            </div>  
+            </div>
           </div>
 
           <div class="movie-single">
             <div class="movie-detail">
               <div class="movie-title">Margrete: Queen of the North</div>
               <div class="movie-runtime">2h</div>
-              <div class="movie-rating">MA-15+</div> 
+              <div class="movie-rating">MA-15+</div>
             </div>
             <div class="flip-card-container">
               <div class="flip-card">
@@ -258,11 +258,11 @@
                       <a href="booking.php?movie=AHF">BOOK NOW</a>
                     </div>
                   </div>
-                </div>    
-              </div>    
+                </div>
+              </div>
             </div>
           </div>
-        </div>  
+        </div>
       </section>
     </main>
 
@@ -275,3 +275,6 @@
     </footer>
   </body>
 </html>
+
+
+

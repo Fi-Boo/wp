@@ -172,6 +172,10 @@ nav {
     letter-spacing: 0.1rem;
 }
 
+nav a.current {
+    background: white;
+    transition: 0.3s;
+  }
 
 /* section titles bar */
 

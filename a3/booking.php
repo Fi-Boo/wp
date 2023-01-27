@@ -10,6 +10,14 @@
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <script src='../wireframe.js'></script>
+    <script>
+      console.clear();
+      console.log("is this working?");
+      window.onscroll = function() {
+        console.log("scrolling working!");
+        console.log("Win Y: "+ window.scrollY);
+      }
+    </script>
   </head>
 
   <body>  
