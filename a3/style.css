@@ -631,6 +631,16 @@ th, td {
     text-align: justify;
 }
 
+
+/* debugging div */
+
+#debug {
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+}
+
+
 @media (min-width: 768px) {
 
     body {

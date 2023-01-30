@@ -159,3 +159,26 @@ function nowShowingMovies() {
     MOREDATA;
   } 
 }
+
+
+function printMyCode() {
+  $allLinesOfCode = file($_SERVER['SCRIPT_FILENAME']);
+  echo "<pre id='myCode'><ol>"; 
+  foreach($allLinesOfCode as $oneLineOfCode) {
+    echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+  }
+  echo "</ol></pre>";
+}
+
+function debugModule() {    
+  echo "<pre id='debug'>";  
+  echo "GET contains:<br>";   
+  print_r($_GET);
+  echo "POST contains:<br>";  
+  print_r($_POST);
+  echo "SESSION Contains:<br>";
+  print_r($_SESSION); 
+  echo "SITE code:<br>";
+  printMyCode(); 
+  echo "</pre>";    
+ }

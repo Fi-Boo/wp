@@ -1,4 +1,6 @@
-<?php include "tools.php"; 
+<?php     
+  include "tools.php"; 
+  include "post-validation.php";
   global $movies;
 ?>
 <!DOCTYPE html>
@@ -43,9 +45,9 @@
           <div id="movie-synopsis"><?= $movies[$_GET['movie']]["synopsis"] ?></div>
           <div id="movie-team">
             <hr>
-            <div id="movie-director"><strong>Director: </strong><?= $movies[$_GET['movie']]["director"] ?></div>
+            <div id="movie-director"><strong>Director: - </strong><?= $movies[$_GET['movie']]["director"] ?></div>
             <hr>
-            <div id="movie-stars"><strong>Cast: </strong>             
+            <div id="movie-stars"><strong>Cast: - </strong>             
             <?php 
             foreach ( $movies[ $_GET['movie'] ]['actors'] as $actor) {
               echo "$actor - ";
@@ -201,18 +203,7 @@
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
       <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
     </footer>
-    <aside id="debug">
-      <hr>
-      <h3>Debug Area</h3>
-      <pre>
-GET Contains:
-<?php print_r($_GET) ?>
-POST Contains:
-<?php print_r($_POST) ?>
-SESSION Contains:
-<?php print_r($_SESSION) ?>
-      </pre>
-    </aside>
+    <?php debugModule() ?>
 
   </body>
 </html>
