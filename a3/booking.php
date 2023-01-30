@@ -1,3 +1,6 @@
+<?php include "tools.php"; 
+  global $movies;
+?>
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -21,33 +24,36 @@
     <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
-        <li><a href="#aboutus">ABOUT US</a></li>
-        <li><a href="#prices">PRICES</a></li>
-        <li><a href="#nowshowing">NOW SHOWING</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
+        <li><a href="">-</a></li>
       </ul>
     </nav>
     
-    <main id="booking-synopsis">
-      <section id="booking">  
-        <div id="mainbox">
-          <div id="movie-trailer"><iframe width="560" height="315" src="https://www.youtube.com/embed/o5F8MOz_IDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-          <div id="movie-details" >
-            <div id="movie-header">
-              <div id="movie-title">Avatar: The Way of Water</div>
-              <div id="movie-rating">PG-13</div>
+    <main>
+      <section id="movie-data">  
+        <div id="bookings-info-grid">
+          <div id="movie-detail">
+            <div class="movie-title"><?= $movies[$_GET['movie']]["title"] ?></div>
+            <div class="movie-runtime"><?= $movies[$_GET['movie']]["runtime"] ?></div>
+            <div class="movie-rating"><?= $movies[$_GET['movie']]["rating"] ?></div>
+          </div>
+          <div id="movie-trailer"><iframe width="560" height="315" src=<?= $movies[$_GET['movie']]["trailer"] ?> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          <div id="movieimg"><img src=<?= $movies[$_GET['movie']]["poster"] ?> alt=<?= $movies[$_GET['movie']]["title"] ?>></div>
+          <div id="movie-synopsis"><?= $movies[$_GET['movie']]["synopsis"] ?></div>
+          <div id="movie-team">
+            <hr>
+            <div id="movie-director"><strong>Director: </strong><?= $movies[$_GET['movie']]["director"] ?></div>
+            <hr>
+            <div id="movie-stars"><strong>Cast: </strong>             
+            <?php 
+            foreach ( $movies[ $_GET['movie'] ]['actors'] as $actor) {
+              echo "$actor - ";
+            }
+            ?>
             </div>
-            <div id="movie-body">
-              <div id="movieimg"><img src="../../media/avatar2.jpg" alt="Avatar 2:Way of Water"></div>
-              <div id="movie-text">
-                <div id="movie-synopsis">Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</div>
-                <hr>
-                <div id="movie-director">D: James Cameron</div>
-                <hr>
-                <div id="movie-stars">C: Sam Worthington, Zoe Saldana, Sigourney Weaver</div>
-              </div>
-            </div>
-          </div>  
-        <div>
+          </div>
+        </div>
       </section>
 
       <section id ="booking-form">

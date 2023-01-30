@@ -431,7 +431,7 @@ th, td {
     margin: 0 auto;    
 }
 
-.movie-detail {
+.movie-detail, #movie-detail {
     display: grid;
     column-gap: 2rem;
     grid-template-columns: 1fr 1fr;
@@ -469,7 +469,7 @@ th, td {
 }
 
 
-.flip-card-container {
+.flip-card-container, #movieimg {
     display: flex;
     flex-flow: column;
     width: 400px;
@@ -581,6 +581,56 @@ th, td {
 } 
 
 
+/* Booking.php */
+
+#bookings-info-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    'title'
+    'poster'
+    'trailer'
+    'synopsis'
+    'team';
+}
+
+#movie-detail {
+    grid-area: title;
+    width: 100%;
+}
+
+#movieimg {
+    grid-area: poster;
+    width: 100%;
+    max-width: 400px;
+}
+
+#movie-trailer {
+    grid-area: trailer;
+    max-width: 600px;
+}
+
+#movie-trailer iframe {
+    width: 100%;
+}
+
+#movie-synopsis {
+    grid-area: synopsis;
+    max-width: 600px;
+}
+
+#movie-team {
+    grid-area: team;
+}
+
+#movie-trailer, #movie-synopsis, #movie-team {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align: justify;
+}
+
 @media (min-width: 768px) {
 
     body {
@@ -642,6 +692,7 @@ th, td {
     /* prices */
 
     #prices-grid {
+        gap: 2rem;
         grid-template-columns: 2fr 3fr;
         grid-template-areas:
         'std-seat-img std-seat-description'
@@ -686,7 +737,35 @@ th, td {
         border-image-source:  linear-gradient(to left, black 30%, transparent 70%) ;
     }
 
+
+    /* booking.php */
+
+    #bookings-info-grid {
+        grid-template-columns: 2fr 3fr;
+        grid-template-areas:
+        'title title'
+        'poster trailer'
+        'poster synopsis'
+        'poster team';  
+    }
+
+    #movieimg {
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    #movieimg img {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #movie-trailer, #movie-synopsis, #movie-team {
+        margin-left: 1rem;
+    }
 }
+
+
+
 
 
 @media (min-width: 992px) {

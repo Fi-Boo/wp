@@ -9,6 +9,9 @@
 // Function set up in a utilities file like tools.php
 
 
+
+// multidimensional associative movie array to store all the movie data for use in 'Now Showing' section and 'Booking.php'
+
 $movies = [
   "ACT" => [
     "code" => "ACT",
@@ -133,35 +136,17 @@ function nowShowingMovies() {
                     <p>{$movie["synopsis"]}</p>
                     <cite><strong>Session Times</strong></cite>
                     <table>
-                      <tr>
-                        <th>Mon</th>
-                        <td> {$movie["screenings"]["Mon"]} </td>
-                      </tr>
-                      <tr>
-                        <th>Tue</th>
-                        <td> {$movie["screenings"]["Tue"]} </td>
-                      </tr>
-                      <tr>
-                        <th>Wed</th>
-                        <td> {$movie["screenings"]["Wed"]} </td>
-                      </tr>
-                      <tr>
-                        <th>Thu</th>
-                        <td> {$movie["screenings"]["Thu"]} </td>
-                      </tr>
-                      <tr>
-                        <th>Fri</th>
-                        <td> {$movie["screenings"]["Fri"]} </td>
-                      </tr>
-                      <tr>
-                        <th>Sat</th>
-                        <td> {$movie["screenings"]["Sat"]} </td>
-                      </tr>
-                      <tr>
-                        <th>Sun</th>
-                        <td> {$movie["screenings"]["Sun"]} </td>
-                      </tr>
-                    
+    CDATA;
+    foreach ($movie["screenings"] as $day => $time) {
+      echo <<<"SCREENINGTABLE"
+      <tr>
+        <th>$day</th>
+        <td> $time </td>
+      </tr>
+      SCREENINGTABLE;
+    }                
+
+    echo <<<"MOREDATA"
                     </table>
                     <div class="booknow">
                       <a href="booking.php?movie={$movie["code"]}">BOOK NOW</a>
@@ -171,6 +156,6 @@ function nowShowingMovies() {
               </div>
             </div>
           </div>
-    CDATA;
+    MOREDATA;
   } 
 }
