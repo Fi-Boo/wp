@@ -1,3 +1,6 @@
+<?php include "tools.php"; 
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -119,149 +122,11 @@
       <section id="nowshowing">
         <div class="section-title" id="nowshowing-title"><h2>Now Showing</h2></div>
         <div id="movie-section-grid">
-          <div class="movie-single">
-            <div class="movie-detail">
-              <div class="movie-title">Avatar 2: Way of water</div>
-              <div class="movie-runtime">3h 12m</div>
-              <div class="movie-rating">PG-13</div>
-            </div>
-            <div class="flip-card-container">
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="card-front">
-                    <img src="../../media/avatar2.jpg">
-                  </div>
-                  <div class="card-back">
-                    <p>Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.</p>
-                    <cite><strong>Session Times</strong></cite>
-                    <table>
-                      <tr>
-                        <th>Mon-Tue</th>
-                        <th>Wed-Fri</th>
-                        <th>Sat-Sun</th>
-                      </tr>
-                      <tr>
-                        <td>9pm</td>
-                        <td>9pm</td>
-                        <td>6pm</td>
-                      </tr>
-                    </table>
-                    <div class="booknow">
-                      <a href="booking.php?movie=ACT">BOOK NOW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="movie-single">
-            <div class="movie-detail">
-              <div class="movie-title">Weird: The Al Yankovic Story</div>
-              <div class="movie-runtime">1h 48m</div>
-              <div class="movie-rating">TV-14</div>
-            </div>
-            <div class="flip-card-container">
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="card-front">
-                    <img src="../../media/weird.jpg">
-                  </div>
-                  <div class="card-back">
-                    <p>Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.</p>
-                    <cite><strong>Session Times</strong></cite>
-                    <table>
-                      <tr>
-                        <th>Mon-Tue</th>
-                        <th>Wed-Fri</th>
-                        <th>Sat-Sun</th>
-                      </tr>
-                      <tr>
-                        <td>-</td>
-                        <td>12pm</td>
-                        <td>3pm</td>
-                      </tr>
-                    </table>
-                    <div class="booknow">
-                      <a href="booking.php?movie=RMC">BOOK NOW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <?php
+        nowShowingMovies();
+        ?>
 
-          <div class="movie-single">
-            <div class="movie-detail">
-              <div class="movie-title">Puss in Boots: The Last Wish</div>
-              <div class="movie-runtime">1hr 42m</div>
-              <div class="movie-rating">PG</div>
-            </div>
-            <div class="flip-card-container">
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="card-front">
-                    <img src="../../media/pussinboots.jpg">
-                  </div>
-                  <div class="card-back">
-                    <p>Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
-                    <cite><strong>Session Times</strong></cite>
-                    <table>
-                      <tr>
-                        <th>Mon-Tue</th>
-                        <th>Wed-Fri</th>
-                        <th>Sat-Sun</th>
-                      </tr>
-                      <tr>
-                        <td>12pm</td>
-                        <td>6pm</td>
-                        <td>12pm</td>
-                      </tr>
-                    </table>
-                    <div class="booknow">
-                      <a href="booking.php?movie=FAM">BOOK NOW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="movie-single">
-            <div class="movie-detail">
-              <div class="movie-title">Margrete: Queen of the North</div>
-              <div class="movie-runtime">2h</div>
-              <div class="movie-rating">MA-15+</div>
-            </div>
-            <div class="flip-card-container">
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="card-front">
-                    <img src="../../media/margrete.jpg">
-                  </div>
-                  <div class="card-back">
-                    <p>1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.</p>
-                    <cite><strong>Session Times</strong></cite>
-                    <table>
-                      <tr>
-                        <th>Mon-Tue</th>
-                        <th>Wed-Fri</th>
-                        <th>Sat-Sun</th>
-                      </tr>
-                      <tr>
-                        <td>6pm</td>
-                        <td>-</td>
-                        <td>10pm</td>
-                      </tr>
-                    </table>
-                    <div class="booknow">
-                      <a href="booking.php?movie=AHF">BOOK NOW</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </main>

@@ -10,22 +10,14 @@
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
     <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <script src='../wireframe.js'></script>
-    <script>
-      console.clear();
-      console.log("is this working?");
-      window.onscroll = function() {
-        console.log("scrolling working!");
-        console.log("Win Y: "+ window.scrollY);
-      }
-    </script>
+    <script src='script.js'></script>
   </head>
 
-  <body>  
-    <header> 
+  <body>
+    <header>
       <div id="header-bg"></div>
-      <div id="company-name">Lunardo</div> 
+      <div id="company-name">Lunardo</div>
     </header>
-    
     <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
@@ -35,7 +27,7 @@
       </ul>
     </nav>
     
-    <main id="main-booking">
+    <main id="booking-synopsis">
       <section id="booking">  
         <div id="mainbox">
           <div id="movie-trailer"><iframe width="560" height="315" src="https://www.youtube.com/embed/o5F8MOz_IDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
@@ -51,12 +43,13 @@
                 <hr>
                 <div id="movie-director">D: James Cameron</div>
                 <hr>
-                <div id="movie-stars">C: Sam Worthington, Zoe Saldana, Sugourney Weaver</div>
+                <div id="movie-stars">C: Sam Worthington, Zoe Saldana, Sigourney Weaver</div>
               </div>
             </div>
           </div>  
         <div>
       </section>
+
       <section id ="booking-form">
         <div id ="form-box">
           <form action="booking.php?movie=ACT" method="post" onsubmit="">
@@ -197,9 +190,8 @@
     </main>  
 
     <footer>
-      <div>&copy;<script>
-        document.write(new Date().getFullYear());
-      </script> Phi Van Bui, s2008156D Group A. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
+      <div>&copy;<script>document.write(new Date().getFullYear());</script> 
+      Phi Van Bui, s2008156D Group A. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
       <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
     </footer>
