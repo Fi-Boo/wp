@@ -54,9 +54,6 @@
             </ul>
           </fieldset>
 
-
-
-
           <!-- drop down list for ticket selection-->
 
           <fieldset id="ticket-select">
@@ -64,8 +61,7 @@
             <div id="ticket-dropdown-menu">
               <?php ticketPurchase() ?>   
             </div>
-            <div id="ticket-total">
-              
+            <div id="ticket-total"> 
             </div>
           </fieldset>
       

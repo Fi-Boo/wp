@@ -21,21 +21,21 @@ function myFunction(x) {
 
 function windowScroll(offsetValue) {
     window.onscroll = function() {
-        console.clear();
-        console.log("Win Y: "+ window.scrollY);
+        //console.clear();
+        //console.log("Win Y: "+ window.scrollY);
         var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
-        console.log(navlinks);
+        //console.log(navlinks);
         var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
-        console.log(sections);
+        //console.log(sections);
         for (var a = 0; a < sections.length; a++) {
             var sectionTop = sections[a].offsetTop-offsetValue;
             var sectionBot = sections[a].offsetTop + sections[a].offsetHeight-offsetValue;
-            console.log(sectionTop + ' ' + sectionBot);
+            //console.log(sectionTop + ' ' + sectionBot);
             if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
-                console.log(sections[a].id + ": current");
+                //console.log(sections[a].id + ": current");
                 navlinks[a+1].classList.add("current");
             } else {
-                console.log(sections[a].id + ":");
+                //console.log(sections[a].id + ":");
                 navlinks[a+1].classList.remove("current");
             }
         }
@@ -49,8 +49,22 @@ function windowScroll(offsetValue) {
 
 function displayRadioValue(pricing) {
     if (pricing == "discprice") {
-        document.getElementById('priceSTA').innerHTML = "$14.50";
+        document.getElementById('priceSTA').innerHTML = "$16.00";
+        document.getElementById('priceSTP').innerHTML = "$14.50";
+        document.getElementById('priceSTC').innerHTML = "$13.00";
+        document.getElementById('priceFCA').innerHTML = "$25.00";
+        document.getElementById('priceFCP').innerHTML = "$23.50";
+        document.getElementById('priceFCC').innerHTML = "$25.00";
     } else {
-        document.getElementById('priceSTA').innerHTML = "$19.50";
+        document.getElementById('priceSTA').innerHTML = "$21.50";
+        document.getElementById('priceSTP').innerHTML = "$19.00";
+        document.getElementById('priceSTC').innerHTML = "$17.50";
+        document.getElementById('priceFCA').innerHTML = "$31.50";
+        document.getElementById('priceFCP').innerHTML = "$28.00";
+        document.getElementById('priceFCC').innerHTML = "$22.00";
     }
+}
+
+function testScript(vari) {
+    document.getElementById(vari).disabled = true;  
 }

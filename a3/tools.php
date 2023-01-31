@@ -155,6 +155,7 @@ $seating = [
    
 
 // function to generate ticket selection via drop down menu
+// 
 
 function ticketPurchase() {
 
@@ -163,8 +164,7 @@ function ticketPurchase() {
 
   foreach ($seating as $seat) {
     echo <<<"TICKETSELECT"
-        <label for="seats[{$seat['code']}]">{$seat['desc']} </label>
-        <div id="price{$seat['code']}"></div>
+        <label for="seats[{$seat['code']}]">{$seat['desc']} </label><div id="price{$seat['code']}"></div>
           <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}"> 
             <option value="">please select</option>
   TICKETSELECT;
@@ -228,6 +228,7 @@ function sessionSelection($var) {
 
   global $movies;
   $testvalue;
+  $state;
 
   foreach ($movies as $movie) {
     if ($movie["code"] === $var) {
@@ -237,14 +238,20 @@ function sessionSelection($var) {
                 <input type="radio" name="day" value="$day" data-pricing="
         SESSIONSELECTION;
         
-        if($day == "Mon" || $time == "12pm") {
+        if ($day == "Mon" || $time == "12pm") {
           $testvalue = "discprice";
         } else {
           $testvalue = "fullprice";
         }
 
+        if ($time == "-") {
+          $state = "disabled";
+        } else {
+          $state = "";
+        }
+
         echo <<<"SESSIONSELECTIONP2"
-                $testvalue" onclick='displayRadioValue("$testvalue")' required>
+                $testvalue" onclick='displayRadioValue("$testvalue")' {$state} required>
                 <label>
                   <div>$day</div>
                   <hr>
@@ -252,6 +259,8 @@ function sessionSelection($var) {
                 </label> 
               </li>
         SESSIONSELECTIONP2;
+
+        
       }
     }
   }
