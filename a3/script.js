@@ -41,3 +41,16 @@ function windowScroll(offsetValue) {
         }
     }
 }
+
+// Function to display discount or fullprice based on radio menu selection
+
+
+
+
+function displayRadioValue(pricing) {
+    if (pricing == "discprice") {
+        document.getElementById('priceSTA').innerHTML = "$14.50";
+    } else {
+        document.getElementById('priceSTA').innerHTML = "$19.50";
+    }
+}

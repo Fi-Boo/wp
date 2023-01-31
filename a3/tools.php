@@ -112,8 +112,72 @@ $movies = [
 ];
 
 
+// seating type and price array
+
+$seating = [
+  "STA" => [
+    "code" => "STA",
+    "desc" => "Standard Adult",
+    "fullprice" => "21.5",
+    "discount" => "16"
+  ],
+  "STP" => [
+    "code" => "STP",
+    "desc" => "Standard Concession",
+    "fullprice" => "19",
+    "discount" => "14.5"
+  ],
+  "STC" => [
+    "code" => "STC",
+    "desc" => "Standard Child",
+    "fullprice" => "17.5",
+    "discount" => "13"
+  ],
+  "FCA" => [
+    "code" => "FCA",
+    "desc" => "First Class Adult",
+    "fullprice" => "31.5",
+    "discount" => "25"
+  ],
+  "FCP" => [
+    "code" => "FCP",
+    "desc" => "First Class Concession",
+    "fullprice" => "28",
+    "discount" => "23.5"
+  ],
+  "FCC" => [
+    "code" => "FCC",
+    "desc" => "First Class Child",
+    "fullprice" => "25",
+    "discount" => "22"
+  ]
+];
+   
+
+// function to generate ticket selection via drop down menu
+
+function ticketPurchase() {
+
+  global $seating;
+  $maxPurchase = 10;
+
+  foreach ($seating as $seat) {
+    echo <<<"TICKETSELECT"
+        <label for="seats[{$seat['code']}]">{$seat['desc']} </label>
+        <div id="price{$seat['code']}"></div>
+          <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}"> 
+            <option value="">please select</option>
+  TICKETSELECT;
+            for ($a=1; $a<=$maxPurchase; $a++) {
+              echo "<option value='$a'>$a</option><br>";
+              }           
+    echo "</select><br>";
+  }
+}
+
 
 // This function cycles through the array of movies and outputs html code to populate the 'Now Showing' section.
+
 function nowShowingMovies() {
 
   global $movies;
@@ -141,7 +205,7 @@ function nowShowingMovies() {
       echo <<<"SCREENINGTABLE"
       <tr>
         <th>$day</th>
-        <td> $time </td>
+        <td>$time</td>
       </tr>
       SCREENINGTABLE;
     }                
@@ -160,15 +224,94 @@ function nowShowingMovies() {
   } 
 }
 
+function sessionSelection($var) {
 
-function printMyCode() {
-  $allLinesOfCode = file($_SERVER['SCRIPT_FILENAME']);
-  echo "<pre id='myCode'><ol>"; 
-  foreach($allLinesOfCode as $oneLineOfCode) {
-    echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+  global $movies;
+  $testvalue;
+
+  foreach ($movies as $movie) {
+    if ($movie["code"] === $var) {
+      foreach ($movie["screenings"] as $day => $time) {
+        echo <<<"SESSIONSELECTION"
+              <li>
+                <input type="radio" name="day" value="$day" data-pricing="
+        SESSIONSELECTION;
+        
+        if($day == "Mon" || $time == "12pm") {
+          $testvalue = "discprice";
+        } else {
+          $testvalue = "fullprice";
+        }
+
+        echo <<<"SESSIONSELECTIONP2"
+                $testvalue" onclick='displayRadioValue("$testvalue")' required>
+                <label>
+                  <div>$day</div>
+                  <hr>
+                  <div>$time</div>
+                </label> 
+              </li>
+        SESSIONSELECTIONP2;
+      }
+    }
   }
-  echo "</ol></pre>";
 }
+
+
+
+
+
+
+// HEADER CODE
+
+function headerModule() {
+  echo <<<"HEADER"
+    <!DOCTYPE html>
+      <html lang='en'>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lunardo Cinema Home Page</title>
+
+        <!-- Keep wireframe.css for debugging, add your css to style.css -->
+        <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
+        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={filemtime("style.css");}">
+        <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+        <script src='../wireframe.js'></script>
+        <script src='script.js'></script>
+      </head>
+
+      <body>
+        <header>
+          <div id="header-bg"></div>
+          <div id="company-name">Lunardo</div>
+        </header>
+  HEADER;
+}
+
+
+
+// FOOTER CODE
+
+function footerModule() {
+  echo <<<"FOOTERP1"
+  <footer>
+      <div>&copy;{<script>document.write(new Date().getFullYear());</script>} 
+      Phi Van Bui, s2008156D Group A. Last modified 
+  FOOTERP1;         
+  date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
+  echo <<<"FOOTERP2"
+  .</div>
+      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
+      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+    </footer>
+  FOOTERP2;
+}
+
+
+
+
+// DEBUGGING CODE
 
 function debugModule() {    
   echo "<pre id='debug'>";  
@@ -181,4 +324,18 @@ function debugModule() {
   echo "SITE code:<br>";
   printMyCode(); 
   echo "</pre>";    
- }
+}
+
+function printMyCode() {
+  $allLinesOfCode = file($_SERVER['SCRIPT_FILENAME']);
+  echo "<pre id='myCode'><ol>"; 
+  foreach($allLinesOfCode as $oneLineOfCode) {
+    echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+  }
+  echo "</ol></pre>";
+}
+
+
+
+
+ ?>

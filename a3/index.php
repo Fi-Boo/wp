@@ -1,28 +1,11 @@
 <?php     
   include "tools.php"; 
   include "post-validation.php";
+
+  headerModule();
 ?>
 
-<!DOCTYPE html>
-<html lang='en'>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lunardo Cinema Home Page</title>
 
-    <!-- Keep wireframe.css for debugging, add your css to style.css -->
-    <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=<?= filemtime("style.css"); ?>">
-    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <script src='../wireframe.js'></script>
-    <script src='script.js'></script>
-  </head>
-
-  <body>
-    <header>
-      <div id="header-bg"></div>
-      <div id="company-name">Lunardo</div>
-    </header>
     <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
@@ -133,13 +116,11 @@
       </section>
     </main>
 
-    <footer>
-      <div>&copy;<script>document.write(new Date().getFullYear());</script> 
-      Phi Van Bui, s2008156D Group A. Last modified <?= date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME'])); ?>.</div>
-      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-    </footer>
-    <?php debugModule() ?>
+    <?php 
+    footerModule();
+    debugModule();
+     ?>
+     
   </body>
 </html>
 
