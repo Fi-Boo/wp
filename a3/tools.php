@@ -305,19 +305,23 @@ function headerModule() {
 function footerModule() {
   echo <<<"FOOTERP1"
   <footer>
-      <div>&copy;{<script>document.write(new Date().getFullYear());</script>} 
+      <div>&copy;<script>document.write(new Date().getFullYear());</script> 
       Phi Van Bui, s2008156D Group A. Last modified 
-  FOOTERP1;         
-  date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
+  FOOTERP1;
+  footerDate(); 
   echo <<<"FOOTERP2"
   .</div>
       <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
       <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
     </footer>
   FOOTERP2;
+  
 }
 
-
+function footerDate() {
+  $testdate = date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
+  echo "$testdate";
+}
 
 
 // DEBUGGING CODE
