@@ -8,7 +8,7 @@ https://www.w3schools.com/howto/howto_js_media_queries.asp
 
 var x = window.matchMedia("(min-width: 768px)")
 myFunction(x)
-x.addEventListener(myFunction)
+//x.addEventListener(myFunction)
 
 function myFunction(x) {
     if (x.matches) {
@@ -44,27 +44,92 @@ function windowScroll(offsetValue) {
 
 // Function to display discount or fullprice based on radio menu selection
 
+var seatCodes = [
+    'STA',
+    'STP',
+    'STC',
+    'FCA',
+    'FCP',
+    'FCC'
+]
 
-
+var priceCode;
 
 function displayRadioValue(pricing) {
-    if (pricing == "discprice") {
-        document.getElementById('priceSTA').innerHTML = "$16.00";
-        document.getElementById('priceSTP').innerHTML = "$14.50";
-        document.getElementById('priceSTC').innerHTML = "$13.00";
-        document.getElementById('priceFCA').innerHTML = "$25.00";
-        document.getElementById('priceFCP').innerHTML = "$23.50";
-        document.getElementById('priceFCC').innerHTML = "$25.00";
-    } else {
-        document.getElementById('priceSTA').innerHTML = "$21.50";
-        document.getElementById('priceSTP').innerHTML = "$19.00";
-        document.getElementById('priceSTC').innerHTML = "$17.50";
-        document.getElementById('priceFCA').innerHTML = "$31.50";
-        document.getElementById('priceFCP').innerHTML = "$28.00";
-        document.getElementById('priceFCC').innerHTML = "$22.00";
+
+    priceCode = pricing;
+
+    removeSessionError();
+    calculateTotals();
+
+    for (var i=0; i<seatCodes.length; i++) {
+
+        var list = document.getElementsByName("seats["+seatCodes[i]+"]");
+        var attribute = list[0].getAttribute(pricing);
+        var price = parseFloat(attribute);
+        //console.log(price);
+
+        document.getElementById("price["+seatCodes[i]+"]").innerHTML = "$"+ price.toFixed(2);   
     }
 }
 
-function testScript(vari) {
-    document.getElementById(vari).disabled = true;  
+function updateCost() {
+    //console.log(checkSessionBooked());
+
+    if (!checkSessionBooked()) {
+        alertSessionError();
+    } else {
+        calculateTotals();
+    }   
+}
+
+// function to check if Session time has been selected. Returns a boolean.
+
+function checkSessionBooked() {
+    
+    var list = document.getElementsByName('day');
+
+    for (var i=0; i< list.length; i ++) {
+        if (list[i].checked) {
+            return true;
+        } 
+    }
+    return false;
+}
+
+//functions to turn on/off session error msg and styling.
+
+function alertSessionError() {
+    document.getElementById('session-select-error').innerHTML = "Please Select a Session to see pricing";
+    document.getElementById('booking-date').style.border = "5px solid red";
+}
+
+function removeSessionError() {
+    document.getElementById('session-select-error').innerHTML = "";
+    document.getElementById('booking-date').style.border = "none";
+}
+
+function calculateTotals() {
+
+    var total = parseFloat(0);
+
+    for (var i=0; i <seatCodes.length; i++) {
+        var selection = parseFloat(document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value);
+        var list = document.getElementsByName("seats[" + seatCodes[i] + "]");
+        var ticketPrice = list[0].getAttribute(priceCode);
+        var subTotal = selection * parseFloat(ticketPrice).toFixed(2);
+        total += subTotal;
+        //console.log(total);
+        if (subTotal != 0) {
+            document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "$" + subTotal.toFixed(2);
+            
+        } else {
+            document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "";   
+        }
+    }
+    if (total != 0) {
+        document.getElementById("booking-price-total").innerHTML = "$" + total.toFixed(2);
+    } else {
+        document.getElementById("booking-price-total").innerHTML = "";
+    }
 }

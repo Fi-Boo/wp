@@ -5,7 +5,6 @@
 
   headerModule();
 ?>
-
     <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
@@ -52,14 +51,30 @@
             <ul id="booking-date">
             <?php sessionSelection($movies[$_GET['movie']]["code"]) ?>
             </ul>
+            <div id="session-select-error"></div>
           </fieldset>
+          
+
 
           <!-- drop down list for ticket selection-->
 
           <fieldset id="ticket-select">
             <legend class="section-title"><h2>Select your ticket(s)</h2></legend>
-            <div id="ticket-dropdown-menu">
-              <?php ticketPurchase() ?>   
+            <div id="ticketing-table">
+              <table>
+                <tr>
+                  <th>Seating</th>
+                  <th>Price</th>
+                  <th>Select</th>
+                  <th>Subtotals</th>
+                </tr>
+                <?php ticketTable(); ?>
+                <tr>
+                  <th id="tickets-select-error" colspan="2"></th>
+                  <th>Total :</th>
+                  <th id="booking-price-total"></th> 
+                </tr>  
+            </table>
             </div>
             <div id="ticket-total"> 
             </div>

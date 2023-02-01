@@ -664,7 +664,6 @@ legend {
     margin-left: -1rem;
 }
 
-
 #booking-date {
     display: flex;
     padding: 0;
@@ -714,7 +713,7 @@ legend {
     z-index: 0;
 }
 
-
+#ticket
 
 /* ticket select dropdown menu */
 
@@ -730,6 +729,69 @@ legend {
 }
 
 
+/* ticket selection Table */
+
+#ticketing-table table tr {
+    color: white;  
+}
+
+#ticketing-table table tr, #ticketing-table table th, #ticketing-table table td{
+    padding: 1rem 0.25rem;
+}
+
+#ticketing-table table tr:first-child, #ticketing-table table tr:last-child {
+    background-color: black;
+}
+
+#ticketing-table table tr:nth-child(2), #ticketing-table table tr:nth-child(3), #ticketing-table table tr:nth-child(4) {
+    background-image: linear-gradient(to right, #999B9B, transparent);
+}
+
+#ticketing-table table tr:nth-child(5), #ticketing-table table tr:nth-child(6), #ticketing-table table tr:nth-child(7) {
+    background-image: linear-gradient(to right, #d4af37, transparent);
+}
+
+#ticketing-table table td:last-of-type {
+    border-image-source: linear-gradient(to right, transparent, silver);
+    border-top: 0px;
+    border-left: 0px;
+    border-image-slice: 1;
+    width: 7rem;
+}
+
+#ticketing-table table td:nth-child(2) {
+    width: 4rem;
+}
+
+select, select option {
+    text-align: center;
+    background-image: linear-gradient(to right, #999B9B, black);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    height: 100%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+option {
+    background-color: black;
+}
+
+/* price Total */
+
+#booking-price-total {
+    color: white;
+    font-size: 2rem;
+}
+
+select {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
 /* debugging div */
 
 pre {
@@ -743,6 +805,14 @@ pre {
     white-space: -o-pre-wrap;
     word-wrap: break-word;
   }
+
+/* SESSION SELECT AND TICKET SELECT ERROR MSG */
+
+#session-select-error, #tickets-select-error {
+    color: red;
+    font-size: 2rem;
+    text-align: center;
+}
 
 
 @media (min-width: 768px) {

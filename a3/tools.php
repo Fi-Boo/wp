@@ -154,28 +154,6 @@ $seating = [
 ];
    
 
-// function to generate ticket selection via drop down menu
-// 
-
-function ticketPurchase() {
-
-  global $seating;
-  $maxPurchase = 10;
-
-  foreach ($seating as $seat) {
-    echo <<<"TICKETSELECT"
-        <label for="seats[{$seat['code']}]">{$seat['desc']} </label><div id="price{$seat['code']}"></div>
-          <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}"> 
-            <option value="">please select</option>
-  TICKETSELECT;
-            for ($a=1; $a<=$maxPurchase; $a++) {
-              echo "<option value='$a'>$a</option><br>";
-              }           
-    echo "</select><br>";
-  }
-}
-
-
 // This function cycles through the array of movies and outputs html code to populate the 'Now Showing' section.
 
 function nowShowingMovies() {
@@ -224,10 +202,12 @@ function nowShowingMovies() {
   } 
 }
 
+// Session Selection radio menu
+
 function sessionSelection($var) {
 
   global $movies;
-  $testvalue;
+  $pricing;
   $state;
 
   foreach ($movies as $movie) {
@@ -239,9 +219,9 @@ function sessionSelection($var) {
         SESSIONSELECTION;
         
         if ($day == "Mon" || $time == "12pm") {
-          $testvalue = "discprice";
+          $pricing = "data-discprice";
         } else {
-          $testvalue = "fullprice";
+          $pricing = "data-fullprice";
         }
 
         if ($time == "-") {
@@ -251,7 +231,7 @@ function sessionSelection($var) {
         }
 
         echo <<<"SESSIONSELECTIONP2"
-                $testvalue" onclick='displayRadioValue("$testvalue")' {$state} required>
+                $pricing" onclick='displayRadioValue("$pricing")' {$state} required>
                 <label>
                   <div>$day</div>
                   <hr>
@@ -266,9 +246,34 @@ function sessionSelection($var) {
   }
 }
 
+// function to generate ticket selection via drop down menu
 
+function ticketTable() {
 
+  global $seating;
+  $maxPurchase = 10;
 
+  foreach ($seating as $seat) {
+    echo <<<"TICKETSELECTP1"
+              <tr>
+                <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>
+                <td><div id="price[{$seat['code']}]"></div></td>
+                <td>
+                  <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='updateCost()'>
+                    <option value="0">0</option>
+  TICKETSELECTP1;   
+                    for ($a=1; $a<=$maxPurchase; $a++) {
+                    echo "<option value='$a'>$a</option><br>";
+                    }
+    echo <<<"TICKETSELECTP2"
+
+                    </select>
+                  </td>
+                  <td><div id="pricesubtotal[{$seat['code']}]"></div></td>
+                </tr>
+    TICKETSELECTP2;       
+  }
+}
 
 
 // HEADER CODE
@@ -284,7 +289,7 @@ function headerModule() {
 
         <!-- Keep wireframe.css for debugging, add your css to style.css -->
         <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={filemtime("style.css");}">
+        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={<?php filemtime("style.css");?>}">
         <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
         <script src='../wireframe.js'></script>
         <script src='script.js'></script>
@@ -340,10 +345,12 @@ function debugModule() {
 }
 
 function printMyCode() {
+  $line = 1;
   $allLinesOfCode = file($_SERVER['SCRIPT_FILENAME']);
   echo "<pre id='myCode'><ol>"; 
   foreach($allLinesOfCode as $oneLineOfCode) {
-    echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+    echo "<li>$line    " .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+    $line++;
   }
   echo "</ol></pre>";
 }
