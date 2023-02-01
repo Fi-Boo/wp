@@ -59,9 +59,9 @@
           <!-- drop down list for ticket selection-->
 
           <fieldset id="ticket-select">
-            <legend class="section-title"><h2>Select your ticket(s)</h2></legend>
-            <div id="ticketing-table">
-              <table>
+            <legend class="sub-section-title"><h2>Select your ticket(s)</h2></legend>
+            <div>
+              <table id="ticketing-table">
                 <tr>
                   <th>Seating</th>
                   <th>Price</th>

@@ -289,7 +289,12 @@ function headerModule() {
 
         <!-- Keep wireframe.css for debugging, add your css to style.css -->
         <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={<?php filemtime("style.css");?>}">
+        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={
+  HEADER;
+  filemtime('style.css');
+  echo <<<"HEADERP2"
+  
+  ">
         <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
         <script src='../wireframe.js'></script>
         <script src='script.js'></script>
@@ -300,7 +305,7 @@ function headerModule() {
           <div id="header-bg"></div>
           <div id="company-name">Lunardo</div>
         </header>
-  HEADER;
+  HEADERP2;
 }
 
 
