@@ -85,19 +85,19 @@
               <div>
                 <table id="details-table">
                   <tr>
-                    <th>Full Name: </th>
+                    <th><div class ="info"><img src="../../media/info-icon.png">Full Name:</div></th>
                     <td><input type="text" name="user[name]" placeholder="Full name" ></td>
                   </tr>
                   <tr>
-                    <th>Email Address: </th>
+                    <th><div class ="info"><img src="../../media/info-icon.png">Email:</div></th>
                     <td><input type="text" name="user[email]" placeholder="email@home.com" ></td>
                   </tr>
                   <tr>
-                    <th>Mobile Number: </th>
+                    <th><div class ="info"><img src="../../media/info-icon.png">Number:</div></th>
                     <td><input type="tel" name="user[mobile]" placeholder="04xxxxxxxx" pattern="04+{8}" ></td>
                   </tr>
                 </table>
-                <div id="details-error">Hidden msg</div>
+                <div id="details-error">Missing or incorrect input. See field <img src="../../media/info-icon.png"> for more info</div>
               </div>
               <div id="book-tickets-btn">
                 <input type="submit" value="Book Tickets" >
