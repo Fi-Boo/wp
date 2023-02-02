@@ -156,6 +156,9 @@ $seating = [
 
 // This function cycles through the array of movies and outputs html code to populate the 'Now Showing' section.
 
+
+
+
 function nowShowingMovies() {
 
   global $movies;
@@ -207,10 +210,13 @@ function nowShowingMovies() {
 function sessionSelection($var) {
 
   global $movies;
+
   $pricing;
-  $state;
+  $radioState;
+  $counter = 1;
 
   foreach ($movies as $movie) {
+
     if ($movie["code"] === $var) {
       foreach ($movie["screenings"] as $day => $time) {
         echo <<<"SESSIONSELECTION"
@@ -225,22 +231,22 @@ function sessionSelection($var) {
         }
 
         if ($time == "-") {
-          $state = "disabled";
+          $radioState = "disabled";
         } else {
-          $state = "";
+          $radioState = "";
         }
 
         echo <<<"SESSIONSELECTIONP2"
-                $pricing" onclick='displayRadioValue("$pricing")' {$state} required>
-                <label>
+                $pricing" onclick='displayRadioValue("$pricing")' {$radioState} required>
+                <label id="label$counter">
                   <div>$day</div>
                   <hr>
                   <div>$time</div>
                 </label> 
               </li>
         SESSIONSELECTIONP2;
-
-        
+      
+        $counter++;
       }
     }
   }
@@ -258,7 +264,7 @@ function ticketTable() {
               <tr>
                 <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>
                 <td><div id="price[{$seat['code']}]"></div></td>
-                <td>
+                <td class="priceCell">
                   <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='updateCost()'>
                     <option value="0">0</option>
   TICKETSELECTP1;   
@@ -350,11 +356,11 @@ function debugModule() {
 }
 
 function printMyCode() {
-  $line = 1;
+
   $allLinesOfCode = file($_SERVER['SCRIPT_FILENAME']);
   echo "<pre id='myCode'><ol>"; 
   foreach($allLinesOfCode as $oneLineOfCode) {
-    echo "<li>$line    " .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+    echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
     $line++;
   }
   echo "</ol></pre>";

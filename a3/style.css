@@ -32,13 +32,8 @@ footer {
     max-width: 1500px;
     margin: 0 auto;
     background-color: black;
-    padding: 1rem 0;
+    padding: 1rem;
 }
-
-footer div {
-    padding: 0 2rem;
-}
-
 
 section {
     min-height: 100vh;
@@ -370,11 +365,11 @@ h2 {
 /* Prices Table */
 
 table {
-    padding-top: 2rem;
+    padding-top: 1rem;
     width: 100%;
 }
 
-th, td {
+th, td{
     width: 20%;
     text-align: center;
     padding: 1rem;
@@ -382,6 +377,22 @@ th, td {
     border: 1px solid black;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#pricestable tr:nth-child(4) td:last-child {
+    border-bottom-right-radius: 0.5rem;
+}
+
+#pricestable tr:nth-child(1) th:last-child {
+    border-top-right-radius: 0.5rem;
+}
+
+#pricestable tr:nth-child(1) th:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+#pricestable tr:nth-child(4) td:first-child {
+    border-bottom-left-radius: 0.5rem;
 }
 
 .nu {
@@ -590,13 +601,14 @@ th, td {
     'trailer'
     'synopsis'
     'team';
+    width: 100%;
     max-width: 1100px;
     margin: auto;
 }
 
 #movie-detail {
     grid-area: title;
-    width: 100%;
+    width: 100%;  
 }
 
 #movieimg {
@@ -622,8 +634,9 @@ th, td {
     grid-area: team;
 }
 
+
 #movie-trailer, #movie-synopsis, #movie-team {
-    width: 100%;
+    width: 95%;
     max-width: 600px;
     margin: auto;
     text-align: justify;
@@ -631,7 +644,7 @@ th, td {
 
 #movie-synopsis, #movie-team {
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 #movie-director, #movie-stars {
@@ -641,22 +654,15 @@ th, td {
 
 /* Booking Selection Styling */
 
-#booking-form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
 
 fieldset {
     max-width: 1000px;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
     border: 0px;
 }
 
 legend {
-    width: 100%;
+    width: 95%;
     margin-left: 0;
     margin-left: -1rem;
 }
@@ -664,7 +670,10 @@ legend {
 #booking-date {
     display: flex;
     padding: 0;
+    border: 5px solid transparent;
+    border-radius: 0.75rem;
 }
+
 
 #booking-date li {
     width: calc(100%/7);
@@ -689,15 +698,23 @@ legend {
     0 2px 2px rgba(255,255,255,0.9); 
 }
 
+
 #booking-date label {
     padding: 5px;
     border: 1px solid #CCC;   
     cursor: pointer;
     z-index: 0;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
 }
 
+#booking-date #label1 {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+#booking-date #label7 {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
   
 #booking-date input[type="radio"] {
     opacity: 0.01;
@@ -712,9 +729,6 @@ legend {
     0 2px 2px rgba(255,255,255,0.9);
     color: gold;
 }
-  
-
-#ticket
 
 /* ticket select dropdown menu */
 
@@ -752,12 +766,16 @@ legend {
     background-image: linear-gradient(to right, #d4af37, transparent);
 }
 
-#ticketing-table td:last-of-type {
+#ticketing-table td:last-of-type, #booking-price-total {
     border-image-source: linear-gradient(to right, transparent, silver);
     border-top: 0px;
     border-left: 0px;
     border-image-slice: 1;
     width: 7rem;
+}
+
+#ticketing-table td:nth-child(3) {
+
 }
 
 #ticketing-table td:nth-child(2) {
@@ -772,14 +790,22 @@ legend {
     border-bottom-left-radius: .5rem;
 }
 
+#ticketing-table td:nth-child(3) {
+    padding: 0;
+}
+
 select, select option {
     text-align: center;
-    background-image: linear-gradient(to right, #999B9B, black);
+    background-color: transparent;
     font-weight: 300;
     font-size: 1.25rem;
     color: white;
-    height: 100%;
+    height: 3rem;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+select option {
+    background-color: black;
 }
 
 option {
@@ -791,6 +817,7 @@ option {
 #booking-price-total {
     color: white;
     font-size: 2rem;
+    height: 3rem;
 }
 
 select {
@@ -799,11 +826,177 @@ select {
     margin: 0;
 }
 
+/* select option:hover, select option:focus, select option:active {
+    background: linear-gradient(#000000, #000000);
+    background-color: #000000 !important; 
+    color: #ffed00 !important;
+    outline: none;
+} */
 
+select option:checked {
+    background-color: #999B9B ;
+    color: black;
+}
+
+/* Your Details */
+
+#details-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+#details-table {
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+#details-table tr {
+    background-image: linear-gradient(to right,rgb(102,111,190), transparent);
+}
+
+#details-table th {
+    width: 7em;
+    padding: auto 0;
+}
+
+#details-table tr:first-child th {
+    border-top-left-radius: 0.5rem;
+}
+
+#details-table tr:last-child th {
+    border-bottom-left-radius: 0.5rem;
+}
+
+
+#details-table td {
+    padding: 0;
+}
+
+#details-table input {
+    width:96%;
+    max-width: 100%;
+    height: 2rem;
+    color: white;
+    background-color: transparent;
+    font: 1.5rem;
+    letter-spacing: 0.05rem;
+    border: none;
+    padding-left: 0.5rem;
+}
+
+#details-table input:focus {
+    outline: none;
+}
+
+/* book ticket(s) button */
+
+#book-tickets-btn {
+    align-self: center;
+    text-align: center;
+    width:15rem;
+    background-repeat: no-repeat;
+    background-color:#d4af37;
+    border-radius: 0.5rem;
+    box-shadow: 
+    inset 0 4px 5px rgba(255,255,255,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9); 
+    margin: 0 auto;
+}
+
+#book-tickets-btn, #book-tickets-btn input:active {
+    background-image: url("../../media/ticket-icon.png");
+    background-size: 30%;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+
+#book-tickets-btn input {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    color: white;
+    font-weight: 700;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    box-shadow: 
+    inset 0 4px 5px rgba(255,255,255,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);  
+    opacity: 0.4;
+}
+
+#book-tickets-btn input:hover {
+    border: 0;
+    opacity: 1;
+}
+
+#book-tickets-btn input:active {
+    background-color: grey;
+    box-shadow: 
+    inset 0 4px 5px rgba(0,0,0,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+    color: gold;
+    opacity: 1;
+}
+
+/* SESSION SELECT AND TICKET SELECT ERROR MSG */
+
+#session-select-error, #tickets-select-error {
+    background-color: white;
+    color: red;
+    text-align: center;
+    height: 1.5rem;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    visibility: hidden;
+    border-radius: 0.5rem;
+    position: relative;
+    margin: 0 auto;
+    text-shadow: none;
+    font-weight: 400;
+}
+
+#session-select-error:after {
+    content: " ";
+    position: absolute;
+    right: 50%;
+    top: -15px;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid white;
+}
+
+#tickets-select-error {
+    margin-right: 1vw;
+}
+
+#tickets-select-error:after {
+    content: " ";
+    position: absolute;
+    right: 5%;
+    top: -15px;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 15px solid white;
+    z-index: 1000;
+}
 
 /* debugging div */
 
 pre {
+    width: 100%;
     color: white;
     background-color: black;
     font-size: 0.75rem;
@@ -815,14 +1008,8 @@ pre {
     word-wrap: break-word;
   }
 
-/* SESSION SELECT AND TICKET SELECT ERROR MSG */
 
-#session-select-error, #tickets-select-error {
-    color: red;
-    font-size: 2rem;
-    text-align: center;
-}
-
+/* MEDIA MIN 768PX */
 
 @media (min-width: 768px) {
 
@@ -962,15 +1149,21 @@ pre {
     #booking-date li {
         height: 5.5rem;
     }
-    
 
 
+    /* Your Details */
+    #details-grid {
+        grid-template-columns: 4fr 2fr;
+    }
+
+    #details-table input {
+        font-size: 1.5rem;
+    }
 
 }
 
 
-
-
+/* MEDIA MIN 992PX */
 
 @media (min-width: 992px) {
 
@@ -1023,6 +1216,8 @@ pre {
 }
 
 
+/* MEDIA MIN 1400PX */
+
 @media (min-width: 1400px) {
 
     body {
@@ -1054,10 +1249,12 @@ pre {
 
     .section-title{
         border-top-left-radius: 0.5rem;
+        transition: 1s;
     } 
     
     .sub-section-title {
         border-top-right-radius: 0.5rem;
+        transition: 1s;
     }
 
 }

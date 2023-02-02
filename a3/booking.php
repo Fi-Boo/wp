@@ -41,8 +41,7 @@
       </section>
 
       <section id ="booking-form">
-        
-        <form id="booking-form-grid" action="booking.php?movie=<?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="">
+        <form action="booking.php?movie=<?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="">
           <input type="hidden" name="movie" value="<?= $movies[$_GET['movie']]["code"] ?>">
             
           <!-- radio buttons for session date selection-->
@@ -51,15 +50,13 @@
             <ul id="booking-date">
             <?php sessionSelection($movies[$_GET['movie']]["code"]) ?>
             </ul>
-            <div id="session-select-error"></div>
+            <div id="session-select-error">Please select a Session to view pricing</div>
           </fieldset>
           
-
-
           <!-- drop down list for ticket selection-->
 
           <fieldset id="ticket-select">
-            <legend class="sub-section-title"><h2>Select your ticket(s)</h2></legend>
+            <legend class="section-title"><h2>Select your tickets</h2></legend>
             <div>
               <table id="ticketing-table">
                 <tr>
@@ -70,8 +67,8 @@
                 </tr>
                 <?php ticketTable(); ?>
                 <tr>
-                  <th id="tickets-select-error" colspan="2"></th>
-                  <th>Total :</th>
+                  <th colspan="3"><div id="tickets-select-error"> Mimimum 1 ticket required for booking</div></th>
+      
                   <th id="booking-price-total"></th> 
                 </tr>  
             </table>
@@ -81,17 +78,32 @@
           </fieldset>
       
           <!-- required userdata-->
+          
           <fieldset id="your-details">
             <legend class="section-title"><h2>Your Details</h2></legend>
-            <label for="user[name]">Full Name: </label><input type="text" name="user[name]" required><br>
-            <label for="user[email]">Email Address: </label><input type="email" name="user[email]" required><br>
-            <label for="user[mobile]">Mobile Number (format: 04XXXXXXXX): </label><input type="tel" name="user[mobile]" pattern="04+{8}" required><br>
-            <br>
-            <input type="submit" value="Submit">
+            <div id ="details-grid">
+              <div>
+                <table id="details-table">
+                  <tr>
+                    <th>Full Name: </th>
+                    <td><input type="text" name="user[name]" required></td>
+                  </tr>
+                  <tr>
+                    <th>Email Address: </th>
+                    <td><input type="text" name="user[email]" required></td>
+                  </tr>
+                  <tr>
+                    <th>Mobile Number: </th>
+                    <td><input type="tel" name="user[mobile]" pattern="04+{8}" required></td>
+                  </tr>
+                </table>
+              </div>
+              <div id="book-tickets-btn">
+                <input type="submit" value="Book Tickets" >
+              </div>
+            </div>
           </fieldset>
-            
-
-        </div>
+        </form>
       </section>
     </main>  
 

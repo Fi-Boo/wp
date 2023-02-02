@@ -100,14 +100,37 @@ function checkSessionBooked() {
 //functions to turn on/off session error msg and styling.
 
 function alertSessionError() {
-    document.getElementById('session-select-error').innerHTML = "Please Select a Session to see pricing";
+    document.getElementById('session-select-error').style.visibility = 'visible';
     document.getElementById('booking-date').style.border = "5px solid red";
 }
 
 function removeSessionError() {
-    document.getElementById('session-select-error').innerHTML = "";
-    document.getElementById('booking-date').style.border = "none";
+    document.getElementById('session-select-error').style.visibility = 'hidden';
+    document.getElementById('booking-date').style.border = "5px solid transparent";
 }
+
+
+function alertTicketError() {
+    var list = document.getElementsByClassName('priceCell');
+    for (var i = 0; i < list.length; i++) {
+        console.log(list[i].style.border);
+        list[i].style.border = "2px solid red";
+    }
+    document.getElementById('tickets-select-error').style.visibility = 'visible';
+}
+
+function removeTicketError() {
+    var list = document.getElementsByClassName('priceCell');
+    for (var i = 0; i < list.length; i++) {
+        console.log(list[i].style.border);
+        list[i].style.border = "1px solid black";
+    }
+    document.getElementById('tickets-select-error').style.visibility = 'hidden';
+}
+
+
+
+// Calculates total of tickets selected
 
 function calculateTotals() {
 
