@@ -73,20 +73,25 @@ function displayRadioValue(pricing) {
     }
 }
 
-function updateCost() {
-    //console.log(checkSessionBooked());
 
-    if (!checkSessionBooked()) {
+// function to calculate ticket subtotals. Triggers when user selects a # of tickets from dropdown list.
+
+function calculateSubTotals() {
+    //console.log(checkSessionBooked());
+    removeTicketError();
+
+    if (!checkSessionSelection()) {
         alertSessionError();
     } else {
         calculateTotals();
+        checkTicketSelection();
     }   
 }
 
 // function to check if Session time has been selected. Returns a boolean.
 
-function checkSessionBooked() {
-    
+function checkSessionSelection() {
+
     var list = document.getElementsByName('day');
 
     for (var i=0; i< list.length; i ++) {
@@ -97,7 +102,44 @@ function checkSessionBooked() {
     return false;
 }
 
-//functions to turn on/off session error msg and styling.
+// function to validate ticket selection. Returns a boolean.
+
+function checkTicketSelection() {
+
+    for (var i = 0; i < seatCodes.length; i++) {
+        var selection = parseInt(document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value);
+        //console.log(selection);
+        if (selection > 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+// onsubmit form validation.
+
+function validateForm() {
+
+    if (checkSessionSelection() && checkTicketSelection()) {
+        return true;
+    } 
+        
+    if (!checkSessionSelection()) {
+        alertSessionError();
+    }
+    
+    if (!checkTicketSelection()) {
+        alertTicketError()
+    }
+    
+    return false;
+    
+}
+
+
+
+// functions to turn on/off session error msg and styling.
 
 function alertSessionError() {
     document.getElementById('session-select-error').style.visibility = 'visible';
@@ -109,6 +151,8 @@ function removeSessionError() {
     document.getElementById('booking-date').style.border = "5px solid transparent";
 }
 
+
+// functions to turn on/off ticket selection error msg and styling
 
 function alertTicketError() {
     var list = document.getElementsByClassName('priceCell');

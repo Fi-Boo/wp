@@ -237,7 +237,7 @@ function sessionSelection($var) {
         }
 
         echo <<<"SESSIONSELECTIONP2"
-                $pricing" onclick='displayRadioValue("$pricing")' {$radioState} required>
+                $pricing" onclick='displayRadioValue("$pricing")' {$radioState} >
                 <label id="label$counter">
                   <div>$day</div>
                   <hr>
@@ -265,7 +265,7 @@ function ticketTable() {
                 <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>
                 <td><div id="price[{$seat['code']}]"></div></td>
                 <td class="priceCell">
-                  <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='updateCost()'>
+                  <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='calculateSubTotals()'>
                     <option value="0">0</option>
   TICKETSELECTP1;   
                     for ($a=1; $a<=$maxPurchase; $a++) {

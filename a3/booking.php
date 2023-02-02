@@ -41,7 +41,7 @@
       </section>
 
       <section id ="booking-form">
-        <form action="booking.php?movie=<?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="">
+        <form action="booking.php?movie=<?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="return validateForm()" >
           <input type="hidden" name="movie" value="<?= $movies[$_GET['movie']]["code"] ?>">
             
           <!-- radio buttons for session date selection-->
@@ -86,21 +86,23 @@
                 <table id="details-table">
                   <tr>
                     <th>Full Name: </th>
-                    <td><input type="text" name="user[name]" required></td>
+                    <td><input type="text" name="user[name]" placeholder="Full name" ></td>
                   </tr>
                   <tr>
                     <th>Email Address: </th>
-                    <td><input type="text" name="user[email]" required></td>
+                    <td><input type="text" name="user[email]" placeholder="email@home.com" ></td>
                   </tr>
                   <tr>
                     <th>Mobile Number: </th>
-                    <td><input type="tel" name="user[mobile]" pattern="04+{8}" required></td>
+                    <td><input type="tel" name="user[mobile]" placeholder="04xxxxxxxx" pattern="04+{8}" ></td>
                   </tr>
                 </table>
+                <div id="details-error">Hidden msg</div>
               </div>
               <div id="book-tickets-btn">
                 <input type="submit" value="Book Tickets" >
               </div>
+
             </div>
           </fieldset>
         </form>

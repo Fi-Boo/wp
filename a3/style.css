@@ -31,8 +31,9 @@ footer {
     text-align: justify;
     max-width: 1500px;
     margin: 0 auto;
-    background-color: black;
+    background-color: transparent;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 section {
@@ -557,7 +558,6 @@ th, td{
     padding: 0;
 }
 
-
 .booknow{
     position: absolute;
     bottom: 4rem;
@@ -774,10 +774,6 @@ legend {
     width: 7rem;
 }
 
-#ticketing-table td:nth-child(3) {
-
-}
-
 #ticketing-table td:nth-child(2) {
     width: 4rem;
 }
@@ -869,7 +865,6 @@ select option:checked {
     border-bottom-left-radius: 0.5rem;
 }
 
-
 #details-table td {
     padding: 0;
 }
@@ -951,14 +946,14 @@ select option:checked {
 
 /* SESSION SELECT AND TICKET SELECT ERROR MSG */
 
-#session-select-error, #tickets-select-error {
+#session-select-error, #tickets-select-error, #details-error {
     background-color: white;
     color: red;
     text-align: center;
     height: 1.5rem;
     width: fit-content;
     padding: 0.5rem 1rem;
-    visibility: hidden;
+    visibility: visible;
     border-radius: 0.5rem;
     position: relative;
     margin: 0 auto;
@@ -966,7 +961,11 @@ select option:checked {
     font-weight: 400;
 }
 
-#session-select-error:after {
+#details-error {
+    margin-top: 2rem;
+}
+
+#session-select-error:after, #details-error:after {
     content: " ";
     position: absolute;
     right: 50%;
@@ -1136,7 +1135,6 @@ pre {
 
     #movieimg img {
         width: 100%;
-        margin-top: 10px;
     }
 
     #movie-trailer, #movie-synopsis, #movie-team {
