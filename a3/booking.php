@@ -50,7 +50,7 @@
 
       <section id ="booking-form">
         <form action="booking.php?movie=<?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="return validateForm()" >
-          <input type="hidden" name="movie" value="<?= $movies[$_GET['movie']]["code"] ?>">
+          <input type="hidden" name="movie" value="<?= $_GET['movie'] ?>">
             
           <!-- radio buttons for session date selection-->
           <fieldset id="booking-day-select">
@@ -100,6 +100,9 @@
               </div>
               <div id="book-tickets-btn">
                 <input type="submit" value="Book Tickets " >
+
+                 <!-- for testing serverside validation  -->
+                <input type="submit" value="No Validation " formnovalidate>
               </div>
 
             </div>
