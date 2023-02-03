@@ -1,7 +1,7 @@
 <?php     
-  include "tools.php"; 
-  include "post-validation.php";
 
+  include "tools.php"; 
+  
   headerModule();
 ?>
 

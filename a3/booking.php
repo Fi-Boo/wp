@@ -1,8 +1,14 @@
-<?php     
+<?php   
+
   include "tools.php"; 
   include "post-validation.php";
   global $movies;
 
+  if ( !isset($movies[$_GET['movie']]) ) {
+    header("Location: index.php"); // redirect if movie code invalid
+    exit();
+  }
+  
   headerModule();
 ?>
 
@@ -93,7 +99,7 @@
                 </div>
               </div>
               <div id="book-tickets-btn">
-                <input type="submit" value="Book Tickets" >
+                <input type="submit" value="Book Tickets " >
               </div>
 
             </div>

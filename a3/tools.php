@@ -268,7 +268,7 @@ function ticketTable() {
                 <td><div id="price[{$seat['code']}]"></div></td>
                 <td class="priceCell">
                   <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='calculateSubTotals()'>
-                    <option value="0">0</option>
+                    <option value=""></option>
   TICKETSELECTP1;   
                     for ($a=1; $a<=$maxPurchase; $a++) {
                     echo "<option value='$a'>$a</option><br>";
@@ -300,9 +300,6 @@ function yourDetailsTr() {
     DETAILSTR;
   }
 }
-
-
-
 
 // HEADER CODE
 

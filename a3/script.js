@@ -304,7 +304,14 @@ function calculateTotals() {
 
     //calculates subtotals per ticket type
     for (var i=0; i <seatCodes.length; i++) {
-        var selection = parseFloat(document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value);
+        var choice = document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value;
+        //console.log(choice);
+        if (choice == "") {
+            selection = parseFloat('0');
+        } else {
+            selection = parseFloat(choice);
+        }
+        // console.log(selection);
         var list = document.getElementsByName("seats[" + seatCodes[i] + "]");
         var ticketPrice = list[0].getAttribute(priceCode);
         var subTotal = selection * parseFloat(ticketPrice).toFixed(2);
