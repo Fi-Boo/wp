@@ -281,6 +281,26 @@ function ticketTable() {
   }
 }
 
+function yourDetailsTr() {
+
+  $rowData = [
+    '1' => ["name", "Full Name", "John Smith"],
+    '2' => ["email", "Email", "JSmith@gmail.com"],
+    '3' => ["mobile", "Number", "04XXXXXXXX"]
+  ];
+
+  foreach ($rowData as $data) {
+    echo <<<"DETAILSTR"
+                  <tr id="details-tr-{$data[0]}">
+                    <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')">{$data[1]}:</div></th>
+                    <td><input type="text" name="user[{$data[0]}]" placeholder="{$data[2]}" onclick=removeDetailsError("{$data[0]}") ></td>
+                  </tr>
+    DETAILSTR;
+  }
+}
+
+
+
 
 // HEADER CODE
 
@@ -361,12 +381,8 @@ function printMyCode() {
   echo "<pre id='myCode'><ol>"; 
   foreach($allLinesOfCode as $oneLineOfCode) {
     echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
-    $line++;
   }
   echo "</ol></pre>";
 }
-
-
-
 
  ?>

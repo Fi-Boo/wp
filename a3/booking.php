@@ -5,12 +5,14 @@
 
   headerModule();
 ?>
-    <nav>
+
+<!-- <script> navScroll2(); </script> -->
+<nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
-        <li><a href="">-</a></li>
-        <li><a href="">-</a></li>
-        <li><a href="">-</a></li>
+        <li><a href="#aboutus">-</a></li>
+        <li><a href="#prices">-</a></li>
+        <li><a href="#nowshowing">-</a></li>
       </ul>
     </nav>
     
@@ -50,7 +52,7 @@
             <ul id="booking-date">
             <?php sessionSelection($movies[$_GET['movie']]["code"]) ?>
             </ul>
-            <div id="session-select-error">Please select a Session to view pricing</div>
+            <div class="error-container"><div id="session-select-error">Please select a Session to view pricing</div></div>
           </fieldset>
           
           <!-- drop down list for ticket selection-->
@@ -67,7 +69,7 @@
                 </tr>
                 <?php ticketTable(); ?>
                 <tr>
-                  <th colspan="3"><div id="tickets-select-error"> Mimimum 1 ticket required for booking</div></th>
+                  <th class="error-container" colspan="3"><div id="tickets-select-error"> Mimimum 1 ticket required for booking</div></th>
       
                   <th id="booking-price-total"></th> 
                 </tr>  
@@ -84,20 +86,11 @@
             <div id ="details-grid">
               <div>
                 <table id="details-table">
-                  <tr>
-                    <th><div class ="info"><img src="../../media/info-icon.png">Full Name:</div></th>
-                    <td><input type="text" name="user[name]" placeholder="Full name" ></td>
-                  </tr>
-                  <tr>
-                    <th><div class ="info"><img src="../../media/info-icon.png">Email:</div></th>
-                    <td><input type="text" name="user[email]" placeholder="email@home.com" ></td>
-                  </tr>
-                  <tr>
-                    <th><div class ="info"><img src="../../media/info-icon.png">Number:</div></th>
-                    <td><input type="tel" name="user[mobile]" placeholder="04xxxxxxxx" pattern="04+{8}" ></td>
-                  </tr>
+                <?php yourDetailsTr() ?>
                 </table>
-                <div id="details-error">Missing or incorrect input. See field <img src="../../media/info-icon.png"> for more info</div>
+                <div class="error-container">
+                  <div id="details-error">Missing or incorrect input. See field <img src="../../media/info-icon.png"> for more info</div>
+                </div>
               </div>
               <div id="book-tickets-btn">
                 <input type="submit" value="Book Tickets" >

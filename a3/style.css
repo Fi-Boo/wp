@@ -73,6 +73,7 @@ header, #header-bg {
     z-index: 4;
     transform: rotate(-15deg);
     margin-left: 5rem;
+    
 }
 
 #company-name::first-letter {
@@ -134,7 +135,7 @@ nav {
     font-weight: 700;
     font-size: 1.5rem;
     text-align: right;
-    background-image: linear-gradient(315deg, #d4af37 30%, black 90%);
+    background-image: linear-gradient(315deg, #d4af37 30%, black 80%);
     text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
     border-bottom: 2px solid black;
 }
@@ -174,6 +175,7 @@ nav a {
     transition: 0.3s;
 }
 
+
 #navbar a:hover, #navbar a:active, #navbar a:focus, #navbar a:target {
 
     color: #d4af37;
@@ -182,7 +184,6 @@ nav a {
     text-decoration: none;
     transition: color 0.5s;
     letter-spacing: 0.1rem;
-    transition: 0.5s;
 }
 
 nav a.current {
@@ -220,7 +221,7 @@ h2 {
     margin: 0;
 }
 
-.section-title:hover  {
+.section-title:hover {
     background-image: linear-gradient(135deg, rgb(102,111,190) 30%, transparent 90%);
 }
 
@@ -865,6 +866,14 @@ select option:checked {
     border-bottom-left-radius: 0.5rem;
 }
 
+#details-table tr:first-child td {
+    border-top-right-radius: 0.5rem;
+}
+
+#details-table tr:last-child td {
+    border-bottom-right-radius: 0.5rem;
+}
+
 #details-table td {
     padding: 0;
 }
@@ -899,6 +908,7 @@ select option:checked {
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9); 
     margin: 0 auto;
+    margin-top: 10px;
 }
 
 #book-tickets-btn, #book-tickets-btn input:active {
@@ -946,6 +956,12 @@ select option:checked {
 
 /* SESSION SELECT AND TICKET SELECT ERROR MSG */
 
+.error-container {
+    position: relative;
+    height: 2.5rem;
+}
+
+
 #session-select-error, #tickets-select-error, #details-error {
     background-color: white;
     color: red;
@@ -954,9 +970,9 @@ select option:checked {
     width: fit-content;
     min-width: 16rem;
     padding: 0.5rem 0.5rem 0.5rem 2rem;
-    visibility: visible;
+    visibility: hidden;
     border-radius: 0.5rem;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
     text-shadow: none;
     font-weight: 400;
@@ -967,9 +983,15 @@ select option:checked {
     background-repeat: no-repeat;  
 }
 
+#session-select-error {
+    left: 0;
+    right: 0;
+}
 
 #details-error {
-    margin-top: 2rem;
+    position: absolute;
+    right: 0;
+    margin-top: 1rem;
     text-align: center;
 }
 
@@ -991,21 +1013,26 @@ select option:checked {
 
 #tickets-select-error {
     margin-right: 1vw;
+    right: 2%;
+    top: 17px;
 }
 
 #tickets-select-error:after {
     right: 5%;
 }
 
+#details-error:after {
+    right: 15rem;
+}
 
-.info {
+.details-info {
     position: relative;
     display: flex;
     left: 3px;
     height: 1.5rem;
 }
 
-.info img {
+.details-info img {
     height: 1.5rem;
     margin-right: 5px;
 }
@@ -1047,6 +1074,7 @@ pre {
     #company-name {
         font-size: 4.5rem;
         margin-left: 5rem;
+        margin-top: 3px;
     }
 
     #company-name::first-letter {
@@ -1176,6 +1204,10 @@ pre {
         font-size: 1.5rem;
     }
 
+    #book-tickets-btn {
+        margin-top:-110px;
+    }
+
 }
 
 
@@ -1247,6 +1279,7 @@ pre {
     #company-name {
         margin-left: 14vw;
     }
+
 
     #logo img {
         margin-left: 11vw;
