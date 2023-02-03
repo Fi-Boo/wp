@@ -179,9 +179,11 @@ function nowShowingMovies() {
                   </div>
                   <div class="card-back">
                     <p>{$movie["synopsis"]}</p>
-                    <cite><strong>Session Times</strong></cite>
-                    <table>
-    CDATA;
+                    <table id="booknow-table">
+                      <tr>
+                        <th colspan ="2"> Session Times </th>
+                      </tr>
+    CDATA;          
     foreach ($movie["screenings"] as $day => $time) {
       echo <<<"SCREENINGTABLE"
       <tr>

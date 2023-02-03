@@ -559,9 +559,27 @@ th, td{
     padding: 0;
 }
 
+
+/*   MOVIE CARDS - BOOK NOW TABLE  */
+
+#booknow-table tr:first-child th:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+#booknow-table tr:last-child th {
+    border-bottom-left-radius: 0.5rem;
+}
+
+#booknow-table tr:last-child td {
+    border-bottom-right-radius: 0.5rem;
+}
+
+/* ----------------------------------- */
+
 .booknow{
     position: absolute;
-    bottom: 4rem;
+    bottom: 3rem;
     left: 0;
     right: 0;
     font-size: 1.5rem;
