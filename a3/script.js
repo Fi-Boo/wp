@@ -82,14 +82,6 @@ function windowScroll(offsetValue) {
 
 // Function to display discount or fullprice based on radio menu selection
 
-var seatCodes = [
-    'STA',
-    'STP',
-    'STC',
-    'FCA',
-    'FCP',
-    'FCC'
-]
 
 var priceCode;
 
@@ -293,12 +285,24 @@ function removeDetailsError(variable) {
 
 
 
+
+var seatCodes = [
+    'STA',
+    'STP',
+    'STC',
+    'FCA',
+    'FCP',
+    'FCC'
+]
+
 // Calculates total of tickets selected
 
 function calculateTotals() {
 
     var total = parseFloat(0);
 
+
+    //calculates subtotals per ticket type
     for (var i=0; i <seatCodes.length; i++) {
         var selection = parseFloat(document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value);
         var list = document.getElementsByName("seats[" + seatCodes[i] + "]");
@@ -307,12 +311,13 @@ function calculateTotals() {
         total += subTotal;
         //console.log(total);
         if (subTotal != 0) {
-            document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "$" + subTotal.toFixed(2);
-            
+            document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "$" + subTotal.toFixed(2); 
         } else {
             document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "";   
         }
     }
+
+    //calculates final total for all tickets
     if (total != 0) {
         document.getElementById("booking-price-total").innerHTML = "$" + total.toFixed(2);
     } else {
