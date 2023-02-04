@@ -169,7 +169,7 @@ function validateForm() {
         valid = true;
     } 
      
-    var nameRegex = /^[a-z]([-']?[a-z]+)*( [a-z]([-']?[a-z]+)*)$/i;
+    var nameRegex = /^[a-zA-Z-' ]*$/;
     var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     var mobileRegex= /^(\(04\)|04|\+614)( ?\d){8}$/;
 
@@ -255,7 +255,7 @@ function alertDetailsInfo(variable) {
     }
 
     document.getElementById('details-error').style.visibility = 'visible';
-    document.getElementById('details-tr-' + variable).style.backgroundColor = '#d4af37';
+    document.getElementsByName('user[' + variable +']')[0].style.border = '2px solid #d4af37';
     document.getElementById('details-error').style.backgroundImage = 'url("../../media/info-icon.png")';
     document.getElementById('details-error').innerHTML = msg;
 }
@@ -263,6 +263,7 @@ function alertDetailsInfo(variable) {
 function hideDetailsInfo(variable) {
     document.getElementById('details-tr-' + variable).style.backgroundColor = 'transparent';
     document.getElementById('details-error').style.visibility = 'hidden';
+    document.getElementsByName('user[' + variable +']')[0].style.border = 'none';
 }
 
 
