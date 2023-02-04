@@ -12,12 +12,13 @@
   headerModule();
 ?>
 
+<script> navScroll('booking'); </script>
 <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
-        <li class="nav-li"><a href="#aboutus">-</a></li>
-        <li class="nav-li"><a href="#prices">-</a></li>
-        <li class="nav-li"><a href="#nowshowing">-</a></li>
+        <li class="nav-li"><a href="#aboutus"></a></li>
+        <li class="nav-li"><a href="#prices"></a></li>
+        <li class="nav-li"><a href="#nowshowing"></a></li>
       </ul>
     </nav>
     
@@ -28,7 +29,7 @@
       <section id="movie-data">  
         <article id="bookings-info-grid">
           <div id="movie-detail">
-            <div class="movie-title"><?= $movies[$_GET['movie']]["title"] ?></div>
+            <div class="movie-title movie-title-bp"><?= $movies[$_GET['movie']]["title"] ?></div>
             <div class="movie-runtime"><?= $movies[$_GET['movie']]["runtime"] ?></div>
             <div class="movie-rating"><?= $movies[$_GET['movie']]["rating"] ?></div>
           </div>

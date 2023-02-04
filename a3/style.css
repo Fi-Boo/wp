@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100%;
-    overflow-x: scroll;
+    overflow-x: hidden;
     color: #d4af37;
     font-size: 1rem;
     font-family: 'Rajdhani', sans-serif;
@@ -129,10 +129,7 @@ nav {
     margin-bottom: 0;
 }
 
-
-/* WTF WHY WONT THIS WORK? */
-
-.nav-li {
+#navbar li, .nav-li {
     width: 60%;
     margin: 0 0 0 auto;
     font-family: 'Rajdhani', sans-serif;
@@ -142,7 +139,11 @@ nav {
     background-image: linear-gradient(315deg, #d4af37 30%, black 80%);
     text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
     border-bottom: 2px solid black;
-    transition: color 1s;
+    transition: 0.5s;
+}
+
+.nav-li {
+    height: 30%;
 }
 
 nav a {
@@ -470,6 +471,10 @@ th, td{
     padding-right: 0;
 }
 
+.movie-title-bp {
+    font-size: 1.5rem;
+}
+
 .movie-runtime, .movie-rating {
     font-size: 1.25rem;
 }
@@ -639,6 +644,9 @@ th, td{
     grid-area: title;
     width: 100%;  
     z-index:1;
+    margin-left: 25%;
+    width: 80vw;
+    background-image: linear-gradient(315deg, #d4af37 30%, transparent 85% );
 }
 
 #movieimg {
@@ -1200,6 +1208,10 @@ pre {
         'poster synopsis'
         'poster team'  
         'booking-form booking-form';
+    }
+
+    .movie-title-bp {
+        font-size: 2rem;
     }
 
     #movie-detail {

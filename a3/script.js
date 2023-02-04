@@ -6,98 +6,137 @@ Need offset to be -126 for 768px+ res due to larger header/nav otherwise default
 https://www.w3schools.com/howto/howto_js_media_queries.asp 
 */
 
-function navScroll() {
+function navScroll(page) {
 
-var x = window.matchMedia("(min-width: 768px)");
-myFunction(x);
-x.addEventListener(myFunction);
+    var x = window.matchMedia("(max-width: 767px)");
+    myFunction(x);
+    x.addEventListener('change',myFunction);
 
-function myFunction(x) {
-    if (x.matches) {
-        windowScroll(126);
-    } else {
-        windowScroll(100);
-    }
-}
-
-}
-
-function windowScroll(offsetValue) {
-    window.onscroll = function() {
-        //console.clear();
-        //console.log("Win Y: "+ window.scrollY);
-        var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
-        //console.log(navlinks);
-        var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
-        //console.log(sections);
-        for (var a = 0; a < sections.length; a++) {
-            var sectionTop = sections[a].offsetTop-offsetValue;
-            var sectionBot = sections[a].offsetTop + sections[a].offsetHeight-offsetValue;
-            //console.log(sectionTop + ' ' + sectionBot);
-            if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
-                //console.log(sections[a].id + ": current");
-                navlinks[a+1].classList.add("current");
-            } else {
-                //console.log(sections[a].id + ":");
-                navlinks[a+1].classList.remove("current");
-            }
+    function myFunction(x) {
+        if (x.matches) {
+            console.clear();
+            // document.getElementsByClassName('nav-li')[0].style.height = '18%';
+            windowScroll(page, 'small');
+        } else {
+            // document.getElementsByClassName('nav-li')[0].style.height = '30%';          
+            windowScroll(page, 'large');
         }
     }
 }
 
-
-function testFunction() {
-
+function windowScroll(page, size) {
     window.onscroll = function() {
         console.clear();
+        console.log(page);
+        console.log(size);
+        //console.clear();
         console.log("Win Y: "+ window.scrollY);
-        if (window.scrollY >= 199) {
-            document.querySelector('#logo img').style.opacity = '1';
-            document.querySelector('#movie-detail').style.textAlign = 'right';
-            document.querySelector('#movie-detail').style.gridTemplateAreas = "'. title title title''. . runtime rating'";
-            document.querySelector('#movie-detail').style.backgroundImage = "linear-gradient(to left, #d4af37 25%, transparent 80%)";
-            document.querySelector('.movie-title').style.paddingRight = '1rem';
-            document.getElementsByClassName('nav-li')[0].style.backgroundImage = 'none';
-            document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
-            document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
 
-            // document.querySelector('.nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37, transparent 20%)';
+        if (page == 'index') {
 
-
+            if (size == 'small') {
+                offsetValue = 100;
+            } else {
+                offsetValue = 126;
+            }
+            console.log(offsetValue);
+            var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
+            //console.log(navlinks);
+            var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
+            //console.log(sections);
+            for (var a = 0; a < sections.length; a++) {
+                var sectionTop = sections[a].offsetTop-offsetValue;
+                var sectionBot = sections[a].offsetTop + sections[a].offsetHeight-offsetValue;
+                //console.log(sectionTop + ' ' + sectionBot);
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
+                    //console.log(sections[a].id + ": current");
+                    navlinks[a+1].classList.add("current");
+                } else {
+                    //console.log(sections[a].id + ":");
+                    navlinks[a+1].classList.remove("current");
+                }
+            }
         } else {
-            document.querySelector('#logo img').style.opacity = '0.6';
-            document.querySelector('#movie-detail').style.textAlign = 'center';  
-            document.querySelector('#movie-detail').style.gridTemplateAreas = "'title title title title''.  runtime rating .'";
-            document.querySelector('#movie-detail').style.backgroundImage = "linear-gradient(to left, transparent, #d4af37 30%, #d4af37 70%, transparent)";
-            document.querySelector('.movie-title').style.paddingRight = '0';
-            document.getElementsByClassName('nav-li')[0].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-            document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-            document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-            // document.querySelector('#navbar li').style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-        }
+
+            if (size == 'small') {
+                offsetValue = 189;
+            } else {
+                offsetValue = 230;
+            }
+            console.log(offsetValue);
+
+            if (window.scrollY >= offsetValue) {
+                document.querySelector('#logo img').style.opacity = '1';
+                document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
+                document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
+                document.getElementsByClassName('nav-li')[0].style.height = '30%';
+                if (size == 'small') {
+                    document.getElementsByClassName('nav-li')[0].style.height = '18%';
+                }
+            } else {
+                document.querySelector('#logo img').style.opacity = '0.6';
+                document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+                document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+                document.getElementsByClassName('nav-li')[0].style.height = '30%';
+                if (size == 'small') {
+                    document.getElementsByClassName('nav-li')[0].style.height = '30%';
+
+                }
+            }
+
+        }       
     }
-}        
-//             document.getElementById('company-name-alt').style.opacity = '1';
-//             document.getElementById('company-name-alt').style.transition = '1s';
+}
+
+// function testFunction(offSet) {
+//     window.onscroll = function() {
+        
+//         console.clear();
+//         console.log("Win Y: "+ window.scrollY);
+//         console.log(offSet);
+
+//         if (window.scrollY >= offSet) {
+//             document.querySelector('#logo img').style.opacity = '1';
+//             document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
+//             document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
+//             document.querySelector('.movie-title-bp').style.fontSize = '1.25rem';
+//             // if (screenSize == "mobile") {
+//             //     // document.getElementsByClassName('nav-li')[0].style.height = '18%';
+//             //     // document.getElementsByClassName('.movie-title')[0].style.fontSize = '1.5rem';
+//             // }
+//         } else if (window.scrollY < offSet){
+//             document.querySelector('#logo img').style.opacity = '0.6';
+//             document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+//             document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+//             ocument.querySelector('.movie-title-bp').style.fontSize = '2rem';
+//             // if (screenSize == "mobile") {
+//             //     // document.getElementsByClassName('nav-li')[0].style.height = '30%';
+//             // }
 //         }
 //     }
-// }
+// }        
 
-// function testFunction2() {
-//     document.getElementById('company-name-alt').style.opacity = '0';
-//     document.getElementById('company-name-alt').style.transition = '0.5s';
-// }
+// function navScroll(page) {
+//     var x = window.matchMedia("(min-width: 768px)");
+//     myFunction(x);
+//     x.addEventListener('change',myFunction);
 
-// function navScroll2() {
 
-//     window.onscroll = function() {
-
-//         if (window.scrollY >= 112) {
-//             testFunction();
+//     function myFunction(x) {
+//         if (x.matches) {
+//             console.clear();
+//             if (page == 'index') {
+//                 console.log("index page with small screen");
+//             } else {
+//                 console.log("other page with small screen");
+//             }    
 //         } else {
-//             document.getElementById('company-name-alt').style.visibility = 'hidden';
-//             document.getElementById('company-name-alt').style.transition = '0';
-//             document.getElementById('company-name').style.visibility = 'visible';
+//             console.clear();
+//             if (page == 'index') {
+//                 console.log("index page with small screen");
+//             } else {
+//                 console.log("other page with large screen");
+//             }
 //         }
 //     }
 // }
