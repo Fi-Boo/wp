@@ -223,7 +223,7 @@ function sessionSelection($var) {
       foreach ($movie["screenings"] as $day => $time) {
         echo <<<"SESSIONSELECTION"
               <li>
-                <input type="radio" name="day" value="$day" setChecked({$_POST['day']},'$day') data-pricing="
+                <input type="radio" name="day" value="$day" data-pricing="
         SESSIONSELECTION;
         
         if ($day == "Mon" || $time == "12pm") {

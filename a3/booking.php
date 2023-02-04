@@ -100,9 +100,6 @@
               </div>
               <div id="book-tickets-btn">
                 <input type="submit" value="Book Tickets " >
-
-                 <!-- for testing serverside validation  -->
-                <input type="submit" value="No Validation " formnovalidate>
               </div>
 
             </div>
