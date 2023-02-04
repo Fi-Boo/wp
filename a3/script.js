@@ -24,8 +24,8 @@ function myFunction(x) {
 
 function windowScroll(offsetValue) {
     window.onscroll = function() {
-        console.clear();
-        console.log("Win Y: "+ window.scrollY);
+        //console.clear();
+        //console.log("Win Y: "+ window.scrollY);
         var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
         //console.log(navlinks);
         var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
@@ -46,12 +46,37 @@ function windowScroll(offsetValue) {
 }
 
 
-// function testFunction() {
+function testFunction() {
 
-//     window.onscroll = function() {
+    window.onscroll = function() {
+        console.clear();
+        console.log("Win Y: "+ window.scrollY);
+        if (window.scrollY >= 199) {
+            document.querySelector('#logo img').style.opacity = '1';
+            document.querySelector('#movie-detail').style.textAlign = 'right';
+            document.querySelector('#movie-detail').style.gridTemplateAreas = "'. title title title''. . runtime rating'";
+            document.querySelector('#movie-detail').style.backgroundImage = "linear-gradient(to left, #d4af37 25%, transparent 80%)";
+            document.querySelector('.movie-title').style.paddingRight = '1rem';
+            document.getElementsByClassName('nav-li')[0].style.backgroundImage = 'none';
+            document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
+            document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
 
-//         if (window.scrollY >= 112) {
+            // document.querySelector('.nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37, transparent 20%)';
 
+
+        } else {
+            document.querySelector('#logo img').style.opacity = '0.6';
+            document.querySelector('#movie-detail').style.textAlign = 'center';  
+            document.querySelector('#movie-detail').style.gridTemplateAreas = "'title title title title''.  runtime rating .'";
+            document.querySelector('#movie-detail').style.backgroundImage = "linear-gradient(to left, transparent, #d4af37 30%, #d4af37 70%, transparent)";
+            document.querySelector('.movie-title').style.paddingRight = '0';
+            document.getElementsByClassName('nav-li')[0].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+            document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+            document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+            // document.querySelector('#navbar li').style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+        }
+    }
+}        
 //             document.getElementById('company-name-alt').style.opacity = '1';
 //             document.getElementById('company-name-alt').style.transition = '1s';
 //         }
