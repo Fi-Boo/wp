@@ -7,29 +7,31 @@ https://www.w3schools.com/howto/howto_js_media_queries.asp
 */
 
 function navScroll(page) {
-
+    console.log(page);
     var x = window.matchMedia("(max-width: 767px)");
     myFunction(x);
     x.addEventListener('change',myFunction);
 
     function myFunction(x) {
         if (x.matches) {
-            console.clear();
-            // document.getElementsByClassName('nav-li')[0].style.height = '18%';
+            //console.clear();
+            //console.log('small');
             windowScroll(page, 'small');
         } else {
-            // document.getElementsByClassName('nav-li')[0].style.height = '30%';          
+            //console.clear();
+            //console.log('large');        
             windowScroll(page, 'large');
         }
     }
 }
 
+
 function windowScroll(page, size) {
+
     window.onscroll = function() {
         console.clear();
-        console.log(page);
-        console.log(size);
-        //console.clear();
+        //console.log(page);
+        //console.log(size);
         console.log("Win Y: "+ window.scrollY);
 
         if (page == 'index') {
@@ -39,7 +41,7 @@ function windowScroll(page, size) {
             } else {
                 offsetValue = 126;
             }
-            console.log(offsetValue);
+            //console.log(offsetValue);
             var navlinks = document.getElementsByTagName("nav")[0].getElementsByTagName("a");
             //console.log(navlinks);
             var sections = document.getElementsByTagName("main")[0].getElementsByTagName("section");
@@ -58,18 +60,18 @@ function windowScroll(page, size) {
             }
         } else {
 
-            if (size == 'small') {
+            if (size == 'small') { 
                 offsetValue = 189;
             } else {
                 offsetValue = 230;
             }
-            console.log(offsetValue);
+            //console.log(offsetValue);
 
             if (window.scrollY >= offsetValue) {
                 document.querySelector('#logo img').style.opacity = '1';
                 document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
                 document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
-                document.getElementsByClassName('nav-li')[0].style.height = '30%';
+                document.getElementsByClassName('nav-li')[0].style.height = '30%'
                 if (size == 'small') {
                     document.getElementsByClassName('nav-li')[0].style.height = '18%';
                 }
@@ -77,7 +79,6 @@ function windowScroll(page, size) {
                 document.querySelector('#logo img').style.opacity = '0.6';
                 document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
                 document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-                document.getElementsByClassName('nav-li')[0].style.height = '30%';
                 if (size == 'small') {
                     document.getElementsByClassName('nav-li')[0].style.height = '30%';
 
@@ -87,62 +88,6 @@ function windowScroll(page, size) {
         }       
     }
 }
-
-// function testFunction(offSet) {
-//     window.onscroll = function() {
-        
-//         console.clear();
-//         console.log("Win Y: "+ window.scrollY);
-//         console.log(offSet);
-
-//         if (window.scrollY >= offSet) {
-//             document.querySelector('#logo img').style.opacity = '1';
-//             document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
-//             document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
-//             document.querySelector('.movie-title-bp').style.fontSize = '1.25rem';
-//             // if (screenSize == "mobile") {
-//             //     // document.getElementsByClassName('nav-li')[0].style.height = '18%';
-//             //     // document.getElementsByClassName('.movie-title')[0].style.fontSize = '1.5rem';
-//             // }
-//         } else if (window.scrollY < offSet){
-//             document.querySelector('#logo img').style.opacity = '0.6';
-//             document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-//             document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-//             ocument.querySelector('.movie-title-bp').style.fontSize = '2rem';
-//             // if (screenSize == "mobile") {
-//             //     // document.getElementsByClassName('nav-li')[0].style.height = '30%';
-//             // }
-//         }
-//     }
-// }        
-
-// function navScroll(page) {
-//     var x = window.matchMedia("(min-width: 768px)");
-//     myFunction(x);
-//     x.addEventListener('change',myFunction);
-
-
-//     function myFunction(x) {
-//         if (x.matches) {
-//             console.clear();
-//             if (page == 'index') {
-//                 console.log("index page with small screen");
-//             } else {
-//                 console.log("other page with small screen");
-//             }    
-//         } else {
-//             console.clear();
-//             if (page == 'index') {
-//                 console.log("index page with small screen");
-//             } else {
-//                 console.log("other page with large screen");
-//             }
-//         }
-//     }
-// }
-
-
-
 
 // Function to display discount or fullprice based on radio menu selection
 
@@ -233,7 +178,7 @@ function validateForm() {
         valid = true;
     } 
      
-    var nameRegex = /^[a-zA-Z-' ]*$/;
+    var nameRegex = /^[a-zA-Z-' ]{2,}$/;
     var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     var mobileRegex= /^(\(04\)|04|\+614)( ?\d){8}$/;
 
@@ -256,9 +201,6 @@ function validateForm() {
         alertDetailsError('mobile');
         valid = false;
     }
-
-
-
     
     return valid;
     

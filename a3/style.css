@@ -1,3 +1,5 @@
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -627,7 +629,7 @@ th, td{
     gap: 1rem;
     grid-template-columns: 1fr;
     grid-template-areas:
-    'title'
+
     'poster'
     'trailer'
     'synopsis'
@@ -641,13 +643,17 @@ th, td{
 #movie-detail {
     position: sticky;
     top: 20px;
-    grid-area: title;
     width: 100%;  
     z-index:1;
     margin-left: 25%;
     width: 80vw;
     background-image: linear-gradient(315deg, #d4af37 30%, transparent 85% );
+    border-image-source: linear-gradient(to left,#999B9B, transparent);
+    border-bottom: 5px solid ;
+    border-image-slice: 1;
+    box-shadow: 0 5px 0.4em black;  /* box shadow blended */
 }
+
 
 #movieimg {
     grid-area: poster;
@@ -1203,7 +1209,7 @@ pre {
     #bookings-info-grid {
         grid-template-columns: 2fr 3fr;
         grid-template-areas:
-        'title title'
+    
         'poster trailer'
         'poster synopsis'
         'poster team'  
