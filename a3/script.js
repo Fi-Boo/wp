@@ -116,12 +116,18 @@ function displayRadioValue(pricing) {
 // function to calculate ticket subtotals. Triggers when user selects a # of tickets from dropdown list.
 
 function calculateSubTotals() {
-    //console.log(checkSessionBooked());
+    console.log("got this far");
+
+    checkSessionSelection();
+    
+    
+    
     removeTicketError();
 
     if (!checkSessionSelection()) {
         alertSessionError();
     } else {
+        console.log("did it get here");
         calculateTotals();
         checkTicketSelection();
     }   
@@ -129,15 +135,20 @@ function calculateSubTotals() {
 
 // function to check if Session time has been selected. Returns a boolean.
 
-function checkSessionSelection() {
+var checkSessionPrice;
 
+function checkSessionSelection() {
+    console.log("did this work");
     var list = document.getElementsByName('day');
 
     for (var i=0; i< list.length; i ++) {
         if (list[i].checked) {
+            checkedSessionPrice = list[i].data-pricing;
+            console.log(checkedSessionPrice);
             return true;
         } 
     }
+    console.log('nothing checked') 
     return false;
 }
 
@@ -220,6 +231,7 @@ function check4SelectedSession() {
     var checkRadio = document.querySelector('input[name="day"]:checked');
     console.log(checkRadio);
     if (!checkRadio) {
+        
         console.log("nothing selected");
         alertSessionError();
     } else {

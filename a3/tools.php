@@ -206,11 +206,13 @@ function nowShowingMovies() {
 
 // Session Selection radio menu
 
+$pricing;
+
 function sessionSelection($var) {
 
   global $movies;
-
-  $pricing;
+  global $pricing;
+  
   $radioState;
   $counter = 1;
 

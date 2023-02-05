@@ -50,7 +50,6 @@
 
   function ticketCount() {
     $count = 0;
-    
     return $count;
   }
 
@@ -64,9 +63,9 @@
     // movie code  validation. Will return user to index if incorrect $POST movie code
     $movieCode = unsetFB($_POST['movie']);
     if (!isset($movies[$movieCode]) ) {
-      echo "error happening HERE";
-      //header("Location: index.php");
-      //exit();
+      //echo "error happening HERE";
+      header("Location: index.php");
+      exit();
     }
 
     // session code validation. 
@@ -108,7 +107,7 @@
     foreach ($_POST['seats'] as $seatType => $quantity) {
       $count += (int)$quantity;
       if ($quantity != '' && ($quantity < 1 || $quantity > 10)) {
-        echo 'YOU GOT HACKED';
+        //echo 'YOU GOT HACKED';
         header("Location: index.php");
         exit();
       }
@@ -158,7 +157,7 @@
 
 <script> 
   navScroll('booking'); 
-  
+  calculateSubTotals();
 </script>
 <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
