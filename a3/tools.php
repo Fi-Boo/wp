@@ -196,7 +196,7 @@ function nowShowingMovies() {
     echo <<<"MOREDATA"
                     </table>
                     <div class="booknow">
-                      <a href="booking.php?movie={$movie["code"]}">BOOK NOW</a>
+                      <a href="booking.php?movie={$movie['code']}">BOOK NOW</a>
                     </div>
                   </div>
                 </div>

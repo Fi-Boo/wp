@@ -1,15 +1,85 @@
 <?php   
 
   include "tools.php"; 
-  include "post-validation.php";
-  global $movies;
+  //include "post-validation.php";
+  //global $movies;
 
-  if ( !isset($movies[$_GET['movie']]) ) {
+  if (!isset($movies[$_GET['movie']]) ) {
     header("Location: index.php"); // redirect if movie code invalid
     exit();
   }
   
   headerModule();
+
+
+  function unsetFB (&$str, $fallback = '') {
+    return ( isset($str) ? $str : $fallback );
+  }
+
+  $error = [];
+  $movieCode = '';
+  $day = '';
+  
+  
+  if (!empty($_POST)) {
+
+
+    // movie code  validation. Will return user to index if incorrect $POST movie code
+    $movieCode = unsetFB($_POST['movie']);
+
+    if ( !isset($movies[$movieCode]) ) {
+      header("Location: index.php");
+      exit();
+    }
+
+
+    // session code validation. 
+    $day = unsetFB($_POST['day']);
+    echo $day;
+    // if day is not set, go through the movie array
+    // 1. match the current POST movie code
+    // 2. find the matching POST day 
+    // 3. if the POST day has no session playing or there's no matching POST day then send the user to index.php
+    // 4. $dayMatch value returns true if POST day matches an existing day in the Array - Mon-Sun. a false return will send the user back to index.php 
+    if (!empty($day)) {
+      foreach ($movies as $movie) {
+        if ($movieCode == $movie['code']) {
+          $dayMatch = false;
+          foreach ($movie['screenings'] as $weekday => $time) {
+            if ($day == $weekday && $time == '-') {
+              header("Location: index.php");
+              exit();
+            }
+            if ($day == $weekday) {
+              $dayMatch = true;
+            }
+          }
+          if (!$dayMatch) {
+            header("Location: index.php");
+            exit();        
+          }
+        }
+      }
+    } else {
+      $error['day'] = "Please choose a session";
+    }
+    
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
 ?>
 
 <script> navScroll('booking'); </script>
@@ -27,12 +97,12 @@
         testFunction();
       </script>
       <section id="movie-data">  
+        <div id="movie-detail">
+          <div class="movie-title movie-title-bp"><?= $movies[$_GET['movie']]["title"] ?></div>
+          <div class="movie-runtime"><?= $movies[$_GET['movie']]["runtime"] ?></div>
+          <div class="movie-rating"><?= $movies[$_GET['movie']]["rating"] ?></div>
+        </div>
         <article id="bookings-info-grid">
-          <div id="movie-detail">
-            <div class="movie-title movie-title-bp"><?= $movies[$_GET['movie']]["title"] ?></div>
-            <div class="movie-runtime"><?= $movies[$_GET['movie']]["runtime"] ?></div>
-            <div class="movie-rating"><?= $movies[$_GET['movie']]["rating"] ?></div>
-          </div>
           <div id="movie-trailer"><iframe src=<?= $movies[$_GET['movie']]["trailer"] ?> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
           <div id="movieimg"><img src=<?= $movies[$_GET['movie']]["poster"] ?> alt=<?= $movies[$_GET['movie']]["title"] ?>></div>
           <div id="movie-synopsis"><?= $movies[$_GET['movie']]["synopsis"] ?></div>
@@ -49,7 +119,8 @@
             </div>
           </div>
           <div id ="booking-form">
-            <form action="booking.php?movie=<?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="return validateForm()" >
+            <!-- <form action="booking.php?movie=    ?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="return validateForm()" > -->
+            <form method="post">
               <input type="hidden" name="movie" value="<?= $_GET['movie'] ?>">
             
               <!-- radio buttons for session date selection-->
