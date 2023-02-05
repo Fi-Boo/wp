@@ -221,32 +221,34 @@ function sessionSelection($var) {
 
     if ($movie["code"] === $var) {
       foreach ($movie["screenings"] as $day => $time) {
-        echo <<<"SESSIONSELECTION"
-              <li>
-                <input type="radio" name="day" value="$day" data-pricing="
-        SESSIONSELECTION;
-        
+
+        // sets discount or full price based on values of MON and 12pm any day
         if ($day == "Mon" || $time == "12pm") {
           $pricing = "data-discprice";
         } else {
           $pricing = "data-fullprice";
         }
 
+        // disables radio if no session time  = "-"
         if ($time == "-") {
           $radioState = "disabled";
         } else {
           $radioState = "";
         }
 
-        echo <<<"SESSIONSELECTIONP2"
-                $pricing" onclick='displayRadioValue("$pricing")' {$radioState} >
-                <label id="label$counter">
+        $checkedState = setChecked($_POST['day'], $day);
+    
+        echo <<<"SESSIONSELECTION"
+              <li>
+                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='displayRadioValue("$pricing")' {$checkedState} {$radioState} >    
+                    <label id="label$counter">
                   <div>$day</div>
                   <hr>
                   <div>$time</div>
                 </label> 
               </li>
-        SESSIONSELECTIONP2;
+        SESSIONSELECTION;
+
       
         $counter++;
       }
@@ -254,14 +256,27 @@ function sessionSelection($var) {
   }
 }
 
-// function to generate ticket selection via drop down menu
 
+//function for radio button 'checked' state memory
+function setChecked (&$str, $val) {
+  return ( isset($str) && $str == $val ? 'checked' : '' ); 
+}
+
+// function for ticket selection drop down list memory
+function setSelected (&$str, $val) {
+  return ( isset($str) && $str == $val ? 'selected' : '' ); 
+}
+
+// function to generate ticket selection via drop down menu
 function ticketTable() {
 
   global $seating;
   $maxPurchase = 10;
 
   foreach ($seating as $seat) {
+
+    
+
     echo <<<"TICKETSELECTP1"
               <tr>
                 <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>

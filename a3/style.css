@@ -75,6 +75,7 @@ header, #header-bg {
     z-index: 4;
     transform: rotate(-15deg);
     margin-left: 5rem;
+    opacity: 0;
     
 }
 

@@ -19,6 +19,7 @@
   $error = [];
   $movieCode = '';
   $day = '';
+  $seats = [];
   
   
   if (!empty($_POST)) {
@@ -35,7 +36,7 @@
 
     // session code validation. 
     $day = unsetFB($_POST['day']);
-    echo $day;
+
     // if day is not set, go through the movie array
     // 1. match the current POST movie code
     // 2. find the matching POST day 
@@ -63,6 +64,26 @@
     } else {
       $error['day'] = "Please choose a session";
     }
+
+
+    // seat validation. checks each seat type value. If the value is not blank and less than 1 or greater than 10 then user is sent back to index.php
+
+    $seats = unsetFB($_POST['seats']);
+    
+    if (empty($seats)) {
+      $error['seats'] = "No tickets selected yet";
+    } else {
+      foreach ($_POST['seats'] as $seatType => $purchaseNumber) {
+        $purchaseNumber = unsetFB($purchaseNumber);
+        //echo $seatType. ': '. $purchaseNumber. '  ';
+        if ($purchaseNumber != '' && ($purchaseNumber < 1 || $purchaseNumber > 10)) {
+          //echo 'YOU GOT HACKED';
+          header("Location: index.php");
+          exit();
+        }
+      }
+    }
+
     
 
 
