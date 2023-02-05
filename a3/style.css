@@ -74,9 +74,7 @@ header, #header-bg {
     height: 100%;
     z-index: 4;
     transform: rotate(-15deg);
-    margin-left: 5rem;
-    opacity: 0;
-    
+    margin-left: 5rem;   
 }
 
 #company-name::first-letter {
@@ -652,7 +650,7 @@ th, td{
     border-image-source: linear-gradient(to left,#999B9B, transparent);
     border-bottom: 5px solid ;
     border-image-slice: 1;
-    box-shadow: 0 5px 0.4em black;  /* box shadow blended */
+    box-shadow: 15px 3px 0.4em black;  /* box shadow blended */
 }
 
 
@@ -794,6 +792,10 @@ legend {
 
 /* ticket selection Table */
 
+#ticketing-table {
+    padding: 0;
+}
+
 #ticketing-table table tr {
     color: white;  
 }
@@ -893,6 +895,7 @@ select option:checked {
 #details-table {
     margin: 0 auto;
     padding: 0;
+
 }
 
 
@@ -955,7 +958,7 @@ select option:checked {
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9); 
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #book-tickets-btn, #book-tickets-btn input:active {
@@ -1005,24 +1008,24 @@ select option:checked {
 
 
 #session-select-error, #tickets-select-error, #details-error {
-    background-color: white;
+    background-color: black;
     color: red;
     text-align: center;
     height: 1.5rem;
     width: fit-content;
     min-width: 16rem;
     padding: 0.5rem 0.5rem 0.5rem 2rem;
-    visibility: hidden;
+    visibility: visible;
     border-radius: 0.5rem;
     position: absolute;
     margin: 0 auto;
     text-shadow: none;
     font-weight: 400;
-    background-image: url("../../media/error-icon.png");
+    /* background-image: url("../../media/error-icon.png");
     background-size: 20px;
     background-position-y: center;
     background-position-x: 5px;
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;   */
 }
 
 #session-select-error {
@@ -1031,10 +1034,32 @@ select option:checked {
 }
 
 #details-error {
-    position: absolute;
+    position: relative;
     right: 0;
     margin-top: 1rem;
     text-align: center;
+}
+
+#details-error-name, #details-error-email, #details-error-mobile {
+
+    position: absolute;
+    right: 2%;
+    color: red;
+    height: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+#details-error-name {
+    margin-top: 1.2rem;
+}
+
+#details-error-email {
+    margin-top: 4.8rem;
+}
+
+#details-error-mobile {
+    margin-top: 8.6rem;
 }
 
 #details-error img {
@@ -1042,7 +1067,7 @@ select option:checked {
     margin-bottom: -5px;
 }
 
-#session-select-error:after, #details-error:after, #tickets-select-error:after {
+/* #session-select-error:after, #details-error:after, #tickets-select-error:after {
     content: " ";
     position: absolute;
     right: 50%;
@@ -1051,7 +1076,7 @@ select option:checked {
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
     border-bottom: 15px solid white;
-}
+} */
 
 #tickets-select-error {
     margin-right: 1vw;
@@ -1258,6 +1283,11 @@ pre {
 
     #book-tickets-btn {
         margin-top:-100px;
+    }
+
+    #details-error-name, #details-error-email, #details-error-mobile {
+
+        right: 40%;
     }
 
 }

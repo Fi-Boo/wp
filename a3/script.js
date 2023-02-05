@@ -7,7 +7,7 @@ https://www.w3schools.com/howto/howto_js_media_queries.asp
 */
 
 function navScroll(page) {
-    console.log(page);
+    //console.log(page);
     var x = window.matchMedia("(max-width: 767px)");
     myFunction(x);
     x.addEventListener('change',myFunction);
@@ -29,10 +29,10 @@ function navScroll(page) {
 function windowScroll(page, size) {
 
     window.onscroll = function() {
-        console.clear();
+        //console.clear();
         //console.log(page);
         //console.log(size);
-        console.log("Win Y: "+ window.scrollY);
+        //console.log("Win Y: "+ window.scrollY);
 
         if (page == 'index') {
 
@@ -160,52 +160,73 @@ function checkTicketSelection() {
 //regex https://www.w3resource.com/javascript/form/email-validation.php#:~:text=To%20get%20a%20valid%20email,%5D%2B)*%24%2F.
 
 
-function validateForm() {
+// function validateForm() {
 
-    var valid;
+//     var valid;
 
-    if (!checkSessionSelection()) {
-        alertSessionError();
-        valid = false;
-    }
+//     if (!checkSessionSelection()) {
+//         alertSessionError();
+//         valid = false;
+//     }
     
-    if (!checkTicketSelection()) {
-        alertTicketError()
-        valid = false
-    }
+//     if (!checkTicketSelection()) {
+//         alertTicketError()
+//         valid = false
+//     }
 
-    if (checkSessionSelection() && checkTicketSelection()) {
-        valid = true;
-    } 
+//     if (checkSessionSelection() && checkTicketSelection()) {
+//         valid = true;
+//     } 
      
-    var nameRegex = /^[a-zA-Z-' ]{2,}$/;
-    var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    var mobileRegex= /^(\(04\)|04|\+614)( ?\d){8}$/;
+//     var nameRegex = /^[a-zA-Z-' ]{2,}$/;
+//     var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+//     var mobileRegex= /^(\(04\)|04|\+614)( ?\d){8}$/;
 
-    var name = document.getElementsByName("user[name]")[0].value;
-    var email = document.getElementsByName("user[email]")[0].value;
-    var mobile = document.getElementsByName("user[mobile]")[0].value;
-    console.log(name);
+//     var name = document.getElementsByName("user[name]")[0].value;
+//     var email = document.getElementsByName("user[email]")[0].value;
+//     var mobile = document.getElementsByName("user[mobile]")[0].value;
+//     console.log(name);
 
-    if (nameRegex.test(name) == false) {
-        alertDetailsError('name');
-        valid = false;
-    }
+//     if (nameRegex.test(name) == false) {
+//         alertDetailsError('name');
+//         valid = false;
+//     }
 
-    if (emailRegex.test(email) == false) {
-        alertDetailsError('email');
-        valid = false;
-    }
+//     if (emailRegex.test(email) == false) {
+//         alertDetailsError('email');
+//         valid = false;
+//     }
 
-    if (mobileRegex.test(mobile) == false) {
-        alertDetailsError('mobile');
-        valid = false;
-    }
+//     if (mobileRegex.test(mobile) == false) {
+//         alertDetailsError('mobile');
+//         valid = false;
+//     }
     
-    return valid;
+//     return valid;
     
+// }
+
+
+
+
+function generateTotals() {
+    console.log("test");
+    check4SelectedSession();
 }
 
+
+//https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/
+function check4SelectedSession() {
+    var checkRadio = document.querySelector('input[name="day"]:checked');
+    console.log(checkRadio);
+    if (!checkRadio) {
+        console.log("nothing selected");
+        alertSessionError();
+    } else {
+        console.log("something selected");
+        removeSessionError();
+    }
+}
 
 
 // functions to turn on/off session error msg and styling.

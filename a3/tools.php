@@ -156,9 +156,6 @@ $seating = [
 
 // This function cycles through the array of movies and outputs html code to populate the 'Now Showing' section.
 
-
-
-
 function nowShowingMovies() {
 
   global $movies;
@@ -240,7 +237,7 @@ function sessionSelection($var) {
     
         echo <<<"SESSIONSELECTION"
               <li>
-                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='displayRadioValue("$pricing")' {$checkedState} {$radioState} >    
+                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='displayRadioValue("$pricing")' $checkedState $radioState >    
                     <label id="label$counter">
                   <div>$day</div>
                   <hr>
@@ -275,8 +272,6 @@ function ticketTable() {
 
   foreach ($seating as $seat) {
 
-    
-
     echo <<<"TICKETSELECTP1"
               <tr>
                 <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>
@@ -286,7 +281,10 @@ function ticketTable() {
                     <option value="" ></option>
   TICKETSELECTP1;   
                     for ($a=1; $a<=$maxPurchase; $a++) {
-                    echo "<option value='$a' >$a</option><br>";
+
+                      $selectedState = setSelected($_POST['seats'][$seat['code']], $a);
+
+                      echo "<option value='$a' $selectedState >$a</option><br>";
                     }
     echo <<<"TICKETSELECTP2"
 
@@ -307,12 +305,19 @@ function yourDetailsTr() {
   ];
 
   foreach ($rowData as $data) {
-    echo <<<"DETAILSTR"
+
+   $string = unsetFB($errorsOut['user'][$data[0]]);
+   echo $string;
+
+
+            echo <<<"DETAILSTR"
                   <tr id="details-tr-{$data[0]}">
                     <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')">{$data[1]}:</div></th>
                     <td><input type="text" name="user[{$data[0]}]" placeholder="{$data[2]}" onclick=removeDetailsError("{$data[0]}") ></td>
                   </tr>
-    DETAILSTR;
+                  
+            DETAILSTR;
+    
   }
 }
 
@@ -397,6 +402,11 @@ function printMyCode() {
     echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
   }
   echo "</ol></pre>";
+}
+
+
+function unsetFB (&$str, $fallback = '') {
+  return ( isset($str) ? $str : $fallback );
 }
 
  ?>
