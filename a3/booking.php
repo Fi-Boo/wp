@@ -3,25 +3,15 @@
   include "tools.php"; 
   //include "post-validation.php";
 
-
-
-  // if (!isset($movies[$_GET['movie']]) ) {
-  //   header("Location: index.php"); // redirect if movie code invalid
-  //   exit();
-  // }
+  if (!isset($movies[$_GET['movie']]) ) {
+    header("Location: index.php"); // redirect if movie code invalid
+    exit();
+  }
   
   headerModule();
 
   //$postErrors = validateBooking();
 
-
-  
-
-  
-  // $movieCode = '';
-  // $day = '';
-  // $seats = [];
-  
   
   /*----------- THIS BLOCK IS DOING MY HEAD IN --------------*/
 
@@ -240,7 +230,7 @@
                       <tr id="details-tr-email">
                         <th><div class="details-info" id="details-email"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('email')" onmouseout="hideDetailsInfo('email')"><label for="user[email]">Email:</label></div></th>
                         <td>
-                          <input type="text" name="user[email]" value='<?= unsetFB($email) ?>' placeholder='JohnS@gmail.com' onclick="removeDetailsError('email')" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                          <input type="text" name="user[email]" value='<?= unsetFB($email) ?>' placeholder='JohnS@gmail.com' onclick="removeDetailsError('email')" pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
                           <div id="details-error-email"> <?= unsetFB($errorsOut['user']['email']); ?> </div>
                         </td>
                       </tr>
