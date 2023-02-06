@@ -18,23 +18,35 @@
   //if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST)) {
     //echo "why am i here? POST SHOULD BE EMPTY";
+    
     $username = trim($_POST['user']['name']);
     $email = trim($_POST['user']['email']);
     $number = trim($_POST['user']['mobile']);
     $errorsOut = validatePost(); 
-    // if (count($errorsOut) > 0) {
+    // if (sizeof($errorsOut) > 1) {
+    if (!empty($errorsOut)) {
     //   //$errorsOut['day'] = ' <span style="color:red">'.unsetFB($errorsOut['day']).'</span>';
     //   //$errorsOut['seats'] = ' <span style="color:red">'.unsetFB($errorsOut['seats']).'</span>';
     //   // $errorsOut['user']['name'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['name']).'</span>';
     //   // $errorsOut['user']['email'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['email']).'</span>';
     //   // $errorsOut['user']['mobile'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['mobile']).'</span>';
-    //   echo 'got some errors mayyyyyyyyyyte';
-    // }
+      echo 'testing required <br><br><br><br>';
+      echo var_dump(array_values($errorsOut));
+      echo "<br>";
+      print_r($errorsOut);
+      
+    } else {
+      echo "no errors";
+    }
+
+
   } else {
 
+   
     $username = '';
     $email = '';
     $number = '';
+
   }
 
   /* ----------------------------------------------------- */
@@ -99,10 +111,12 @@
     if ($count == 0 ) {
       //echo "zero count";
       $errors['seats'] = "Minimum 1 ticket required for booking";
-    } elseif ($count >= 1 || $count <=10 ) {
-      //echo "1-10 tickets";
-      $errors['seats'] = "";
-    }
+    } 
+    
+    // elseif ($count >= 1 || $count <=10 ) {
+    //   //echo "1-10 tickets";
+    //   $errors['seats'] = "";
+    // }
     
       
     // username Validation. Cannot be blank. Must be at least 2 western alphabet characters.  
@@ -176,8 +190,6 @@
           </div>
           <div id ="booking-form">
             
-            <!-- <form action="booking.php?movie=    ?= $movies[$_GET['movie']]["code"] ?>" method="post" onsubmit="return validateForm()" > -->
-            <!-- <form method="post" action="  ?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?movie=  ?= $_GET['movie'] ?>" onsubmit='generateTotals()'> -->
               <form method='post'>
               <input type="hidden" name="movie" value="<?= $_GET['movie']?>">
             
@@ -246,6 +258,7 @@
                   </div>
                   <div id="book-tickets-btn">
                     <input type="submit" value="Book Tickets " >
+                    <input type="submit" value="Book Tickets " formnovalidate>
                   </div>
                   
                 </div>

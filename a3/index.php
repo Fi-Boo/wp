@@ -78,24 +78,24 @@
             </tr>
             <tr>
               <td class="nu">Adult</td>
-              <td class="st">$21.50</td>
-              <td class="std">$16.00</td>
-              <td class="fc">$31.50</td>
-              <td class="fcd">$25.00</td>
+              <td class="st">$<?= $seating['STA']['fullprice'] ?></td>
+              <td class="std">$<?= $seating['STA']['discount'] ?></td>
+              <td class="fc">$<?= $seating['FCA']['fullprice'] ?></td>
+              <td class="fcd">$<?= $seating['FCA']['discount'] ?></td>
             </tr>
             <tr>
               <td class="nu">Concession</td>
-              <td class="st">$19.00</td>
-              <td class="std">$14.50</td>
-              <td class="fc">$28.00</td>
-              <td class="fcd">$23.50</td>
+              <td class="st">$<?= $seating['STP']['fullprice'] ?></td>
+              <td class="std">$<?= $seating['STP']['discount'] ?></td>
+              <td class="fc">$<?= $seating['FCP']['fullprice'] ?></td>
+              <td class="fcd">$<?= $seating['FCP']['discount'] ?></td>
             </tr>
             <tr>
               <td class="nu">Child</td>
-              <td class="st">$17.50</td>
-              <td class="std">$13.00</td>
-              <td class="fc">$25.00</td>
-              <td class="fcd">$22.00</td>
+              <td class="st">$<?= $seating['STC']['fullprice'] ?></td>
+              <td class="std">$<?= $seating['STC']['discount'] ?></td>
+              <td class="fc">$<?= $seating['FCC']['fullprice'] ?></td>
+              <td class="fcd">$<?= $seating['FCC']['discount'] ?></td>
             </tr>
             <tr>
               <td colspan="5"><cite><strong>*Daily 12pm session and all day Monday. </strong></cite></td>
