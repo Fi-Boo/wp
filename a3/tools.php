@@ -298,30 +298,32 @@ function ticketTable() {
   }
 }
 
-function yourDetailsTr($name, $email, $mobile) {
-
-  $rowData = [
-    '1' => ["name", "Full Name", "John Smith", $name],
-    '2' => ["email", "Email", "JSmith@gmail.com", $email],
-    '3' => ["mobile", "Number", "04XXXXXXXX", $mobile]
-  ];
-
-  foreach ($rowData as $data) {
-
-   $string = unsetFB($errorsOut['user'][$data[0]]);
-   echo $string;
 
 
-            echo <<<"DETAILSTR"
-                  <tr id="details-tr-{$data[0]}">
-                    <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo($data[0])" onmouseout="hideDetailsInfo($data[0])">{$data[1]}:</div></th>
-                    <td><input type="text" name="user[{$data[0]}]" value='$data[3]' placeholder='$data[2]' onclick="removeDetailsError($data[0])" ></td>
-                  </tr>
-                  <h1>$data[3]</h1>
-            DETAILSTR;
+// function yourDetailsTr($name, $email, $mobile) {
+
+//   $rowData = [
+//     '1' => ["name", "Full Name", "John Smith", $name],
+//     '2' => ["email", "Email", "JSmith@gmail.com", $email],
+//     '3' => ["mobile", "Number", "04XXXXXXXX", $mobile]
+//   ];
+
+//   foreach ($rowData as $data) {
+
+//    $string = unsetFB($errorsOut['user'][$data[0]]);
+//    echo $string;
+
+
+//             echo <<<"DETAILSTR"
+//                   <tr id="details-tr-{$data[0]}">
+//                     <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo($data[0])" onmouseout="hideDetailsInfo($data[0])">{$data[1]}:</div></th>
+//                     <td><input type="text" name="user[{$data[0]}]" value='$data[3]' placeholder='$data[2]' onclick="removeDetailsError($data[0])" ></td>
+//                   </tr>
+//                   <h1>$data[3]</h1>
+//             DETAILSTR;
     
-  }
-}
+//   }
+// }             
 
 // HEADER CODE
 

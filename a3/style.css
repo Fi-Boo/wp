@@ -600,14 +600,15 @@ th, td{
     bottom: 3rem;
     left: 0;
     right: 0;
-    font-size: 1.5rem;
     font-weight: 700;
+    border-radius: 1rem;
 }
 
 .booknow a:link, .booknow a:visited {
     text-decoration: none;
     color: red;
     padding: 1rem 2rem;
+    border-radius: 1.5rem;
     background:  #d4af37;
     box-shadow: 
     inset 0 4px 5px rgba(212,175,55,0.6),
@@ -625,8 +626,9 @@ th, td{
     0 2px 2px rgba(255,255,255,0.9);
 } 
 
+/* ------------------------------------------ */
 
-/* Booking.php */
+/*------------ Booking.php -------------------*/
 
 #bookings-info-grid {
     display: grid;
@@ -728,7 +730,7 @@ legend {
 
 #booking-date li {
     width: calc(100%/7);
-    height: 4.5rem;
+    height: 6rem;
     text-align: center;
     position: relative;
 }
@@ -736,10 +738,11 @@ legend {
 #booking-date label, #booking-date input {
     display: block;
     position: absolute;
-    top: 0;
+    top: 5;
     left: 0;
     right: 0;
     bottom: 0;
+    height: 4.6rem;
     background: #d4af37;
     color: black;
     font-weight: 700;
@@ -752,6 +755,7 @@ legend {
 
 #booking-date label {
     padding: 5px;
+    padding-top: 20px;
     border: 1px solid #CCC;   
     cursor: pointer;
     z-index: 0;
