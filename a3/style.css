@@ -328,9 +328,13 @@ h2 {
 .prices-seat-img {
     display: flex;
     align-items: center;
-    width: fit-content;
+    width: 400px;
     height: auto;
     background-image: linear-gradient(to right, rgb(102,111,190), transparent 60% );
+}
+
+.prices-seat-img img {
+    width: 100%;
 }
 
 .prices-seat-img:hover {
@@ -926,6 +930,8 @@ select option:checked {
 
 #details-table td {
     padding: 0;
+    position: relative;
+    border: none;
 }
 
 #details-table input {
@@ -1007,25 +1013,25 @@ select option:checked {
 }
 
 
-#session-select-error, #tickets-select-error, #details-error {
-    background-color: black;
+#session-select-error, #tickets-select-error, #details-error, #details-error-name, #details-error-email, #details-error-mobile {
+    background-color: white;
     color: red;
     text-align: center;
     height: 1.5rem;
     width: fit-content;
     min-width: 16rem;
     padding: 0.5rem 0.5rem 0.5rem 2rem;
-    visibility: visible;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     position: absolute;
     margin: 0 auto;
+    visibility: visible;
     text-shadow: none;
     font-weight: 400;
-    /* background-image: url("../../media/error-icon.png");
+    background-image: url("../../media/error-icon.png");
     background-size: 20px;
     background-position-y: center;
     background-position-x: 5px;
-    background-repeat: no-repeat;   */
+    background-repeat: no-repeat;  
 }
 
 #session-select-error {
@@ -1041,25 +1047,9 @@ select option:checked {
 }
 
 #details-error-name, #details-error-email, #details-error-mobile {
-
-    position: absolute;
-    right: 2%;
-    color: red;
-    height: 1.5rem;
-    text-align: center;
-    font-weight: 400;
-}
-
-#details-error-name {
-    margin-top: 1.2rem;
-}
-
-#details-error-email {
-    margin-top: 4.8rem;
-}
-
-#details-error-mobile {
-    margin-top: 8.6rem;
+    min-width: 8rem;
+    top: 2.5rem;
+    right: 0;
 }
 
 #details-error img {
@@ -1067,7 +1057,7 @@ select option:checked {
     margin-bottom: -5px;
 }
 
-/* #session-select-error:after, #details-error:after, #tickets-select-error:after {
+#session-select-error:after, #details-error:after, #tickets-select-error:after {
     content: " ";
     position: absolute;
     right: 50%;
@@ -1076,7 +1066,7 @@ select option:checked {
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
     border-bottom: 15px solid white;
-} */
+}
 
 #tickets-select-error {
     margin-right: 1vw;
@@ -1192,6 +1182,13 @@ pre {
         'prices-table prices-table';
     } 
 
+
+    .prices-seat-img {
+    width: 250px;
+    height: auto;
+    }
+
+
     .section-title, .sub-section-title {
         margin-top: 4rem;
         padding-left: 4rem;
@@ -1282,13 +1279,15 @@ pre {
     }
 
     #book-tickets-btn {
-        margin-top:-100px;
+        margin-top:-70px;
     }
 
     #details-error-name, #details-error-email, #details-error-mobile {
-
-        right: 40%;
+        min-width: 12rem;
+        top: 2.5rem;
     }
+
+
 
 }
 

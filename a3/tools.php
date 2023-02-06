@@ -239,7 +239,7 @@ function sessionSelection($var) {
     
         echo <<<"SESSIONSELECTION"
               <li>
-                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='displayRadioValue("$pricing")' $checkedState $radioState >    
+                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='sessionSelected("$pricing")' $checkedState $radioState required >    
                     <label id="label$counter">
                   <div>$day</div>
                   <hr>
@@ -279,7 +279,7 @@ function ticketTable() {
                 <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>
                 <td><div id="price[{$seat['code']}]"></div></td>
                 <td class="priceCell">
-                  <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='calculateSubTotals()'>
+                  <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discount']}" onchange='calculateTotals()'>
                     <option value="" ></option>
   TICKETSELECTP1;   
                     for ($a=1; $a<=$maxPurchase; $a++) {
@@ -298,12 +298,12 @@ function ticketTable() {
   }
 }
 
-function yourDetailsTr() {
+function yourDetailsTr($name, $email, $mobile) {
 
   $rowData = [
-    '1' => ["name", "Full Name", "John Smith"],
-    '2' => ["email", "Email", "JSmith@gmail.com"],
-    '3' => ["mobile", "Number", "04XXXXXXXX"]
+    '1' => ["name", "Full Name", "John Smith", $name],
+    '2' => ["email", "Email", "JSmith@gmail.com", $email],
+    '3' => ["mobile", "Number", "04XXXXXXXX", $mobile]
   ];
 
   foreach ($rowData as $data) {
@@ -314,10 +314,10 @@ function yourDetailsTr() {
 
             echo <<<"DETAILSTR"
                   <tr id="details-tr-{$data[0]}">
-                    <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')">{$data[1]}:</div></th>
-                    <td><input type="text" name="user[{$data[0]}]" placeholder="{$data[2]}" onclick=removeDetailsError("{$data[0]}") ></td>
+                    <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo($data[0])" onmouseout="hideDetailsInfo($data[0])">{$data[1]}:</div></th>
+                    <td><input type="text" name="user[{$data[0]}]" value='$data[3]' placeholder='$data[2]' onclick="removeDetailsError($data[0])" ></td>
                   </tr>
-                  
+                  <h1>$data[3]</h1>
             DETAILSTR;
     
   }

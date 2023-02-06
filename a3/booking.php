@@ -21,38 +21,31 @@
   // $movieCode = '';
   // $day = '';
   // $seats = [];
-  // $username = '';
-  // $email = '';
-  // $number = '';
+  
   
   /*----------- THIS BLOCK IS DOING MY HEAD IN --------------*/
 
   //if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($_POST)) {
     //echo "why am i here? POST SHOULD BE EMPTY";
-    
-    
-    
-    
-    
-    
+    $username = trim($_POST['user']['name']);
+    $email = trim($_POST['user']['email']);
+    $number = trim($_POST['user']['mobile']);
     $errorsOut = validatePost(); 
-    if (count($errorsOut) > 0) {
-      $errorsOut['day'] = ' <span style="color:red">'.unsetFB($errorsOut['day']).'</span>';
-      $errorsOut['seats'] = ' <span style="color:red">'.unsetFB($errorsOut['seats']).'</span>';
-      $errorsOut['user']['name'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['name']).'</span>';
-      $errorsOut['user']['email'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['email']).'</span>';
-      $errorsOut['user']['mobile'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['mobile']).'</span>';
-    }
+    // if (count($errorsOut) > 0) {
+    //   //$errorsOut['day'] = ' <span style="color:red">'.unsetFB($errorsOut['day']).'</span>';
+    //   //$errorsOut['seats'] = ' <span style="color:red">'.unsetFB($errorsOut['seats']).'</span>';
+    //   // $errorsOut['user']['name'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['name']).'</span>';
+    //   // $errorsOut['user']['email'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['email']).'</span>';
+    //   // $errorsOut['user']['mobile'] = ' <span style="color:red">'.unsetFB($errorsOut['user']['mobile']).'</span>';
+    //   echo 'got some errors mayyyyyyyyyyte';
+    // }
+  } else {
+
+    $username = '';
+    $email = '';
+    $number = '';
   }
-
-
-
-  function ticketCount() {
-    $count = 0;
-    return $count;
-  }
-
 
   /* ----------------------------------------------------- */
 
@@ -124,7 +117,8 @@
       
     // username Validation. Cannot be blank. Must be at least 2 western alphabet characters.  
     // *TESTED AND WORKING*
-    $username = trim($_POST['user']['name']);
+    
+    global $username;
     if ( $username == '') {
       //echo "username cant be blank";
       $errors['user']['name'] = "Name can't be blank";
@@ -133,7 +127,7 @@
     }
 
     // email validation using filter and FILTER_VALIDATE_EMAIL
-    $email = trim($_POST['user']['email']);
+    global $email;
     if ($email == '') {
       $errors['user']['email'] = "Email can't be blank";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -141,7 +135,7 @@
     }
     
     // mobile number validation using regex provided in class
-    $number = trim($_POST['user']['mobile']);
+    global $number;
     if ($number == '') {
       $errors['user']['mobile'] = "Number can't be blank";
     } elseif (!preg_match("/^(\(04\)|04|\+614)( ?\d){8}$/",$number)) {
@@ -155,11 +149,10 @@
 
 ?>
 
-<script> 
-  navScroll('booking'); 
-  calculateSubTotals();
-</script>
-<nav>
+    <script> 
+      navScroll('booking'); 
+    </script>
+    <nav>
       <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
       <ul id="navbar">
         <li class="nav-li"><a href="#aboutus"></a></li>
@@ -237,11 +230,28 @@
                   <div>
                     
                     <table id="details-table">
-                    <?php yourDetailsTr() ?>
-                    
-                      <div id="details-error-name"> <?= unsetFB($errorsOut['user']['name']); ?> </div>
-                      <div id="details-error-email"> <?= unsetFB($errorsOut['user']['email']); ?> </div>
-                      <div id="details-error-mobile"> <?= unsetFB($errorsOut['user']['mobile']); ?> </div> 
+                      <tr id="details-tr-name">
+                        <th><div class="details-info" id="details-name"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('name')" onmouseout="hideDetailsInfo('name')" ><label for="user[name]">Full Name:</label></div></th>
+                        <td>
+                          <input type="text" name="user[name]" value='<?= unsetFB($username) ?>' placeholder='John Smith' onclick="removeDetailsError('name')" pattern="[a-zA-Z-' ]{2,}" required>
+                          <div id="details-error-name"> <?= unsetFB($errorsOut['user']['name']); ?> </div>
+                        </td>
+                      </tr>
+                      <tr id="details-tr-email">
+                        <th><div class="details-info" id="details-email"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('email')" onmouseout="hideDetailsInfo('email')"><label for="user[email]">Email:</label></div></th>
+                        <td>
+                          <input type="text" name="user[email]" value='<?= unsetFB($email) ?>' placeholder='JohnS@gmail.com' onclick="removeDetailsError('email')" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                          <div id="details-error-email"> <?= unsetFB($errorsOut['user']['email']); ?> </div>
+                        </td>
+                      </tr>
+                      <tr id="details-tr-mobile">
+                        <th><div class="details-info" id="details-mobile"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('mobile')" onmouseout="hideDetailsInfo('mobile')"><label for="user[mobile]">Number:</label></div></th>
+                        <td>
+                          <input type="text" name="user[mobile]" value='<?= unsetFB($number) ?>' placeholder='04XX XXX XXX' onclick="removeDetailsError('mobile')" pattern = "(\(04\)|04|\+614)( ?\d){8}" required>
+                          <div id="details-error-mobile"> <?= unsetFB($errorsOut['user']['mobile']); ?> </div>
+                        </td>
+                        
+                      </tr>                                       
                     </table> 
                   </div>
                   <div id="book-tickets-btn">
@@ -255,7 +265,9 @@
         </article>
       </section>
     </main>  
-
+    <script>
+      calculateSubTotals();
+    </script>
     <?php 
     footerModule();
     debugModule(); 

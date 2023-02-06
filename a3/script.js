@@ -6,6 +6,9 @@ Need offset to be -126 for 768px+ res due to larger header/nav otherwise default
 https://www.w3schools.com/howto/howto_js_media_queries.asp 
 */
 
+
+/* ------------  NAV RELATED FUNCTIONS ---------------------------------*/
+
 function navScroll(page) {
     //console.log(page);
     var x = window.matchMedia("(max-width: 767px)");
@@ -89,16 +92,76 @@ function windowScroll(page, size) {
     }
 }
 
+/* ----------------------------------------------------------------------------------------------------- */
+
+
+/* ------------------------------ PRICE TOTALS FUNCTIONS ----------------------------------------------- */
+
+
+// function to calculate ticket subtotals. 
+// Is run at the end of site load to check if pre-existing selections have been made
+// Is run upon session selection
+
+function calculateSubTotals() {
+
+
+    if (document.getElementById('session-select-error').innerHTML== '') {
+        alertChange('session', 'hidden');
+    }
+
+    if (document.getElementById('tickets-select-error').innerHTML == ' ') {
+        alertChange('tickets', 'hidden');
+    }
+
+    if (document.getElementById('details-error-name').innerHTML == '  ') {
+        console.log("something wrong");
+        alertChange('name', 'hidden');
+    }
+
+    if (document.getElementById('details-error-email').innerHTML == '  ') {
+        alertChange('email', 'hidden');
+    }
+
+    if (document.getElementById('details-error-mobile').innerHTML == '  ') {
+        alertChange('mobile', 'hidden');
+    }
+    
+    if (checkSessionSelection()) {
+        
+        alertChange('session', 'hidden');
+        displayRadioValue(checkedSessionPrice);
+        calculateTotals();  
+    }   
+}
+
+// function to check if Session time has been selected. Returns a boolean.
+var checkedSessionPrice;
+
+function checkSessionSelection() {
+    //console.log("did this work");
+    var list = document.getElementsByName('day');
+
+    for (var i = 0; i< list.length; i ++) {
+        //console.log("testing");
+        if (list[i].checked) {
+            checkedSessionPrice = list[i].getAttribute('data-pricing');
+            test = checkedSessionPrice.slice(5);
+            //console.log(test);
+            return true;
+        } 
+    }
+    //console.log('nothing checked') 
+    return false;
+}
+
 // Function to display discount or fullprice based on radio menu selection
-
-
 var priceCode;
 
 function displayRadioValue(pricing) {
 
     priceCode = pricing;
 
-    removeSessionError();
+    //removeSessionError();
     calculateTotals();
 
     for (var i=0; i<seatCodes.length; i++) {
@@ -112,218 +175,32 @@ function displayRadioValue(pricing) {
     }
 }
 
-
-// function to calculate ticket subtotals. Triggers when user selects a # of tickets from dropdown list.
-
-function calculateSubTotals() {
-    console.log("got this far");
-
-    checkSessionSelection();
-    
-    
-    
-    removeTicketError();
-
-    if (!checkSessionSelection()) {
-        alertSessionError();
-    } else {
-        console.log("did it get here");
-        calculateTotals();
-        checkTicketSelection();
-    }   
+//function to update Seating Price when a session is selected. Will also remove 'Select Session' alert.
+function sessionSelected(pricing) {
+    displayRadioValue(pricing);
+    alertChange('session', 'hidden');
 }
 
-// function to check if Session time has been selected. Returns a boolean.
-
-var checkSessionPrice;
-
-function checkSessionSelection() {
-    console.log("did this work");
-    var list = document.getElementsByName('day');
-
-    for (var i=0; i< list.length; i ++) {
-        if (list[i].checked) {
-            checkedSessionPrice = list[i].data-pricing;
-            console.log(checkedSessionPrice);
-            return true;
-        } 
-    }
-    console.log('nothing checked') 
-    return false;
-}
-
-// function to validate ticket selection. Returns a boolean.
-
-function checkTicketSelection() {
-
-    for (var i = 0; i < seatCodes.length; i++) {
-        var selection = parseInt(document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value);
-        //console.log(selection);
-        if (selection > 0) {
-            return true;
-        }
-    }
-    return false;
-}
-
-
-// onsubmit form validation.
-//regex https://www.w3resource.com/javascript/form/email-validation.php#:~:text=To%20get%20a%20valid%20email,%5D%2B)*%24%2F.
-
-
-// function validateForm() {
-
-//     var valid;
-
-//     if (!checkSessionSelection()) {
-//         alertSessionError();
-//         valid = false;
-//     }
-    
-//     if (!checkTicketSelection()) {
-//         alertTicketError()
-//         valid = false
-//     }
-
-//     if (checkSessionSelection() && checkTicketSelection()) {
-//         valid = true;
-//     } 
-     
-//     var nameRegex = /^[a-zA-Z-' ]{2,}$/;
-//     var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-//     var mobileRegex= /^(\(04\)|04|\+614)( ?\d){8}$/;
-
-//     var name = document.getElementsByName("user[name]")[0].value;
-//     var email = document.getElementsByName("user[email]")[0].value;
-//     var mobile = document.getElementsByName("user[mobile]")[0].value;
-//     console.log(name);
-
-//     if (nameRegex.test(name) == false) {
-//         alertDetailsError('name');
-//         valid = false;
-//     }
-
-//     if (emailRegex.test(email) == false) {
-//         alertDetailsError('email');
-//         valid = false;
-//     }
-
-//     if (mobileRegex.test(mobile) == false) {
-//         alertDetailsError('mobile');
-//         valid = false;
-//     }
-    
-//     return valid;
-    
-// }
-
-
-
-
-function generateTotals() {
-    console.log("test");
-    check4SelectedSession();
-}
-
-
-//https://www.javascripttutorial.net/javascript-dom/javascript-checkbox/
-function check4SelectedSession() {
-    var checkRadio = document.querySelector('input[name="day"]:checked');
-    console.log(checkRadio);
-    if (!checkRadio) {
-        
-        console.log("nothing selected");
-        alertSessionError();
-    } else {
-        console.log("something selected");
-        removeSessionError();
-    }
-}
-
-
-// functions to turn on/off session error msg and styling.
-
-function alertSessionError() {
-    document.getElementById('session-select-error').style.visibility = 'visible';
-    document.getElementById('booking-date').style.border = "5px solid red";
-}
-
-function removeSessionError() {
-    document.getElementById('session-select-error').style.visibility = 'hidden';
-    document.getElementById('booking-date').style.border = "5px solid transparent";
-}
-
-
-// functions to turn on/off ticket selection error msg and styling
-
-function alertTicketError() {
-    var list = document.getElementsByClassName('priceCell');
-    for (var i = 0; i < list.length; i++) {
-        console.log(list[i].style.border);
-        list[i].style.border = "2px solid red";
-    }
-    document.getElementById('tickets-select-error').style.visibility = 'visible';
-}
-
-function removeTicketError() {
-    var list = document.getElementsByClassName('priceCell');
-    for (var i = 0; i < list.length; i++) {
-        console.log(list[i].style.border);
-        list[i].style.border = "1px solid black";
-    }
-    document.getElementById('tickets-select-error').style.visibility = 'hidden';
-}
-
-
-// Mouse/click info icon to display detail field limitations
-
-function alertDetailsInfo(variable) {
-
-    var msg;
-
-    switch(variable) {
+// function to show/hide error msg boxes. takes type of error msg and style (visible or hidden)
+function alertChange(alert, style) {
+    switch (alert) {
+        case 'session':
+            document.getElementById('session-select-error').style.visibility = style;
+            break;
+        case 'tickets':
+            document.getElementById('tickets-select-error').style.visibility = style;
+            break;
         case 'name':
-            msg = "Just First Name and Surname.";
+            document.getElementById('details-error-name').style.visibility = style;
             break;
         case 'email':
-            msg = "Standard email format name@provider.(com/net/org)";
+            document.getElementById('details-error-email').style.visibility = style;
             break;
         case 'mobile':
-            msg = "10 digit Aus mobile number in format 04xxxxxxxx";
+            document.getElementById('details-error-mobile').style.visibility = style;
             break;
     }
-
-    document.getElementById('details-error').style.visibility = 'visible';
-    document.getElementsByName('user[' + variable +']')[0].style.border = '2px solid #d4af37';
-    document.getElementById('details-error').style.backgroundImage = 'url("../../media/info-icon.png")';
-    document.getElementById('details-error').innerHTML = msg;
 }
-
-function hideDetailsInfo(variable) {
-    document.getElementById('details-tr-' + variable).style.backgroundColor = 'transparent';
-    document.getElementById('details-error').style.visibility = 'hidden';
-    document.getElementsByName('user[' + variable +']')[0].style.border = 'none';
-}
-
-
-// function to turn on/off 'Your Details' error msg
-
-function alertDetailsError(variable) {
-    document.getElementById('details-error').style.backgroundImage = 'url("../../media/error-icon.png")';
-    document.getElementById('details-error').innerHTML = 'Missing or incorrect input. See field <img src="../../media/info-icon.png"> for more info';
-    document.getElementById('details-error').style.visibility = 'visible';
-    document.getElementsByName('user[' + variable +']')[0].style.border = '2px solid red';
-}
-
-function removeDetailsError(variable) {
-    document.getElementById('details-error').style.visibility = 'hidden';
-    document.getElementsByName('user[' + variable +']')[0].style.border = 'none';
-}
-
-
-
-
-
 
 
 var seatCodes = [
@@ -336,31 +213,36 @@ var seatCodes = [
 ]
 
 // Calculates total of tickets selected
-
 function calculateTotals() {
 
     var total = parseFloat(0);
 
-
-    //calculates subtotals per ticket type
-    for (var i=0; i <seatCodes.length; i++) {
-        var choice = document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value;
-        //console.log(choice);
-        if (choice == "") {
-            selection = parseFloat('0');
-        } else {
-            selection = parseFloat(choice);
-        }
-        // console.log(selection);
-        var list = document.getElementsByName("seats[" + seatCodes[i] + "]");
-        var ticketPrice = list[0].getAttribute(priceCode);
-        var subTotal = selection * parseFloat(ticketPrice).toFixed(2);
-        total += subTotal;
-        //console.log(total);
-        if (subTotal != 0) {
-            document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "$" + subTotal.toFixed(2); 
-        } else {
-            document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "";   
+    if (!checkSessionSelection() && document.getElementById('session-select-error') != '') {
+        alertChange('session', 'visible');
+        document.getElementById('session-select-error').innerHTML = "Please select session to view pricing";
+    } else {   
+        //calculates subtotals per ticket type
+        for (var i=0; i <seatCodes.length; i++) {
+            var choice = document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value;
+            //console.log(choice);
+            if (choice == "") {
+                selection = parseFloat('0');
+            } else {
+                selection = parseFloat(choice);
+                alertChange('tickets', 'hidden');  
+            }
+            // console.log(selection);
+            var list = document.getElementsByName("seats[" + seatCodes[i] + "]");
+            var ticketPrice = list[0].getAttribute(priceCode);
+            var subTotal = selection * parseFloat(ticketPrice).toFixed(2);
+            total += subTotal;
+            //console.log(total);
+            if (subTotal != 0) {
+                document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "$" + subTotal.toFixed(2); 
+                console.log("test");
+            } else {
+                document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "";   
+            }
         }
     }
 
@@ -371,3 +253,44 @@ function calculateTotals() {
         document.getElementById("booking-price-total").innerHTML = "";
     }
 }
+
+
+function removeDetailsError(variable) {
+    document.getElementById('details-error-'+variable).style.visibility = 'hidden';
+    document.getElementsByName('user[' + variable +']')[0].style.border = 'none';
+}
+
+
+//Mouse/click info icon to display detail field limitations
+
+function showDetailsInfo(variable) {
+
+    var msg;
+
+    switch(variable) {
+        case 'name':
+            msg = "First Name and Surname. Min 2 characters";
+            break;
+        case 'email':
+            msg = "Email format name@provider.(com/net/org)";
+            break;
+        case 'mobile':
+            msg = "10 digit Aus mobile number";
+            break;
+    }
+
+    document.getElementById('details-error-'+variable).style.visibility = 'visible';
+    document.getElementById('details-error-'+variable).style.minWidth = '23rem';
+    document.getElementById('details-error-'+variable).style.color = 'green';
+    document.getElementsByName('user[' + variable +']')[0].style.border = '2px solid #d4af37';
+    document.getElementById('details-error-'+variable).innerHTML = msg;
+}
+
+function hideDetailsInfo(variable) {
+    document.getElementById('details-tr-' + variable).style.backgroundColor = 'transparent';
+    document.getElementById('details-error-'+variable).style.visibility = 'hidden';
+    document.getElementsByName('user[' + variable +']')[0].style.border = 'none';
+}
+
+
+
