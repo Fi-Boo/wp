@@ -112,6 +112,7 @@ nav {
 
 #logo img:hover, #logo img:focus, #logo img:target {
     opacity: 1;
+    background-image: radial-gradient(rgb(102,111,190), transparent 70%);
     transition: 0.5s;
 }
 

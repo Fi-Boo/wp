@@ -61,6 +61,13 @@ function windowScroll(page, size) {
                     navlinks[a+1].classList.remove("current");
                 }
             }
+
+            if (window.scrollY >= offsetValue) {
+                document.querySelector('#logo img').style.opacity = '1';
+            } else {
+                document.querySelector('#logo img').style.opacity = '0.6';
+            }
+
         } else {
 
             if (size == 'small') { 
