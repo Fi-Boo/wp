@@ -118,38 +118,38 @@ $seating = [
   "STA" => [
     "code" => "STA",
     "desc" => "Standard Adult",
-    "fullprice" => "21.5",
-    "discount" => "16"
+    "fullprice" => "21.50",
+    "discount" => "16.00"
   ],
   "STP" => [
     "code" => "STP",
     "desc" => "Standard Concession",
-    "fullprice" => "19",
-    "discount" => "14.5"
+    "fullprice" => "19.00",
+    "discount" => "14.50"
   ],
   "STC" => [
     "code" => "STC",
     "desc" => "Standard Child",
-    "fullprice" => "17.5",
-    "discount" => "13"
+    "fullprice" => "17.50",
+    "discount" => "13.00"
   ],
   "FCA" => [
     "code" => "FCA",
     "desc" => "First Class Adult",
-    "fullprice" => "31.5",
-    "discount" => "25"
+    "fullprice" => "31.50",
+    "discount" => "25.00"
   ],
   "FCP" => [
     "code" => "FCP",
     "desc" => "First Class Concession",
-    "fullprice" => "28",
-    "discount" => "23.5"
+    "fullprice" => "28.00",
+    "discount" => "23.50"
   ],
   "FCC" => [
     "code" => "FCC",
     "desc" => "First Class Child",
-    "fullprice" => "25",
-    "discount" => "22"
+    "fullprice" => "25.00",
+    "discount" => "22.00"
   ]
 ];
    
