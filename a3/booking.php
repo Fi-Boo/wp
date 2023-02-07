@@ -10,7 +10,7 @@
   
   headerModule();
 
-  /*----------- THIS BLOCK IS DOING MY HEAD IN --------------*/
+  /*----------- THIS BLOCK IS DOING MY HEAD IN -------------*/
 
 
   if (!empty($_POST)) {

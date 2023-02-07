@@ -543,8 +543,7 @@ th, td{
     backface-visibility: hidden;
     border-radius: 10px;
     border: 1px solid  #d4af37;
-    box-shadow: 2px 2px black;
-    
+    box-shadow: 2px 2px black;  
 }
 
 .card-front {

@@ -1,5 +1,4 @@
 <?php     
-
   include "tools.php"; 
   
   headerModule();

@@ -312,7 +312,6 @@ function nowShowingMovies() {
   } 
 }
 
-
 /* ------------ BOOKING.PHP MOVIE DETAILS ---------------------- */
 
 // Session Selection radio menu
