@@ -255,7 +255,7 @@ h2 {
 }
 
 .aboutus-content, .prices-content, table {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     text-align: justify;
 }
 
@@ -344,7 +344,7 @@ h2 {
 
 /* text rotation - https://css-tricks.com/snippets/css/text-rotation/ */
 
-#std-class, #first-class {
+#std-class, #fc-class {
     position: relative;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
@@ -358,7 +358,7 @@ h2 {
     margin-left: 1rem;   
 }
 
-#std-class p, #first-class p {
+#std-class p, #fc-class p {
     position: absolute;
     top: 120px;
     left: 0; 
@@ -393,19 +393,19 @@ th, td{
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-#pricestable tr:nth-child(4) td:last-child {
+#pricestable tr:last-child td:last-child {
     border-bottom-right-radius: 0.5rem;
 }
 
-#pricestable tr:nth-child(1) th:last-child {
+#pricestable tr:nth-child(2) th:last-child {
     border-top-right-radius: 0.5rem;
 }
 
-#pricestable tr:nth-child(1) th:first-child {
+#pricestable tr:nth-child(2) th:first-child {
     border-top-left-radius: 0.5rem;
 }
 
-#pricestable tr:nth-child(4) td:first-child {
+#pricestable tr:last-child td:first-child {
     border-bottom-left-radius: 0.5rem;
 }
 
@@ -415,7 +415,7 @@ th, td{
     border-bottom: 2px solid white;
 }
 
-#pricestable tr:last-child td {
+#pricestable tr:first-child td {
     border: none;
 } 
 
@@ -544,6 +544,7 @@ th, td{
     border-radius: 10px;
     border: 1px solid  #d4af37;
     box-shadow: 2px 2px black;
+    
 }
 
 .card-front {
@@ -561,6 +562,11 @@ th, td{
     background-image: radial-gradient(#999B9B,rgb(102,111,190));
     color: white;
     transform: rotateY(180deg);
+    font-size: 1.25rem;
+}
+
+.card-back p {
+    margin: 1rem;
 }
 
 .card-back p {

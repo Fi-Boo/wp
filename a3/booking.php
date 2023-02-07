@@ -22,7 +22,12 @@
     $errorsOut = validatePost(); 
 
     if (empty($errorsOut)) {
-      echo "no errors";
+      $_SESSION = $_POST;
+
+      // should print to file here
+
+
+      header("Location: receipt.php");
     } 
 
   } else {

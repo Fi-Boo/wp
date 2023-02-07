@@ -1,0 +1,1 @@
+Order Date	Customer Details	Movie Details	#STA	$STA	#STP	$STP	#STC	$STC	#FCA	$FCA	#FCP	$FCP	#FCC	$FCC	Total Price	GST

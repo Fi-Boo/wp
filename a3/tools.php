@@ -190,14 +190,14 @@ $aboutUsContent = [
   ],
   'seat-std' => [
     'image' => 'Profern-Standard-Twin.png',
-    'image-alt' => 'Standard Seat image',
+    'image-alt' => 'Standard',
     'cite' => 'std',
     'text' => '<p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
     <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>'
   ],
   'seat-fc' => [
     'image' => 'Profern-Verona-Twin.png',
-    'image-alt' => 'First Class Seat image',
+    'image-alt' => 'First Class',
     'cite' => 'fc',
     'text' => "<p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
     <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>"
@@ -227,8 +227,8 @@ function contentModule($var1, $var2) {
       
       echo <<<"SEATINGDESC"
         <div class="prices-content prices-img-block" id="prices-{$content['cite']}-img">
-          <div id="std-class"><p>Standard</p></div>
-          <div class="prices-seat-img"><img src="../../media/{$content['image']}" alt="{$content['image-alt']}"></div>
+          <div id="{$content['cite']}-class"><p>{$content['image-alt']}</p></div>
+          <div class="prices-seat-img"><img src="../../media/{$content['image']}" alt="{$content['image-alt']}" seat></div>
         </div>
         <div class="prices-content" id="prices-{$content['cite']}-description">
           {$content['text']}
