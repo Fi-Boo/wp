@@ -9,8 +9,19 @@
 // Function set up in a utilities file like tools.php
 
 
+// post/get request validation. user sent to index if invalid 
+function validateRequest($requestTypeValue) {
+  global $movies;
+  if (!isset($movies[$requestTypeValue]) ) {
+    header("Location: index.php");
+    exit();
+  }
+}
+
 
 // multidimensional associative movie array to store all the movie data for use in 'Now Showing' section and 'Booking.php'
+
+$currentSelection = [];
 
 $movies = [
   "ACT" => [

@@ -1,44 +1,131 @@
 <?php   
 
   include "tools.php"; 
-  include "post-validation.php";
+
+
+
+
+  // if request is post other - this ensures that code is not run the first time user goes to booking as that will be GET request
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once("post-validation.php");
+    $errorMsgs = findBookingErrors();
+    
+
+    if (empty($errorMsgs)) {
+      $_SESSION = $_POST;
+
+      // print to txt file.
+      printToRecords($_POST);
+      
+      header("Location: receipt.php");
+    } 
+
+  }
+
+
+  // validates initial GET request
+
+  validateRequest($_GET['movie']);
 
   if (!isset($movies[$_GET['movie']]) ) {
     header("Location: error.php"); // redirect if movie code invalid
     exit();
   }
   
-  headerModule();
 
-  /*----------- THIS BLOCK IS DOING MY HEAD IN --------------*/
+  /* --------- Validation -------------*/
 
+  $currentPost
+  $outputStr
 
-  if (!empty($_POST)) {
-    //echo "why am i here? POST SHOULD BE EMPTY";
-    
-    $username = trim($_POST['user']['name']);
-    $email = trim($_POST['user']['email']);
-    $number = trim($_POST['user']['mobile']);
-    $errorsOut = validatePost(); 
-
-    if (empty($errorsOut)) {
-      $_SESSION['post-data'] = $_POST;
-
-      // should print to file here
+  $movieCode = unsetFB($_POST['movie']);
+  $day = unsetFB($_POST['day']);
 
 
-      header("Location: receipt.php");
-    } 
 
-  } else {
+
+  // 1. validating POST movie code
+  validateRequest($_POST[$movieCode]);
+
+
+  // 2. validating POST day
+
+
+
+
+
+  /*---- 
+  1. function to getMovieByCode() to validate $_POST['movie']
+  if invalid - boot to index
+
+  else update $outputStr
+
+  2. function to validate $_POST['day']
+  compare to $currentPost['day']
+  if $time = '-' or != any day/time combo - boot to index (perhaps boolean return for this)
+
+  else update $outputStr
+
+  3. function to validate $_POST['seats']
+  foreach loop to validate each seat value - boot to index if invalid
+      
+  else update $outputStr
+      
+  4. functions to validate $_POST['user] with regex patterns 
   
-    $username = '';
-    $email = '';
-    $number = '';
+  
 
+
+-----------------------------------------------------*/
+
+
+  // this function can be used for either get or post via parameter
+  function validateRequest($requestTypeValue) {
+    if (!isset($movies[$requestTypeValue]) ) {  //if parameter does not exist in movies array
+      header("Location: error.php");  // send user to error.php
+      exit();
+    }
   }
 
-  /* ----------------------------------------------------- */
+
+
+
+
+
+
+
+
+//   --------- Tools ---------------
+
+
+// supporting functions
+
+// updateRecordStr($_POST[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  headerModule();
 
 ?>
 

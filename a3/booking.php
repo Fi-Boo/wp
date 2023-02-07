@@ -1,24 +1,11 @@
 <?php   
 
   include "tools.php"; 
-  include "post-validation.php";
-
-  if (!isset($movies[$_GET['movie']]) ) {
-    header("Location: error.php"); // redirect if movie code invalid
-    exit();
-  }
-  
-  headerModule();
-
-  /*----------- THIS BLOCK IS DOING MY HEAD IN -------------*/
 
 
-  if (!empty($_POST)) {
-    //echo "why am i here? POST SHOULD BE EMPTY";
-    
-    $username = trim($_POST['user']['name']);
-    $email = trim($_POST['user']['email']);
-    $number = trim($_POST['user']['mobile']);
+  // if request is post other - this ensures that code is not run the first time user goes to booking as that will be GET request
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once("post-validation.php");
     $errorsOut = validatePost(); 
 
     if (empty($errorsOut)) {
@@ -28,16 +15,12 @@
       
       header("Location: receipt.php");
     } 
+  } 
 
-  } else {
-  
-    $username = '';
-    $email = '';
-    $number = '';
+  validateRequest($_GET['movie']);
+  headerModule();
 
-  }
 
-  /* ----------------------------------------------------- */
 
 ?>
 

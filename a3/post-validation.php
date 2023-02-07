@@ -6,13 +6,16 @@
     global $movies;
     $errors = [];
 
-    // movie code  validation. Will return user to index if incorrect $POST movie code
     $movieCode = unsetFB($_POST['movie']);
-    if (!isset($movies[$movieCode]) ) {
-      //echo "error happening HERE";
-      header("Location: index.php");
-      exit();
-    }
+    $day = unsetFB($_POST['day']);
+    $seats = unsetFB($S_POST['seats']);
+    $username = trim($_POST['user']['name']);
+    $email = trim($_POST['user']['email']);
+    $number = trim($_POST['user']['mobile']);
+
+    // movie code  validation. Will return user to index if incorrect $POST movie code
+    validateRequest($movieCode);
+    
 
     // session code validation. 
     // if day is not set, go through the movie array
@@ -20,11 +23,10 @@
     // 2. find the matching POST day 
     // 3. if the POST day has no session playing or there's no matching POST day then send the user to index.php
     // 4. $dayMatch value returns true if POST day matches an existing day in the Array - Mon-Sun. a false return will send the user back to index.php 
-    $day = unsetFB($_POST['day']);
     if (empty($day)) {
       $errors['day'] = "Please choose a session to proceed";
     } else {
-      $error['day'] ="";
+      //$error['day'] ="";
       foreach ($movies as $movie) {
         if ($movieCode == $movie['code']) {
           $dayMatch = false;
@@ -49,14 +51,14 @@
     // seat validation. checks each seat type value. If the value is not blank and less than 1 or greater than 10 then user is sent back to index.php
     // *TESTED AND WORKING*
     $count = 0;
-
     foreach ($_POST['seats'] as $seatType => $quantity) {
-      $count += (int)$quantity;
+
       if ($quantity != '' && ($quantity < 1 || $quantity > 10)) {
         //echo 'YOU GOT HACKED';
         header("Location: index.php");
         exit();
       }
+      $count += (int)$quantity;
     }
 
     if ($count == 0 ) {

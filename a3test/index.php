@@ -1,5 +1,4 @@
 <?php     
-
   include "tools.php"; 
   
   headerModule();
@@ -35,11 +34,14 @@
             ?> 
           <table id="pricestable">
             <tr>
+              <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?> day. </strong></cite></td>
+            </tr>
+            <tr>
               <th>Ticket</th>
               <th>Standard</th>
-              <th>*</th>
+              <th>Discount</th>
               <th>First Class</th>
-              <th>*</th>
+              <th>Discount</th>
             </tr>
             <tr>
               <td>Adult</td>
@@ -63,9 +65,6 @@
                 tableData('STC');
                 tableData('FCC');
                 ?>
-            </tr>
-            <tr>
-              <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?> day. </strong></cite></td>
             </tr>
           </table>
         </div>
