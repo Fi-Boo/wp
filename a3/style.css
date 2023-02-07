@@ -1,6 +1,6 @@
 
 
-html {
+html, footer {
     scroll-behavior: smooth;
 }
 
@@ -24,18 +24,6 @@ main {
     padding-top: 2rem;
     background-color: black;
     margin: -10px auto 0;
-}
-
-/* Footer */
-
-footer {
-    margin: 10px;
-    text-align: justify;
-    max-width: 1500px;
-    margin: 0 auto;
-    background-color: transparent;
-    padding: 1rem;
-    box-sizing: border-box;
 }
 
 section {
@@ -74,12 +62,96 @@ header, #header-bg {
     height: 100%;
     z-index: 4;
     transform: rotate(-15deg);
-    margin-left: 5rem;   
+    margin-left: 5rem;
 }
 
 #company-name::first-letter {
     font-size: 5rem;
 }
+
+/* Footer */
+
+footer {
+    margin-top: 2rem;
+    margin-bottom: -10px;
+    background-image: linear-gradient(to bottom, black, #d4af37 3%);
+    box-shadow: 0px -5px 0.4em;
+    color: black;
+    overflow-x:hidden;
+}
+
+footer hr {
+    height: 3px;
+    background-color: black;
+}
+
+#footer-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#footer-flex {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+#footer-flex-inner {
+    display: flex;
+}
+
+#footer-flex div {
+    padding: 0;
+}
+
+
+#footer-logo {
+    width: 150px;
+    min-width: 150px;
+    margin: auto;
+}
+
+#footer-logo img {
+    width: 100%; 
+}
+
+#company-details, #contact-us {
+    margin: auto auto auto 0;
+    font-weight: 700;
+    min-width: 7rem;
+}
+
+#company-details h2 {
+    padding: 0;
+    margin: 0;
+}
+
+#contact-us {
+    margin-right: 0;
+}
+
+#contact-us p {
+    text-align: center;
+    padding-top: 0.5rem;
+    margin: 0;
+}
+
+#contact-us p:last-of-type {
+    padding-bottom: 0.5rem;
+}
+
+#socialmedia {
+    display:flex;
+    margin: auto ;
+}
+
+#disclaimer {
+    font-size: 0.8rem;
+    padding: 0 1rem;
+}
+
+
 
 /* Navigation bar */
 
@@ -183,7 +255,6 @@ nav a {
     transition: 0.3s;
 }
 
-
 #navbar a:hover, #navbar a:active, #navbar a:focus, #navbar a:target {
 
     color: #d4af37;
@@ -197,7 +268,7 @@ nav a {
 nav a.current {
     background-image: linear-gradient(315deg, rgb(102,111,190) 30%, black 90%);
     background-color: transparent;
-    transition: 0.3s; 
+    transition: 0.3s;
 }
 
 /* section titles bar */
@@ -250,8 +321,8 @@ h2 {
 
 .aboutus-grid {
     grid-template-areas:
-    'image' 
-    'description'; 
+    'image'
+    'description';
 }
 
 .aboutus-content, .prices-content, table {
@@ -288,7 +359,7 @@ h2 {
     'fc-seat-img'
     'fc-seat-description'
     'prices-table';
-} 
+}
 
 #prices-title {
     grid-area: section-title;
@@ -355,13 +426,13 @@ h2 {
     letter-spacing: 0.1rem;
     width: 40px;
     text-align: center;
-    margin-left: 1rem;   
+    margin-left: 1rem;
 }
 
 #std-class p, #fc-class p {
     position: absolute;
     top: 120px;
-    left: 0; 
+    left: 0;
     margin-left: 10px;
     transform-origin: 0 0;
     transform: rotate(-90deg);
@@ -417,7 +488,7 @@ th, td{
 
 #pricestable tr:first-child td {
     border: none;
-} 
+}
 
 #pricestable tr th:nth-child(2), #pricestable tr th:nth-child(3), #pricestable tr td:nth-child(2), #pricestable tr td:nth-child(3) {
     background-image:linear-gradient(to bottom, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
@@ -442,7 +513,7 @@ th, td{
 /* Now Showing */
 
 #movie-section-grid {
-    display: grid; 
+    display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
     background-image: linear-gradient(to left, transparent, rgb(102,111,190) 20%, rgb(102,111,190) 80%, transparent);
@@ -455,7 +526,7 @@ th, td{
     width: 100%;
     height: auto;
     padding: 0;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 .movie-detail, #movie-detail {
@@ -543,7 +614,7 @@ th, td{
     backface-visibility: hidden;
     border-radius: 10px;
     border: 1px solid  #d4af37;
-    box-shadow: 2px 2px black;  
+    box-shadow: 2px 2px black;
 }
 
 .card-front {
@@ -620,7 +691,7 @@ th, td{
     padding: 1rem 2rem;
     border-radius: 1.5rem;
     background:  #d4af37;
-    box-shadow: 
+    box-shadow:
     inset 0 4px 5px rgba(212,175,55,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9);
@@ -630,11 +701,11 @@ th, td{
     text-decoration: none;
     color: #d4af37;
     background:  rgb(102,111,190) ;
-    box-shadow: 
+    box-shadow:
     inset 0 4px 5px rgba(0,0,0,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9);
-} 
+}
 
 /* ------------------------------------------ */
 
@@ -659,7 +730,7 @@ th, td{
 #movie-detail {
     position: sticky;
     top: 20px;
-    width: 100%;  
+    width: 100%;
     z-index:1;
     margin-left: 25%;
     width: 80vw;
@@ -744,7 +815,7 @@ legend {
     text-align: center;
     position: relative;
 }
-  
+
 #booking-date label, #booking-date input {
     display: block;
     position: absolute;
@@ -756,10 +827,10 @@ legend {
     background: #d4af37;
     color: black;
     font-weight: 700;
-    box-shadow: 
+    box-shadow:
     inset 0 4px 5px rgba(255,255,255,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
-    0 2px 2px rgba(255,255,255,0.9); 
+    0 2px 2px rgba(255,255,255,0.9);
     border: 2px solid red;
 }
 
@@ -767,7 +838,7 @@ legend {
 #booking-date label {
     padding: 5px;
     padding-top: 20px;
-    border: 1px solid #CCC;   
+    border: 1px solid #CCC;
     cursor: pointer;
     z-index: 0;
 }
@@ -781,16 +852,16 @@ legend {
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
 }
-  
+
 #booking-date input[type="radio"] {
     opacity: 0.01;
     z-index: 1;
     height: 100%;
 }
-  
+
 #booking-date input[type="radio"]:checked+label, .Checked+label {
     background: grey;
-    box-shadow: 
+    box-shadow:
     inset 0 4px 5px rgba(0,0,0,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9);
@@ -818,7 +889,7 @@ legend {
 }
 
 #ticketing-table table tr {
-    color: white;  
+    color: white;
 }
 
 #ticketing-table tr, #ticketing-table th, #ticketing-table td{
@@ -969,10 +1040,10 @@ select option:checked {
     background-repeat: no-repeat;
     background-color:#d4af37;
     border-radius: 3rem;
-    box-shadow: 
+    box-shadow:
     inset 0 4px 5px rgba(255,255,255,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
-    0 2px 2px rgba(255,255,255,0.9); 
+    0 2px 2px rgba(255,255,255,0.9);
     margin: 0 auto;
     margin-top: 20px;
 }
@@ -1007,7 +1078,7 @@ select option:checked {
 
 .book-tickets-btn input:active {
     background-color: grey;
-    box-shadow: 
+    box-shadow:
     inset 0 4px 5px rgba(0,0,0,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9);
@@ -1041,7 +1112,7 @@ select option:checked {
     background-size: 20px;
     background-position-y: center;
     background-position-x: 5px;
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
 }
 
 #session-select-error {
@@ -1131,7 +1202,7 @@ pre {
     grid-template-areas:
     'btn1'
     'btn3'
-    'btn2';  
+    'btn2';
     margin: 0 auto;
     padding: 0;
 }
@@ -1192,7 +1263,7 @@ pre {
 
     /* NAV BAR */
 
-    nav { 
+    nav {
         position: sticky;
         top: -125px;
         margin-top: -125px;
@@ -1217,10 +1288,18 @@ pre {
         padding-right: 4rem;
     }
 
+
+    /* - FOOTER -*/
+
+    #footer-flex div {
+        padding: 0 1rem;
+    }
+
+
     .aboutus-grid {
         grid-template-columns: 2fr 3fr;
         grid-template-areas:
-        'image description';    
+        'image description';
     }
 
     /* prices */
@@ -1232,7 +1311,7 @@ pre {
         'std-seat-img std-seat-description'
         'fc-seat-img fc-seat-description'
         'prices-table prices-table';
-    } 
+    }
 
 
     .prices-seat-img {
@@ -1284,10 +1363,10 @@ pre {
     #bookings-info-grid {
         grid-template-columns: 2fr 3fr;
         grid-template-areas:
-    
+
         'poster trailer'
         'poster synopsis'
-        'poster team'  
+        'poster team'
         'booking-form booking-form';
     }
 
@@ -1296,8 +1375,8 @@ pre {
     }
 
     #movie-detail {
-        top: 40px;  
-        transition: top 0.5s; 
+        top: 40px;
+        transition: top 0.5s;
     }
 
     #movieimg {
@@ -1320,7 +1399,7 @@ pre {
     #booking-date li {
         height: 8rem;
     }
-    
+
     #booking-date label {
         height: 6rem;
     }
@@ -1352,8 +1431,7 @@ pre {
 
 @media (min-width: 992px) {
 
-    main, footer {
-        background-image: linear-gradient(to left, transparent, black 1%, black 99%, transparent);
+    main {
         background-color: transparent;
     }
 
@@ -1431,13 +1509,13 @@ pre {
         grid-template-areas:
         'std-seat-img std-seat-description fc-seat-img fc-seat-description'
         'prices-table prices-table prices-table prices-table';
-    } 
+    }
 
     .section-title{
         border-top-left-radius: 0.5rem;
         transition: 1s;
-    } 
-    
+    }
+
     .sub-section-title {
         border-top-right-radius: 0.5rem;
         transition: 1s;

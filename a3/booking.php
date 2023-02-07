@@ -25,8 +25,7 @@
       $_SESSION = $_POST;
 
       // should print to file here
-
-
+      
       header("Location: receipt.php");
     } 
 

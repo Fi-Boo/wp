@@ -437,7 +437,13 @@ function ticketTable() {
 
 // HEADER CODE
 
+
+
 function headerModule() {
+
+  $value = filemtime('style.css');
+
+
   echo <<<"HEADER"
     <!DOCTYPE html>
       <html lang='en'>
@@ -448,12 +454,7 @@ function headerModule() {
 
         <!-- Keep wireframe.css for debugging, add your css to style.css -->
         <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={
-  HEADER;
-  filemtime('style.css');
-  echo <<<"HEADERP2"
-  
-  ">
+        <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={$value}">
         <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
         <script src='../wireframe.js'></script>
         <script src='script.js'></script>
@@ -464,7 +465,7 @@ function headerModule() {
           <div id="header-bg"></div>
           <div id="company-name">Lunardo</div>
         </header>
-  HEADERP2;
+  HEADER;
 }
 
 
@@ -472,24 +473,42 @@ function headerModule() {
 // FOOTER CODE
 
 function footerModule() {
-  echo <<<"FOOTERP1"
-  <footer>
-      <div>&copy;<script>document.write(new Date().getFullYear());</script> 
-      Phi Van Bui, s2008156D Group A. Last modified 
-  FOOTERP1;
-  footerDate(); 
-  echo <<<"FOOTERP2"
-  .</div>
-      <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
-      <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
-    </footer>
-  FOOTERP2;
-  
-}
 
-function footerDate() {
-  $testdate = date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
-  echo "$testdate";
+  $date = date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
+
+  echo <<<"FOOTER"
+  <footer>
+    <div id='footer-container'>
+      <div id='footer-flex'>
+        <div id ='footer-flex-inner'>
+          <div id='footer-logo'><img src='../../media/logo-blk.png'></div>
+          <div id='company-details'>
+            <h2>Lunardo Cinema</h2> 
+            1 Mystery Lane <br>
+            Fakeville 6000 <br>
+            Victora <br>
+          </div>
+        </div>
+        <div id='contact-us'>
+          <p>Contact Us</p>
+          <p>Lunardo Careers</p>
+          <div id='socialmedia'>
+            <div class='socialmedia-img'><img src='../../media/facebookblk.png'></div>
+            <div class='socialmedia-img'><img src='../../media/twitter.png'></div>
+            <div class='socialmedia-img'><img src='../../media/instagram.png'></div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div id='disclaimer'>
+        <div>&copy;<script>document.write(new Date().getFullYear());</script>Phi Van Bui, s2008156D Group A. Last modified $date</div>
+        <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
+        <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
+      </div>
+    </div>
+  </footer>
+  FOOTER;
+  
 }
 
 
