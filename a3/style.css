@@ -72,7 +72,7 @@ header, #header-bg {
 /* Footer */
 
 footer {
-    margin-top: 2rem;
+    margin-top: -1rem;
     margin-bottom: -10px;
     background-image: linear-gradient(to bottom, black, #d4af37 3%);
     box-shadow: 0px -5px 0.4em;
@@ -367,7 +367,7 @@ h2 {
 
 #prices-std-img {
     grid-area: std-seat-img;
-    padding-left: 0;
+    padding-left: 0rem;
     height: 100%;
 }
 
@@ -1044,7 +1044,7 @@ select option:checked {
     inset 0 4px 5px rgba(255,255,255,0.6),
     inset 0 -4px 5px rgba(0,0,0,0.6),
     0 2px 2px rgba(255,255,255,0.9);
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     margin-top: 20px;
 }
 
@@ -1313,6 +1313,14 @@ pre {
         'prices-table prices-table';
     }
 
+    .aboutus-img {
+        padding-left: 2rem;
+    }
+    
+    .aboutus-text {
+        padding-right: 2rem;
+    }
+
 
     .prices-seat-img {
     width: 250px;
@@ -1320,6 +1328,14 @@ pre {
     }
 
 
+    #prices-std-img, #prices-fc-img {
+        padding-left: 1rem;
+    }
+    
+    #prices-std-description, #prices-fc-description {
+        padding-right: 2rem;
+    }
+    
     .section-title, .sub-section-title {
         margin-top: 4rem;
         padding-left: 4rem;
@@ -1362,8 +1378,8 @@ pre {
 
     #bookings-info-grid {
         grid-template-columns: 2fr 3fr;
+        padding: 0;
         grid-template-areas:
-
         'poster trailer'
         'poster synopsis'
         'poster team'
@@ -1380,6 +1396,7 @@ pre {
     }
 
     #movieimg {
+        width: 95%;
         margin-right: 0;
         padding-right: 0;
     }
@@ -1390,7 +1407,7 @@ pre {
     }
 
     #movie-trailer, #movie-synopsis, #movie-team {
-        margin-left: 1rem;
+        padding-right: 0.5rem;
     }
 
 
@@ -1407,6 +1424,10 @@ pre {
     /* Your Details */
     #details-grid {
         grid-template-columns: 4fr 2fr;
+    }
+
+    #details-table {
+        margin-bottom: 3rem;
     }
 
     #details-table input {
@@ -1432,6 +1453,7 @@ pre {
 @media (min-width: 992px) {
 
     main {
+        background-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
         background-color: transparent;
     }
 
@@ -1488,6 +1510,7 @@ pre {
     }
 
     main {
+        background-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
         background-color: transparent;
     }
 
