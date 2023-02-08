@@ -293,6 +293,7 @@ function showDetailsInfo(variable) {
 }
 
 function hideDetailsInfo(variable) {
+    //console.log(variable);
     document.getElementById('details-tr-' + variable).style.backgroundColor = 'transparent';
     document.getElementById('details-error-'+variable).style.visibility = 'hidden';
     document.getElementsByName('user[' + variable +']')[0].style.border = 'none';

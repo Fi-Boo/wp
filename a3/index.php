@@ -32,6 +32,8 @@
             contentModule('SeatDesc','seat-std');  
             contentModule('SeatDesc','seat-fc'); 
             ?> 
+        </div>
+        </div>
           <table id="pricestable">
             <tr>
               <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?> day. </strong></cite></td>

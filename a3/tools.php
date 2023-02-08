@@ -435,7 +435,7 @@ function yourDetailsTr() {
 
   echo <<<"STR"
 
-      <tr id="details-tr-name">
+      <tr id="details-tr-{$data[0]}">
         <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
           <input type="text" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" pattern="{$data[3]}" required>
@@ -687,7 +687,7 @@ function generateReceiptTable($SESSION) {
       $subtotal = format(getSeatSubtotal($seat,$number,$priceType));
       $total += (float)$subtotal;
       $seatDesc = $seating[$seat]['desc'];
-      
+      $total = format($total);
 
       echo <<<"RECEIPT"
         <tr>
