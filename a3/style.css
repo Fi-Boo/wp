@@ -1211,7 +1211,15 @@ pre {
 #nav-receipt h3 {
     display: inline-block;
     margin: 0;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
+}
+
+#book-title {
+    width: 60%;
+}
+
+#book-ref {
+    font-family: 'Rajdhani', sans-serif;
 }
 
 #receipt-grid {
@@ -1223,10 +1231,11 @@ pre {
     'header'
     'details'
     'cost-table'
-    'tickets';
+    'message'
 }
 
 /* --- receipt head --- */
+
 
 #receipt-print-head {
     grid-area: header;
@@ -1258,6 +1267,10 @@ pre {
     text-align: center;
 }
 
+#receipt-details h3, #message {
+    font-family: 'Oleo Script Swash Caps', cursive;
+}
+
 /* --- receipt details ---*/
 
 #receipt-details {
@@ -1270,12 +1283,15 @@ pre {
 
 #receipt-details hr {
     margin: 2rem auto;
-
     width: 50%;
     border: 1px solid #d4af37;
 }
 
 
+#message {
+    grid-area: message;
+    text-align: center;
+}
 
 /* --- receipt table --- */
 
@@ -1292,7 +1308,8 @@ pre {
 }
 
 #receipt-table table tr td {
-    border: 1px solid white;
+    color: #d4af37;
+    border: 1px solid #d4af37;
     height: 2.5rem;
 }
 
@@ -1354,6 +1371,10 @@ pre {
 
 @media print {
 
+    #sec-receipt {
+        margin-top: -5rem;
+    }
+
     body, h1, h2, h3, p, th, td {
         color: black;
         text-shadow: none;
@@ -1369,12 +1390,28 @@ pre {
     }
 
     #receipt-grid {
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
         'header header header'
         'details cost-table cost-table'
-        '.tickets .';
+        'message message message'
     }
     
+    hr, #receipt-details hr {
+        border: 1px solid black;
+    }
+
+    #receipt-table table tr td {
+        color: black;
+        border: 1px solid white;
+
+    }
+
+    #receipt-grid {
+        page-break-inside: avoid;
+        page-break-after: always;
+    }
+
 
 }
 
@@ -1654,13 +1691,19 @@ pre {
 
     /* ---- receipt page ---- */
 
+
+
     #receipt-grid {
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
         'header header header'
         'details cost-table cost-table'
-        '.tickets .';
+        'message message message'
     }
 
+    #navbar h3{
+        font-size: 3rem;
+    }
 
 }
 
@@ -1731,6 +1774,10 @@ pre {
         text-align: center;
         justify-content: space-evenly;
         border: none;
+    }
+
+    #sec-receipt {
+        background-image: linear-gradient(to left, transparent, black 5%, black 95%, transparent);
     }
 }
 
