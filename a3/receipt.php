@@ -12,12 +12,12 @@
     <nav>
         <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
         <div id="navbar">
-            <div id='nav-receipt'><h3> Booking Confirmation</h3>
+            <div id='nav-receipt'><h3 id='book-title'> Booking Confirmation</h3><h3 id='book-ref'>[ X9T4TH ]</h3>
             </div>
         </div>
     </nav>
 
-    <section>
+    <section id='sec-receipt'>
         <div id='receipt-grid'>
             <div id= 'receipt-print-head'>
                 <div id='receipt-logo'><img src='../../media/logo-blk.png'></div>
@@ -52,11 +52,14 @@
                     <hr>
                 </div>
             </div>
-
+        </div>
             <div id = 'receipt-table'>
                 <table>    
                     <?= generateReceiptTable($_SESSION); ?>
                 </table>
+            </div>
+            <div id='message'>
+                <h1> We look forward to seeing you soon... </h1>
             </div>
             <div id='receipt-tickets'>
             </div>
