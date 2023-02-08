@@ -69,7 +69,6 @@
     // username Validation. Cannot be blank. Must be at least 2 western alphabet characters.  
     // *TESTED AND WORKING*
     
-    global $username;
     if ( $username == '') {
       //echo "username cant be blank";
       $errors['user']['name'] = "Name can't be blank";
@@ -78,7 +77,6 @@
     }
 
     // email validation using filter and FILTER_VALIDATE_EMAIL
-    global $email;
     if ($email == '') {
       $errors['user']['email'] = "Email can't be blank";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -86,7 +84,6 @@
     }
     
     // mobile number validation using regex provided in class
-    global $number;
     if ($number == '') {
       $errors['user']['mobile'] = "Number can't be blank";
     } elseif (!preg_match("/^(\(04\)|04|\+614)( ?\d){8}$/",$number)) {

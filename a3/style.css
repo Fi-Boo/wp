@@ -2,6 +2,7 @@
 
 html, footer {
     scroll-behavior: smooth;
+    /* overflow-x: hidden; */
 }
 
 body {
@@ -203,7 +204,7 @@ nav {
     margin-bottom: 0;
 }
 
-#navbar li, .nav-li {
+#navbar li, .nav-li, #nav-receipt {
     width: 60%;
     margin: 0 0 0 auto;
     font-family: 'Rajdhani', sans-serif;
@@ -1060,8 +1061,7 @@ select option:checked {
 .book-tickets-btn input {
     display: inline-block;
     width: 100%;
-    height: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
     font-size: 2rem;
     font-weight: 700;
     border-radius: 3rem;
@@ -1070,6 +1070,7 @@ select option:checked {
     font-weight: 700;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     opacity: 0.4;
+    margin: auto;
 }
 
 .book-tickets-btn input:hover {
@@ -1190,10 +1191,90 @@ pre {
     word-wrap: break-word;
   }
 
+/* ----------------------- RECEIPT PAGE -------------------------*/
+
+#nav-receipt {
+    width: 100%;
+    color: black;
+    height: 95%;
+    text-align: center;
+    background-image: linear-gradient(315deg, rgb(102,111,190), #d4af37 50%, black 80%);
+}
+#nav-receipt h3 {
+    display: inline-block;
+    margin: 0;
+    padding-top: 2rem;
+}
+
+#company-detail {
+    visibility: hidden;
+}
+
+#receipt-grid {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+}
+
+#receipt-table table {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+#receipt-table table td {
+    padding: 0.5rem;
+}
+
+#receipt-table tr td:last-child {
+    width: 5rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+#receipt-table tr td:first-child {
+    width: 13rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+#receipt-table tr td:nth-child(2) {
+    text-align: left;
+}
+
+#receipt-table tr:nth-child(6) td,
+#receipt-table tr:last-child td {
+    text-align: right;
+}
+
+#receipt-table tr:nth-child(6) td:last-child {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+
+@media print {
+
+    #company-detail {
+        visibility: visible;
+    }
+
+    #nav-receipt, footer, pre, #company-details {
+        visibility: hidden;
+    }
+
+
+    
+
+}
 
 
 
-/* TSK TSK PAGE */
+
+
+/*------------------------------------------------------------------*/
+
+
+/*-------------------------- TSK TSK PAGE --------------------------*/
 
 #tsk-button-grid {
     max-width: 1000px;
@@ -1321,12 +1402,10 @@ pre {
         padding-right: 2rem;
     }
 
-
     .prices-seat-img {
     width: 250px;
     height: auto;
     }
-
 
     #prices-std-img, #prices-fc-img {
         padding-left: 1rem;
@@ -1434,8 +1513,8 @@ pre {
         font-size: 1.5rem;
     }
 
-    #book-tickets-btn {
-        margin-top:-70px;
+    .book-tickets-btn {
+        margin-top: 0;
     }
 
     #details-error-name, #details-error-email, #details-error-mobile {

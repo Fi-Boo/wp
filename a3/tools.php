@@ -368,8 +368,6 @@ function sessionSelection($var) {
                 </label> 
               </li>
         SESSIONSELECTION;
-
-      
         $counter++;
       }
     }
@@ -421,34 +419,39 @@ function ticketTable() {
 
 
 
-// function yourDetailsTr($name, $email, $mobile) {
+function yourDetailsTr() {
 
-//   $rowData = [
-//     '1' => ["name", "Full Name", "John Smith", $name],
-//     '2' => ["email", "Email", "JSmith@gmail.com", $email],
-//     '3' => ["mobile", "Number", "04XXXXXXXX", $mobile]
-//   ];
+  $rowData = [
+    '1' => ["name", "Full Name", "John Smith", "[a-zA-Z-' ]{2,}"],
+    '2' => ["email", "Email", "JSmith@gmail.com", "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"],
+    '3' => ["mobile", "Number", "04XXXXXXXX", "(\(04\)|04|\+614)( ?\d){8}"]
+  ];
 
-//   foreach ($rowData as $data) {
+  foreach ($rowData as $data) {
 
-//    $string = unsetFB($errorsOut['user'][$data[0]]);
-//    echo $string;
-
-
-//             echo <<<"DETAILSTR"
-//                   <tr id="details-tr-{$data[0]}">
-//                     <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="alertDetailsInfo($data[0])" onmouseout="hideDetailsInfo($data[0])">{$data[1]}:</div></th>
-//                     <td><input type="text" name="user[{$data[0]}]" value='$data[3]' placeholder='$data[2]' onclick="removeDetailsError($data[0])" ></td>
-//                   </tr>
-//                   <h1>$data[3]</h1>
-//             DETAILSTR;
-    
-//   }
-// }             
-
-// HEADER CODE
+  $value = unsetFB($_POST['user'][$data[0]]);
+  $errormsg = unsetFB($errorsOut['user'][$data[0]]);
 
 
+  echo <<<"STR"
+
+      <tr id="details-tr-name">
+        <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
+        <td>
+          <input type="text" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" pattern="{$data[3]}" required>
+          <div id="details-error-{$data[0]}"> $errormsg </div>
+        </td>
+      </tr>
+
+  STR;
+
+            
+  }
+}             
+
+
+
+// -----------------   HEADER CODE
 
 function headerModule() {
 
@@ -549,8 +552,166 @@ function printMyCode() {
 }
 
 
+function printToFile($var1, $POST) {
+
+  global $movies;
+
+  $currentSelection = $movies[$POST['movie']];
+
+  $printdata = [];
+
+  // adding order date to printout array
+  $orderDate = now();
+  array_push($printdata, $orderDate);
+
+  $totalPrice = (float) 0;
+
+  foreach ($POST['user'] as $customerDetail) {
+    // adding order user details
+    array_push($printdata, $customerDetail);
+  }
+
+  // adding movie code
+  $movieCode = $POST['movie'];
+  array_push($printdata, $movieCode);
+
+  // adding movie date
+  $movieDate = $POST['day'];
+  array_push($printdata, $movieDate);
+
+  $movieTime =getSessionTime($POST);
+  $priceType = getPriceType($movieDate, $movieTime);
+
+  foreach ($POST['seats'] as $seat => $value) {
+
+    if(empty($value)) {
+      $amount = '0';
+    } else {
+      $amount = $value;
+    }
+
+    // add number of tickets
+    array_push($printdata, $amount);
+    
+    $seatSubtotal = getSeatSubtotal($seat,$amount,$priceType);
+    $totalPrice += (float)$seatSubtotal;
+
+    // add ticket subtotal to printer string
+    $subtotal = "$" . format($seatSubtotal);
+    array_push($printdata, $subtotal);
+
+  }
+
+  // adding total 
+  $total = "$" . format($totalPrice);
+  array_push($printdata, $total);
+
+  // calculating and adding GST
+  $GST = "$".format($totalPrice/11);
+  array_push($printdata, $GST);
+
+  //print_r($printdata);
+
+
+  // opens file to 'append'
+  $file = fopen($var1,"a");
+
+  fputcsv($file, $printdata);
+  
+  
+  fclose($file);
+}
+
+//function to return date time now
+function now() {
+  date_default_timezone_set("Australia/Sydney"); 
+  return date("d-m-Y H:i:s");
+}
+
+// gets seat subtotal. Assume data is valid as it's passed POST validation.
+// matches seat code and price type (discount or full) and uses corresponding value to calculate subtotal
+function getSeatSubtotal($seat,$amount,$priceType) {
+  global $seating;
+  
+  foreach ($seating[$seat] as $type => $value) {
+    if ($type == $priceType) {
+      return ((float)$amount*(float)$value);
+    }
+  }
+}
+
+// format string to 2 decimal places
+function format($str) {
+  return number_format($str,2);
+}
+
+
 function unsetFB (&$str, $fallback = '') {
   return ( isset($str) ? $str : $fallback );
 }
+
+
+function getSessionTime($SESSION) {
+  global $movies;
+  $selectedMovie = $movies[$SESSION['movie']];
+
+  foreach ($selectedMovie['screenings'] as $day => $time) {
+    if ($day == $SESSION['day']) {
+      return $time;
+    }
+  }
+}
+
+function getPriceType($movieDate, $movieTime) {
+  if ($movieDate == 'Mon' || $movieTime == '12pm') {
+    return 'discprice';
+  } else {
+    return 'fullprice';
+  }
+}
+
+
+
+function generateReceiptTable($SESSION) {
+  global $movies;
+  global $seating;
+  $selectedMovie = $movies[$SESSION['movie']];
+  $movieDate = $SESSION['day'];
+  $movieTime = getSessionTime($SESSION);
+  $priceType = getPriceType($movieDate, $movieTime);
+  $total = (float)'0';
+  $GST = (float)'0';
+
+  foreach ($SESSION['seats'] as $seat => $number) {
+    if (!empty($number)) {
+      $subtotal = format(getSeatSubtotal($seat,$number,$priceType));
+      $total += (float)$subtotal;
+      $seatDesc = $seating[$seat]['desc'];
+      
+
+      echo <<<"RECEIPT"
+        <tr>
+          <td>$seatDesc</td>
+          <td>x $number</td>
+          <td>$$subtotal</td>
+        </tr>  
+      RECEIPT;
+    }
+  }
+  $GST = format($total/11);
+  echo <<<"RECEIPTP2"
+      <tr>
+        <td colspan='2'>included GST:</td>
+        <td>$$GST</td>
+      </tr>
+      <tr>
+        <td colspan='2'>Total:</td>
+        <td><h3>$$total</h3></td>
+      </tr>
+      
+    RECEIPTP2;
+
+}
+
 
  ?>

@@ -10,18 +10,14 @@
 
     if (empty($errorsOut)) {
       $_SESSION = $_POST;
-
-      // should print to file here
-      
+      printToFile('bookings.txt',$_POST); 
       header("Location: receipt.php");
     } 
   } 
 
   validateRequest($_GET['movie']);
   headerModule();
-
-
-
+ 
 ?>
 
     <script> 
@@ -62,7 +58,6 @@
           <div id ="booking-form">
             
               <form method='post'>
-              <!-- <form method='post' novalidate> -->
               <input type="hidden" name="movie" value="<?= $_GET['movie']?>">
             
               <!-- radio buttons for session date selection-->
@@ -103,37 +98,12 @@
                 <div id ="details-grid">
                   <div>
                     <table id="details-table">
-
-                      <tr id="details-tr-name">
-                        <th><div class="details-info" id="details-name"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('name')" onmouseout="hideDetailsInfo('name')" ><label for="user[name]">Full Name:</label></div></th>
-                        <td>
-                          <input type="text" name="user[name]" value='<?= unsetFB($username) ?>' placeholder='John Smith' onclick="removeDetailsError('name')" pattern="[a-zA-Z-' ]{2,}" required>
-                          <div id="details-error-name"> <?= unsetFB($errorsOut['user']['name']); ?> </div>
-                        </td>
-                      </tr>
-
-                      <tr id="details-tr-email">
-                        <th><div class="details-info" id="details-email"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('email')" onmouseout="hideDetailsInfo('email')"><label for="user[email]">Email:</label></div></th>
-                        <td>
-                          <input type="text" name="user[email]" value='<?= unsetFB($email) ?>' placeholder='JohnS@gmail.com' onclick="removeDetailsError('email')" pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
-                          <div id="details-error-email"> <?= unsetFB($errorsOut['user']['email']); ?> </div>
-                        </td>
-                      </tr>
-
-                      <tr id="details-tr-mobile">
-                        <th><div class="details-info" id="details-mobile"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('mobile')" onmouseout="hideDetailsInfo('mobile')"><label for="user[mobile]">Number:</label></div></th>
-                        <td>
-                          <input type="text" name="user[mobile]" value='<?= unsetFB($number) ?>' placeholder='04XX XXX XXX' onclick="removeDetailsError('mobile')" pattern = "(\(04\)|04|\+614)( ?\d){8}" required>
-                          <div id="details-error-mobile"> <?= unsetFB($errorsOut['user']['mobile']); ?> </div>
-                        </td>  
-                      </tr>  
-
+                      <?php yourDetailsTr(); ?>
                     </table> 
                     
                   </div>
                   <div class="book-tickets-btn">
-                    <input type="submit" value="Book Tickets " >
-                    <!-- <input type="submit" value="Book Tickets " formnovalidate> -->
+                    <input type="submit" value="Book Tickets">
                   </div>
                   
                 </div>

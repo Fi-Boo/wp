@@ -121,7 +121,7 @@ function calculateSubTotals() {
     }
 
     if (document.getElementById('details-error-name').innerHTML == '  ') {
-        console.log("something wrong");
+        //console.log("something wrong");
         alertChange('name', 'hidden');
     }
 
@@ -209,7 +209,6 @@ function alertChange(alert, style) {
     }
 }
 
-
 var seatCodes = [
     'STA',
     'STP',
@@ -246,7 +245,7 @@ function calculateTotals() {
             //console.log(total);
             if (subTotal != 0) {
                 document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "$" + subTotal.toFixed(2); 
-                console.log("test");
+                //console.log("test");
             } else {
                 document.getElementById("pricesubtotal[" + seatCodes[i] +"]").innerHTML = "";   
             }
