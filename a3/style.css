@@ -326,7 +326,7 @@ h2 {
     'description';
 }
 
-.aboutus-content, .prices-content, table {
+.aboutus-content, table {
     padding: 0.5rem 0.5rem;
     text-align: justify;
 }
@@ -412,6 +412,12 @@ h2 {
 
 .prices-seat-img:hover {
     background-image: linear-gradient(to right, rgb(102,111,190) 25%, transparent);
+}
+
+.prices-content {
+    padding: 1rem;
+    max-width: 37rem;
+    text-align: justify;
 }
 
 /* text rotation - https://css-tricks.com/snippets/css/text-rotation/ */
@@ -1206,6 +1212,13 @@ pre {
     padding-top: 2rem;
 }
 
+
+
+
+
+
+
+
 #company-detail {
     visibility: hidden;
 }
@@ -1241,7 +1254,7 @@ pre {
     text-align: left;
 }
 
-#receipt-table tr:nth-child(6) td,
+#receipt-table tr:nth-last-child(2) td,
 #receipt-table tr:last-child td {
     text-align: right;
 }
@@ -1385,6 +1398,12 @@ pre {
 
     /* prices */
 
+    #pricestable {
+
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
     #prices-grid {
         gap: 2rem;
         grid-template-columns: 2fr 3fr;
@@ -1392,6 +1411,10 @@ pre {
         'std-seat-img std-seat-description'
         'fc-seat-img fc-seat-description'
         'prices-table prices-table';
+    }
+
+    .prices-content {
+        margin-left: 0;
     }
 
     .aboutus-img {
@@ -1409,6 +1432,8 @@ pre {
 
     #prices-std-img, #prices-fc-img {
         padding-left: 1rem;
+        margin-right: 2.5rem;
+        margin-left: auto;
     }
     
     #prices-std-description, #prices-fc-description {
@@ -1540,6 +1565,21 @@ pre {
         background: transparent;
     }
 
+    .prices-content {
+        margin: 0;
+        padding: 0;
+    }
+
+    .prices-img-block {
+        padding-left: 0;
+    }
+
+
+    #std-class, #fc-class {
+        margin-left: 0;
+
+    }
+
     #movie-section-grid {
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
@@ -1608,9 +1648,17 @@ pre {
 
     #prices-grid {
         grid-template-columns: 2fr 3fr 2fr 3fr;
+        gap: 0;
         grid-template-areas:
         'std-seat-img std-seat-description fc-seat-img fc-seat-description'
         'prices-table prices-table prices-table prices-table';
+    }
+
+    .prices-img-block {
+    }
+
+    .prices-content p {
+        margin-right: 0;
     }
 
     .section-title{

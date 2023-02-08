@@ -237,7 +237,7 @@ function contentModule($var1, $var2) {
     } elseif ($var1 == 'SeatDesc') {
       
       echo <<<"SEATINGDESC"
-        <div class="prices-content prices-img-block" id="prices-{$content['cite']}-img">
+        <div class="prices-img-block" id="prices-{$content['cite']}-img">
           <div id="{$content['cite']}-class"><p>{$content['image-alt']}</p></div>
           <div class="prices-seat-img"><img src="../../media/{$content['image']}" alt="{$content['image-alt']}" seat></div>
         </div>

@@ -19,20 +19,20 @@
 
     <section>
         <div id ='receipt-grid'>
-            <div id = 'print-header-details'>
-                <div id='-flex'>
-                    <div id ='footer-flex-inner'>
-                        <div id='footer-logo'><img src='../../media/logo-blk.png'></div>
-                        <div id='company-details'>
-                        <h2>Lunardo Cinema</h2> 
-                        1 Mystery Lane <br>
-                        Fakeville 6000 <br>
-                        Victora <br>
-                        <hr>
-                        e | info@lunardocinema.com.au <br>
-                        t | (09) 9555 4554 <br>
-                    </div>
+            <div id = 'print-header'>
+                
+                <div id ='footer-flex-inner'>
+                    <div id='footer-logo'><img src='../../media/logo-blk.png'></div>
+                    <div id='company-details'>
+                    <h2>Lunardo Cinema</h2> 
+                    1 Mystery Lane <br>
+                    Fakeville 6000 <br>
+                    Victora <br>
+                    <hr>
+                    e | info@lunardocinema.com.au <br>
+                    t | (09) 9555 4554 <br>
                 </div>
+                
             </div>
         
             
