@@ -335,7 +335,7 @@ function printTicket(variable) {
         groupTicket.style.height = 'fit-content';
         groupTicket.style.visibility = 'visible';
         groupTicket.style.overflow = 'none';
-        groupTicket.style.pageBreakAfter = 'always';
+        //groupTicket.style.pageBreakAfter = 'always';
 
         for (i=0; i< singleTicket.length; i++) {
             singleTicket[i].style.height = '0';
@@ -345,16 +345,19 @@ function printTicket(variable) {
         }
         
     } else if (variable == 'singles') {
-        for (i=0; i< singleTicket.length; i++) {
+        for (i=0; i< singleTicket.length-1; i++) {
         singleTicket[i].style.height = 'fit-content';
         singleTicket[i].style.visibility = 'visible';
         singleTicket[i].style.overflow = 'none';
         singleTicket[i].style.pageBreakAfter = 'always';
         }
+        singleTicket[(singleTicket.length)-1].style.height = 'fit-content';
+        singleTicket[(singleTicket.length)-1].style.visibility = 'visible';
+        singleTicket[(singleTicket.length)-1].style.overflow = 'none';
         groupTicket.style.height = '0';
         groupTicket.style.visibility = 'hidden';
         groupTicket.style.overflow = 'hidden';
-        groupTicket.style.pageBreakAfter = 'auto';
+        //groupTicket.style.pageBreakAfter = 'auto';
         
     }
 
