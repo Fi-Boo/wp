@@ -75,6 +75,7 @@
         
             <?= generateTickets($_SESSION,'GROUP'); ?>
         </div>
+        <br>
     </section>
     <?php 
         footerModule();

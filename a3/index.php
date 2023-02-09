@@ -1,6 +1,7 @@
 <?php     
   include "tools.php"; 
   
+  session_unset();
   headerModule();
 ?>
 
