@@ -2004,23 +2004,36 @@ pre {
 #test-container, #test-container2 {
 
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-areas:
+    'sectionA sectionB';
     width: 700px;
     height:auto;
     background-color: transparent;
     margin: 0 auto;
 
 }
+
 #test-container {
-    right: 24.5%;
+    right: 10%;
 }
 
 #test-container2 {
-    left: 24.5%;
-    bottom: 242px;
+    left: 10%;
+    bottom: 253px;
 }
 
-.test-description {
+
+.test-description, .test-img2 {
+    grid-area: sectionB;
+}
+
+
+.test-img, .test-description2 {
+    grid-area: sectionA;
+}
+
+.test-description, .test-description2 {
     color: white;
     width: 450px;
     padding: 1rem 5px 0 60px;
@@ -2030,7 +2043,11 @@ pre {
     box-sizing: border-box; /* -- this is handy -- */
 }
 
-.test-banner {
+.test-description {
+    padding: 1rem 60px 0 5px;
+}
+
+.test-banner, .test-banner2 {
     display: flex;
     position: absolute;
     width: 450px;
@@ -2041,65 +2058,122 @@ pre {
     z-index: -0;
 }
 
-#slider, #slider1 {
+.test-banner {
+    flex-flow: row-reverse;
+}
+
+.test-banner {
+    right: 0;
+}
+
+#slider {
+    /* position: absolute; */
+    right:0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    background: black;
+    transition: 0s;
+}
+
+
+#slider2 {
     /* position: absolute; */
     left:0;
     top: 0;
     height: 100%;
     width: 400px;
     background: black;
-    transition: width 1s;
+    transition: 0s;
 }
 
-#slider:hover {
+
+/* #slider:hover, #slider2:hover {
     width: 0;
-}
+} */
 
-.aside {
+.aside, .aside2 {
     position: relative;
     width: 50px;
     height: 100%;
     text-align: center;
     margin-left: 0;
     transition: 1s;
+    border-left: 1px solid black;
     border-right: 1px solid black;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
     letter-spacing: 0.1rem;
     font-family: 'Rajdhani', sans-serif;
     /* text-transform: uppercase; */
 }
 
+.aside {
+    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+}  
 
-.aside h3 {
+.aside2 {
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    
+}
+
+
+
+.aside h3, .aside2 h3 {
     position: absolute;
-    top: 150px;
-    left: 0.75rem;
     letter-spacing: 2px;
     color: #fff;
     line-height: 24px;
     transform-origin: 0 0;
+    width: 150px;
+}
+
+.aside h3 {
+    left: 2.25rem;
+    transform: rotate(90deg);
+}
+
+.aside2 h3 {
+    top: 150px;
+    left: 0.75rem;
     transform: rotate(-90deg);
-    
-  }
+}
 
 
 .test-img {
+    width: 250px;
+    height: 253px;
+    background-image: linear-gradient(to left, rgb(102,111,190), transparent 50% );
+}
+
+.test-img2{
     align-self: right;
     width: 250px;
+    height: 253px;
     background-image: linear-gradient(to right, rgb(102,111,190), transparent 50% );
 }
 
+
+
 .test-img:hover {
-    background-image: linear-gradient(to right, rgb(102,111,190), transparent );
-    transition: color 0.5s;
+    background-image: linear-gradient(to left, rgb(102,111,190), transparent );
+    transition: color 1s;
 }
 
-.test-img img {
+.test-img2:hover {
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent );
+    transition: color 1s;
+}
+
+
+.test-img img, .test-img2 img{
     width: 240px;
     height: auto;
+    padding-top: 1rem;
 }
 
+.test-img2 img {
+    padding-top: 3rem;
+}
 
 
 /* -------------------------------------------*/

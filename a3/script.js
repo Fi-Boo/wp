@@ -371,35 +371,34 @@ function printTicket(variable) {
     window.print();
 }
 
-function slideLeft() {
+function STslideLeft() {
 
-    console.log('slide left');
-
-    document.querySelector('#slider').style.width = '0';
-}
-
-
-function slideRight() {
-
-    console.log('slide right');
 
     document.querySelector('#slider').style.width = '400px';
+    document.querySelector('#slider').style.transition = '0s';
+}
+
+
+function STslideRight() {
+
+    document.querySelector('#test-container').style.zIndex = '+4';
+    document.querySelector('#slider').style.width = '0px';
+    document.querySelector('#slider').style.transition = '1s';
 
 }
 
-function slideLeft1() {
+function FCslideLeft() {
 
-    console.log('slide left1');
-
-    document.querySelector('#slider1').style.width = '0';
-
+    document.querySelector('#test-container').style.zIndex = '0';
+    document.querySelector('#slider2').style.width = '0px';
+    document.querySelector('#slider2').style.transition = 'width 1s';
 
 }
 
-function slideRight1() {
+function FCslideRight() {
 
-    console.log('slide right1');
 
-    document.querySelector('#slider1').style.width = '400px';
+    document.querySelector('#slider2').style.width = '400px';
+    document.querySelector('#slider2').style.transition = '0s';
 
 }
