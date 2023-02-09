@@ -12,7 +12,7 @@
     <nav>
         <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
         <div id="navbar">
-            <div id='nav-receipt'><h3 id='book-title'> Booking Confirmation</h3><h3 id='book-ref'>[ X9T4TH ]</h3>
+            <div id='nav-receipt'><h3 id='book-title'> Booking Confirmation</h3><h3 id='book-ref'>[ <?= $_SESSION['ref'] ?> ]</h3>
             </div>
         </div>
     </nav>
@@ -32,13 +32,12 @@
                 </div>
                 <div id='receipt-ref'>
                     <h2>Booking <br> Confirmation </h2><br>
-                    <h1>REF: X9T4TH</h1>
+                    <h1>REF: <?= $_SESSION['ref']  ?></h1>
                 </div>
             </div>
 
             <div id='receipt-details'>
                 <div id = 'receipt-user-details'>
-                    <hr>
                     <h3> User Details</h3>
                     <p> <?= $_SESSION['user']['name']; ?> </p>
                     <p>(e): <?= $_SESSION['user']['email']; ?> </p>
@@ -47,22 +46,34 @@
                 </div>    
                 <div id = 'receipt-booking-details'>
                     <h3> Session Details </h3>
-                    <p> <?= $movies[$_SESSION['movie']]['title']; ?></p>
-                    <p> <?= $_SESSION['day']; ?>day <?= getSessionTime($_SESSION); ?></p>
-                    <hr>
+                    - MOVIE -
+                    <h4> <?= $movies[$_SESSION['movie']]['title']; ?> <br>
+                    (<?= $movies[$_SESSION['movie']]['rating'] ?>)</h4>
+                    - DATE & TIME -
+                    <h4> 31/2/2512 <?= $_SESSION['day']; ?>day 
+                    <?= getSessionTime($_SESSION); ?></h4>
                 </div>
             </div>
-        </div>
-            <div id = 'receipt-table'>
-                <table>    
-                    <?= generateReceiptTable($_SESSION); ?>
-                </table>
+            <div id = 'receipt-table'>         
+                <?= generateSeatTable($_SESSION,'receipt'); ?>
             </div>
             <div id='message'>
                 <h1> We look forward to seeing you soon... </h1>
             </div>
-            <div id='receipt-tickets'>
+        </div>
+        <div id='print-buttons'>
+            <div class="receipt-print">
+                <button class="receipt-print-btn" type="button" value='print' onclick='printTicket("group")'>Print Group Ticket</button>
             </div>
+            <div class="receipt-print">
+                <button class="receipt-print-btn" type="button" onclick='printTicket("singles")'>Print Single Tickets</button>
+                </div>
+            </div>
+        </div>
+        <div>
+        <div id='receipt-tickets'>
+        
+            <?= generateTickets($_SESSION,'GROUP'); ?>
         </div>
     </section>
     <?php 
@@ -71,3 +82,7 @@
     ?>
 </body>
 </html>
+
+
+
+

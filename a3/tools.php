@@ -30,6 +30,7 @@ $movies = [
     "runtime" => "3h 12m",
     "rating" => "PG-13",
     "poster" => "../../media/Avatar2.jpg",
+    "ticket-img" => "../../media/Avatar2-tkt.png",
     "synopsis" => "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
     "trailer" => "https://www.youtube.com/embed/o5F8MOz_IDw",
     "director" => "James Cameron",
@@ -54,6 +55,7 @@ $movies = [
     "runtime" => "1h 48m",
     "rating" => "TV-14",
     "poster" => "../../media/weird.jpg",
+    "ticket-img" => "../../media/weird-tkt.png",
     "synopsis" => "Explores every facet of Yankovic's life, from his meteoric rise to fame with early hits like 'Eat It' and 'Like a Surgeon' to his torrid celebrity love affairs and famously depraved lifestyle.",
     "trailer" => "https://www.youtube.com/embed/RyYZOtAxYKY",
     "director" => "Eric Appel",
@@ -78,6 +80,7 @@ $movies = [
     "runtime" => "1hr 42m",
     "rating" => "PG",
     "poster" => "../../media/pussinboots.jpg",
+    "ticket-img" => "../../media/pussinboots-tkt.png",
     "synopsis" => "Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
     "trailer" => "https://www.youtube.com/embed/RqrXhwS33yc",
     "director" => "Joel Crawford",
@@ -102,6 +105,7 @@ $movies = [
     "runtime" => "2h",
     "rating" => "MA-15+",
     "poster" => "../../media/margrete.jpg",
+    "ticket-img" => "../../media/margrete-tkt.png",
     "synopsis" => "1402. Queen Margrete is ruling Sweden, Norway and Denmark through her adopted son, Erik. But a conspiracy is in the making and Margrete finds herself in an impossible dilemma that could shatter her life's work: the Kalmar Union.",
     "trailer" => "https://www.youtube.com/embed/-7OCX98JgGk",
     "director" => "Charlotte Sieling",
@@ -672,7 +676,7 @@ function getPriceType($movieDate, $movieTime) {
 
 
 
-function generateReceiptTable($SESSION) {
+function generateSeatTable($SESSION,$var) {
   global $movies;
   global $seating;
   $selectedMovie = $movies[$SESSION['movie']];
@@ -682,24 +686,34 @@ function generateReceiptTable($SESSION) {
   $total = (float)'0';
   $GST = (float)'0';
 
+  echo '<table>';
+
   foreach ($SESSION['seats'] as $seat => $number) {
     if (!empty($number)) {
       $subtotal = format(getSeatSubtotal($seat,$number,$priceType));
       $total += (float)$subtotal;
       $seatDesc = $seating[$seat]['desc'];
       $total = format($total);
+      $dataStr ='';
+      
+      if ($var == 'receipt') {
+        $dataStr = '<td>$' . $subtotal . '</td>';
+      } 
 
       echo <<<"RECEIPT"
         <tr>
           <td>$seatDesc</td>
           <td>x $number</td>
-          <td>$$subtotal</td>
+          $dataStr
         </tr>  
       RECEIPT;
     }
   }
-  $GST = format($total/11);
-  echo <<<"RECEIPTP2"
+
+  if ($var == 'receipt') {
+
+    $GST = format($total/11);
+    echo <<<"RECEIPTP2"
       <tr>
         <td colspan='2'>included GST:</td>
         <td>$$GST</td>
@@ -708,10 +722,130 @@ function generateReceiptTable($SESSION) {
         <td colspan='2'>Total:</td>
         <td><h3>$$total</h3></td>
       </tr>
-      
+    
     RECEIPTP2;
+  }
+  echo '</table>';
 
 }
+
+
+// function that generates a random 6 character booking reference
+function generateBR($n) {
+  global $bookingRef;
+
+    // https://www.geeksforgeeks.org/generating-random-string-using-php/
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+ 
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
+    $_SESSION['ref'] = $randomString;
+  }
+
+
+function getTotalTickets($SESSION) {
+ $totalSeats = (int)0;
+ $strOut;
+ 
+  foreach ($SESSION['seats'] as $seat => $number) {
+    if (!empty($number)) {
+      $totalSeats += (int)$number;
+    }
+  }
+
+  if ($totalSeats < 10) {
+    $strOut = '0'.(string)$totalSeats;
+  }
+
+  return $strOut;
+}
+
+
+function generateTickets($SESSION, $var) {
+
+  global $movies;
+  global $seating;
+
+  $sessionTime = getSessionTime($SESSION);
+  $totalTickets = getTotalTickets($SESSION);
+  //$seatTable = generateSeatTable($SESSION,'ticket');
+
+  echo <<<"GENTIXG"
+    <div id='ticket-group'>
+      <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
+      <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
+      <div class='ticket-details'> 
+          <h3> Session Details </h3>
+          - MOVIE -
+          <h4> {$movies[$SESSION['movie']]['title']} <br>
+          ({$movies[$SESSION['movie']]['rating']})</h4>
+          - DATE & TIME -
+          <h4> 31/2/2512 {$SESSION['day']}day 
+          {$sessionTime}</h4>
+          - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
+  GENTIXG;
+  generateSeatTable($SESSION,'ticket');
+  echo <<<"GENTIXG2"
+          <br>
+          <div class='receipt-barcode'>
+              <img src="../../media/barcode.png" alt='ticket barcode'>
+          </div>
+          <h3>{$SESSION['ref']}-GT{$totalTickets}</h3>
+          <hr>
+          <div class='receipt-appleG'>
+              <img src="../../media/applewallet.png" alt='ticket barcode'>
+          </div>
+          <hr>
+          <div class='receipt-appleG'>
+              <img src="../../media/gpay.png" alt='ticket barcode'>
+          </div>
+      </div>
+    </div>
+  GENTIXG2;
+
+  foreach ($SESSION['seats'] as $seat => $number) {
+    if (!empty($number)) {
+      for ($i = 1; $i <= $number; $i++) {
+        echo <<<"GENTIXS"
+          <div class='ticket-single'>
+            <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
+            <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
+            <div class='ticket-details'> 
+                <h3> Session Details </h3>
+                - MOVIE -
+                <h4> {$movies[$SESSION['movie']]['title']} <br>
+                ({$movies[$SESSION['movie']]['rating']})</h4>
+                - DATE & TIME -
+                <h4> 31/2/2512 {$SESSION['day']}day 
+                {$sessionTime}</h4>
+                - ADMISSION TYPE: <h3>SINGLE</h3> 
+                <div class='seatType'> {$seating[$seat]['desc']} x1</div>
+                <br>
+                <div class='receipt-barcode'>
+                    <img src="../../media/barcode.png" alt='ticket barcode'>
+                </div>
+                <h3>{$SESSION['ref']}-{$seat}{$i}</h3>
+                <hr>
+                <div class='receipt-appleG'>
+                    <img src="../../media/applewallet.png" alt='ticket barcode'>
+                </div>
+                <hr>
+                <div class='receipt-appleG'>
+                    <img src="../../media/gpay.png" alt='ticket barcode'>
+                </div>
+            </div>
+          </div>
+        GENTIXS;
+      }
+    }
+  }
+
+}
+
+
 
 
  ?>

@@ -323,3 +323,40 @@ function errorpress(number) {
             return true;
     }          
 }
+
+function printTicket(variable) {
+    console.log('got here');
+    var groupTicket = document.querySelector('#ticket-group');
+    var singleTicket = document.getElementsByClassName('ticket-single');
+
+
+    if (variable == 'group') {
+
+        groupTicket.style.height = 'fit-content';
+        groupTicket.style.visibility = 'visible';
+        groupTicket.style.overflow = 'none';
+        groupTicket.style.pageBreakAfter = 'always';
+
+        for (i=0; i< singleTicket.length; i++) {
+            singleTicket[i].style.height = '0';
+            singleTicket[i].style.visibility = 'hidden';
+            singleTicket[i].style.overflow = 'hidden';
+            singleTicket[i].style.pageBreakAfter = 'auto';
+        }
+        
+    } else if (variable == 'singles') {
+        for (i=0; i< singleTicket.length; i++) {
+        singleTicket[i].style.height = 'fit-content';
+        singleTicket[i].style.visibility = 'visible';
+        singleTicket[i].style.overflow = 'none';
+        singleTicket[i].style.pageBreakAfter = 'always';
+        }
+        groupTicket.style.height = '0';
+        groupTicket.style.visibility = 'hidden';
+        groupTicket.style.overflow = 'hidden';
+        groupTicket.style.pageBreakAfter = 'auto';
+        
+    }
+
+    window.print();
+}

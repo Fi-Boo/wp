@@ -358,7 +358,7 @@ h2 {
     'std-seat-img'
     'std-seat-description'
     'fc-seat-img'
-    'fc-seat-description'
+    'fc-seat-description';
 }
 
 #prices-title {
@@ -1222,16 +1222,17 @@ pre {
     font-family: 'Rajdhani', sans-serif;
 }
 
+/* --- RECEIPT.PHP ---*/
+
 #receipt-grid {
     display: grid;
-    gap: 1rem;
     margin: 0 auto;
     max-width: 1000px;
     grid-template-areas:
     'header'
     'details'
     'cost-table'
-    'message'
+    'message';
 }
 
 /* --- receipt head --- */
@@ -1363,16 +1364,142 @@ pre {
 }
 
 
+
+
+/*-- BUTTONS TO PRINT SINGLE OR GROUP TICKET --*/
+
+#print-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.receipt-print {
+    display: inline-block;
+    padding:0 2rem;
+}
+
+.receipt-print-btn {
+    margin: auto;
+    align-self: center;
+    text-align: center;
+    padding: 1rem;
+    width:10rem;
+    background-repeat: no-repeat;
+    background-color:#d4af37;
+    border-radius: 3rem;
+    font-weight: 700;
+    box-shadow:
+    inset 0 4px 5px rgba(255,255,255,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+    margin: 0 auto 3rem;
+    margin-top: 20px;
+    text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
+}
+
+.receipt-print-btn:hover {
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+.receipt-print-btn:active {
+    background-color: grey;
+    box-shadow:
+    inset 0 4px 5px rgba(0,0,0,0.6),
+    inset 0 -4px 5px rgba(0,0,0,0.6),
+    0 2px 2px rgba(255,255,255,0.9);
+    color: gold;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
 #receipt-tickets {
     grid-area: tickets;
+    margin: 0 auto 4rem auto ;
+    background: black;
+}
+
+/* --- receipt-tickets ---*/
+
+
+
+#ticket-group, .ticket-single {
+    width: 300px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 1rem;
+    font-size: 1rem;
+    margin: 0 auto 1rem;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    page-break-inside: avoid;
+    page-break-after: auto;
 }
 
 
+.ticket-logo {
+    width: 50px;
+    margin: 0.5rem;
+}
+
+.ticket-logo img, .ticket-img img, .receipt-barcode img, .receipt-appleG img {
+    width: 100%;
+}
+
+.ticket-img img {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;  
+}
+
+.ticket-details {
+    text-align: center;
+}
+
+.ticket-details h3, .ticket-details h4, 
+#receipt-booking-details h4 {
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+.ticket-details h3, .ticket-details h4 {
+    color: black;
+}
+
+.receipt-barcode {
+    width: 100px;
+    margin: 0 auto;
+}
+
+.receipt-appleG {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#receipt-tickets table, .seatType {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+#receipt-tickets table tr td {
+    border: none;
+    padding: 0;
+    margin: 0 auto;
+    color: black;
+    text-shadow: none;
+}
+
+#receipt-tickets table tr td:last-child {
+    text-align: left;
+}
 
 @media print {
 
     #sec-receipt {
-        margin-top: -5rem;
+        margin-top: 10rem;
     }
 
     body, h1, h2, h3, p, th, td {
@@ -1382,19 +1509,24 @@ pre {
 
     #receipt-print-head {
         visibility: visible;
-        height: auto;
+        height: 200px;
     }
 
     header, nav, footer, pre {
         visibility: hidden;
+        height: 0;
+        overflow: hidden; 
     }
 
     #receipt-grid {
+        gap: 1rem;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
         'header header header'
         'details cost-table cost-table'
-        'message message message'
+        'message message message';
+        page-break-inside: avoid;
+        page-break-after: always;
     }
     
     hr, #receipt-details hr {
@@ -1407,13 +1539,18 @@ pre {
 
     }
 
-    #receipt-grid {
-        page-break-inside: avoid;
-        page-break-after: always;
+
+    #print-buttons {
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
     }
 
+    html, body, div{ 
+        overflow: hidden;
+    }
+}   
 
-}
 
 
 
@@ -1544,7 +1681,7 @@ pre {
         grid-template-columns: 39fr 61fr;
         grid-template-areas:
         'std-seat-img std-seat-description'
-        'fc-seat-img fc-seat-description'
+        'fc-seat-img fc-seat-description';
     }
 
     #std-class, #fc-class {
@@ -1698,7 +1835,7 @@ pre {
         grid-template-areas:
         'header header header'
         'details cost-table cost-table'
-        'message message message'
+        'message message message';
     }
 
     #navbar h3{
