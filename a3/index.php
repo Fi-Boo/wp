@@ -34,42 +34,70 @@
             contentModule('SeatDesc','seat-fc'); 
             ?> 
         </div>
-        </div>
-          <table id="pricestable">
-            <tr>
-              <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?> day. </strong></cite></td>
-            </tr>
-            <tr>
-              <th>Ticket</th>
-              <th>Standard</th>
-              <th>Discount</th>
-              <th>First Class</th>
-              <th>Discount</th>
-            </tr>
-            <tr>
-              <td>Adult</td>
-              <?= 
-                tableData('STA');
-                tableData('FCA');
-                ?>
-            </tr>
-            <tr>
-            <tr>
-              <td>Concession</td>
-              <?= 
-                tableData('STP');
-                tableData('FCP');
-                ?>
-            </tr>
-            <tr>
-            <tr>
-              <td>Child</td>
-              <?= 
-                tableData('STC');
-                tableData('FCC');
-                ?>
-            </tr>
-          </table>
+        <table id="pricestable">
+          <tr>
+            <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?> day. </strong></cite></td>
+          </tr>
+          <tr>
+            <th>Ticket</th>
+            <th>Standard</th>
+            <th>Discount</th>
+            <th>First Class</th>
+            <th>Discount</th>
+          </tr>
+          <tr>
+            <td>Adult</td>
+            <?= 
+              tableData('STA');
+              tableData('FCA');
+              ?>
+          </tr>
+          <tr>
+            <td>Concession</td>
+            <?= 
+              tableData('STP');
+              tableData('FCP');
+              ?>
+          </tr>
+          <tr>
+            <td>Child</td>
+            <?= 
+              tableData('STC');
+              tableData('FCC');
+              ?>
+          </tr>
+        </table>
+        <div id='test-grid'>
+          <div class ='box'>
+          <div id='test-container'>
+            <div class="test-description">
+              <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+              <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
+            </div>
+            <div class='test-banner'>
+              <div id='slider'></div>
+              <div class ='aside'><h3> Standard </h3></div>
+            </div>
+            <div class="test-img" >
+              <img src="../../media/Profern-Standard-Twin.png" onmouseover="slideLeft()" onmouseout="slideRight()">
+            </div>
+          </div>
+          </div>
+          <div id='box'>
+          <div id='test-container2'>
+            <div class="test-description">
+              <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+              <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
+            </div>
+            <div class='test-banner'>
+              <div id='slider1'></div>
+              <div class ='aside'><h3> Standard </h3></div>
+            </div>
+            <div class="test-img" >
+              <img src="../../media/Profern-Standard-Twin.png" onmouseover="slideLeft1()" onmouseout="slideRight1()">
+            </div>
+          </div>
+        </div>  
         </div>
       </section>
 

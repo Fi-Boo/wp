@@ -833,7 +833,7 @@ legend {
 #booking-date label, #booking-date input {
     display: block;
     position: absolute;
-    top: 5;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -1004,7 +1004,7 @@ select option:checked {
 
 #details-table th {
     width: 7em;
-    padding: auto 0;
+    padding: 0;
 }
 
 #details-table tr:first-child th {
@@ -1711,7 +1711,6 @@ pre {
     .prices-content {
         margin-left: -1rem;
         padding-left: 0;
-        padding-right: auto;
         max-width: 100%;
     }
 
@@ -1979,3 +1978,129 @@ pre {
     }
 
 }
+
+#test-flex {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'box1 box2';
+    width: 1500px;
+    border: 1px solid red;
+}
+
+#test-container {
+    grid-area: box1;
+}
+
+#test-container {
+    grid-area: box2;
+}
+
+.box {
+    position: static;
+}
+
+#test-container, #test-container2 {
+
+    position: relative;
+    display: flex;
+    width: 700px;
+    height:auto;
+    background-color: transparent;
+    margin: 0 auto;
+
+}
+#test-container {
+    right: 24.5%;
+}
+
+#test-container2 {
+    left: 24.5%;
+    bottom: 242px;
+}
+
+.test-description {
+    color: white;
+    width: 450px;
+    padding: 1rem 5px 0 60px;
+    background-color: rgb(102,111,190);
+    margin: 0;
+    text-align: justify;
+    box-sizing: border-box; /* -- this is handy -- */
+}
+
+.test-banner {
+    display: flex;
+    position: absolute;
+    width: 450px;
+    height: 100%;
+    right: 250px;
+    top: 0;
+    background: transparent;
+    z-index: -0;
+}
+
+#slider, #slider1 {
+    /* position: absolute; */
+    left:0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    background: black;
+    transition: width 1s;
+}
+
+#slider:hover {
+    width: 0;
+}
+
+.aside {
+    position: relative;
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    margin-left: 0;
+    transition: 1s;
+    border-right: 1px solid black;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    letter-spacing: 0.1rem;
+    font-family: 'Rajdhani', sans-serif;
+    /* text-transform: uppercase; */
+}
+
+
+.aside h3 {
+    position: absolute;
+    top: 150px;
+    left: 0.75rem;
+    letter-spacing: 2px;
+    color: #fff;
+    line-height: 24px;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+    
+  }
+
+
+.test-img {
+    align-self: right;
+    width: 250px;
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent 50% );
+}
+
+.test-img:hover {
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent );
+    transition: color 0.5s;
+}
+
+.test-img img {
+    width: 240px;
+    height: auto;
+}
+
+
+
+/* -------------------------------------------*/
+

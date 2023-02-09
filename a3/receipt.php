@@ -2,8 +2,8 @@
     include 'tools.php';
 
     if(empty($_SESSION['movie'])) {
-        //header("Location: index.php"); // redirect if movie code invalid
-        //exit();
+        header("Location: index.php"); // redirect if movie code invalid
+        exit();
     }
 
     headerModule();
@@ -20,7 +20,7 @@
     <section id='sec-receipt'>
         <div id='receipt-grid'>
             <div id= 'receipt-print-head'>
-                <div id='receipt-logo'><img src='../../media/logo-blk.png'></div>
+                <div id='receipt-logo'><img src='../../media/logo-blk.png' alt='Lunardo logo'></div>
                 <div id='company-details'>
                     <h2>Lunardo Cinema</h2> 
                     1 Mystery Lane <br>

@@ -37,6 +37,8 @@ function windowScroll(page, size) {
         //console.log(size);
         //console.log("Win Y: "+ window.scrollY);
 
+        var offsetValue;
+
         if (page == 'index') {
 
             if (size == 'small') {
@@ -81,7 +83,7 @@ function windowScroll(page, size) {
                 document.querySelector('#logo img').style.opacity = '1';
                 document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'none';
                 document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'none';
-                document.getElementsByClassName('nav-li')[0].style.height = '30%'
+                document.getElementsByClassName('nav-li')[0].style.height = '30%';
                 if (size == 'small') {
                     document.getElementsByClassName('nav-li')[0].style.height = '18%';
                 }
@@ -96,7 +98,7 @@ function windowScroll(page, size) {
             }
 
         }       
-    }
+    };
 }
 
 /* ----------------------------------------------------------------------------------------------------- */
@@ -152,7 +154,7 @@ function checkSessionSelection() {
         //console.log("testing");
         if (list[i].checked) {
             checkedSessionPrice = list[i].getAttribute('data-pricing');
-            test = checkedSessionPrice.slice(5);
+            //test = checkedSessionPrice.slice(5);
             //console.log(test);
             return true;
         } 
@@ -216,12 +218,13 @@ var seatCodes = [
     'FCA',
     'FCP',
     'FCC'
-]
+];
 
 // Calculates total of tickets selected
 function calculateTotals() {
 
     var total = parseFloat(0);
+    var selection;
 
     if (!checkSessionSelection() && document.getElementById('session-select-error') != '') {
         alertChange('session', 'visible');
@@ -341,7 +344,7 @@ function printTicket(variable) {
         groupTicket.style.overflow = 'none';
         //groupTicket.style.pageBreakAfter = 'always';
 
-        for (i=0; i< singleTicket.length; i++) {
+        for (var i=0; i< singleTicket.length; i++) {
             singleTicket[i].style.height = '0';
             singleTicket[i].style.visibility = 'hidden';
             singleTicket[i].style.overflow = 'hidden';
@@ -349,11 +352,11 @@ function printTicket(variable) {
         }
         
     } else if (variable == 'singles') {
-        for (i=0; i< singleTicket.length-1; i++) {
-        singleTicket[i].style.height = 'fit-content';
-        singleTicket[i].style.visibility = 'visible';
-        singleTicket[i].style.overflow = 'none';
-        singleTicket[i].style.pageBreakAfter = 'always';
+        for (var j=0; j< singleTicket.length-1; j++) {
+        singleTicket[j].style.height = 'fit-content';
+        singleTicket[j].style.visibility = 'visible';
+        singleTicket[j].style.overflow = 'none';
+        singleTicket[j].style.pageBreakAfter = 'always';
         }
         singleTicket[(singleTicket.length)-1].style.height = 'fit-content';
         singleTicket[(singleTicket.length)-1].style.visibility = 'visible';
@@ -366,4 +369,37 @@ function printTicket(variable) {
     }
 
     window.print();
+}
+
+function slideLeft() {
+
+    console.log('slide left');
+
+    document.querySelector('#slider').style.width = '0';
+}
+
+
+function slideRight() {
+
+    console.log('slide right');
+
+    document.querySelector('#slider').style.width = '400px';
+
+}
+
+function slideLeft1() {
+
+    console.log('slide left1');
+
+    document.querySelector('#slider1').style.width = '0';
+
+
+}
+
+function slideRight1() {
+
+    console.log('slide right1');
+
+    document.querySelector('#slider1').style.width = '400px';
+
 }
