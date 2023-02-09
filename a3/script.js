@@ -300,6 +300,7 @@ function hideDetailsInfo(variable) {
 }
 
 
+//meme press to return to index.html
 function errorpress(number) {
     
     var test = number;
@@ -324,6 +325,9 @@ function errorpress(number) {
     }          
 }
 
+
+// will print individual or group tickets
+// changes div height, removes hidden and adds page break 
 function printTicket(variable) {
     console.log('got here');
     var groupTicket = document.querySelector('#ticket-group');
