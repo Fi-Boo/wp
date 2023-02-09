@@ -1414,7 +1414,6 @@ pre {
 #receipt-tickets {
     grid-area: tickets;
     margin: 0 auto 4rem auto ;
-    background: black;
 }
 
 /* --- receipt-tickets ---*/
