@@ -773,77 +773,128 @@ function generateTickets($SESSION, $var) {
   $totalTickets = getTotalTickets($SESSION);
   //$seatTable = generateSeatTable($SESSION,'ticket');
 
-  echo <<<"GENTIXG"
-    <div id='ticket-group'>
-      <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
-      <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
-      <div class='ticket-details'> 
-          <h3> Session Details </h3>
-          - MOVIE -
-          <h4> {$movies[$SESSION['movie']]['title']} <br>
-          ({$movies[$SESSION['movie']]['rating']})</h4>
-          - DATE & TIME -
-          <h4> 31/2/2512 {$SESSION['day']}day 
-          {$sessionTime}</h4>
-          - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
-  GENTIXG;
-  generateSeatTable($SESSION,'ticket');
-  echo <<<"GENTIXG2"
-          <br>
-          <div class='receipt-barcode'>
-              <img src="../../media/barcode.png" alt='ticket barcode'>
-          </div>
-          <h3>{$SESSION['ref']}-GT{$totalTickets}</h3>
-          <hr>
-          <div class='receipt-appleG'>
-              <img src="../../media/applewallet.png" alt='ticket barcode'>
-          </div>
-          <hr>
-          <div class='receipt-appleG'>
-              <img src="../../media/gpay.png" alt='ticket barcode'>
-          </div>
-      </div>
-    </div>
-  GENTIXG2;
 
-  foreach ($SESSION['seats'] as $seat => $number) {
-    if (!empty($number)) {
-      for ($i = 1; $i <= $number; $i++) {
-        echo <<<"GENTIXS"
-          <div class='ticket-single'>
-            <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
-            <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
-            <div class='ticket-details'> 
-                <h3> Session Details </h3>
-                - MOVIE -
-                <h4> {$movies[$SESSION['movie']]['title']} <br>
-                ({$movies[$SESSION['movie']]['rating']})</h4>
-                - DATE & TIME -
-                <h4> 31/2/2512 {$SESSION['day']}day 
-                {$sessionTime}</h4>
-                - ADMISSION TYPE: <h3>SINGLE</h3> 
-                <div class='seatType'> {$seating[$seat]['desc']} x1</div>
-                <br>
-                <div class='receipt-barcode'>
-                    <img src="../../media/barcode.png" alt='ticket barcode'>
-                </div>
-                <h3>{$SESSION['ref']}-{$seat}{$i}</h3>
-                <hr>
-                <div class='receipt-appleG'>
-                    <img src="../../media/applewallet.png" alt='ticket barcode'>
-                </div>
-                <hr>
-                <div class='receipt-appleG'>
-                    <img src="../../media/gpay.png" alt='ticket barcode'>
-                </div>
-            </div>
+  SWITCH ($var) {
+    case ('GROUP'):
+      echo <<<"GENTIXG"
+        <div id='ticket-group'>
+          <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
+          <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
+          <div class='ticket-details'> 
+              <h3> Session Details </h3>
+              - MOVIE -
+              <h4> {$movies[$SESSION['movie']]['title']} <br>
+              ({$movies[$SESSION['movie']]['rating']})</h4>
+              - DATE & TIME -
+              <h4> 31/2/2512 {$SESSION['day']}day 
+              {$sessionTime}</h4>
+              - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
+      GENTIXG;
+      generateSeatTable($SESSION,'ticket');
+      echo <<<"GENTIXG2"
+              <br>
+              <div class='receipt-barcode'>
+                  <img src="../../media/barcode.png" alt='ticket barcode'>
+              </div>
+              <h3>{$SESSION['ref']}-GT{$totalTickets}</h3>
+              <hr>
+              <div class='receipt-appleG'>
+                  <img src="../../media/applewallet.png" alt='ticket barcode'>
+              </div>
+              <hr>
+              <div class='receipt-appleG'>
+                  <img src="../../media/gpay.png" alt='ticket barcode'>
+              </div>
           </div>
-        GENTIXS;
-      }
-    }
+        </div>
+      GENTIXG2;
+      break;
+    case ('SINGLE'):
+      foreach ($SESSION['seats'] as $seat => $number) {
+        if (!empty($number)) {
+          for ($i = 1; $i <= $number; $i++) {
+            echo <<<"GENTIXS"
+              <div class='ticket-single'>
+                <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
+                <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
+                <div class='ticket-details'> 
+                    <h3> Session Details </h3>
+                    - MOVIE -
+                    <h4> {$movies[$SESSION['movie']]['title']} <br>
+                    ({$movies[$SESSION['movie']]['rating']})</h4>
+                    - DATE & TIME -
+                    <h4> 31/2/2512 {$SESSION['day']}day 
+                    {$sessionTime}</h4>
+                    - ADMISSION TYPE: <h3>SINGLE</h3> 
+                    <div class='seatType'> {$seating[$seat]['desc']} x1</div>
+                    <br>
+                    <div class='receipt-barcode'>
+                        <img src="../../media/barcode.png" alt='ticket barcode'>
+                    </div>
+                    <h3>{$SESSION['ref']}-{$seat}{$i}</h3>
+                    <hr>
+                    <div class='receipt-appleG'>
+                        <img src="../../media/applewallet.png" alt='ticket barcode'>
+                    </div>
+                    <hr>
+                    <div class='receipt-appleG'>
+                        <img src="../../media/gpay.png" alt='ticket barcode'>
+                    </div>
+                </div>
+              </div>
+            GENTIXS;
+          }
+        }
+      };
+      break;
   }
+}
+
+
+// test module to generate sliding descriptions for Prices-seats images/description
+// not completely coded for responsive display so using a sneaky hide/height to switch between original and this test codeblock
+
+function testModule() {
+
+  echo<<<"TEST"
+    <div id='test-grid'>
+      <div id ='box1'>
+      <div id='test-container'>
+        <div class="test-description">
+          <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
+          <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
+        </div>
+        <div class='test-banner'>
+          <div id='slider'></div>
+          <div class ='aside'><h3> Standard </h3></div>
+        </div>
+        <div class="test-img" >
+          <img src="../../media/Profern-Standard-Twin.png" onmouseover="STslideRight()" onmouseout="STslideLeft()">
+        </div>
+      </div>
+      </div>
+
+      <div id='box2'>
+      <div id='test-container2'>
+        <div class="test-description2">
+          <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+          <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
+        </div>
+        <div class='test-banner2'>
+          <div id='slider2'></div>
+          <div class ='aside2'><h3> First Class </h3></div>
+        </div>
+        <div class="test-img2" >
+          <img src="../../media/Profern-Verona-Twin.png" onmouseover="FCslideLeft()" onmouseout="FCslideRight()">
+        </div>
+      </div>
+      </div>  
+    </div>
+  TEST;
 
 }
+
+
 
 
 

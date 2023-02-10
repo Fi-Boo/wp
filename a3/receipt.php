@@ -6,6 +6,14 @@
         exit();
     }
 
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        if ($_GET['printType'] != "" && ($_GET['printType'] != 'GROUP' && $_GET['printType'] != 'SINGLE' )) {
+            header("Location: error.php");
+            exit();
+        }  
+
+    }
+
     headerModule();
 ?>
 
@@ -50,7 +58,7 @@
                     <h4> <?= $movies[$_SESSION['movie']]['title']; ?> <br>
                     (<?= $movies[$_SESSION['movie']]['rating'] ?>)</h4>
                     - DATE & TIME -
-                    <h4> 31/2/2512 <?= $_SESSION['day']; ?>day 
+                    <h4> 31/2/2512 <?= $_SESSION['day']; ?> @  
                     <?= getSessionTime($_SESSION); ?></h4>
                 </div>
             </div>
@@ -61,19 +69,18 @@
                 <h1> We look forward to seeing you soon... </h1>
             </div>
         </div>
-        <div id='print-buttons'>
+
+        <form id='print-buttons' method='get'>
             <div class="receipt-print">
-                <button class="receipt-print-btn" type="button" value='print' onclick='printTicket("group")'>Print Group Ticket</button>
+                <button class="receipt-print-btn" name="printType" type="submit" value='GROUP'>Print Group Ticket</button>
             </div>
             <div class="receipt-print">
-                <button class="receipt-print-btn" type="button" onclick='printTicket("singles")'>Print Single Tickets</button>
-                </div>
+                <button class="receipt-print-btn" name="printType" type="submit" value='SINGLE'>Print Single Tickets</button>
             </div>
-        </div>
-        <div>
+        </form>
+
         <div id='receipt-tickets'>
-        
-            <?= generateTickets($_SESSION,'GROUP'); ?>
+            <?= generateTickets($_SESSION,$_GET['printType']); ?>
         </div>
         <br>
     </section>
