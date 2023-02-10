@@ -2036,6 +2036,16 @@ pre {
     visibility: hidden;
 }
 
+#floating-text {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    z-index: 1;
+}
+
+
 #test-container, #test-container2 {
 
     position: absolute;
