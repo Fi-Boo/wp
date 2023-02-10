@@ -19,8 +19,63 @@ function validateRequest($requestTypeValue) {
 }
 
 
-// multidimensional associative movie array to store all the movie data for use in 'Now Showing' section and 'Booking.php'
+// --- SECTIONS ---
+// sections data are organised in alphabetical order 
+// 1. Variables and Arrays
+// 2. Functions
+// 3. Testing Zone - for functions used in test code. 
 
+
+
+
+
+// 1. Variables and Arrays 
+
+
+$aboutUsContent = [
+  'about-us' => [
+    'image' => 'old-cinema.jpg',
+    'image-alt' => 'old cinema sign',
+    'cite' => 'From humble beginnings...',
+    'text' => '<p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
+    <p>The pandemic was a trying time for us, but we used that down time to focus on giving a much needed facelift to our much loved facilities. These upgrades will ensure we continue to provide the best cinematic experience for years to come.</p>'
+  ],
+  'new-seats' => [
+    'image' => 'upgraded-seating.jpg',
+    'image-alt' => 'upgraded seating image',
+    'cite' => 'Comfort and luxury while you watch...',
+    'text' => '<p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
+    <ul>
+      <li>110 degree recline</li>
+      <li>flip up armrest</li>
+      <li>inbuilt cupholders</li>
+      <li>Leather trimmed seating (First Class only)</li>
+    </ul>'
+  ],
+  'dolby' => [
+    'image' => 'dolby.png',
+    'image-alt' => 'dolby logos',
+    'cite' => 'A truly immersive experience...',
+    'text' => '<p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>'
+  ],
+  'seat-std' => [
+    'image' => 'Profern-Standard-Twin.png',
+    'image-alt' => 'Standard',
+    'cite' => 'std',
+    'text' => '<p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
+    <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>'
+  ],
+  'seat-fc' => [
+    'image' => 'Profern-Verona-Twin.png',
+    'image-alt' => 'First Class',
+    'cite' => 'fc',
+    'text' => "<p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+    <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>"
+  ]
+];
+
+$discountDay = 'Mon';
+$discountTime = '12pm';
 $currentSelection = [];
 
 $movies = [
@@ -128,7 +183,6 @@ $movies = [
 
 
 // seating type and price array
-
 $seating = [
   "STA" => [
     "code" => "STA",
@@ -168,8 +222,7 @@ $seating = [
   ]
 ];
 
-$discountDay = 'Mon';
-$discountTime = '12pm';
+
 
 
   // ---------------- ABOUT US and  PRICING MODULE img/text MODULE -----------------------
@@ -177,47 +230,7 @@ $discountTime = '12pm';
   // layout generation is based on parameter 1.
  
 
-$aboutUsContent = [
-  'about-us' => [
-    'image' => 'old-cinema.jpg',
-    'image-alt' => 'old cinema sign',
-    'cite' => 'From humble beginnings...',
-    'text' => '<p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
-    <p>The pandemic was a trying time for us, but we used that down time to focus on giving a much needed facelift to our much loved facilities. These upgrades will ensure we continue to provide the best cinematic experience for years to come.</p>'
-  ],
-  'new-seats' => [
-    'image' => 'upgraded-seating.jpg',
-    'image-alt' => 'upgraded seating image',
-    'cite' => 'Comfort and luxury while you watch...',
-    'text' => '<p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
-    <ul>
-      <li>110 degree recline</li>
-      <li>flip up armrest</li>
-      <li>inbuilt cupholders</li>
-      <li>Leather trimmed seating (First Class only)</li>
-    </ul>'
-  ],
-  'dolby' => [
-    'image' => 'dolby.png',
-    'image-alt' => 'dolby logos',
-    'cite' => 'A truly immersive experience...',
-    'text' => '<p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>'
-  ],
-  'seat-std' => [
-    'image' => 'Profern-Standard-Twin.png',
-    'image-alt' => 'Standard',
-    'cite' => 'std',
-    'text' => '<p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
-    <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>'
-  ],
-  'seat-fc' => [
-    'image' => 'Profern-Verona-Twin.png',
-    'image-alt' => 'First Class',
-    'cite' => 'fc',
-    'text' => "<p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-    <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>"
-  ]
-];
+
 
 
 function contentModule($var1, $var2) {
