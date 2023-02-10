@@ -12,7 +12,7 @@
       $_SESSION = $_POST;
       printToFile('bookings.txt',$_POST); 
       generateBR(6);
-      header("Location: receipt.php");
+      header("Location: receipt.php?printType=");
     } 
   } 
 

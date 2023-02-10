@@ -329,76 +329,37 @@ function errorpress(number) {
 }
 
 
-// will print individual or group tickets
-// changes div height, removes hidden and adds page break 
-function printTicket(variable) {
-    console.log('got here');
-    var groupTicket = document.querySelector('#ticket-group');
-    var singleTicket = document.getElementsByClassName('ticket-single');
+/* --------- ALL TEST FUNCTIONS HERE. WORK INCOMPLETE -------*/
+// functions for testModule(). incomplete work.
 
 
-    if (variable == 'group') {
+function STslideRight() {
 
-        groupTicket.style.height = 'fit-content';
-        groupTicket.style.visibility = 'visible';
-        groupTicket.style.overflow = 'none';
-        //groupTicket.style.pageBreakAfter = 'always';
-
-        for (var i=0; i< singleTicket.length; i++) {
-            singleTicket[i].style.height = '0';
-            singleTicket[i].style.visibility = 'hidden';
-            singleTicket[i].style.overflow = 'hidden';
-            singleTicket[i].style.pageBreakAfter = 'auto';
-        }
-        
-    } else if (variable == 'singles') {
-        for (var j=0; j< singleTicket.length-1; j++) {
-        singleTicket[j].style.height = 'fit-content';
-        singleTicket[j].style.visibility = 'visible';
-        singleTicket[j].style.overflow = 'none';
-        singleTicket[j].style.pageBreakAfter = 'always';
-        }
-        singleTicket[(singleTicket.length)-1].style.height = 'fit-content';
-        singleTicket[(singleTicket.length)-1].style.visibility = 'visible';
-        singleTicket[(singleTicket.length)-1].style.overflow = 'none';
-        groupTicket.style.height = '0';
-        groupTicket.style.visibility = 'hidden';
-        groupTicket.style.overflow = 'hidden';
-        //groupTicket.style.pageBreakAfter = 'auto';
-        
-    }
-
-    window.print();
+    document.querySelector('#test-container').style.zIndex = '1';
+    document.querySelector('#slider').style.width = '0px';
+    document.querySelector('#slider').style.transition = '1s';
 }
 
 function STslideLeft() {
-
 
     document.querySelector('#slider').style.width = '400px';
     document.querySelector('#slider').style.transition = '0s';
 }
 
 
-function STslideRight() {
 
-    document.querySelector('#test-container').style.zIndex = '+4';
-    document.querySelector('#slider').style.width = '0px';
-    document.querySelector('#slider').style.transition = '1s';
-
-}
 
 function FCslideLeft() {
 
     document.querySelector('#test-container').style.zIndex = '0';
     document.querySelector('#slider2').style.width = '0px';
-    document.querySelector('#slider2').style.transition = 'width 1s';
+    document.querySelector('#slider2').style.transition = '1s';
 
 }
 
 function FCslideRight() {
 
-
     document.querySelector('#slider2').style.width = '400px';
     document.querySelector('#slider2').style.transition = '0s';
-
 }
+
