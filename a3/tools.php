@@ -13,7 +13,7 @@
 function validateRequest($requestTypeValue) {
   global $movies;
   if (!isset($movies[$requestTypeValue]) ) {
-    header("Location: index.php");
+    header("Location: error.php");
     exit();
   }
 }
@@ -284,6 +284,7 @@ function nowShowingMovies() {
   global $movies;
 
   foreach ($movies as $movie) {
+    
     echo <<<"CDATA"
       <div class="movie-single">
             <div class="movie-detail">
@@ -743,7 +744,10 @@ function generateBR($n) {
         $randomString .= $characters[$index];
     }
     $_SESSION['ref'] = $randomString;
-  }
+}
+
+
+
 
 
 function getTotalTickets($SESSION) {
@@ -849,6 +853,7 @@ function generateTickets($SESSION, $var) {
       break;
   }
 }
+
 
 
 // test module to generate sliding descriptions for Prices-seats images/description
