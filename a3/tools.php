@@ -13,14 +13,69 @@
 function validateRequest($requestTypeValue) {
   global $movies;
   if (!isset($movies[$requestTypeValue]) ) {
-    header("Location: index.php");
+    header("Location: error.php");
     exit();
   }
 }
 
 
-// multidimensional associative movie array to store all the movie data for use in 'Now Showing' section and 'Booking.php'
+// --- SECTIONS ---
+// sections data are organised in alphabetical order 
+// 1. Variables and Arrays
+// 2. Functions
+// 3. Testing Zone - for functions used in test code. 
 
+
+
+
+
+// 1. Variables and Arrays 
+
+
+$aboutUsContent = [
+  'about-us' => [
+    'image' => 'old-cinema.jpg',
+    'image-alt' => 'old cinema sign',
+    'cite' => 'From humble beginnings...',
+    'text' => '<p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
+    <p>The pandemic was a trying time for us, but we used that down time to focus on giving a much needed facelift to our much loved facilities. These upgrades will ensure we continue to provide the best cinematic experience for years to come.</p>'
+  ],
+  'new-seats' => [
+    'image' => 'upgraded-seating.jpg',
+    'image-alt' => 'upgraded seating image',
+    'cite' => 'Comfort and luxury while you watch...',
+    'text' => '<p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
+    <ul>
+      <li>110 degree recline</li>
+      <li>flip up armrest</li>
+      <li>inbuilt cupholders</li>
+      <li>Leather trimmed seating (First Class only)</li>
+    </ul>'
+  ],
+  'dolby' => [
+    'image' => 'dolby.png',
+    'image-alt' => 'dolby logos',
+    'cite' => 'A truly immersive experience...',
+    'text' => '<p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>'
+  ],
+  'seat-std' => [
+    'image' => 'Profern-Standard-Twin.png',
+    'image-alt' => 'Standard',
+    'cite' => 'std',
+    'text' => '<p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
+    <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>'
+  ],
+  'seat-fc' => [
+    'image' => 'Profern-Verona-Twin.png',
+    'image-alt' => 'First Class',
+    'cite' => 'fc',
+    'text' => "<p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+    <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>"
+  ]
+];
+
+$discountDay = 'Mon';
+$discountTime = '12pm';
 $currentSelection = [];
 
 $movies = [
@@ -128,7 +183,6 @@ $movies = [
 
 
 // seating type and price array
-
 $seating = [
   "STA" => [
     "code" => "STA",
@@ -168,8 +222,7 @@ $seating = [
   ]
 ];
 
-$discountDay = 'Mon';
-$discountTime = '12pm';
+
 
 
   // ---------------- ABOUT US and  PRICING MODULE img/text MODULE -----------------------
@@ -177,47 +230,7 @@ $discountTime = '12pm';
   // layout generation is based on parameter 1.
  
 
-$aboutUsContent = [
-  'about-us' => [
-    'image' => 'old-cinema.jpg',
-    'image-alt' => 'old cinema sign',
-    'cite' => 'From humble beginnings...',
-    'text' => '<p>Lunardo Cinema has been providing quality cinematic entertainment for local families since its founding in the early 1980s. As a family owned and run business, we pride ourselves on staying connected to each generation and providing a top tier personal experience to you, our customers. </p>
-    <p>The pandemic was a trying time for us, but we used that down time to focus on giving a much needed facelift to our much loved facilities. These upgrades will ensure we continue to provide the best cinematic experience for years to come.</p>'
-  ],
-  'new-seats' => [
-    'image' => 'upgraded-seating.jpg',
-    'image-alt' => 'upgraded seating image',
-    'cite' => 'Comfort and luxury while you watch...',
-    'text' => '<p>All of our seating has been upgraded to meet the demands of the modern cinematic experience. These features include:</p>
-    <ul>
-      <li>110 degree recline</li>
-      <li>flip up armrest</li>
-      <li>inbuilt cupholders</li>
-      <li>Leather trimmed seating (First Class only)</li>
-    </ul>'
-  ],
-  'dolby' => [
-    'image' => 'dolby.png',
-    'image-alt' => 'dolby logos',
-    'cite' => 'A truly immersive experience...',
-    'text' => '<p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>'
-  ],
-  'seat-std' => [
-    'image' => 'Profern-Standard-Twin.png',
-    'image-alt' => 'Standard',
-    'cite' => 'std',
-    'text' => '<p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
-    <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>'
-  ],
-  'seat-fc' => [
-    'image' => 'Profern-Verona-Twin.png',
-    'image-alt' => 'First Class',
-    'cite' => 'fc',
-    'text' => "<p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-    <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>"
-  ]
-];
+
 
 
 function contentModule($var1, $var2) {
@@ -284,6 +297,7 @@ function nowShowingMovies() {
   global $movies;
 
   foreach ($movies as $movie) {
+    
     echo <<<"CDATA"
       <div class="movie-single">
             <div class="movie-detail">
@@ -743,7 +757,10 @@ function generateBR($n) {
         $randomString .= $characters[$index];
     }
     $_SESSION['ref'] = $randomString;
-  }
+}
+
+
+
 
 
 function getTotalTickets($SESSION) {
@@ -773,77 +790,129 @@ function generateTickets($SESSION, $var) {
   $totalTickets = getTotalTickets($SESSION);
   //$seatTable = generateSeatTable($SESSION,'ticket');
 
-  echo <<<"GENTIXG"
-    <div id='ticket-group'>
-      <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
-      <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
-      <div class='ticket-details'> 
-          <h3> Session Details </h3>
-          - MOVIE -
-          <h4> {$movies[$SESSION['movie']]['title']} <br>
-          ({$movies[$SESSION['movie']]['rating']})</h4>
-          - DATE & TIME -
-          <h4> 31/2/2512 {$SESSION['day']}day 
-          {$sessionTime}</h4>
-          - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
-  GENTIXG;
-  generateSeatTable($SESSION,'ticket');
-  echo <<<"GENTIXG2"
-          <br>
-          <div class='receipt-barcode'>
-              <img src="../../media/barcode.png" alt='ticket barcode'>
-          </div>
-          <h3>{$SESSION['ref']}-GT{$totalTickets}</h3>
-          <hr>
-          <div class='receipt-appleG'>
-              <img src="../../media/applewallet.png" alt='ticket barcode'>
-          </div>
-          <hr>
-          <div class='receipt-appleG'>
-              <img src="../../media/gpay.png" alt='ticket barcode'>
-          </div>
-      </div>
-    </div>
-  GENTIXG2;
 
-  foreach ($SESSION['seats'] as $seat => $number) {
-    if (!empty($number)) {
-      for ($i = 1; $i <= $number; $i++) {
-        echo <<<"GENTIXS"
-          <div class='ticket-single'>
-            <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
-            <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
-            <div class='ticket-details'> 
-                <h3> Session Details </h3>
-                - MOVIE -
-                <h4> {$movies[$SESSION['movie']]['title']} <br>
-                ({$movies[$SESSION['movie']]['rating']})</h4>
-                - DATE & TIME -
-                <h4> 31/2/2512 {$SESSION['day']}day 
-                {$sessionTime}</h4>
-                - ADMISSION TYPE: <h3>SINGLE</h3> 
-                <div class='seatType'> {$seating[$seat]['desc']} x1</div>
-                <br>
-                <div class='receipt-barcode'>
-                    <img src="../../media/barcode.png" alt='ticket barcode'>
-                </div>
-                <h3>{$SESSION['ref']}-{$seat}{$i}</h3>
-                <hr>
-                <div class='receipt-appleG'>
-                    <img src="../../media/applewallet.png" alt='ticket barcode'>
-                </div>
-                <hr>
-                <div class='receipt-appleG'>
-                    <img src="../../media/gpay.png" alt='ticket barcode'>
-                </div>
-            </div>
+  SWITCH ($var) {
+    case ('GROUP'):
+      echo <<<"GENTIXG"
+        <div id='ticket-group'>
+          <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
+          <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
+          <div class='ticket-details'> 
+              <h3> Session Details </h3>
+              - MOVIE -
+              <h4> {$movies[$SESSION['movie']]['title']} <br>
+              ({$movies[$SESSION['movie']]['rating']})</h4>
+              - DATE & TIME -
+              <h4> 31/2/2512 {$SESSION['day']}day 
+              {$sessionTime}</h4>
+              - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
+      GENTIXG;
+      generateSeatTable($SESSION,'ticket');
+      echo <<<"GENTIXG2"
+              <br>
+              <div class='receipt-barcode'>
+                  <img src="../../media/barcode.png" alt='ticket barcode'>
+              </div>
+              <h3>{$SESSION['ref']}-GT{$totalTickets}</h3>
+              <hr>
+              <div class='receipt-appleG'>
+                  <img src="../../media/applewallet.png" alt='ticket barcode'>
+              </div>
+              <hr>
+              <div class='receipt-appleG'>
+                  <img src="../../media/gpay.png" alt='ticket barcode'>
+              </div>
           </div>
-        GENTIXS;
-      }
-    }
+        </div>
+      GENTIXG2;
+      break;
+    case ('SINGLE'):
+      foreach ($SESSION['seats'] as $seat => $number) {
+        if (!empty($number)) {
+          for ($i = 1; $i <= $number; $i++) {
+            echo <<<"GENTIXS"
+              <div class='ticket-single'>
+                <div class='ticket-logo'><img src="../../media/logo-gold.png" alt='company logo'></div>
+                <div class='ticket-img'><img src="{$movies[$SESSION['movie']]['ticket-img']}" alt='{$movies[$SESSION['movie']]['title']}'></div>
+                <div class='ticket-details'> 
+                    <h3> Session Details </h3>
+                    - MOVIE -
+                    <h4> {$movies[$SESSION['movie']]['title']} <br>
+                    ({$movies[$SESSION['movie']]['rating']})</h4>
+                    - DATE & TIME -
+                    <h4> 31/2/2512 {$SESSION['day']}day 
+                    {$sessionTime}</h4>
+                    - ADMISSION TYPE: <h3>SINGLE</h3> 
+                    <div class='seatType'> {$seating[$seat]['desc']} x1</div>
+                    <br>
+                    <div class='receipt-barcode'>
+                        <img src="../../media/barcode.png" alt='ticket barcode'>
+                    </div>
+                    <h3>{$SESSION['ref']}-{$seat}{$i}</h3>
+                    <hr>
+                    <div class='receipt-appleG'>
+                        <img src="../../media/applewallet.png" alt='ticket barcode'>
+                    </div>
+                    <hr>
+                    <div class='receipt-appleG'>
+                        <img src="../../media/gpay.png" alt='ticket barcode'>
+                    </div>
+                </div>
+              </div>
+            GENTIXS;
+          }
+        }
+      };
+      break;
   }
+}
+
+
+
+// test module to generate sliding descriptions for Prices-seats images/description
+// not completely coded for responsive display so using a sneaky hide/height to switch between original and this test codeblock
+
+function testModule() {
+
+  echo<<<"TEST"
+    <div id='test-grid'>
+      <div id ='box1'>
+      <div id='test-container'>
+        <div class="test-description">
+          <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
+          <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
+        </div>
+        <div class='test-banner'>
+          <div id='slider'></div>
+          <div class ='aside'><h3> Standard </h3></div>
+        </div>
+        <div class="test-img" >
+          <img src="../../media/Profern-Standard-Twin.png" onmouseover="STslideRight()" onmouseout="STslideLeft()">
+        </div>
+      </div>
+      </div>
+
+      <div id='box2'>
+      <div id='test-container2'>
+        <div class="test-description2">
+          <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+          <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
+        </div>
+        <div class='test-banner2'>
+          <div id='slider2'></div>
+          <div class ='aside2'><h3> First Class </h3></div>
+        </div>
+        <div class="test-img2" >
+          <img src="../../media/Profern-Verona-Twin.png" onmouseover="FCslideLeft()" onmouseout="FCslideRight()">
+        </div>
+      </div>
+      </div>  
+    </div>
+  TEST;
 
 }
+
+
 
 
 

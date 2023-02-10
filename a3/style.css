@@ -4,6 +4,25 @@
 
 }
 
+/* https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/ */
+
+html::-webkit-scrollbar {
+    width: 10px;
+  }
+
+html::-webkit-scrollbar-track {
+    background-image:linear-gradient(to left, black, rgb(125,113,29), black );
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    
+}
+ 
+html::-webkit-scrollbar-thumb {
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    border-radius: 8px;
+    opacity: 0.4;
+    border: 1px solid black;
+    width: 20px;
+}
 
 html, footer {
     scroll-behavior: smooth;
@@ -54,7 +73,7 @@ header, #header-bg {
     background-repeat: no-repeat;
     background-position: right;
     right: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 #company-name {
@@ -167,7 +186,7 @@ nav {
     top: -100px;
     margin-top: -100px;
     z-index: 1;
-    background-image: linear-gradient(to top, black 50%, transparent 50%);
+    background-image: linear-gradient(to top, black 50%, transparent 52%);
     opacity: 1;
     width: 100%;
     height: 200px;
@@ -283,7 +302,7 @@ nav a.current {
 
 .section-title, .sub-section-title {
     margin-block: 2rem;
-    padding-left: 2rem;
+    padding-left: 5rem;
     font-family: 'Oleo Script Swash Caps', cursive;
     font-size: 1.25rem;
     background-image: linear-gradient(135deg, rgb(102,111,190) , transparent 70%);
@@ -298,7 +317,7 @@ nav a.current {
     margin-block: 1rem;
     text-align: right;
     padding-left: 0;
-    padding-right: 2rem;
+    padding-right: 5rem;
     background-image: linear-gradient(315deg, rgb(102,111,190) , transparent 70%);
     border-image-source:  linear-gradient(to left, #999B9B, transparent 70%);
 }
@@ -322,6 +341,7 @@ h2 {
     display: grid;
     padding-block: 0.5rem;
     width: 100%;
+    max-width: 1200px;
     margin-inline: auto;
     align-items: center;
 }
@@ -366,6 +386,9 @@ h2 {
     'std-seat-description'
     'fc-seat-img'
     'fc-seat-description';
+    /* visibility: visible;
+    height: auto; */
+    /* overflow: visible; */
 }
 
 #prices-title {
@@ -400,6 +423,7 @@ h2 {
 }
 
 .prices-img-block {
+    width: fit-content;
     display: flex;
     padding: 0;
 }
@@ -407,8 +431,9 @@ h2 {
 .prices-seat-img {
     display: flex;
     align-items: center;
-    width: 400px;
+    width: 350px;
     height: auto;
+    padding: 0;
     background-image: linear-gradient(to right, rgb(102,111,190), transparent 60% );
 }
 
@@ -422,13 +447,15 @@ h2 {
 
 .prices-content {
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 0rem;
     width: 95%;
     text-align: justify;
 }
 
 /* text rotation - https://css-tricks.com/snippets/css/text-rotation/ */
 
+
+/* this changes the text in the flipped */
 #std-class, #fc-class {
     position: relative;
     font-family: 'Rajdhani', sans-serif;
@@ -440,17 +467,16 @@ h2 {
     letter-spacing: 0.1rem;
     width: 50px;
     text-align: center;
-    left: 1rem;
+    
 }
 
 #std-class p, #fc-class p {
     position: absolute;
     top: 120px;
-    left: 0;
+    left: 0px;
     margin-left: 10px;
     transform-origin: 0 0;
     transform: rotate(-90deg);
-    z-index: 10;
     background: none;
     color: white;
     width: 120px;
@@ -468,10 +494,9 @@ table {
     width: 100%;
 }
 
-th, td{
-    width: 20%;
+#pricestable th, #pricestable td, th, td {
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     width: max-content;
     border: 1px solid black;
     color: white;
@@ -674,6 +699,14 @@ th, td{
 
 
 /*   MOVIE CARDS - BOOK NOW TABLE  */
+
+#booknow-table th, #booknow-table td {
+    text-align: center;
+    width: max-content;
+    border: 1px solid black;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 
 #booknow-table tr:first-child th:first-child {
     border-top-left-radius: 0.5rem;
@@ -1004,7 +1037,7 @@ select option:checked {
 
 #details-table th {
     width: 7em;
-    padding: 0;
+    padding: 1rem;
 }
 
 #details-table tr:first-child th {
@@ -1435,9 +1468,7 @@ pre {
     border-radius: 1rem;
     font-size: 1rem;
     margin: 0 auto 1rem;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
+    height: fit-content;
     page-break-inside: avoid;
     page-break-after: auto;
 }
@@ -1715,24 +1746,25 @@ pre {
     }
 
     #prices-std-img, #prices-fc-img {
-        padding-left: 1rem;
-        margin-right: 2.5rem;
+        
+        margin-right: 1rem;
         margin-left: auto;
     }
     
     #prices-std-description, #prices-fc-description {
-        padding-right: 0rem;
+        padding: 0 0.5rem;
     }
     
     .section-title, .sub-section-title {
         margin-top: 4rem;
-        padding-left: 4rem;
+        padding-left: 11rem;
         font-size: 1.5rem;
         letter-spacing: 0.15rem;
+        transition: 0.5s;
     }
 
     .sub-section-title {
-        padding-right: 4rem;
+        padding-right: 11rem;
     }
 
     .movie-single {
@@ -1979,48 +2011,46 @@ pre {
 
 }
 
-#test-flex {
-    display: grid;
+
+
+
+
+
+
+
+
+
+/* --- testModule() styling ---*/
+
+
+#test-grid {
+    /* display: grid; */
     position: relative;
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr;
     grid-template-areas:
-    'box1 box2';
-    width: 1500px;
-    border: 1px solid red;
-}
-
-#test-container {
-    grid-area: box1;
-}
-
-#test-container {
-    grid-area: box2;
-}
-
-.box {
-    position: static;
+    'box1 box2'; */
+    margin: 2rem auto;
+    width: 0px;
+    height: 0px; 
+    overflow: visible;
+    visibility: hidden;
 }
 
 #test-container, #test-container2 {
 
-    position: relative;
+    position: absolute;
     display: grid;
     grid-template-areas:
     'sectionA sectionB';
     width: 700px;
-    height:auto;
     background-color: transparent;
     margin: 0 auto;
 
 }
 
-#test-container {
-    right: 10%;
-}
 
 #test-container2 {
-    left: 10%;
-    bottom: 253px;
+    right: 0;
 }
 
 
@@ -2037,7 +2067,6 @@ pre {
     color: white;
     width: 450px;
     padding: 1rem 5px 0 60px;
-    background-color: rgb(102,111,190);
     margin: 0;
     text-align: justify;
     box-sizing: border-box; /* -- this is handy -- */
@@ -2045,6 +2074,11 @@ pre {
 
 .test-description {
     padding: 1rem 60px 0 5px;
+    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 20%);
+}
+
+.test-description2 {
+    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 20%);
 }
 
 .test-banner, .test-banner2 {
@@ -2055,7 +2089,7 @@ pre {
     right: 250px;
     top: 0;
     background: transparent;
-    z-index: -0;
+    /* z-index: 0; */
 }
 
 .test-banner {
@@ -2072,8 +2106,7 @@ pre {
     top: 0;
     height: 100%;
     width: 400px;
-    background: black;
-    transition: 0s;
+    background-color: black;
 }
 
 
@@ -2083,8 +2116,7 @@ pre {
     top: 0;
     height: 100%;
     width: 400px;
-    background: black;
-    transition: 0s;
+    background-color: black;;
 }
 
 
@@ -2098,7 +2130,6 @@ pre {
     height: 100%;
     text-align: center;
     margin-left: 0;
-    transition: 1s;
     border-left: 1px solid black;
     border-right: 1px solid black;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -2115,7 +2146,6 @@ pre {
     background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
     
 }
-
 
 
 .aside h3, .aside2 h3 {
@@ -2156,12 +2186,12 @@ pre {
 
 .test-img:hover {
     background-image: linear-gradient(to left, rgb(102,111,190), transparent );
-    transition: color 1s;
+    transition: 1s;
 }
 
 .test-img2:hover {
     background-image: linear-gradient(to right, rgb(102,111,190), transparent );
-    transition: color 1s;
+    transition: 1s;
 }
 
 
@@ -2175,6 +2205,19 @@ pre {
     padding-top: 3rem;
 }
 
+
+@media (min-width: 1015px) {
+
+
+    #test-grid {
+        width: 1000px;
+        visibility: visible;
+        height: 255px;
+        overflow: visible;
+    }
+
+
+}
 
 /* -------------------------------------------*/
 

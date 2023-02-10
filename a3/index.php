@@ -67,41 +67,7 @@
               ?>
           </tr>
         </table>
-        <div id='test-grid'>
-
-          <div class ='box'>
-          <div id='test-container'>
-            <div class="test-description">
-              <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
-              <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
-            </div>
-            <div class='test-banner'>
-              <div id='slider'></div>
-              <div class ='aside'><h3> Standard </h3></div>
-            </div>
-            <div class="test-img" >
-              <img src="../../media/Profern-Standard-Twin.png" onmouseover="STslideRight()" onmouseout="STslideLeft()">
-            </div>
-          </div>
-          </div>
-
-          <div id='box'>
-          <div id='test-container2'>
-            <div class="test-description2">
-              <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-              <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
-            </div>
-            <div class='test-banner2'>
-              <div id='slider2'></div>
-              <div class ='aside2'><h3> First Class </h3></div>
-            </div>
-            <div class="test-img2" >
-              <img src="../../media/Profern-Verona-Twin.png" onmouseover="FCslideLeft()" onmouseout="FCslideRight()">
-            </div>
-          </div>
-          </div>  
-
-        </div>
+        <?= testModule(); ?>     
       </section>
 
       <section id="nowshowing">
