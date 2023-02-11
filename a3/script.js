@@ -77,7 +77,7 @@ function windowScroll(page, size) {
             } else {
                 offsetValue = 230;
             }
-            //console.log(offsetValue);
+            console.log(offsetValue);
 
             if (window.scrollY >= offsetValue) {
                 document.querySelector('#logo img').style.opacity = '1';
@@ -89,8 +89,8 @@ function windowScroll(page, size) {
                 }
             } else {
                 document.querySelector('#logo img').style.opacity = '0.6';
-                document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
-                document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, #d4af37 30%, black 80%)';
+                document.getElementsByClassName('nav-li')[1].style.backgroundImage = 'linear-gradient(315deg, transparent 30%, black 80%), linear-gradient(to top, transparent 50%, rgb(125,113,29)), linear-gradient(315deg, #d4af37, #d4af37)';
+                document.getElementsByClassName('nav-li')[2].style.backgroundImage = 'linear-gradient(315deg, transparent 30%, black 80%), linear-gradient(to top, transparent 50%, rgb(125,113,29)), linear-gradient(315deg, #d4af37, #d4af37)';
                 if (size == 'small') {
                     document.getElementsByClassName('nav-li')[0].style.height = '30%';
 
