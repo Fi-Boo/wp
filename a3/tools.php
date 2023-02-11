@@ -8,17 +8,6 @@
 
 // Function set up in a utilities file like tools.php
 
-
-// post/get request validation. user sent to index if invalid 
-function validateRequest($requestTypeValue) {
-  global $movies;
-  if (!isset($movies[$requestTypeValue]) ) {
-    header("Location: error.php");
-    exit();
-  }
-}
-
-
 // --- SECTIONS ---
 // sections data are organised in alphabetical order 
 // 1. Variables and Arrays
@@ -858,6 +847,16 @@ function yourDetailsTr() {
 }  
 //-------------------------------------------------------------------------------------           
 
+
+// post/get request validation. user sent to index if invalid 
+function validateRequest($requestTypeValue) {
+  global $movies;
+  if (!isset($movies[$requestTypeValue]) ) {
+    header("Location: error.php");
+    exit();
+  }
+}
+//-------------------------------------------------------------------------------------   
 
 // 3. Testing Zone - for functions used in test code.
 
