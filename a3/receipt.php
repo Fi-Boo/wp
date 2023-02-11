@@ -58,6 +58,8 @@
                     <h4> <?= $movies[$_SESSION['movie']]['title']; ?> <br>
                     (<?= $movies[$_SESSION['movie']]['rating'] ?>)</h4>
                     - DATE & TIME -
+
+                    <!-- YES date is intentional. looked too bare without a date and too lazy to find code to generate date so i thought i'd add a meme date to pay homage to Avatars million years between movie releases -->
                     <h4> 31/2/2512 <?= $_SESSION['day']; ?> @  
                     <?= getSessionTime($_SESSION); ?></h4>
                 </div>
