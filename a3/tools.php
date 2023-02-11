@@ -869,39 +869,33 @@ function testModule() {
   echo<<<"TEST"
     <div id='test-grid'>
       <div id='floating-text'>
-        <p>"Comfortably</p>
-        <p>Classy"</p>
+        <p>"Modern Cush for you</p>
+        <p>precious tush"</p>
       </div>
       <div id ='box1'>
         <div id='test-container'>
+          <div class="test-img" >
+            <img id='test-img1' src="../../media/Profern-Standard-Twin.png" value='closed' onmouseover="STslideRight()" onmouseout="STslideLeft()" onclick="toggleSlide('ST')">
+          </div>
           <div class="test-description">
             <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
             <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
           </div>
-          <div class='test-banner'>
-            <div id='slider'></div>
-            <div class ='aside'><h3> Standard </h3></div>
-          </div>
-          <div class="test-img" >
-            <img id='test-img1' src="../../media/Profern-Standard-Twin.png" value='closed' onmouseover="STslideRight()" onmouseout="STslideLeft()" onclick="toggleSlide('ST')">
-          </div>
+          <div class ='aside'><h3> Standard </h3></div> 
         </div>
       </div>
 
       <div id='box2'>
-      <div id='test-container2'>
-        <div class="test-description2">
-          <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-          <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
-        </div>
-        <div class='test-banner2'>
-          <div id='slider2'></div>
+        <div id='test-container2'>
+          <div class="test-img2" >
+            <img src="../../media/Profern-Verona-Twin.png" onmouseover="FCslideLeft()"  onmouseout="FCslideRight()" onclick="toggleSlide('FC')">
+          </div>
+          <div class="test-description2">
+            <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
+            <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
+          </div>
           <div class ='aside2'><h3> First Class </h3></div>
         </div>
-        <div class="test-img2" >
-          <img src="../../media/Profern-Verona-Twin.png" onmouseover="FCslideLeft()" onmouseout="FCslideRight()" onclick="toggleSlide('FC')">
-        </div>
-      </div>
       </div>  
     </div>
   TEST;

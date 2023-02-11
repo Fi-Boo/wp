@@ -34,9 +34,10 @@
             contentModule('SeatDesc','seat-fc'); 
             ?> 
         </div>
+        <?= testModule(); ?>
         <table id="pricestable">
           <tr>
-            <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?> day. </strong></cite></td>
+            <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?>day. </strong></cite></td>
           </tr>
           <tr>
             <th>Ticket</th>
@@ -67,9 +68,8 @@
               ?>
           </tr>
         </table>
-        <?= testModule(); ?>     
       </section>
-
+      
       <section id="nowshowing">
         <div class="section-title" id="nowshowing-title"><h2>Now Showing</h2></div>
         <div id="movie-section-grid">

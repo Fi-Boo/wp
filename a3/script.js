@@ -339,32 +339,30 @@ function errorpress(number) {
 // for ST seat open text
 function STslideRight() {
 
-    document.querySelector('#test-container').style.zIndex = '1';
-    document.querySelector('#slider').style.width = '0px';
-    document.querySelector('#slider').style.transition = '1s';
+    document.querySelector('.test-description').style.width = '400px';
+
 }
 
 // for ST seat close text
 function STslideLeft() {
 
-    document.querySelector('#slider').style.width = '400px';
-    document.querySelector('#slider').style.transition = '0s';
+    document.querySelector('.test-description').style.width = '0px';
+
 }
 
 // for FC seat open text
 function FCslideLeft() {
 
-    document.querySelector('#test-container').style.zIndex = '0';
-    document.querySelector('#slider2').style.width = '0px';
-    document.querySelector('#slider2').style.transition = '1s';
+    document.querySelector('.test-description2').style.width = '400px';
+  
 
 }
 
 // for FC seat close text
 function FCslideRight() {
 
-    document.querySelector('#slider2').style.width = '400px';
-    document.querySelector('#slider2').style.transition = '0s';
+    document.querySelector('.test-description2').style.width = '0px';
+   
 }
 
 

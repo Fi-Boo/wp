@@ -1481,6 +1481,7 @@ pre {
 
 .ticket-logo img, .ticket-img img, .receipt-barcode img, .receipt-appleG img {
     width: 100%;
+    
 }
 
 .ticket-img img {
@@ -2024,110 +2025,123 @@ pre {
 
 
 #test-grid {
-    /* display: grid; */
+    display: none; 
     position: relative;
-    /* grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-    'box1 box2'; */
+    'box1 box2';
     margin: 2rem auto;
-    width: 0px;
-    height: 0px; 
-    overflow: visible;
-    visibility: hidden;
+    width: 1000px;
+    height: 250px; 
+}
+
+
+#floating-text {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    z-index:0;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+#floating-text p {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+#box1 {
+    position: absolute;
+    left: 0;
+    grid-area: box1;
+    z-index: 0;
+}
+
+#box2 {
+    position: absolute;
+    right:0;
+    grid-area: box2;
+    z-index: 0;
 }
 
 #test-container, #test-container2 {
 
-    position: absolute;
-    display: grid;
-    grid-template-areas:
-    'sectionA sectionB';
+    /* position: absolute; */
+    display: flex;
+    /* grid-template-areas:
+    'sectionA sectionB'; */
     width: 700px;
+    height: 250px;
     background-color: transparent;
     margin: 0 auto;
+    padding: 0;
+    z-index: 1;
 
 }
 
 
 #test-container2 {
-    right: 0;
+    direction: rtl;
 }
 
-
-.test-description, .test-img2 {
-    grid-area: sectionB;
+#test-container2 p {
+    direction: ltr;
 }
 
-
-.test-img, .test-description2 {
-    grid-area: sectionA;
-}
 
 .test-description, .test-description2 {
     color: white;
-    width: 450px;
-    padding: 1rem 5px 0 60px;
+    /* width: 450px; */
+    /* padding: 1rem 5px 0 60px; */
+    padding: 0;
     margin: 0;
     text-align: justify;
     box-sizing: border-box; /* -- this is handy -- */
+    height: 250px;
+    transition: width 1s;
+    width: 0;
+    overflow: 0; 
+}
+
+
+
+.test-description p, .test-description2 p{
+    width: 395px;
+    height: auto;
+    overflow: hidden;
+    margin-top: 1rem ;
+    box-sizing: border-box;
+}
+
+.test-description p {
+    padding-right: 1rem;
+}
+
+.test-description2 p {
+    padding-left: 1rem;
 }
 
 .test-description {
-    padding: 1rem 60px 0 5px;
+    /* padding: 1rem 60px 0 5px; */
     background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 20%);
+    overflow: hidden;
+
 }
 
 .test-description2 {
     background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 20%);
+    overflow: hidden;
 }
 
-.test-banner, .test-banner2 {
-    display: flex;
-    position: absolute;
-    width: 450px;
-    height: 100%;
-    right: 250px;
-    top: 0;
-    background: transparent;
-    /* z-index: 0; */
-}
-
-.test-banner {
-    flex-flow: row-reverse;
-}
-
-.test-banner {
-    right: 0;
-}
-
-#slider {
-    /* position: absolute; */
-    right:0;
-    top: 0;
-    height: 100%;
-    width: 400px;
-    background-color: black;
-}
-
-
-#slider2 {
-    /* position: absolute; */
-    left:0;
-    top: 0;
-    height: 100%;
-    width: 400px;
-    background-color: black;;
-}
-
-
-/* #slider:hover, #slider2:hover {
-    width: 0;
-} */
 
 .aside, .aside2 {
     position: relative;
     width: 50px;
-    height: 100%;
+    height: 250px;
     text-align: center;
     margin-left: 0;
     border-left: 1px solid black;
@@ -2171,14 +2185,14 @@ pre {
 
 .test-img {
     width: 250px;
-    height: 253px;
+    height: 250px;
     background-image: linear-gradient(to left, rgb(102,111,190), transparent 50% );
 }
 
 .test-img2{
     align-self: right;
     width: 250px;
-    height: 253px;
+    height: 250px;
     background-image: linear-gradient(to right, rgb(102,111,190), transparent 50% );
 }
 
@@ -2209,11 +2223,12 @@ pre {
 @media (min-width: 1015px) {
 
 
+    #prices-grid {
+        display: none;
+    } 
+
     #test-grid {
-        width: 1000px;
-        visibility: visible;
-        height: 255px;
-        overflow: visible;
+        display: grid;
     }
 
 

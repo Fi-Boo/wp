@@ -1,13 +1,13 @@
 /* Insert your javascript here */
 
+
 /*  
 function to set 2 different offset values based on media query
 Need offset to be -126 for 768px+ res due to larger header/nav otherwise default is -101 for mobile view 
 https://www.w3schools.com/howto/howto_js_media_queries.asp 
 */
 
-
-/* ------------  NAV RELATED FUNCTIONS ---------------------------------*/
+// -- Nav related functions
 
 function navScroll(page) {
     //console.log(page);
@@ -101,11 +101,10 @@ function windowScroll(page, size) {
     };
 }
 
-/* ----------------------------------------------------------------------------------------------------- */
+//-------------------------------------------------------------------------------------
 
 
-/* ------------------------------ PRICE TOTALS FUNCTIONS ----------------------------------------------- */
-
+// -- Price calculations for booking.php
 
 // function to calculate ticket subtotals. 
 // Is run at the end of site load to check if pre-existing selections have been made
@@ -269,8 +268,11 @@ function removeDetailsError(variable) {
     document.getElementsByName('user[' + variable +']')[0].style.border = 'none';
 }
 
+//-------------------------------------------------------------------------------------
+
 
 //Mouse/click info icon to display detail field limitations
+// Your details info icons
 
 function showDetailsInfo(variable) {
 
@@ -303,7 +305,8 @@ function hideDetailsInfo(variable) {
 }
 
 
-//meme press to return to index.html
+
+//press to return to index.html button in error
 function errorpress(number) {
     
     var test = number;
@@ -333,33 +336,46 @@ function errorpress(number) {
 // functions for testModule(). incomplete work.
 
 
+// for ST seat open text
 function STslideRight() {
 
-    document.querySelector('#test-container').style.zIndex = '1';
-    document.querySelector('#slider').style.width = '0px';
-    document.querySelector('#slider').style.transition = '1s';
+    document.querySelector('.test-description').style.width = '400px';
+
 }
 
+// for ST seat close text
 function STslideLeft() {
 
-    document.querySelector('#slider').style.width = '400px';
-    document.querySelector('#slider').style.transition = '0s';
+    document.querySelector('.test-description').style.width = '0px';
+
 }
 
-
-
-
+// for FC seat open text
 function FCslideLeft() {
 
-    document.querySelector('#test-container').style.zIndex = '0';
-    document.querySelector('#slider2').style.width = '0px';
-    document.querySelector('#slider2').style.transition = '1s';
+    document.querySelector('.test-description2').style.width = '400px';
+  
 
 }
 
+// for FC seat close text
 function FCslideRight() {
 
-    document.querySelector('#slider2').style.width = '400px';
-    document.querySelector('#slider2').style.transition = '0s';
+    document.querySelector('.test-description2').style.width = '0px';
+   
 }
 
+
+
+function toggleSlide(type) {
+    toggleImage = document.getElementById('test-img1');
+    if (type == 'ST') {
+        if (toggleImage.getAttribute('value') == 'closed') {
+            STslideRight();
+            toggleImage.setAttribute('value','open');
+        } else {
+            STslideLeft();
+            toggleImage.setAttribute('value','closed');
+        }
+    }
+}
