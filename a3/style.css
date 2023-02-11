@@ -1964,8 +1964,13 @@ pre {
 @media (min-width: 1400px) {
 
     body {
-        background-image: linear-gradient(to right, rgb(125,113,29), #d4af37 3%, rgb(125,113,29) 3%, #d4af37 6%, rgb(125,113,29) 6%, #d4af37 9%,  black 10%, black 90%,#d4af37 91%, rgb(125,113,29) 94%, #d4af37 94%, rgb(125,113,29) 97%, #d4af37 97%, rgb(125,113,29));
-        /*background-image: linear-gradient(to right, #d4af37, black 10%, black 90%, #d4af37);*/
+        background-image: 
+        linear-gradient(to right,rgb(125,113,29), #d4af37 1.25%, #d4af37 2.5%, transparent 2.5%, transparent 97.5%, #d4af37 97.5%, #d4af37 98.75%,rgb(125,113,29) ),
+        linear-gradient(to right,rgb(125,113,29) 2.5%, #d4af37 3%,#d4af37 4.5%, transparent 4.5%, transparent 95.5%, #d4af37 95.5%, #d4af37 97%,rgb(125,113,29) 97.5% ),
+        linear-gradient(to right,rgb(125,113,29) 4.5%, #d4af37 5%, #d4af37 6%, transparent 6%, transparent 94%, #d4af37 94%, #d4af37 95%,rgb(125,113,29) 95.5% ),
+        linear-gradient(to right,rgb(125,113,29) 6%, #d4af37 6.5%, #d4af37 7.5%, transparent 7.5%, transparent 92.5%, #d4af37 92.5%, #d4af37 93.5%,rgb(125,113,29) 94% ),
+        linear-gradient(to right,rgb(125,113,29) 7.5%, #d4af37 8%, #d4af37 8.5%, transparent 8.5%, transparent 91.5%, #d4af37 91.5%, #d4af37 92%,rgb(125,113,29) 92.5% ),
+        linear-gradient(to right,rgb(125,113,29) 8.5%, #d4af37 9%, rgb(125,113,29) 9%, black 15%, black 85%, rgb(125,113,29) 91%, #d4af37 91%, rgb(125,113,29) 91.5%);
     }
 
     main {
