@@ -1984,17 +1984,6 @@ pre {
         background-color: black;
     }
 
-    
-    $left = 0;
-    $right = 100-$left;
-    
-
-    for(i=0; i<6; i++) {
-
-    }
-
-    
-
 
     main {
         background-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
