@@ -833,12 +833,18 @@ function yourDetailsTr() {
 
   $value = unsetFB($_POST['user'][$data[0]]);
   $errormsg = unsetFB($errorsOut['user'][$data[0]]);
+  
+  $type = 'text';
+  if ($data[0] == 'email') {
+    $type = 'email';
+  }
+
 
   echo <<<"STR"
       <tr id="details-tr-{$data[0]}">
         <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
-          <input type="text" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" pattern="{$data[3]}" required>
+          <input type="{$type}" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
           <div id="details-error-{$data[0]}"> $errormsg </div>
         </td>
       </tr>
