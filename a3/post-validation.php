@@ -1,7 +1,5 @@
 <?php
-  include_once('tools.php');
   
-
   function validatePost() {
     global $movies;
     $errors = [];
@@ -16,6 +14,7 @@
     // movie code  validation. Will return user to index if incorrect $POST movie code
     validateRequest($movieCode);
     
+    //echo "passed movieCode";
 
     // session code validation. 
     // if day is not set, go through the movie array
@@ -28,6 +27,7 @@
     } else {
       //$error['day'] ="";
       foreach ($movies as $movie) {
+        //print_r($movie);
         if ($movieCode == $movie['code']) {
           $dayMatch = false;
           foreach ($movie['screenings'] as $weekday => $time) {
@@ -46,6 +46,10 @@
         }
       }
     }
+
+
+
+    //echo "passed session select";
 
 
     // seat validation. checks each seat type value. If the value is not blank and less than 1 or greater than 10 then user is sent back to index.php

@@ -10,9 +10,9 @@
 
     if (empty($errorsOut)) {
       $_SESSION = $_POST;
-      printToFile('bookings.txt',$_POST); 
-      generateBR(6);
-      header("Location: receipt.php?printType=");
+      //printToFile('bookings.txt',$_POST); 
+      //generateBR(6);
+      //header("Location: receipt.php?printType=");
     } 
   } 
 

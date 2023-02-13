@@ -1965,7 +1965,7 @@ pre {
 
     body {
         background-image: 
-        linear-gradient(to right, black, transparent 1.25%, transparent 2.5%, black 2.5%, transparent 3%,transparent 4.5%, black 4.5%, transparent 5%, transparent 6%, black 6%, transparent 6.5%, transparent 7.5%, black 7.5%, transparent 8%, transparent 8.5%, black 8.5%, transparent 9%, rgb(0,0,0, 0.5) 9%, black 15%, black 85%, rgb(0,0,0, 0.5) 91%, transparent 91%, black 91.5%, transparent 91.5%, transparent 92%,black 92.5%, transparent 92.5%, transparent 93.5%,black 94%, transparent 94%, transparent 95%,black 95.5%, transparent 95.5%, transparent 97%,black 97.5%, transparent 97.5%, transparent 98.75%, black);
+        linear-gradient(to right, black, transparent 1.25%, transparent 2.5%, black 2.5%, transparent 3%,transparent 4.5%, black 4.5%, transparent 5%, transparent 6%, black 6%, transparent 6.5%, transparent 7.5%, black 7.5%, transparent 8%, transparent 8.5%, black 8.5%, transparent 9%, rgb(0,0,0, 0.5) 9%, black 12.5%, black 87.5%, rgb(0,0,0, 0.5) 91%, transparent 91%, black 91.5%, transparent 91.5%, transparent 92%,black 92.5%, transparent 92.5%, transparent 93.5%,black 94%, transparent 94%, transparent 95%,black 95.5%, transparent 95.5%, transparent 97%,black 97.5%, transparent 97.5%, transparent 98.75%, black);
         background-color: rgb(102,111,190);
     }
 
@@ -2130,14 +2130,14 @@ pre {
 
 .test-description {
     /* padding: 1rem 60px 0 5px; */
-    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 20%);
+    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 5%);
     overflow: hidden;
     
 
 }
 
 .test-description2 {
-    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 20%);
+    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 5%);
     overflow: hidden;
 }
 

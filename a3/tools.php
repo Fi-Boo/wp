@@ -713,7 +713,7 @@ function sessionSelection($var) {
   global $movies;
   global $pricing;
   
-  $radioState;
+  $radioState = '';
   $counter = 1;
 
   foreach ($movies as $movie) {
@@ -729,11 +729,9 @@ function sessionSelection($var) {
         }
 
         // disables radio if no session time  = "-"
-        if ($time == "-") {
-          $radioState = "disabled";
-        } else {
-          $radioState = "";
-        }
+        // if ($time == "-") {
+        //   $radioState = "disabled";
+        // } 
 
         $checkedState = setChecked($_POST['day'], $day);
     
