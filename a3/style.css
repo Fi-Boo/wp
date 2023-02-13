@@ -2100,7 +2100,7 @@ pre {
     color: white;
     /* width: 450px; */
     /* padding: 1rem 5px 0 60px; */
-    padding: 0;
+    padding: 1rem 0;
     margin: 0;
     text-align: justify;
     box-sizing: border-box; /* -- this is handy -- */
