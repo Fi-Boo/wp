@@ -18,7 +18,7 @@
 
   validateRequest($_GET['movie']);
   headerModule();
- 
+  
 ?>
 
     <script> 
@@ -65,7 +65,7 @@
               <fieldset id="booking-day-select">
                 <legend class="section-title"><h2>Select Session</h2></legend>
                 <ul id="booking-date">
-                <?php sessionSelection($movies[$_GET['movie']]["code"]) ?>
+                <?php sessionSelection($_GET['movie']) ?>
                 </ul>
                 <div class="error-container"><div id="session-select-error"><?= unsetFB($errorsOut['day']); ?></div></div>
               </fieldset>
