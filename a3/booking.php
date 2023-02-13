@@ -1,6 +1,6 @@
 <?php   
 
-  include "tools.php"; 
+  include_once "tools.php"; 
 
 
   // if request is post other - this ensures that code is not run the first time user goes to booking as that will be GET request
@@ -10,9 +10,9 @@
 
     if (empty($errorsOut)) {
       $_SESSION = $_POST;
-      //printToFile('bookings.txt',$_POST); 
-      //generateBR(6);
-      //header("Location: receipt.php?printType=");
+      printToFile('bookings.txt',$_POST); 
+      generateBR(6);
+      header("Location: receipt.php?printType=");
     } 
   } 
 

@@ -698,10 +698,11 @@ function printToFile($var1, $POST) {
 
   // opens file to 'append'
   $file = fopen($var1,"a");
+  flock($file, LOCK_EX);
 
-  fputcsv($file, $printdata);
+  fputcsv($file, $printdata, "\t");
   
-  
+  flock($file, LOCK_UN);
   fclose($file);
 }
 //-------------------------------------------------------------------------------------

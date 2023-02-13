@@ -1,5 +1,5 @@
 <?php
-    include 'tools.php';
+    include_once 'tools.php';
 
     if(empty($_SESSION['movie'])) {
         header("Location: index.php"); // redirect if movie code invalid
@@ -59,7 +59,7 @@
                     (<?= $movies[$_SESSION['movie']]['rating'] ?>)</h4>
                     - DATE & TIME -
 
-                    <!-- YES date is intentional. looked too bare without a date and too lazy to find code to generate date so i thought i'd add a meme date to pay homage to Avatars million years between movie releases -->
+                    <!-- YES date is intentional. Page info was looking too bare without a date and so i thought i'd add a meme date to pay homage to Avatars million years between movie releases -->
                     <h4> 31/2/2512 <?= $_SESSION['day']; ?> @  
                     <?= getSessionTime($_SESSION); ?></h4>
                 </div>
