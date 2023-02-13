@@ -566,7 +566,7 @@ function headerModule() {
 //function to return date time now
 function now() {
   date_default_timezone_set("Australia/Sydney"); 
-  return date("d-m-Y H:i:s");
+  return date("d-m-Y H:i");
 }
 //-------------------------------------------------------------------------------------
 

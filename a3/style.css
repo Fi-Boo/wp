@@ -2145,14 +2145,14 @@ pre {
 
 .test-description {
     /* padding: 1rem 60px 0 5px; */
-    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 20%);
+    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 10%);
     overflow: hidden;
     
 
 }
 
 .test-description2 {
-    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 20%);
+    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 10%);
     overflow: hidden;
 }
 
