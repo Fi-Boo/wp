@@ -723,7 +723,7 @@ function sessionSelection($var) {
           $pricing = "data-fullprice";
         }
 
-        disables radio if no session time  = "-"
+        //disables radio if no session time  = "-"
         if ($time == "-") {
           $radioState = "disabled";
         } 
