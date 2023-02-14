@@ -47,7 +47,9 @@ li {
 main {
     max-width: 1500px;
     padding-top: 2rem;
-    background-color: black;
+    background-image: url('../../media/starsbg.jpeg');
+    background-attachment: fixed;
+    background-size: 50%;
     margin: -10px auto 0;
 }
 
@@ -1925,10 +1927,6 @@ pre {
 
 @media (min-width: 992px) {
 
-    main {
-        background-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
-        background-color: transparent;
-    }
 
     section, section div{
         background: transparent;
@@ -2009,11 +2007,6 @@ pre {
         background-color: rgb(102,111,190);
     }
 
-
-    main {
-        background-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
-        background-color: transparent;
-    }
 
     #company-name {
         margin-left: 14vw;
