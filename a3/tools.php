@@ -726,7 +726,9 @@ function sessionSelection($var) {
         //disables radio if no session time  = "-"
         if ($time == "-") {
           $radioState = "disabled";
-        } 
+        } else {
+          $radioState = '';
+        }
 
         $checkedState = setChecked($_POST['day'], $day);
     
