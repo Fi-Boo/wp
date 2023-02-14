@@ -3,6 +3,7 @@
   
   session_unset();
   headerModule();
+
 ?>
 
     <script> navScroll('index'); </script>
