@@ -132,8 +132,7 @@ footer hr {
 
 
 #footer-logo {
-    width: 150px;
-    min-width: 150px;
+    width: 100px;
     margin: auto;
 }
 
@@ -1738,6 +1737,10 @@ pre {
 
     #footer-flex div {
         padding: 0 1rem;
+    }
+
+    #footer-logo {
+        width: 150px;
     }
 
 

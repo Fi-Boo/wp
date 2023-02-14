@@ -38,7 +38,7 @@
         <?= testModule(); ?>
         <table id="pricestable">
           <tr>
-            <td colspan="5"><cite><strong>*Daily <?= $discountTime ?> session and all day <?= $discountDay ?>day. </strong></cite></td>
+            <td colspan="5"><cite><strong>*Discount Price: Daily <?= $discountTime ?> sessions and all day <?= $discountDay ?>day. </strong></cite></td>
           </tr>
           <tr>
             <th>Ticket</th>
