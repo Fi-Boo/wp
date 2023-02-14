@@ -19,7 +19,7 @@
 
     <nav>
         <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
-        <div id="navbar">
+        <div id="navbar2">
             <div id='nav-receipt'><h3 id='book-title'> Booking Confirmation</h3><h3 id='book-ref'>[ <?= $_SESSION['ref'] ?> ]</h3>
             </div>
         </div>
@@ -47,9 +47,20 @@
             <div id='receipt-details'>
                 <div id = 'receipt-user-details'>
                     <h3> User Details</h3>
-                    <p> <?= $_SESSION['user']['name']; ?> </p>
-                    <p>(e): <?= $_SESSION['user']['email']; ?> </p>
-                    <p>(t): <?= $_SESSION['user']['mobile']; ?> </p>
+                    <table>
+                        <tr>
+                            <td><img src='../../media/usericon.png'></td>
+                            <td><?= $_SESSION['user']['name']; ?></td> 
+                        </tr>
+                        <tr>
+                            <td><img src='../../media/useremail.png'></td>
+                            <td><?= $_SESSION['user']['email']; ?></td> 
+                        </tr>
+                        <tr>
+                            <td><img src='../../media/usernumber.png'></td>
+                            <td><?= $_SESSION['user']['mobile']; ?> </td>
+                        </tr>
+                    </table>
                     <hr>
                 </div>    
                 <div id = 'receipt-booking-details'>
@@ -64,7 +75,8 @@
                     <?= getSessionTime($_SESSION); ?></h4>
                 </div>
             </div>
-            <div id = 'receipt-table'>         
+            <div id = 'receipt-table'>  
+                <h3> Tickets purchased </h3>       
                 <?= generateSeatTable($_SESSION,'receipt'); ?>
             </div>
             <div id='message'>

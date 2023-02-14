@@ -374,7 +374,7 @@ function generateSeatTable($SESSION,$var) {
       </tr>
       <tr>
         <td colspan='2'>Total:</td>
-        <td><h3>$$total</h3></td>
+        <td><h2>$$total</h2></td>
       </tr>
     
     RECEIPTP2;
