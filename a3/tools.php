@@ -729,10 +729,12 @@ function sessionSelection($var) {
           $pricing = "data-fullprice";
         }
 
-        // disables radio if no session time  = "-"
-        // if ($time == "-") {
-        //   $radioState = "disabled";
-        // } 
+        //disables radio if no session time  = "-"
+        if ($time == "-") {
+          $radioState = "disabled";
+        } else {
+          $radioState = "";
+        }
 
         $checkedState = setChecked($_POST['day'], $day);
     
@@ -873,8 +875,8 @@ function testModule() {
   echo<<<"TEST"
     <div id='test-grid'>
       <div id='floating-text'>
-        <p>"Modern Cush for you</p>
-        <p>precious tush"</p>
+        <p>"Modern Cush for</p>
+        <p>your precious tush"</p>
       </div>
       <div id ='box1'>
         <div id='test-container'>
