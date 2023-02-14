@@ -1,8 +1,9 @@
 <?php     
-  include "tools.php"; 
+  include_once "tools.php"; 
   
   session_unset();
   headerModule();
+
 ?>
 
     <script> navScroll('index'); </script>

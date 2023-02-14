@@ -8,17 +8,6 @@
 
 // Function set up in a utilities file like tools.php
 
-
-// post/get request validation. user sent to index if invalid 
-function validateRequest($requestTypeValue) {
-  global $movies;
-  if (!isset($movies[$requestTypeValue]) ) {
-    header("Location: error.php");
-    exit();
-  }
-}
-
-
 // --- SECTIONS ---
 // sections data are organised in alphabetical order 
 // 1. Variables and Arrays
@@ -83,7 +72,6 @@ $pricing;
 //main movie array. Possibly change to objects if time permits
 $movies = [
   "ACT" => [
-    "code" => "ACT",
     "title" => "Avatar 2: Way of water",
     "runtime" => "3h 12m",
     "rating" => "PG-13",
@@ -108,7 +96,6 @@ $movies = [
     ]
   ],
   "RMC" => [
-    "code" => "RMC",
     "title" => "Weird: The Al Yankovic Story",
     "runtime" => "1h 48m",
     "rating" => "TV-14",
@@ -133,7 +120,6 @@ $movies = [
     ]
   ],
   "FAM" => [
-    "code" => "FAM",
     "title" => "Puss in Boots: The Last Wish",
     "runtime" => "1hr 42m",
     "rating" => "PG",
@@ -158,7 +144,6 @@ $movies = [
     ]
   ],
   "AHF" => [
-    "code" => "AHF",
     "title" => "Margrete: Queen of the North",
     "runtime" => "2h",
     "rating" => "MA-15+",
@@ -188,37 +173,31 @@ $movies = [
 // seating type and price array
 $seating = [
   "STA" => [
-    "code" => "STA",
     "desc" => "Standard Adult",
     "fullprice" => "21.50",
     "discprice" => "16.00"
   ],
   "STP" => [
-    "code" => "STP",
     "desc" => "Standard Concession",
     "fullprice" => "19.00",
     "discprice" => "14.50"
   ],
   "STC" => [
-    "code" => "STC",
     "desc" => "Standard Child",
     "fullprice" => "17.50",
     "discprice" => "13.00"
   ],
   "FCA" => [
-    "code" => "FCA",
     "desc" => "First Class Adult",
     "fullprice" => "31.50",
     "discprice" => "25.00"
   ],
   "FCP" => [
-    "code" => "FCP",
     "desc" => "First Class Concession",
     "fullprice" => "28.00",
     "discprice" => "23.50"
   ],
   "FCC" => [
-    "code" => "FCC",
     "desc" => "First Class Child",
     "fullprice" => "25.00",
     "discprice" => "22.00"
@@ -395,7 +374,7 @@ function generateSeatTable($SESSION,$var) {
       </tr>
       <tr>
         <td colspan='2'>Total:</td>
-        <td><h3>$$total</h3></td>
+        <td><h2>$$total</h2></td>
       </tr>
     
     RECEIPTP2;
@@ -577,7 +556,7 @@ function headerModule() {
 //function to return date time now
 function now() {
   date_default_timezone_set("Australia/Sydney"); 
-  return date("d-m-Y H:i:s");
+  return date("d-m-Y H:i");
 }
 //-------------------------------------------------------------------------------------
 
@@ -586,29 +565,31 @@ function nowShowingMovies() {
 
   global $movies;
 
-  foreach ($movies as $movie) {
+  foreach ($movies as $movie => $value) {
+
+    
     
     echo <<<"CDATA"
       <div class="movie-single">
             <div class="movie-detail">
-              <div class="movie-title"> {$movie["title"]} </div>
-              <div class="movie-runtime"> {$movie["runtime"]} </div>
-              <div class="movie-rating"> {$movie["rating"]} </div>
+              <div class="movie-title"> {$value["title"]} </div>
+              <div class="movie-runtime"> {$value["runtime"]} </div>
+              <div class="movie-rating"> {$value["rating"]} </div>
             </div>
             <div class="flip-card-container">
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="card-front">
-                    <img src= {$movie["poster"]} alt= {$movie["title"]} >
+                    <img src= {$value["poster"]} alt= {$value["title"]} >
                   </div>
                   <div class="card-back">
-                    <p>{$movie["synopsis"]}</p>
+                    <p>{$value["synopsis"]}</p>
                     <table id="booknow-table">
                       <tr>
                         <th colspan ="2"> Session Times </th>
                       </tr>
     CDATA;          
-    foreach ($movie["screenings"] as $day => $time) {
+    foreach ($value["screenings"] as $day => $time) {
       echo <<<"SCREENINGTABLE"
       <tr>
         <th>$day</th>
@@ -620,7 +601,7 @@ function nowShowingMovies() {
     echo <<<"MOREDATA"
                     </table>
                     <div class="booknow">
-                      <a href="booking.php?movie={$movie['code']}">BOOK NOW</a>
+                      <a href="booking.php?movie={$movie}">BOOK NOW</a>
                     </div>
                   </div>
                 </div>
@@ -630,6 +611,8 @@ function nowShowingMovies() {
     MOREDATA;
   } 
 }
+
+
 //-------------------------------------------------------------------------------------
 
 // used with debugger module to print page code
@@ -709,10 +692,11 @@ function printToFile($var1, $POST) {
 
   // opens file to 'append'
   $file = fopen($var1,"a");
+  flock($file, LOCK_EX);
 
-  fputcsv($file, $printdata);
+  fputcsv($file, $printdata, "\t");
   
-  
+  flock($file, LOCK_UN);
   fclose($file);
 }
 //-------------------------------------------------------------------------------------
@@ -724,13 +708,13 @@ function sessionSelection($var) {
   global $movies;
   global $pricing;
   
-  $radioState;
+  $radioState = '';
   $counter = 1;
 
-  foreach ($movies as $movie) {
+  foreach ($movies as $movie => $value) {
 
-    if ($movie["code"] === $var) {
-      foreach ($movie["screenings"] as $day => $time) {
+    if ($movie === $var) {
+      foreach ($value["screenings"] as $day => $time) {
 
         // sets discount or full price based on values of MON and 12pm any day
         if ($day == "Mon" || $time == "12pm") {
@@ -740,11 +724,9 @@ function sessionSelection($var) {
         }
 
         // disables radio if no session time  = "-"
-        if ($time == "-") {
-          $radioState = "disabled";
-        } else {
-          $radioState = "";
-        }
+        // if ($time == "-") {
+        //   $radioState = "disabled";
+        // } 
 
         $checkedState = setChecked($_POST['day'], $day);
     
@@ -800,19 +782,19 @@ function ticketTable() {
   global $seating;
   $maxPurchase = 10;
 
-  foreach ($seating as $seat) {
+  foreach ($seating as $seat => $value) {
 
     echo <<<"TICKETSELECTP1"
               <tr>
-                <th><label for="seats[{$seat['code']}]">{$seat['desc']} </label></th>
-                <td><div id="price[{$seat['code']}]"></div></td>
+                <th><label for="seats[{$seat}]">{$value['desc']} </label></th>
+                <td><div id="price[{$seat}]"></div></td>
                 <td class="priceCell">
-                  <select name="seats[{$seat['code']}]" data-fullprice="{$seat['fullprice']}" data-discprice="{$seat['discprice']}" onchange='calculateTotals()'>
+                  <select name="seats[{$seat}]" data-fullprice="{$value['fullprice']}" data-discprice="{$value['discprice']}" onchange='calculateTotals()'>
                     <option value="" ></option>
   TICKETSELECTP1;   
                     for ($a=1; $a<=$maxPurchase; $a++) {
 
-                      $selectedState = setSelected($_POST['seats'][$seat['code']], $a);
+                      $selectedState = setSelected($_POST['seats'][$seat], $a);
 
                       echo "<option value='$a' $selectedState >$a</option><br>";
                     }
@@ -820,7 +802,7 @@ function ticketTable() {
 
                     </select>
                   </td>
-                  <td><div id="pricesubtotal[{$seat['code']}]"></div></td>
+                  <td><div id="pricesubtotal[{$seat}]"></div></td>
                 </tr>
     TICKETSELECTP2;       
   }
@@ -844,12 +826,18 @@ function yourDetailsTr() {
 
   $value = unsetFB($_POST['user'][$data[0]]);
   $errormsg = unsetFB($errorsOut['user'][$data[0]]);
+  
+  $type = 'text';
+  if ($data[0] == 'email') {
+    $type = 'email';
+  }
+
 
   echo <<<"STR"
       <tr id="details-tr-{$data[0]}">
         <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
-          <input type="text" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" pattern="{$data[3]}" required>
+          <input type="{$type}" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
           <div id="details-error-{$data[0]}"> $errormsg </div>
         </td>
       </tr>
@@ -858,6 +846,16 @@ function yourDetailsTr() {
 }  
 //-------------------------------------------------------------------------------------           
 
+
+// post/get request validation. user sent to index if invalid 
+function validateRequest($requestTypeValue) {
+  global $movies;
+  if (!isset($movies[$requestTypeValue]) ) {
+    header("Location: error.php");
+    exit();
+  }
+}
+//-------------------------------------------------------------------------------------   
 
 // 3. Testing Zone - for functions used in test code.
 

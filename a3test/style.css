@@ -219,7 +219,7 @@ nav {
     background-image: radial-gradient(rgb(102,111,190), transparent 70%);
 }
 
-#navbar {
+#navbar, #navbar2 {
     position: absolute;
     bottom: 0;
     padding: 0;
@@ -237,7 +237,8 @@ nav {
     font-weight: 700;
     font-size: 1.5rem;
     text-align: right;
-    background-image: linear-gradient(315deg, #d4af37 30%, black 80%);
+    background-image: linear-gradient(315deg, transparent 30%, black 80%),linear-gradient(to top, transparent 50%, rgb(125,113,29) ),linear-gradient(315deg, #d4af37, #d4af37);
+    /* background-color:#d4af37; */
     text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37, 1px 1px 0 #d4af37;
     border-bottom: 2px solid black;
     transition: 0.5s;
@@ -302,7 +303,7 @@ nav a.current {
 
 .section-title, .sub-section-title {
     margin-block: 2rem;
-    padding-left: 5rem;
+    padding-left: 7rem;
     font-family: 'Oleo Script Swash Caps', cursive;
     font-size: 1.25rem;
     background-image: linear-gradient(135deg, rgb(102,111,190) , transparent 70%);
@@ -317,7 +318,7 @@ nav a.current {
     margin-block: 1rem;
     text-align: right;
     padding-left: 0;
-    padding-right: 5rem;
+    padding-right: 7rem;
     background-image: linear-gradient(315deg, rgb(102,111,190) , transparent 70%);
     border-image-source:  linear-gradient(to left, #999B9B, transparent 70%);
 }
@@ -341,7 +342,7 @@ h2 {
     display: grid;
     padding-block: 0.5rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin-inline: auto;
     align-items: center;
 }
@@ -767,8 +768,7 @@ table {
     'poster'
     'trailer'
     'synopsis'
-    'team'
-    'booking-form';
+    'team';
     width: 100%;
     max-width: 1100px;
     margin: auto;
@@ -812,10 +812,6 @@ table {
     grid-area: team;
 }
 
-#booking-form {
-    grid-area: booking-form;
-}
-
 #movie-trailer, #movie-synopsis, #movie-team {
     width: 95%;
     max-width: 600px;
@@ -839,14 +835,10 @@ table {
 fieldset {
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 3rem;
     border: 0px;
 }
 
-legend {
-    width: 95%;
-    margin-left: 0;
-    margin-left: -1rem;
-}
 
 #booking-date {
     display: flex;
@@ -1027,7 +1019,6 @@ select option:checked {
 #details-table {
     margin: 0 auto;
     padding: 0;
-
 }
 
 
@@ -1060,6 +1051,7 @@ select option:checked {
     padding: 0;
     position: relative;
     border: none;
+    border-right: 1px solid black;
 }
 
 #details-table input {
@@ -1239,6 +1231,12 @@ pre {
 
 /* ----------------------- RECEIPT PAGE -------------------------*/
 
+#navbar2 {
+    box-shadow:none;
+    width: 80%;
+    z-index: 3;
+    margin-left: 20%;
+}
 
 #nav-receipt {
     width: 100%;
@@ -1246,17 +1244,22 @@ pre {
     color: black;
     height: 95%;
     text-align: center;
-    background-image: linear-gradient(315deg, rgb(102,111,190), #d4af37 50%, black 80%);
-    box-shadow: 0px 6px 0.4em black;
+    background-image: 
+    linear-gradient(to top, rgb(0,0,0,0.5), transparent 15%, transparent 85%, rgb(0,0,0,0.5) ),
+    linear-gradient(315deg, rgb(102,111,190), #d4af37 50%, transparent 80%);
+
 }
+
 #nav-receipt h3 {
     display: inline-block;
     margin: 0;
     padding-top: 1.6rem;
 }
 
+
 #book-title {
     width: 60%;
+
 }
 
 #book-ref {
@@ -1309,8 +1312,10 @@ pre {
     text-align: center;
 }
 
-#receipt-details h3, #message {
+#receipt-details h3, #receipt-table h3, #message {
     font-family: 'Oleo Script Swash Caps', cursive;
+    margin: auto;
+
 }
 
 /* --- receipt details ---*/
@@ -1329,6 +1334,26 @@ pre {
     border: 1px solid #d4af37;
 }
 
+#receipt-user-details table tr td:first-child {
+    width: 30px;
+    height: auto;
+    padding: 0;
+}
+
+
+#receipt-user-details table tr td img {
+    width: 75%;
+    height: auto;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #d4af37;
+    border: 1px solid black;
+}
+
+#receipt-user-details table tr td:last-child {
+    color: #d4af37;
+    font-weight: 400;
+} 
 
 #message {
     grid-area: message;
@@ -1337,11 +1362,15 @@ pre {
 
 /* --- receipt table --- */
 
+#receipt-table h3 {
+    text-align: center;
+}
+
 #receipt-table {
     grid-area: cost-table;
     border: 1px solid black;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem 2rem;
 }
 
 #receipt-table table {
@@ -1559,11 +1588,11 @@ pre {
 
     #receipt-grid {
         gap: 1rem;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 2fr 3fr ;
         grid-template-areas:
-        'header header header'
-        'details cost-table cost-table'
-        'message message message';
+        'header header'
+        'details cost-table'
+        'message message';
         page-break-inside: avoid;
         page-break-after: always;
     }
@@ -1571,6 +1600,17 @@ pre {
     hr, #receipt-details hr {
         border: 1px solid black;
     }
+
+    #receipt-user-details table tr td {
+        border: 0px;
+        color: black;
+    }
+
+    #receipt-user-details table tr td:last-child {
+        color: black;
+
+    } 
+
 
     #receipt-table table tr td {
         color: black;
@@ -1683,7 +1723,7 @@ pre {
         margin-left: 2rem;
     }
 
-    #navbar {
+    #navbar, #navbar2 {
         height: 125px;
 
     }
@@ -1708,12 +1748,6 @@ pre {
     }
 
     /* prices */
-
-    #pricestable {
-
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
 
     #prices-grid {
         gap:0.25rem;
@@ -1758,14 +1792,14 @@ pre {
     
     .section-title, .sub-section-title {
         margin-top: 4rem;
-        padding-left: 11rem;
+        padding-left: 15rem;
         font-size: 1.5rem;
         letter-spacing: 0.15rem;
         transition: 0.5s;
     }
 
     .sub-section-title {
-        padding-right: 11rem;
+        padding-right: 15rem;
     }
 
     .movie-single {
@@ -1877,7 +1911,7 @@ pre {
         'message message message';
     }
 
-    #navbar h3{
+    #navbar h3 {
         font-size: 3rem;
     }
 
@@ -1952,6 +1986,10 @@ pre {
         border: none;
     }
 
+    #navbar2 h3 {
+        font-size: 3rem;
+    }
+
     #sec-receipt {
         background-image: linear-gradient(to left, transparent, black 5%, black 95%, transparent);
     }
@@ -1963,9 +2001,11 @@ pre {
 @media (min-width: 1400px) {
 
     body {
-        background-image: linear-gradient(to right, rgb(125,113,29), #d4af37 3%, rgb(125,113,29) 3%, #d4af37 6%, rgb(125,113,29) 6%, #d4af37 9%,  black 10%, black 90%,#d4af37 91%, rgb(125,113,29) 94%, #d4af37 94%, rgb(125,113,29) 97%, #d4af37 97%, rgb(125,113,29));
-        /*background-image: linear-gradient(to right, #d4af37, black 10%, black 90%, #d4af37);*/
+        background-image: 
+        linear-gradient(to right, black, transparent 1.25%, transparent 2.5%, black 2.5%, transparent 3%,transparent 4.5%, black 4.5%, transparent 5%, transparent 6%, black 6%, transparent 6.5%, transparent 7.5%, black 7.5%, transparent 8%, transparent 8.5%, black 8.5%, transparent 9%, rgb(0,0,0, 0.5) 9%, black 12.5%, black 87.5%, rgb(0,0,0, 0.5) 91%, transparent 91%, black 91.5%, transparent 91.5%, transparent 92%,black 92.5%, transparent 92.5%, transparent 93.5%,black 94%, transparent 94%, transparent 95%,black 95.5%, transparent 95.5%, transparent 97%,black 97.5%, transparent 97.5%, transparent 98.75%, black);
+        background-color: rgb(102,111,190);
     }
+
 
     main {
         background-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
@@ -2097,7 +2137,7 @@ pre {
     color: white;
     /* width: 450px; */
     /* padding: 1rem 5px 0 60px; */
-    padding: 0;
+    padding: 1rem 0;
     margin: 0;
     text-align: justify;
     box-sizing: border-box; /* -- this is handy -- */
@@ -2127,13 +2167,14 @@ pre {
 
 .test-description {
     /* padding: 1rem 60px 0 5px; */
-    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 20%);
+    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 5%);
     overflow: hidden;
+    
 
 }
 
 .test-description2 {
-    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 20%);
+    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 5%);
     overflow: hidden;
 }
 
@@ -2154,10 +2195,14 @@ pre {
 
 .aside {
     background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }  
 
 .aside2 {
     background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
     
 }
 

@@ -303,7 +303,7 @@ nav a.current {
 
 .section-title, .sub-section-title {
     margin-block: 2rem;
-    padding-left: 5rem;
+    padding-left: 7rem;
     font-family: 'Oleo Script Swash Caps', cursive;
     font-size: 1.25rem;
     background-image: linear-gradient(135deg, rgb(102,111,190) , transparent 70%);
@@ -318,7 +318,7 @@ nav a.current {
     margin-block: 1rem;
     text-align: right;
     padding-left: 0;
-    padding-right: 5rem;
+    padding-right: 7rem;
     background-image: linear-gradient(315deg, rgb(102,111,190) , transparent 70%);
     border-image-source:  linear-gradient(to left, #999B9B, transparent 70%);
 }
@@ -342,7 +342,7 @@ h2 {
     display: grid;
     padding-block: 0.5rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin-inline: auto;
     align-items: center;
 }
@@ -768,8 +768,7 @@ table {
     'poster'
     'trailer'
     'synopsis'
-    'team'
-    'booking-form';
+    'team';
     width: 100%;
     max-width: 1100px;
     margin: auto;
@@ -813,10 +812,6 @@ table {
     grid-area: team;
 }
 
-#booking-form {
-    grid-area: booking-form;
-}
-
 #movie-trailer, #movie-synopsis, #movie-team {
     width: 95%;
     max-width: 600px;
@@ -840,14 +835,10 @@ table {
 fieldset {
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 3rem;
     border: 0px;
 }
 
-legend {
-    width: 95%;
-    margin-left: 0;
-    margin-left: -1rem;
-}
 
 #booking-date {
     display: flex;
@@ -1758,12 +1749,6 @@ pre {
 
     /* prices */
 
-    #pricestable {
-
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
     #prices-grid {
         gap:0.25rem;
         grid-template-columns: 39fr 61fr;
@@ -1807,14 +1792,14 @@ pre {
     
     .section-title, .sub-section-title {
         margin-top: 4rem;
-        padding-left: 11rem;
+        padding-left: 15rem;
         font-size: 1.5rem;
         letter-spacing: 0.15rem;
         transition: 0.5s;
     }
 
     .sub-section-title {
-        padding-right: 11rem;
+        padding-right: 15rem;
     }
 
     .movie-single {
