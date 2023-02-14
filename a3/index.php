@@ -16,7 +16,9 @@
       </ul>
     </nav>
 
+
     <main>
+      <!-- <div id='test-para-back'> <img src='../../media/test/starsbg.jpeg'></div> -->
       <section id="aboutus">
         <div class="section-title"><h2>About Us</h2></div>
         <?= contentModule('AboutUs','about-us'); ?> 
