@@ -31,13 +31,16 @@
 
       <section id="prices">
         <div class="section-title" id="prices-title"><h2>Prices</h2></div>
-        <div id="prices-grid">
-          <?=  
-            contentModule('SeatDesc','seat-std');  
-            contentModule('SeatDesc','seat-fc'); 
-            ?> 
+        <div id='prices-seat-grid'>
+          <div id='prices-floating-text'>
+            <p>"Modern Cush for</p>
+            <p>your precious tush"</p>
+          </div>
+          <?=
+            contentModule('SeatDesc', 'std');
+            contentModule('SeatDesc', 'fc');
+          ?>
         </div>
-        <?= testModule(); ?>
         <table id="pricestable">
           <tr>
             <td colspan="5"><cite><strong>*Discount Price: Daily <?= $discountTime ?> sessions and all day <?= $discountDay ?>day. </strong></cite></td>

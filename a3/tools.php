@@ -47,17 +47,15 @@ $aboutUsContent = [
     'cite' => 'A truly immersive experience...',
     'text' => '<p>All cinema room projectors and sound systems have been upgraded with 3D Dolby Vision projection and Dobly Atomos sound to offer the best viewing experience for modern titles.</p>'
   ],
-  'seat-std' => [
+  'std' => [
     'image' => 'Profern-Standard-Twin.png',
     'image-alt' => 'Standard',
-    'cite' => 'std',
     'text' => '<p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
     <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>'
   ],
-  'seat-fc' => [
+  'fc' => [
     'image' => 'Profern-Verona-Twin.png',
     'image-alt' => 'First Class',
-    'cite' => 'fc',
     'text' => "<p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
     <p>The Verona seat has 110 degree recliner and leg rests and large swivel table.</p>"
   ]
@@ -232,13 +230,19 @@ function contentModule($var1, $var2) {
     } elseif ($var1 == 'SeatDesc') {
       
       echo <<<"SEATINGDESC"
-        <div class="prices-img-block" id="prices-{$content['cite']}-img">
-          <div id="{$content['cite']}-class"><p>{$content['image-alt']}</p></div>
-          <div class="prices-seat-img"><img src="../../media/{$content['image']}" alt="{$content['image-alt']}" seat></div>
+      <div id ='$var2-box'>
+        <div id='$var2-container'>
+          <div class="$var2-img" >
+            <img src="../../media/{$content['image']}" alt="{$content['image-alt']} seat image" onmouseover="toggleDesc('$var2','show')" onmouseout="toggleDesc('$var2','hide')">
+          </div>
+          <div class="$var2-description">
+            {$content['text']}
+          </div>
+          <div class ='$var2-label'><h3> {$content['image-alt']} </h3></div> 
         </div>
-        <div class="prices-content" id="prices-{$content['cite']}-description">
-          {$content['text']}
-        </div>
+      </div>
+
+      
       SEATINGDESC;
     } else {
       echo "Error with parameter 1. Currently only taking 'AboutUs' or 'SeatDesc'"; 
@@ -861,45 +865,9 @@ function validateRequest($requestTypeValue) {
 
 // 3. Testing Zone - for functions used in test code.
 
-// test module to generate sliding descriptions for Prices-seats images/description
-// not completely coded for responsive display so using a sneaky hide/height to switch between original and this test codeblock
 
-function testModule() {
 
-  echo<<<"TEST"
-    <div id='test-grid'>
-      <div id='floating-text'>
-        <p>"Modern Cush for</p>
-        <p>your precious tush"</p>
-      </div>
-      <div id ='box1'>
-        <div id='test-container'>
-          <div class="test-img" >
-            <img id='test-img1' src="../../media/Profern-Standard-Twin.png" value='closed' onmouseover="STslideRight()" onmouseout="STslideLeft()" onclick="toggleSlide('ST')">
-          </div>
-          <div class="test-description">
-            <p>The Profurn 9X8 seat is designed with a distinct headrest to improve acoustics and the sound experience without compromising on comfort or aesthetic.</p>
-            <p>The 9X8 seat has retractable armrests and includes low level cup holders.</p>
-          </div>
-          <div class ='aside'><h3> Standard </h3></div> 
-        </div>
-      </div>
 
-      <div id='box2'>
-        <div id='test-container2'>
-          <div class="test-img2" >
-            <img src="../../media/Profern-Verona-Twin.png" onmouseover="FCslideLeft()"  onmouseout="FCslideRight()" onclick="toggleSlide('FC')">
-          </div>
-          <div class="test-description2">
-            <p>The Verona seat is designed for the ultimate in first class seating with it's plush leather trim and 110 degree recliner function.</p>
-            <p>The Verona seat has 110 degree recliner, leg rests and large swivel table.</p>
-          </div>
-          <div class ='aside2'><h3> First Class </h3></div>
-        </div>
-      </div>  
-    </div>
-  TEST;
 
-}
 
  ?>

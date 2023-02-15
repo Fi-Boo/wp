@@ -20,9 +20,10 @@ function navScroll(page) {
             //console.clear();
             //console.log('small');
             windowScroll(page, 'small');
+
         } else {
             //console.clear();
-            //console.log('large');        
+            //console.log('large');      
             windowScroll(page, 'large');
         }
     }
@@ -339,43 +340,44 @@ function errorpress(number) {
 // for ST seat open text
 function STslideRight() {
 
-    document.querySelector('.test-description').style.width = '400px';
-
+    document.querySelector('.std-description').style.width = '400px';
 }
 
 // for ST seat close text
 function STslideLeft() {
 
-    document.querySelector('.test-description').style.width = '0px';
-
+    document.querySelector('.std-description').style.width = '0px';
 }
 
 // for FC seat open text
 function FCslideLeft() {
 
-    document.querySelector('.test-description2').style.width = '400px';
-  
-
+    document.querySelector('.fc-description').style.width = '400px';
 }
 
 // for FC seat close text
 function FCslideRight() {
 
-    document.querySelector('.test-description2').style.width = '0px';
-   
+    document.querySelector('.fc-description').style.width = '0px'; 
 }
 
 
 
-function toggleSlide(type) {
-    toggleImage = document.getElementById('test-img1');
-    if (type == 'ST') {
-        if (toggleImage.getAttribute('value') == 'closed') {
-            STslideRight();
-            toggleImage.setAttribute('value','open');
+function toggleDesc(type, status) {
+    var element = '.' + type + '-description';
+
+
+    //https://zellwk.com/blog/css-values-in-js/#:~:text=First%2C%20you%20need%20to%20select,to%20get%20the%20element's%20styles.&text=If%20you%20log%20style%20%2C%20you,property%20and%20their%20respective%20values.&text=You%20can%20also%20see%20this%20object%20in%20Chrome's%20and%20Firefox's%20dev%20tools.
+    var width = getComputedStyle(document.querySelector('#prices-seat-grid')).width;
+
+    if (width =='1000px') {
+        if (status == 'show' ) {
+            console.log(width);
+            document.querySelector(element).style.transition = '1s';
+            document.querySelector(element).style.width = '400px';
         } else {
-            STslideLeft();
-            toggleImage.setAttribute('value','closed');
+            document.querySelector(element).style.width = '0px';
+            document.querySelector(element).style.transition = 'none';
         }
-    }
+    } 
 }

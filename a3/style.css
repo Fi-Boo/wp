@@ -345,16 +345,13 @@ h2 {
 
 /* About Us */
 
-.aboutus-grid, #prices-grid{
+.aboutus-grid {
     display: grid;
     padding-block: 0.5rem;
     width: 100%;
     max-width: 1100px;
     margin-inline: auto;
     align-items: center;
-}
-
-.aboutus-grid {
     grid-template-areas:
     'image'
     'description';
@@ -387,119 +384,155 @@ h2 {
 
 /* Prices */
 
-#prices-grid {
-    justify-items: center;
+
+#prices-seat-grid {
+    display: grid; 
+    position: relative;
+    grid-template-columns: 1fr;
     grid-template-areas:
-    'std-seat-img'
-    'std-seat-description'
-    'fc-seat-img'
-    'fc-seat-description';
-    /* visibility: visible;
-    height: auto; */
-    /* overflow: visible; */
+    'box1' 
+    'box2';
+    margin: 2rem auto;
+    width: 500px;
+    height: 500px;
+    gap: 1rem;
 }
 
-#prices-title {
-    grid-area: section-title;
+
+/* floating text - modern cush for your precious tush */
+#prices-floating-text {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    z-index:0;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 3rem;
+
 }
 
-#prices-std-img {
-    grid-area: std-seat-img;
-    padding-left: 0rem;
-    height: 100%;
+#prices-floating-text p {
+    margin: 0;
+    padding: 0.5rem;
 }
 
-#prices-std-description {
-    grid-area: std-seat-description;
+/* --------------- */
+
+/*-- STD seat box --*/
+
+#std-box, #fc-box {
+    position: absolute;
+    left: 15%;
+    z-index: 0;
 }
 
-#prices-fc-img {
-    grid-area: fc-seat-img;
-    padding-left: 0;
-    height: 100%;
+#std-box {
+    grid-area: box1;
 }
 
-#prices-fc-description {
-    grid-area: fc-seat-description;
+#fc-box {
+    grid-area: box2;
 }
 
-#pricestable {
-    grid-area: prices-table;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+#std-container, #fc-container {
+    display: grid;
+    grid-template-areas:
+    'label img';
 }
 
-.prices-img-block {
-    width: fit-content;
-    display: flex;
-    padding: 0;
+
+.std-img {
+    grid-area: img;
 }
 
-.prices-seat-img {
-    display: flex;
-    align-items: center;
-    width: 350px;
-    height: auto;
-    padding: 0;
-    background-image: linear-gradient(to right, rgb(102,111,190), transparent 60% );
+.std-description, .fc-description {
+    grid-area: desc;
+    display: none;
 }
 
-.prices-seat-img img {
-    width: 100%;
+.std-label, .fc-label {
+    grid-area: label;
 }
 
-.prices-seat-img:hover {
-    background-image: linear-gradient(to right, rgb(102,111,190) 25%, transparent);
+
+.std-label, .fc-label {
+    position: relative;
+    width: 50px;
+    height: 250px;
+    text-align: center;
+    margin-left: 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    letter-spacing: 0.1rem;
+    font-family: 'Rajdhani', sans-serif;
+    /* text-transform: uppercase; */
 }
 
-.prices-content {
-    margin: 0 auto;
-    padding: 0rem;
-    width: 95%;
-    text-align: justify;
+.std-label, .fc-label {
+    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}  
+
+.fc-label {
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) ); 
 }
+
 
 /* text rotation - https://css-tricks.com/snippets/css/text-rotation/ */
-
-
-/* this changes the text in the flipped */
-#std-class, #fc-class {
-    position: relative;
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    border-right: 2px solid black;
-    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
-    letter-spacing: 0.1rem;
-    width: 50px;
-    text-align: center;
-    
-}
-
-#std-class p, #fc-class p {
+.std-label h3, .fc-label h3 {
     position: absolute;
-    top: 120px;
-    left: 0px;
-    margin-left: 10px;
+    letter-spacing: 2px;
+    color: #fff;
+    line-height: 24px;
     transform-origin: 0 0;
-    transform: rotate(-90deg);
-    background: none;
-    color: white;
-    width: 120px;
-    z-index:0;
+    width: 150px;
 }
 
-#std-class {
-    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+
+.std-label h3, .fc-label h3 {
+    top: 150px;
+    left: 0.75rem;
+    transform: rotate(-90deg);
 }
+
+
+.std-img, .fc-img {
+    width: 250px;
+    height: 250px;
+    background-image: linear-gradient(to right, rgb(102,111,190, 0.7), transparent 50% );
+}
+
+.std-img img, .fc-img img {
+    width: 100%;
+}
+
+.fc-img img {
+    padding-top: 2rem;
+}
+
+.std-img:hover, .fc-img:hover {
+    background-image: linear-gradient(to right, rgb(102,111,190, 0.7), transparent );
+    transition: 1s;
+}
+
 
 /* Prices Table */
 
 table {
     padding-top: 1rem;
     width: 100%;
+}
+
+#pricestable {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 #pricestable th, #pricestable td, th, td {
@@ -1694,6 +1727,38 @@ pre {
 }
 
 
+@media (min-width: 710px) {
+
+    #prices-seat-grid {
+        width: 700px;
+        
+    }
+
+    #std-container, #fc-container {
+        grid-template-areas:
+        'label desc img';
+    }
+
+    .std-description, .fc-description {
+        display: block;
+        background-color: rgb(102,111,190, 0.7);
+        padding: 1rem;
+        text-align: justify;
+        width: 400px;
+        width: fit-content;
+    }
+
+    .std-description p, .fc-description p {
+        width: 400px;
+    }
+
+    #std-box, #fc-box {
+        position: absolute;
+        left: 0;
+    }
+
+}
+
 /* MEDIA MIN 768PX */
 
 @media (min-width: 768px) {
@@ -1769,14 +1834,6 @@ pre {
 
     /* prices */
 
-    #prices-grid {
-        gap:0.25rem;
-        grid-template-columns: 39fr 61fr;
-        grid-template-areas:
-        'std-seat-img std-seat-description'
-        'fc-seat-img fc-seat-description';
-    }
-
     #std-class, #fc-class {
         left: 0rem;
     }
@@ -1787,27 +1844,6 @@ pre {
     
     .aboutus-text {
         padding-right: 2rem;
-    }
-
-    .prices-seat-img {
-    width: 250px;
-    height: auto;
-    }
-
-    .prices-content {
-        margin-left: -1rem;
-        padding-left: 0;
-        max-width: 100%;
-    }
-
-    #prices-std-img, #prices-fc-img {
-        
-        margin-right: 1rem;
-        margin-left: auto;
-    }
-    
-    #prices-std-description, #prices-fc-description {
-        padding: 0 0.5rem;
     }
     
     .section-title, .sub-section-title {
@@ -1947,23 +1983,6 @@ pre {
         background: transparent;
     }
 
-    .prices-content {
-        
-        padding: 0;
-        width: 100%;
-        max-width: 48vw;
-    }
-
-    .prices-img-block {
-        padding-left: 0;
-    }
-
-
-    #std-class, #fc-class {
-        margin-left: 0;
-
-    }
-
     #movie-section-grid {
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
@@ -2009,6 +2028,106 @@ pre {
 }
 
 
+@media (max-width: 1009px) {
+    .std-description, .fc-description {
+        min-width: 400px;
+        transition: 0s;
+    }
+}
+
+@media (min-width: 1010px) {
+
+    #prices-seat-grid {
+        width: 1000px;
+        height: 250px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        'box1 box2';
+        gap: 0;
+    }
+
+    #prices-floating-text {
+        display: block;
+    }
+
+    #std-container, #fc-container {
+        display: flex;
+        width: 700px;
+        height: 250px;
+        /* grid-template-areas:
+        'img desc label'; */
+    }
+
+    .std-label {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+    }  
+
+    #fc-box {
+        top: 0;
+        left: -40%;
+    }
+
+
+    #fc-container {
+        direction: rtl;
+    }
+    
+    #fc-container p {
+        direction: ltr;
+    }
+
+    .std-img {
+        width: 250px;
+        height: 250px;
+        background-image: linear-gradient(to left, rgb(102,111,190), transparent 50% );
+    }
+
+    .std-img:hover {
+        background-image: linear-gradient(to left, rgb(102,111,190), transparent );
+        transition: 1s;
+    }
+
+    .fc-img {
+        width: 250px;
+        height: 250px;
+        background-image: linear-gradient(to right, rgb(102,111,190), transparent 50% );
+    }
+
+    .fc-img:hover {
+        background-image: linear-gradient(to right, rgb(102,111,190), transparent );
+        transition: 1s;
+    }
+
+    .std-description , .fc-description {
+        background-color: rgb(102,111,190);
+        overflow: hidden;
+        /* transition: 1s; */
+        width: 0px;
+        padding: 1rem 0 0;
+        box-sizing: border-box;
+    }
+
+    .std-description p, .fc-description p{
+        width: 395px;
+        height: auto;
+        overflow: hidden;
+        margin-top: 1rem ;
+        box-sizing: border-box;
+    }
+
+    /* to rotate text 90deg right */
+    
+    .std-label h3 {
+    left: 2.25rem;
+    transform: rotate(90deg);
+    top: 0;
+    }
+
+}
+
 /* MEDIA MIN 1400PX */
 
 @media (min-width: 1400px) {
@@ -2023,7 +2142,7 @@ pre {
     #header-bg {
         background-position: 80% 0%;
         transition: 0.5s;
-        background-image: linear-gradient(330deg, black 15%, transparent 20%), linear-gradient(to left, black, rgb(0, 0, 0, 0.7) 8%, transparent 12% , transparent 50%, black 80%), url("../../media/headerbg.png"); 
+        background-image:  linear-gradient(to left, black, rgb(0, 0, 0) 8%, transparent 10% , transparent 50%, black 80%), url("../../media/headerbg.png"); 
     }
 
     #company-name {
@@ -2039,20 +2158,6 @@ pre {
         padding-right: 11vw;
     }
 
-    #prices-grid {
-        grid-template-columns: 2fr 3fr 2fr 3fr;
-        gap: 0rem;
-        grid-template-areas:
-        'std-seat-img std-seat-description fc-seat-img fc-seat-description';
-        align-content: center;
-        align-items: center;
-
-    }
-
-    .prices-content {
-        width: 100%;
-        /* min-width: 24rem; */
-    }
 
     .section-title{
         border-top-left-radius: 0.5rem;
@@ -2068,228 +2173,4 @@ pre {
 
 
 
-
-
-
-
-
-/* --- testModule() styling ---*/
-
-
-#test-grid {
-    display: none; 
-    position: relative;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    'box1 box2';
-    margin: 2rem auto;
-    width: 1000px;
-    height: 250px; 
-}
-
-
-#floating-text {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 400px;
-    height: 250px;
-    z-index:0;
-    font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: 2.5rem;
-    text-align: center;
-    padding-top: 3rem;
-}
-
-#floating-text p {
-    margin: 0;
-    padding: 0.5rem;
-}
-
-#box1 {
-    position: absolute;
-    left: 0;
-    grid-area: box1;
-    z-index: 0;
-}
-
-#box2 {
-    position: absolute;
-    right:0;
-    grid-area: box2;
-    z-index: 0;
-}
-
-#test-container, #test-container2 {
-
-    /* position: absolute; */
-    display: flex;
-    /* grid-template-areas:
-    'sectionA sectionB'; */
-    width: 700px;
-    height: 250px;
-    background-color: transparent;
-    margin: 0 auto;
-    padding: 0;
-    z-index: 1;
-
-}
-
-
-#test-container2 {
-    direction: rtl;
-}
-
-#test-container2 p {
-    direction: ltr;
-}
-
-
-.test-description, .test-description2 {
-    color: white;
-    /* width: 450px; */
-    /* padding: 1rem 5px 0 60px; */
-    padding: 1rem 0;
-    margin: 0;
-    text-align: justify;
-    box-sizing: border-box; /* -- this is handy -- */
-    height: 250px;
-    transition: width 1s;
-    width: 0;
-    overflow: 0; 
-}
-
-
-
-.test-description p, .test-description2 p{
-    width: 395px;
-    height: auto;
-    overflow: hidden;
-    margin-top: 1rem ;
-    box-sizing: border-box;
-}
-
-.test-description p {
-    padding-right: 1rem;
-}
-
-.test-description2 p {
-    padding-left: 1rem;
-}
-
-.test-description {
-    /* padding: 1rem 60px 0 5px; */
-    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 5%);
-    overflow: hidden;
-    
-
-}
-
-.test-description2 {
-    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 5%);
-    overflow: hidden;
-}
-
-
-.aside, .aside2 {
-    position: relative;
-    width: 50px;
-    height: 250px;
-    text-align: center;
-    margin-left: 0;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    letter-spacing: 0.1rem;
-    font-family: 'Rajdhani', sans-serif;
-    /* text-transform: uppercase; */
-}
-
-.aside {
-    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-}  
-
-.aside2 {
-    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-    
-}
-
-
-.aside h3, .aside2 h3 {
-    position: absolute;
-    letter-spacing: 2px;
-    color: #fff;
-    line-height: 24px;
-    transform-origin: 0 0;
-    width: 150px;
-}
-
-.aside h3 {
-    left: 2.25rem;
-    transform: rotate(90deg);
-}
-
-.aside2 h3 {
-    top: 150px;
-    left: 0.75rem;
-    transform: rotate(-90deg);
-}
-
-
-.test-img {
-    width: 250px;
-    height: 250px;
-    background-image: linear-gradient(to left, rgb(102,111,190), transparent 50% );
-}
-
-.test-img2{
-    align-self: right;
-    width: 250px;
-    height: 250px;
-    background-image: linear-gradient(to right, rgb(102,111,190), transparent 50% );
-}
-
-
-
-.test-img:hover {
-    background-image: linear-gradient(to left, rgb(102,111,190), transparent );
-    transition: 1s;
-}
-
-.test-img2:hover {
-    background-image: linear-gradient(to right, rgb(102,111,190), transparent );
-    transition: 1s;
-}
-
-
-.test-img img, .test-img2 img{
-    width: 240px;
-    height: auto;
-    padding-top: 1rem;
-}
-
-.test-img2 img {
-    padding-top: 3rem;
-}
-
-
-@media (min-width: 1015px) {
-
-
-    #prices-grid {
-        display: none;
-    } 
-
-    #test-grid {
-        display: grid;
-    }
-
-
-}
-
-/* -------------------------------------------*/
 
