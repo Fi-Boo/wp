@@ -17,6 +17,9 @@
     headerModule();
 ?>
 
+    <script> 
+      navScroll('receipt'); 
+    </script>
     <nav>
         <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
         <div id="navbar2">
@@ -24,7 +27,7 @@
             </div>
         </div>
     </nav>
-
+    <main>
     <section id='sec-receipt'>
         <div id='receipt-grid'>
             <div id= 'receipt-print-head'>
@@ -65,6 +68,7 @@
                 </div>    
                 <div id = 'receipt-booking-details'>
                     <h3> Session Details </h3>
+                    <br>
                     - MOVIE -
                     <h4> <?= $movies[$_SESSION['movie']]['title']; ?> <br>
                     (<?= $movies[$_SESSION['movie']]['rating'] ?>)</h4>
@@ -98,6 +102,7 @@
         </div>
         <br>
     </section>
+</main>
     <?php 
         footerModule();
         debugModule(); 

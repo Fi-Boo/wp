@@ -64,16 +64,23 @@ section {
 
 header, #header-bg {
     width: 100%;
+    margin: 0 auto;
     height: 100px;
 }
 
+header {
+    position: relative;
+}
+
 #header-bg {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    right: 0;
     background-image: url("../../media/headerbg.png");
-    background-color: black;
-    background-size: auto 100%;
+    background-position: 100% 0%;
     background-repeat: no-repeat;
-    background-position: right;
+    background-attachment: fixed;
+    background-size: auto 150px;
     right: 0;
     z-index: 0;
 }
@@ -191,7 +198,6 @@ nav {
     opacity: 1;
     width: 100%;
     height: 200px;
-    
 }
 
 #logo {
@@ -937,15 +943,15 @@ fieldset {
 }
 
 #ticketing-table tr:first-child, #ticketing-table tr:last-child {
-    background-color: black;
+    background-color: transparent;
 }
 
 #ticketing-table tr:nth-child(2), #ticketing-table tr:nth-child(3), #ticketing-table tr:nth-child(4) {
-    background-image: linear-gradient(to right, #999B9B, transparent);
+    background-image: linear-gradient(to right, #999B9B, black);
 }
 
 #ticketing-table tr:nth-child(5), #ticketing-table tr:nth-child(6), #ticketing-table tr:nth-child(7) {
-    background-image: linear-gradient(to right, #d4af37, transparent);
+    background-image: linear-gradient(to right, #d4af37, black);
 }
 
 #ticketing-table td:last-of-type, #booking-price-total {
@@ -1325,6 +1331,7 @@ pre {
     grid-area: details;
     text-align: center;
     border: 1px solid black;
+    background-color: rgb(0,0,0,0.3);
     border-radius: 1rem;
     padding: 1rem;
 }
@@ -1341,6 +1348,10 @@ pre {
     padding: 0;
 }
 
+#receipt-user-details table tr td{
+    border: 0px;
+    padding: 0;
+}
 
 #receipt-user-details table tr td img {
     width: 75%;
@@ -1372,6 +1383,7 @@ pre {
     border: 1px solid black;
     border-radius: 1rem;
     padding: 1rem 2rem;
+    background-color: rgb(0,0,0,0.3);
 }
 
 #receipt-table table {
@@ -1609,8 +1621,11 @@ pre {
 
     #receipt-user-details table tr td:last-child {
         color: black;
-
     } 
+
+    #receipt-ref {
+        padding-top: 1rem;
+    }
 
 
     #receipt-table table tr td {
@@ -1991,9 +2006,6 @@ pre {
         font-size: 3rem;
     }
 
-    #sec-receipt {
-        background-image: linear-gradient(to left, transparent, black 5%, black 95%, transparent);
-    }
 }
 
 
@@ -2007,6 +2019,12 @@ pre {
         background-color: rgb(102,111,190);
     }
 
+
+    #header-bg {
+        background-position: 80% 0%;
+        transition: 0.5s;
+        background-image: linear-gradient(330deg, black 15%, transparent 20%), linear-gradient(to left, black, rgb(0, 0, 0, 0.7) 8%, transparent 12% , transparent 50%, black 80%), url("../../media/headerbg.png"); 
+    }
 
     #company-name {
         margin-left: 14vw;
@@ -2047,8 +2065,6 @@ pre {
     }
 
 }
-
-
 
 
 
@@ -2277,40 +2293,3 @@ pre {
 
 /* -------------------------------------------*/
 
-/* 
-main {
-    height: 100vh;
-    background: none;
-    perspective: 1px;
-    overflow-y: auto;
-}
-
-#test-para-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translateZ(-2px) scale(3);
-    width: 100%;
-    z-index: -1;
-}
-
-#test-para-back img {
-    width: 100%;
-}
-
-section {
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translateZ(0);
-    background: transparent;
-}
-
-body {
-    background: none;
-} */
