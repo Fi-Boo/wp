@@ -420,11 +420,11 @@ function generateTickets($SESSION, $var) {
                   <img src="../../media/barcode.png" alt='ticket barcode'>
               </div>
               <h3>{$SESSION['ref']}-GT{$totalTickets}</h3>
-              <hr>
+              <hr class='dashed'>
               <div class='receipt-appleG'>
                   <img src="../../media/applewallet.png" alt='ticket barcode'>
               </div>
-              <hr>
+              <hr class='dashed'>
               <div class='receipt-appleG'>
                   <img src="../../media/gpay.png" alt='ticket barcode'>
               </div>
@@ -434,6 +434,7 @@ function generateTickets($SESSION, $var) {
       break;
     case ('SINGLE'):
       foreach ($SESSION['seats'] as $seat => $number) {
+        $upperCase = strtoupper($SESSION['day']);
         if (!empty($number)) {
           for ($i = 1; $i <= $number; $i++) {
             echo <<<"GENTIXS"
@@ -446,8 +447,7 @@ function generateTickets($SESSION, $var) {
                     <h4> {$movies[$SESSION['movie']]['title']} <br>
                     ({$movies[$SESSION['movie']]['rating']})</h4>
                     - DATE & TIME -
-                    <h4> 31/2/2512 {$SESSION['day']}day 
-                    {$sessionTime}</h4>
+                    <h4> 31/2/2512 - {$upperCase} @{$sessionTime}</h4>
                     - ADMISSION TYPE: <h3>SINGLE</h3> 
                     <div class='seatType'> {$seating[$seat]['desc']} x1</div>
                     <br>
@@ -455,11 +455,11 @@ function generateTickets($SESSION, $var) {
                         <img src="../../media/barcode.png" alt='ticket barcode'>
                     </div>
                     <h3>{$SESSION['ref']}-{$seat}{$i}</h3>
-                    <hr>
+                    <hr class='dashed'>
                     <div class='receipt-appleG'>
                         <img src="../../media/applewallet.png" alt='ticket barcode'>
                     </div>
-                    <hr>
+                    <hr class='dashed'>
                     <div class='receipt-appleG'>
                         <img src="../../media/gpay.png" alt='ticket barcode'>
                     </div>

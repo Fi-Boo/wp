@@ -1593,6 +1593,8 @@ pre {
     color: black;
 }
 
+
+
 .receipt-barcode {
     width: 100px;
     margin: 0 auto;
@@ -1623,6 +1625,11 @@ pre {
 
 #receipt-tickets table tr td:last-child {
     text-align: left;
+}
+
+hr.dashed {
+    border: none;
+    border-top: 1px dashed grey;
 }
 
 @media print {
@@ -1658,7 +1665,7 @@ pre {
         page-break-after: always;
     }
     
-    hr, #receipt-details hr {
+    #company-details hr, #receipt-user-details hr {
         border: 1px solid black;
     }
 
@@ -1681,7 +1688,6 @@ pre {
         border: 1px solid white;
 
     }
-
 
     #print-buttons {
         height: 0;
