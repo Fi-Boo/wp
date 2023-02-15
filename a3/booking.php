@@ -34,86 +34,89 @@
     </nav>
     
     <main>
-    <section id="movie-data">  
-      <div id="movie-detail">
-        <div class="movie-title movie-title-bp"><?= $movies[$_GET['movie']]["title"] ?></div>
-        <div class="movie-runtime"><?= $movies[$_GET['movie']]["runtime"] ?></div>
-        <div class="movie-rating"><?= $movies[$_GET['movie']]["rating"] ?></div>
-      </div>
-        <article id="bookings-info-grid">
-          <div id="movie-trailer"><iframe src = <?= $movies[$_GET['movie']]["trailer"] ?> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-          <div id="movieimg"><img src = <?= $movies[$_GET['movie']]["poster"] ?> alt = <?= $movies[$_GET['movie']]["title"] ?>></div>
-          <div id="movie-synopsis"><?= $movies[$_GET['movie']]["synopsis"] ?></div>
-          <div id="movie-team">
-            <hr>
-            <div id="movie-director"><strong>Director: - </strong><?= $movies[$_GET['movie']]["director"] ?></div>
-            <hr>
-            <div id="movie-stars"><strong>Cast: - </strong>             
-              <?php 
-                foreach ( $movies[ $_GET['movie'] ]['actors'] as $actor) {
-                  echo "$actor - ";
-                }
-              ?>
-            </div>
+      <div id='bg-overlay'>
+        <div id='filler'></div>
+        <section id="movie-data">  
+          <div id="movie-detail">
+            <div class="movie-title movie-title-bp"><?= $movies[$_GET['movie']]["title"] ?></div>
+            <div class="movie-runtime"><?= $movies[$_GET['movie']]["runtime"] ?></div>
+            <div class="movie-rating"><?= $movies[$_GET['movie']]["rating"] ?></div>
           </div>
-        </article>  
-        <div id ="booking-form">
-          <form method='post'>
-            <input type="hidden" name="movie" value="<?= $_GET['movie']?>">
-        
-            <div class="section-title"><h2>Select Session</h2></div>
-        
-            <!-- radio buttons for session date selection-->
-            <fieldset id="booking-day-select">
-              <ul id="booking-date">
-              <?php sessionSelection($_GET['movie']) ?>
-              </ul>
-              <div class="error-container"><div id="session-select-error"><?= unsetFB($errorsOut['day']); ?></div></div>
-            </fieldset>
-                
-            <div class="sub-section-title"><h2>Select your tickets</h2></div>
-            
-            <!-- drop down list for ticket selection-->
-            <fieldset id="ticket-select">
-              <div>
-                <table id="ticketing-table">
-                  <tr>
-                    <th>Seating</th>
-                    <th>Price</th>
-                    <th>Select</th>
-                    <th>Subtotals</th>
-                  </tr>
-                  <?php ticketTable(); ?>
-                  <tr>
-                    <th class="error-container" colspan="3"><div id="tickets-select-error"> <?= unsetFB($errorsOut['seats']); ?></div></th>
-    
-                    <th id="booking-price-total"></th> 
-                  </tr>  
-                </table>
+          <article id="bookings-info-grid">
+            <div id="movie-trailer"><iframe src = <?= $movies[$_GET['movie']]["trailer"] ?> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div id="movieimg"><img src = <?= $movies[$_GET['movie']]["poster"] ?> alt = <?= $movies[$_GET['movie']]["title"] ?>></div>
+            <div id="movie-synopsis"><?= $movies[$_GET['movie']]["synopsis"] ?></div>
+            <div id="movie-team">
+              <hr>
+              <div id="movie-director"><strong>Director: - </strong><?= $movies[$_GET['movie']]["director"] ?></div>
+              <hr>
+              <div id="movie-stars"><strong>Cast: - </strong>             
+                <?php 
+                  foreach ( $movies[ $_GET['movie'] ]['actors'] as $actor) {
+                    echo "$actor - ";
+                  }
+                ?>
               </div>
-              <div id="ticket-total"> </div>
-            </fieldset>
-                
-            <div class="section-title"><h2>Your Details</h2></div>
-            
-            <!-- required userdata-->
-            <fieldset id="your-details">
+            </div>
+          </article>  
+          <div id ="booking-form">
+            <form method='post'>
+              <input type="hidden" name="movie" value="<?= $_GET['movie']?>">
+          
+              <div class="section-title"><h2>Select Session</h2></div>
+          
+              <!-- radio buttons for session date selection-->
+              <fieldset id="booking-day-select">
+                <ul id="booking-date">
+                <?php sessionSelection($_GET['movie']) ?>
+                </ul>
+                <div class="error-container"><div id="session-select-error"><?= unsetFB($errorsOut['day']); ?></div></div>
+              </fieldset>
+                  
+              <div class="sub-section-title"><h2>Select your tickets</h2></div>
               
-              <div id ="details-grid">
+              <!-- drop down list for ticket selection-->
+              <fieldset id="ticket-select">
                 <div>
-                  <table id="details-table">
-                    <?php yourDetailsTr(); ?>
-                  </table> 
+                  <table id="ticketing-table">
+                    <tr>
+                      <th>Seating</th>
+                      <th>Price</th>
+                      <th>Select</th>
+                      <th>Subtotals</th>
+                    </tr>
+                    <?php ticketTable(); ?>
+                    <tr>
+                      <th class="error-container" colspan="3"><div id="tickets-select-error"> <?= unsetFB($errorsOut['seats']); ?></div></th>
+      
+                      <th id="booking-price-total"></th> 
+                    </tr>  
+                  </table>
                 </div>
-                <div class="book-tickets-btn">
-                  <input type="submit" value="Book Tickets">
-                </div> 
-              </div>
-            </fieldset>
-          </form>
-        </div>  
-        
-      </section>
+                <div id="ticket-total"> </div>
+              </fieldset>
+                  
+              <div class="section-title"><h2>Your Details</h2></div>
+              
+              <!-- required userdata-->
+              <fieldset id="your-details">
+                
+                <div id ="details-grid">
+                  <div>
+                    <table id="details-table">
+                      <?php yourDetailsTr(); ?>
+                    </table> 
+                  </div>
+                  <div class="book-tickets-btn">
+                    <input type="submit" value="Book Tickets">
+                  </div> 
+                </div>
+              </fieldset>
+            </form>
+          </div>  
+          
+        </section>
+      </div>
     </main>  
     <script>
       calculateSubTotals();

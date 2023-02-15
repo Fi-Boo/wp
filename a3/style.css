@@ -45,12 +45,26 @@ li {
 }
 
 main {
+
     max-width: 1500px;
     padding-top: 2rem;
-    background-image: url('../../media/starsbg.jpeg');
+    background-image: url('../../media/starsbg.png');
     background-attachment: fixed;
-    background-size: 50%;
+    background-size: 100%;
     margin: -10px auto 0;
+    box-shadow: -10px 0px 0.4em black, 10px 0px 0.4em black; 
+    z-index: -1;
+}
+
+#bg-overlay {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to left, black , rgb(0,0,0,0.4) 3%,  rgb(0,0,0,0.4) 97%, black);
+}
+
+#filler {
+    height: 2rem;
+    margin-top:-2rem;
 }
 
 section {
@@ -1698,7 +1712,7 @@ pre {
     'btn1'
     'btn3'
     'btn2';
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     padding: 0;
 }
 
@@ -1980,9 +1994,10 @@ pre {
 @media (min-width: 992px) {
 
 
-    section, section div{
+    /* section, section div{
+        
         background: transparent;
-    }
+    } */
 
     #movie-section-grid {
         grid-template-columns: 1fr 1fr;
