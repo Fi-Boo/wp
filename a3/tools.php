@@ -302,7 +302,7 @@ function footerModule() {
       </div>
       <hr>
       <div id='disclaimer'>
-        <div>&copy;<script>document.write(new Date().getFullYear());</script>Phi Van Bui, s2008156D Group A. Last modified $date</div>
+        <div>&copy;<script>document.write(new Date().getFullYear());</script> Phi Van Bui, s2008156 RMIT Web Programming SP4. <a href='https://github.com/Fi-Boo/wp' target='_blank'> [ Github Repo ]</a> Last modified $date</div>
         <div>Disclaimer: This website is not a real website and is being developed as part of a School of Science Web Programming course at RMIT University in Melbourne, Australia.</div>
         <div><button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button></div>
       </div>
