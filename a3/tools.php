@@ -773,8 +773,8 @@ function tableData($var) {
   if (isset($seating[$var])) {
     
     echo <<<"TDATA"
-      <td>{$seating[$var]['fullprice']}</td>
-      <td>{$seating[$var]['discprice']}</td>
+      <td>$ {$seating[$var]['fullprice']}</td>
+      <td>$ {$seating[$var]['discprice']}</td>
     TDATA;
   } else {
     echo "error with seatCode Parameter";
