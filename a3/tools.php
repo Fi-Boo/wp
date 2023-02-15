@@ -520,6 +520,8 @@ function getTotalTickets($SESSION) {
  
    if ($totalSeats < 10) {
      $strOut = '0'.(string)$totalSeats;
+   } else {
+    $strOut = $totalSeats;
    }
  
    return $strOut;
