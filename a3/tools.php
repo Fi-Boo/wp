@@ -1,9 +1,9 @@
 <?php
-  session_start();
+session_start();
 
 /* Put your PHP functions and modules here.
-   Many will be provided in the teaching materials,
-   keep a look out for them!
+Many will be provided in the teaching materials,
+keep a look out for them!
 */
 
 // Function set up in a utilities file like tools.php
@@ -208,15 +208,16 @@ $seating = [
 // ---------------- ABOUT US and  PRICING MODULE img/text MODULE -----------------------
 // reduces code block to generate image on left with text on the right
 // layout generation is based on parameter 1.
- 
-function contentModule($var1, $var2) {
+
+function contentModule($var1, $var2)
+{
   global $aboutUsContent;
 
   if (isset($aboutUsContent[$var2])) {
     $content = $aboutUsContent[$var2];
 
     if ($var1 == 'AboutUs') {
-      
+
       echo <<<"ABOUTUS"
         <div class="aboutus-grid">
           <div class="aboutus-content aboutus-img"><img src="../../media/{$content['image']}" alt="{$content['image-alt']}"></div>
@@ -228,7 +229,7 @@ function contentModule($var1, $var2) {
       ABOUTUS;
 
     } elseif ($var1 == 'SeatDesc') {
-      
+
       echo <<<"SEATINGDESC"
       <div id ='$var2-box'>
         <div id='$var2-container'>
@@ -245,7 +246,7 @@ function contentModule($var1, $var2) {
       
       SEATINGDESC;
     } else {
-      echo "Error with parameter 1. Currently only taking 'AboutUs' or 'SeatDesc'"; 
+      echo "Error with parameter 1. Currently only taking 'AboutUs' or 'SeatDesc'";
     }
 
   } else {
@@ -257,25 +258,27 @@ function contentModule($var1, $var2) {
 
 
 // -- Debugging module for outputting GET/POST/SESSION/page code
-function debugModule() {    
-  echo "<pre id='debug'>";  
-  echo "GET contains:<br>";   
+function debugModule()
+{
+  echo "<pre id='debug'>";
+  echo "GET contains:<br>";
   print_r($_GET);
-  echo "POST contains:<br>";  
+  echo "POST contains:<br>";
   print_r($_POST);
   echo "SESSION Contains:<br>";
-  print_r($_SESSION); 
+  print_r($_SESSION);
   echo "SITE code:<br>";
-  printMyCode(); 
-  echo "</pre>";    
+  printMyCode();
+  echo "</pre>";
 }
 
 //-------------------------------------------------------------------------------------
 
 // FOOTER CODE
-function footerModule() {
+function footerModule()
+{
 
-  $date = date ("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
+  $date = date("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
 
   echo <<<"FOOTER"
   <footer>
@@ -313,50 +316,53 @@ function footerModule() {
 //-------------------------------------------------------------------------------------
 
 // format string to 2 decimal places
-function format($str) {
-  return number_format($str,2);
+function format($str)
+{
+  return number_format($str, 2);
 }
 //-------------------------------------------------------------------------------------
 
 // function that generates a random 6 character BR - Booking Reference
-function generateBR($n) {
+function generateBR($n)
+{
   global $bookingRef;
 
-    // https://www.geeksforgeeks.org/generating-random-string-using-php/
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $randomString = '';
- 
-    for ($i = 0; $i < $n; $i++) {
-        $index = rand(0, strlen($characters) - 1);
-        $randomString .= $characters[$index];
-    }
-    $_SESSION['ref'] = $randomString;
+  // https://www.geeksforgeeks.org/generating-random-string-using-php/
+  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $randomString = '';
+
+  for ($i = 0; $i < $n; $i++) {
+    $index = rand(0, strlen($characters) - 1);
+    $randomString .= $characters[$index];
+  }
+  $_SESSION['ref'] = $randomString;
 }
 //-------------------------------------------------------------------------------------
 
-function generateSeatTable($SESSION,$var) {
+function generateSeatTable($SESSION, $var)
+{
   global $movies;
   global $seating;
   $selectedMovie = $movies[$SESSION['movie']];
   $movieDate = $SESSION['day'];
   $movieTime = getSessionTime($SESSION);
   $priceType = getPriceType($movieDate, $movieTime);
-  $total = (float)'0';
-  $GST = (float)'0';
+  $total = (float) '0';
+  $GST = (float) '0';
 
   echo '<table>';
 
   foreach ($SESSION['seats'] as $seat => $number) {
     if (!empty($number)) {
-      $subtotal = format(getSeatSubtotal($seat,$number,$priceType));
-      $total += (float)$subtotal;
+      $subtotal = format(getSeatSubtotal($seat, $number, $priceType));
+      $total += (float) $subtotal;
       $seatDesc = $seating[$seat]['desc'];
       $total = format($total);
-      $dataStr ='';
-      
+      $dataStr = '';
+
       if ($var == 'receipt') {
         $dataStr = '<td>$' . $subtotal . '</td>';
-      } 
+      }
 
       echo <<<"RECEIPT"
         <tr>
@@ -370,7 +376,7 @@ function generateSeatTable($SESSION,$var) {
 
   if ($var == 'receipt') {
 
-    $GST = format($total/11);
+    $GST = format($total / 11);
     echo <<<"RECEIPTP2"
       <tr>
         <td colspan='2'>included GST:</td>
@@ -389,7 +395,8 @@ function generateSeatTable($SESSION,$var) {
 //-------------------------------------------------------------------------------------
 
 // generates either a group ticket of individual tickets for booking. Based of parameter $var
-function generateTickets($SESSION, $var) {
+function generateTickets($SESSION, $var)
+{
 
   global $movies;
   global $seating;
@@ -397,7 +404,7 @@ function generateTickets($SESSION, $var) {
   $sessionTime = getSessionTime($SESSION);
   $totalTickets = getTotalTickets($SESSION);
 
-  SWITCH ($var) {
+  switch ($var) {
     case ('GROUP'):
       echo <<<"GENTIXG"
         <div id='ticket-group'>
@@ -413,7 +420,7 @@ function generateTickets($SESSION, $var) {
               {$sessionTime}</h4>
               - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
       GENTIXG;
-      generateSeatTable($SESSION,'ticket');
+      generateSeatTable($SESSION, 'ticket');
       echo <<<"GENTIXG2"
               <br>
               <div class='receipt-barcode'>
@@ -468,13 +475,15 @@ function generateTickets($SESSION, $var) {
             GENTIXS;
           }
         }
-      };
+      }
+      ;
       break;
   }
 }
 //-------------------------------------------------------------------------------------
 
-function getPriceType($movieDate, $movieTime) {
+function getPriceType($movieDate, $movieTime)
+{
   if ($movieDate == 'Mon' || $movieTime == '12pm') {
     return 'discprice';
   } else {
@@ -485,18 +494,20 @@ function getPriceType($movieDate, $movieTime) {
 
 // gets seat subtotal. Assume data is valid as it's passed POST validation.
 // matches seat code and price type (discount or full) and uses corresponding value to calculate subtotal
-function getSeatSubtotal($seat,$amount,$priceType) {
+function getSeatSubtotal($seat, $amount, $priceType)
+{
   global $seating;
-  
+
   foreach ($seating[$seat] as $type => $value) {
     if ($type == $priceType) {
-      return ((float)$amount*(float)$value);
+      return ((float) $amount * (float) $value);
     }
   }
 }
 //-------------------------------------------------------------------------------------
 
-function getSessionTime($SESSION) {
+function getSessionTime($SESSION)
+{
   global $movies;
   $selectedMovie = $movies[$SESSION['movie']];
 
@@ -508,28 +519,30 @@ function getSessionTime($SESSION) {
 }
 //-------------------------------------------------------------------------------------
 
-function getTotalTickets($SESSION) {
-  $totalSeats = (int)0;
-  $strOut;
-  
-   foreach ($SESSION['seats'] as $seat => $number) {
-     if (!empty($number)) {
-       $totalSeats += (int)$number;
-     }
-   }
- 
-   if ($totalSeats < 10) {
-     $strOut = '0'.(string)$totalSeats;
-   } else {
+function getTotalTickets($SESSION)
+{
+  $totalSeats = (int) 0;
+  $strOut = '';
+
+  foreach ($SESSION['seats'] as $seat => $number) {
+    if (!empty($number)) {
+      $totalSeats += (int) $number;
+    }
+  }
+
+  if ($totalSeats < 10) {
+    $strOut = '0' . (string) $totalSeats;
+  } else {
     $strOut = $totalSeats;
-   }
- 
-   return $strOut;
+  }
+
+  return $strOut;
 }
 //-------------------------------------------------------------------------------------
 
 //  header block. includes doctype and header. Nav not included 
-function headerModule() {
+function headerModule()
+{
 
   $value = filemtime('style.css');
 
@@ -560,21 +573,23 @@ function headerModule() {
 //-------------------------------------------------------------------------------------
 
 //function to return date time now
-function now() {
-  date_default_timezone_set("Australia/Sydney"); 
+function now()
+{
+  date_default_timezone_set("Australia/Sydney");
   return date("d-m-Y H:i");
 }
 //-------------------------------------------------------------------------------------
 
 // This function cycles through the array of movies and outputs html code to populate the 'Now Showing' section.
-function nowShowingMovies() {
+function nowShowingMovies()
+{
 
   global $movies;
 
   foreach ($movies as $movie => $value) {
 
-    
-    
+
+
     echo <<<"CDATA"
       <div class="movie-single">
             <div class="movie-detail">
@@ -594,7 +609,7 @@ function nowShowingMovies() {
                       <tr>
                         <th colspan ="2"> Session Times </th>
                       </tr>
-    CDATA;          
+    CDATA;
     foreach ($value["screenings"] as $day => $time) {
       echo <<<"SCREENINGTABLE"
       <tr>
@@ -602,7 +617,7 @@ function nowShowingMovies() {
         <td>$time</td>
       </tr>
       SCREENINGTABLE;
-    }                
+    }
 
     echo <<<"MOREDATA"
                     </table>
@@ -615,19 +630,20 @@ function nowShowingMovies() {
             </div>
           </div>
     MOREDATA;
-  } 
+  }
 }
 
 
 //-------------------------------------------------------------------------------------
 
 // used with debugger module to print page code
-function printMyCode() {
+function printMyCode()
+{
 
   $allLinesOfCode = file($_SERVER['SCRIPT_FILENAME']);
-  echo "<pre id='myCode'><ol>"; 
-  foreach($allLinesOfCode as $oneLineOfCode) {
-    echo "<li>" .rtrim(htmlentities($oneLineOfCode)) . "</li>";
+  echo "<pre id='myCode'><ol>";
+  foreach ($allLinesOfCode as $oneLineOfCode) {
+    echo "<li>" . rtrim(htmlentities($oneLineOfCode)) . "</li>";
   }
   echo "</ol></pre>";
 }
@@ -635,7 +651,8 @@ function printMyCode() {
 
 
 //appends successful booking to file $var1. For this it's booking.php
-function printToFile($var1, $POST) {
+function printToFile($var1, $POST)
+{
 
   global $movies;
 
@@ -662,12 +679,12 @@ function printToFile($var1, $POST) {
   $movieDate = $POST['day'];
   array_push($printdata, $movieDate);
 
-  $movieTime =getSessionTime($POST);
+  $movieTime = getSessionTime($POST);
   $priceType = getPriceType($movieDate, $movieTime);
 
   foreach ($POST['seats'] as $seat => $value) {
 
-    if(empty($value)) {
+    if (empty($value)) {
       $amount = '0';
     } else {
       $amount = $value;
@@ -675,9 +692,9 @@ function printToFile($var1, $POST) {
 
     // add number of tickets
     array_push($printdata, $amount);
-    
-    $seatSubtotal = getSeatSubtotal($seat,$amount,$priceType);
-    $totalPrice += (float)$seatSubtotal;
+
+    $seatSubtotal = getSeatSubtotal($seat, $amount, $priceType);
+    $totalPrice += (float) $seatSubtotal;
 
     // add ticket subtotal to printer string
     $subtotal = "$" . format($seatSubtotal);
@@ -690,18 +707,18 @@ function printToFile($var1, $POST) {
   array_push($printdata, $total);
 
   // calculating and adding GST
-  $GST = "$".format($totalPrice/11);
+  $GST = "$" . format($totalPrice / 11);
   array_push($printdata, $GST);
 
   //print_r($printdata);
 
 
   // opens file to 'append'
-  $file = fopen($var1,"a");
+  $file = fopen($var1, "a");
   flock($file, LOCK_EX);
 
   fputcsv($file, $printdata, "\t");
-  
+
   flock($file, LOCK_UN);
   fclose($file);
 }
@@ -709,11 +726,12 @@ function printToFile($var1, $POST) {
 
 
 // Session Selection radio menu
-function sessionSelection($var) {
+function sessionSelection($var)
+{
 
   global $movies;
   global $pricing;
-  
+
   $radioState = '';
   $counter = 1;
 
@@ -737,7 +755,7 @@ function sessionSelection($var) {
         }
 
         $checkedState = setChecked($_POST['day'], $day);
-    
+
         echo <<<"SESSIONSELECTION"
               <li>
                 <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='sessionSelected("$pricing")' $checkedState $radioState required >    
@@ -756,24 +774,27 @@ function sessionSelection($var) {
 //-------------------------------------------------------------------------------------
 
 //function for radio button 'checked' state memory
-function setChecked (&$str, $val) {
-  return ( isset($str) && $str == $val ? 'checked' : '' ); 
+function setChecked(&$str, $val)
+{
+  return (isset($str) && $str == $val ? 'checked' : '');
 }
 //-------------------------------------------------------------------------------------
 
 // function for ticket selection drop down list memory
-function setSelected (&$str, $val) {
-  return ( isset($str) && $str == $val ? 'selected' : '' ); 
+function setSelected(&$str, $val)
+{
+  return (isset($str) && $str == $val ? 'selected' : '');
 }
 //-------------------------------------------------------------------------------------
 
 
 // Pricing Table data 
-function tableData($var) {
+function tableData($var)
+{
   global $seating;
 
   if (isset($seating[$var])) {
-    
+
     echo <<<"TDATA"
       <td>$ {$seating[$var]['fullprice']}</td>
       <td>$ {$seating[$var]['discprice']}</td>
@@ -785,7 +806,8 @@ function tableData($var) {
 //-------------------------------------------------------------------------------------
 
 // function to generate ticket selection via drop down menu
-function ticketTable() {
+function ticketTable()
+{
 
   global $seating;
   $maxPurchase = 10;
@@ -799,30 +821,33 @@ function ticketTable() {
                 <td class="priceCell">
                   <select name="seats[{$seat}]" data-fullprice="{$value['fullprice']}" data-discprice="{$value['discprice']}" onchange='calculateTotals()'>
                     <option value="" ></option>
-  TICKETSELECTP1;   
-                    for ($a=1; $a<=$maxPurchase; $a++) {
+  TICKETSELECTP1;
+    for ($a = 1; $a <= $maxPurchase; $a++) {
 
-                      $selectedState = setSelected($_POST['seats'][$seat], $a);
+      $selectedState = setSelected($_POST['seats'][$seat], $a);
 
-                      echo "<option value='$a' $selectedState >$a</option><br>";
-                    }
+      echo "<option value='$a' $selectedState >$a</option><br>";
+    }
     echo <<<"TICKETSELECTP2"
 
                     </select>
                   </td>
                   <td><div id="pricesubtotal[{$seat}]"></div></td>
                 </tr>
-    TICKETSELECTP2;       
+    TICKETSELECTP2;
   }
 }
 //-------------------------------------------------------------------------------------
 
-function unsetFB (&$str, $fallback = '') {
-  return ( isset($str) ? $str : $fallback );
+function unsetFB(&$str, $fallback = '')
+{
+  return (isset($str) ? $str : $fallback);
 }
 //-------------------------------------------------------------------------------------
 
-function yourDetailsTr() {
+function yourDetailsTr()
+{
+  global $errorsOut;
 
   $rowData = [
     '1' => ["name", "Full Name", "John Smith", "[a-zA-Z-' ]{2,}"],
@@ -832,33 +857,34 @@ function yourDetailsTr() {
 
   foreach ($rowData as $data) {
 
-  $value = unsetFB($_POST['user'][$data[0]]);
-  $errormsg = unsetFB($errorsOut['user'][$data[0]]);
-  
-  $type = 'text';
-  if ($data[0] == 'email') {
-    $type = 'email';
-  }
+    $value = unsetFB($_POST['user'][$data[0]]);
+    $errormsg = unsetFB($errorsOut['user'][$data[0]]);
+
+    $type = 'text';
+    if ($data[0] == 'email') {
+      $type = 'email';
+    }
 
 
-  echo <<<"STR"
+    echo <<<"STR"
       <tr id="details-tr-{$data[0]}">
         <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
           <input type="{$type}" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
-          <div id="details-error-{$data[0]}"> $errormsg </div>
+          <div id="details-error-{$data[0]}">$errormsg</div>
         </td>
       </tr>
-  STR;          
+  STR;
   }
-}  
+}
 //-------------------------------------------------------------------------------------           
 
 
 // post/get request validation. user sent to index if invalid 
-function validateRequest($requestTypeValue) {
+function validateRequest($requestTypeValue)
+{
   global $movies;
-  if (!isset($movies[$requestTypeValue]) ) {
+  if (!isset($movies[$requestTypeValue])) {
     header("Location: error.php");
     exit();
   }
@@ -872,4 +898,4 @@ function validateRequest($requestTypeValue) {
 
 
 
- ?>
+?>
