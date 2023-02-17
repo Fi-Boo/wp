@@ -816,7 +816,7 @@ function ticketTable()
                 <th><label for="seats[{$seat}]">{$value['desc']} </label></th>
                 <td><div id="price[{$seat}]"></div></td>
                 <td class="priceCell">
-                  <select name="seats[{$seat}]" data-fullprice="{$value['fullprice']}" data-discprice="{$value['discprice']}" onchange='calculateTotals()'>
+                  <select name="seats[{$seat}]" data-fullprice="{$value['fullprice']}" data-discprice="{$value['discprice']}" onchange='calculateSubTotals()'>
                     <option value="" ></option>
   TICKETSELECTP1;
     for ($a = 1; $a <= $maxPurchase; $a++) {

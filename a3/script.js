@@ -213,7 +213,6 @@ function calculateTotals() {
   var total = parseFloat(0);
   var selection;
 
-  alertChange("tickets", "hidden");
   if (
     !checkSessionSelection() &&
     document.getElementById("session-select-error") != ""
