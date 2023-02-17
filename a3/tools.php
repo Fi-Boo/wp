@@ -403,6 +403,7 @@ function generateTickets($SESSION, $var)
 
   $sessionTime = getSessionTime($SESSION);
   $totalTickets = getTotalTickets($SESSION);
+  $upperCase = strtoupper($SESSION['day']);
 
   switch ($var) {
     case ('GROUP'):
@@ -416,8 +417,7 @@ function generateTickets($SESSION, $var)
               <h4> {$movies[$SESSION['movie']]['title']} <br>
               ({$movies[$SESSION['movie']]['rating']})</h4>
               - DATE & TIME -
-              <h4> 31/2/2512 {$SESSION['day']}day 
-              {$sessionTime}</h4>
+              <h4> 31/2/2512 {$upperCase} @{$sessionTime}</h4>
               - ADMISSION TYPE: <h3>GROUP ({$totalTickets})</h3> 
       GENTIXG;
       generateSeatTable($SESSION, 'ticket');
@@ -441,7 +441,6 @@ function generateTickets($SESSION, $var)
       break;
     case ('SINGLE'):
       foreach ($SESSION['seats'] as $seat => $number) {
-        $upperCase = strtoupper($SESSION['day']);
         if (!empty($number)) {
           for ($i = 1; $i <= $number; $i++) {
             echo <<<"GENTIXS"
@@ -655,8 +654,6 @@ function printToFile($var1, $POST)
 {
 
   global $movies;
-
-  $currentSelection = $movies[$POST['movie']];
 
   $printdata = [];
 
@@ -892,9 +889,6 @@ function validateRequest($requestTypeValue)
 //-------------------------------------------------------------------------------------   
 
 // 3. Testing Zone - for functions used in test code.
-
-
-
 
 
 

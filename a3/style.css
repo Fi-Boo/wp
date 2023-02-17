@@ -1460,14 +1460,14 @@ pre {
 
 #receipt-print-head {
   grid-area: header;
-  display: flex;
+  display: none;
   position: relative;
   visibility: visible;
   border: 1px solid black;
   border-radius: 1rem;
   padding-left: 1rem;
-  height: 0;
-  overflow-y: hidden;
+  height: 200px;
+
 }
 
 #receipt-logo {
@@ -1766,17 +1766,14 @@ hr.dashed {
   }
 
   #receipt-print-head {
-    visibility: visible;
-    height: 200px;
+    display: flex;
   }
 
   header,
   nav,
   footer,
   pre {
-    visibility: hidden;
-    height: 0;
-    overflow: hidden;
+    display: none;
   }
 
   #receipt-grid {
