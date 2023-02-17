@@ -110,26 +110,26 @@ function windowScroll(page, size) {
 // Is run at the end of site load to check if pre-existing selections have been made
 // Is run upon session selection
 
-function calculateSubTotals() {  
-  if (document.getElementById("session-select-error").innerHTML === "") {
-    alertChange("session", "hidden");
+function calculateSubTotals() {
+  if (document.getElementById("session-select-error").innerHTML !== "") {
+    alertChange("session", "visible");
   }
 
-  if (document.getElementById("tickets-select-error").innerHTML === "") {
-    alertChange("tickets", "hidden");
-  } 
+  if (document.getElementById("tickets-select-error").innerHTML !== "") {
+    alertChange("tickets", "visible");
+  }
 
-  if (document.getElementById("details-error-name").innerHTML === "") {
+  if (document.getElementById("details-error-name").innerHTML !== "") {
     //console.log("something wrong");
-    alertChange("name", "hidden");
+    alertChange("name", "visible");
   }
 
-  if (document.getElementById("details-error-email").innerHTML === "") {
-    alertChange("email", "hidden");
+  if (document.getElementById("details-error-email").innerHTML !== "") {
+    alertChange("email", "visible");
   }
 
-  if (document.getElementById("details-error-mobile").innerHTML === "") {
-    alertChange("mobile", "hidden");
+  if (document.getElementById("details-error-mobile").innerHTML !== "") {
+    alertChange("mobile", "visible");
   }
 
   if (checkSessionSelection()) {
@@ -213,6 +213,7 @@ function calculateTotals() {
   var total = parseFloat(0);
   var selection;
 
+  alertChange("tickets", "hidden");
   if (
     !checkSessionSelection() &&
     document.getElementById("session-select-error") != ""
