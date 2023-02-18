@@ -137,7 +137,29 @@ function calculateSubTotals() {
     displayRadioValue(checkedSessionPrice);
     calculateTotals();
   }
+
+  if (checkTicketSelected()) {
+    alertChange("tickets", "hidden");
+    calculateTotals();
+  }
+ 
 }
+
+
+// checks if a ticket is selected. returns true 
+function checkTicketSelected() {
+
+  for (var i = 0; i < seatCodes.length; i++) {
+    var choice = document.getElementsByName("seats[" + seatCodes[i] + "]")[0].value;
+    //console.log(choice);
+    if (choice !== "") {
+      //console.log('something selected');
+      return true;
+    }
+  }
+  return false;
+}
+
 
 // function to check if Session time has been selected. Returns a boolean.
 var checkedSessionPrice;
@@ -288,7 +310,10 @@ function showDetailsInfo(variable) {
 
   document.getElementById("details-error-" + variable).style.visibility =
     "visible";
-  document.getElementById("details-error-" + variable).style.minWidth = "23rem";
+  document.getElementById("details-error-" + variable).style.boxShadow ="2px 2px #d4af37"; 
+  document.getElementById("details-error-" + variable).style.minWidth = "fit-content";
+  document.getElementById("details-error-" + variable).style.right = "auto";
+  document.getElementById("details-error-" + variable).style.backgroundImage = "url('../../media/info-icon.png')";
   document.getElementById("details-error-" + variable).style.color = "green";
   document.getElementsByName("user[" + variable + "]")[0].style.border =
     "2px solid #d4af37";
@@ -302,14 +327,18 @@ function hideDetailsInfo(variable) {
   document.getElementById("details-error-" + variable).style.visibility =
     "hidden";
   document.getElementsByName("user[" + variable + "]")[0].style.border = "none";
+
+  // i dont think i need this code at all.
+  // document.getElementById("details-error-" + variable).style.boxShadow ="2px 2px red"; 
+  // document.getElementById("details-error-" + variable).style.left = "auto";
+  // document.getElementById("details-error-" + variable).style.backgroundImage = "url('../../media/error-icon.png')";
 }
 
 //press to return to index.html button in error
 function errorpress(number) {
-  var test = number;
-  console.log(test);
+  //console.log(number);
 
-  switch (test) {
+  switch (number) {
     case "1":
       document.querySelector(".error1").style.visibility = "hidden";
       document.querySelector(".error2").style.visibility = "visible";
@@ -362,7 +391,7 @@ function toggleDesc(type, status) {
 
   if (width == "1000px") {
     if (status == "show") {
-      console.log(width);
+      //console.log(width);
       document.querySelector(element).style.transition = "1s";
       document.querySelector(element).style.width = "400px";
     } else {

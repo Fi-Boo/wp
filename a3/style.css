@@ -1196,6 +1196,7 @@ select option:checked {
 #details-table th {
   width: 7em;
   padding: 1rem;
+  border: none;
 }
 
 #details-table tr:first-child th {
@@ -1218,7 +1219,6 @@ select option:checked {
   padding: 0;
   position: relative;
   border: none;
-  border-right: 1px solid black;
 }
 
 #details-table input {
@@ -1305,11 +1305,10 @@ select option:checked {
   background-color: white;
   color: red;
   text-align: center;
-  height: 1.5rem;
+  height: 0.8rem;
   width: fit-content;
-  min-width: 16rem;
-  padding: 0.5rem 0.5rem 0.5rem 2rem;
-  border-radius: 1rem;
+  padding: 0.25rem 0.25rem 0.5rem 2rem;
+  border-radius: 0.25rem;
   position: absolute;
   margin: 0 auto;
   visibility: hidden;
@@ -1320,6 +1319,8 @@ select option:checked {
   background-position-y: center;
   background-position-x: 5px;
   background-repeat: no-repeat;
+  box-shadow: 2px 2px red;
+  font-size: 0.9rem !important;
 }
 
 #session-select-error {
@@ -1337,9 +1338,10 @@ select option:checked {
 #details-error-name,
 #details-error-email,
 #details-error-mobile {
-  min-width: 8rem;
+  min-width: fit-content;
   top: 2.5rem;
   right: 0;
+  left: 0;
 }
 
 #details-error img {
@@ -2084,13 +2086,6 @@ hr.dashed {
 
   .book-tickets-btn {
     margin-top: 0;
-  }
-
-  #details-error-name,
-  #details-error-email,
-  #details-error-mobile {
-    min-width: 12rem;
-    top: 2.5rem;
   }
 
   /* ---- receipt page ---- */
