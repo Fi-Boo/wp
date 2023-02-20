@@ -103,7 +103,8 @@ headerModule();
 footerModule();
 debugModule();
 ?>
-
+</div>
+</div>
 </body>
 
 </html>

@@ -563,10 +563,14 @@ function headerModule()
       </head>
 
       <body>
-        <header>
-          <div id="header-bg"></div>
-          <div id="company-name">Lunardo</div>
-        </header>
+        <div id='parallax-container'>
+          <div id='bg-layerA'><div class='bg-layer-img-box'><img src='../../media/starbg-layer1.png'></div></div>
+          <div id='bg-layerB'><div class='bg-layer-img-box'><img src='../../media/starbg-layer2.png'></div></div>
+          <div id='foreground'>
+            <header>
+              <div id="header-bg"></div>
+              <div id="company-name">Lunardo</div>
+            </header>
   HEADER;
 }
 //-------------------------------------------------------------------------------------
