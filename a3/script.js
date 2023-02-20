@@ -27,12 +27,17 @@ function navScroll(page) {
   }
 }
 
+
+// Due to my scrollbar being within the parallax-container I had to adapt my code to use the containers scrollTop value instead of window.scrollY
+// https://www.javascripttutorial.net/dom/css/get-and-set-scroll-position-of-an-element/
+
 function windowScroll(page, size) {
-  window.onscroll = function () {
+  var ele = document.getElementById('parallax-container');
+  ele.onscroll = function () {
     //console.clear();
     //console.log(page);
     //console.log(size);
-    //console.log("Win Y: "+ window.scrollY);
+    //console.log("Win Y: "+ ele.scrollTop);
 
     var offsetValue;
 
@@ -56,7 +61,7 @@ function windowScroll(page, size) {
         var sectionBot =
           sections[a].offsetTop + sections[a].offsetHeight - offsetValue;
         //console.log(sectionTop + ' ' + sectionBot);
-        if (window.scrollY >= sectionTop && window.scrollY < sectionBot) {
+        if (ele.scrollTop >= sectionTop && ele.scrollTop < sectionBot) {
           //console.log(sections[a].id + ": current");
           navlinks[a + 1].classList.add("current");
         } else {
@@ -65,7 +70,7 @@ function windowScroll(page, size) {
         }
       }
 
-      if (window.scrollY >= offsetValue) {
+      if (ele.scrollTop >= offsetValue) {
         document.querySelector("#logo img").style.opacity = "1";
       } else {
         document.querySelector("#logo img").style.opacity = "0.6";
@@ -78,7 +83,7 @@ function windowScroll(page, size) {
       }
       //console.log(offsetValue);
 
-      if (window.scrollY >= offsetValue) {
+      if (ele.scrollTop >= offsetValue) {
         document.querySelector("#logo img").style.opacity = "1";
         document.getElementsByClassName("nav-li")[1].style.backgroundImage =
           "none";

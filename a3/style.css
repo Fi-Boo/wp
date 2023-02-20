@@ -27,16 +27,15 @@
   width: 20px;
 }
 
-/* html,
+html,
 footer {
   scroll-behavior: smooth;
   overflow-x: hidden;
-} */
+}
 
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
   overflow-x: hidden;
   color: var(--bg-gold);
   font-size: 1rem;
@@ -47,12 +46,12 @@ body {
   background-image: url("../../media/starsbg-fixed.png");
   background-attachment: fixed;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 1px;
   scroll-behavior: smooth;
-  /* transform-style: preserve-3d; */
+  transform-style: preserve-3d;
 }
 
 #bg-layerA,
@@ -63,6 +62,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+  min-height: 100vh;
 }
 
 #bg-layerA {
@@ -110,7 +110,7 @@ main {
 }
 
 #bg-overlay {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   background-image: linear-gradient(
     to left,
@@ -2428,10 +2428,3 @@ hr.dashed {
   }
 }
 
-section,
-main,
-html,
-body {
-  background-image: none;
-  background-color: transparent;
-}
