@@ -44,7 +44,7 @@ body {
 }
 
 #parallax-container {
-  background-image: url("../../media/starbg-fixed.png");
+  background-image: url("../../media/starsbg-fixed.png");
   background-attachment: fixed;
   position: relative;
   min-height: 100vh;
@@ -66,11 +66,11 @@ body {
 }
 
 #bg-layerA {
-  transform: translateZ(-2px) scale(3);
+  transform: translateZ(-14px) scale(14);
 }
 
 #bg-layerB {
-  transform: translateZ(-1px) scale(2);
+  transform: translateZ(-7px) scale(8);
 }
 
 .bg-layer-img-box {
@@ -2392,7 +2392,7 @@ hr.dashed {
         black 90%,
         rgb(102, 111, 190)
       ),
-      url("../../media/starbg-fixed.png");
+      url("../../media/starsbg-fixed.png");
 
     /* background-image: url('../../media/starbg-fixed.png'); */
   }
