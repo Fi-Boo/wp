@@ -358,8 +358,6 @@ function errorpress(number) {
   }
 }
 
-/* --------- ALL TEST FUNCTIONS HERE. WORK INCOMPLETE -------*/
-// functions for testModule(). incomplete work.
 
 // for ST seat open text
 function STslideRight() {
@@ -385,9 +383,7 @@ function toggleDesc(type, status) {
   var element = "." + type + "-description";
 
   //https://zellwk.com/blog/css-values-in-js/#:~:text=First%2C%20you%20need%20to%20select,to%20get%20the%20element's%20styles.&text=If%20you%20log%20style%20%2C%20you,property%20and%20their%20respective%20values.&text=You%20can%20also%20see%20this%20object%20in%20Chrome's%20and%20Firefox's%20dev%20tools.
-  var width = getComputedStyle(
-    document.querySelector("#prices-seat-grid")
-  ).width;
+  var width = getComputedStyle(document.querySelector("#prices-seat-grid")).width;
 
   if (width == "1000px") {
     if (status == "show") {

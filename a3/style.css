@@ -4,16 +4,16 @@
 
 /* https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/ */
 
-html::-webkit-scrollbar {
+#parallax-container::-webkit-scrollbar {
   width: 10px;
 }
 
-html::-webkit-scrollbar-track {
+#parallax-container::-webkit-scrollbar-track {
   background-image: linear-gradient(to left, black, rgb(125, 113, 29), black);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-html::-webkit-scrollbar-thumb {
+#parallax-container::-webkit-scrollbar-thumb {
   background-image: linear-gradient(
     to left,
     rgb(125, 113, 29),
@@ -27,11 +27,11 @@ html::-webkit-scrollbar-thumb {
   width: 20px;
 }
 
-html,
+/* html,
 footer {
   scroll-behavior: smooth;
-  /* overflow-x: hidden; */
-}
+  overflow-x: hidden;
+} */
 
 body {
   margin: 0;
@@ -41,7 +41,59 @@ body {
   color: var(--bg-gold);
   font-size: 1rem;
   font-family: "Rajdhani", sans-serif;
-  background-color: black;
+}
+
+#parallax-container {
+  background-image: url("../../media/starbg-fixed.png");
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 1px;
+  scroll-behavior: smooth;
+  /* transform-style: preserve-3d; */
+}
+
+#bg-layerA,
+#bg-layerB,
+#foreground {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#bg-layerA {
+  transform: translateZ(-2px) scale(3);
+}
+
+#bg-layerB {
+  transform: translateZ(-1px) scale(2);
+}
+
+.bg-layer-img-box {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+#bg-layerA img,
+#bg-layerB img {
+  width: 100%;
+  opacity: 0.75;
+}
+
+#foreground {
+  transform: translateZ(0);
+}
+
+#new-main {
+  position: absolute;
+  min-height: 100%;
+  width: 100%;
 }
 
 li {
@@ -51,8 +103,6 @@ li {
 main {
   max-width: 1500px;
   padding-top: 2rem;
-  background-image: url("../../media/starsbg.png");
-  background-attachment: fixed;
   background-size: 100%;
   margin: -10px auto 0;
   box-shadow: -10px 0px 0.4em black, 10px 0px 0.4em black;
@@ -100,13 +150,14 @@ header {
   position: absolute;
   top: 0;
   right: 0;
-  background-image: url("../../media/headerbg.png");
+  background-image: url("../../media/header-mobile.png");
   background-position: 100% 0%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto 150px;
   right: 0;
   z-index: 0;
+  transition: 0.5s;
 }
 
 #company-name {
@@ -217,7 +268,8 @@ nav {
   top: -100px;
   margin-top: -100px;
   z-index: 1;
-  background-image: linear-gradient(to top, black 50%, transparent 52%);
+  background-image: linear-gradient(to top, black 50%, transparent 52%),
+    linear-gradient(30deg, black 50%, transparent 65%);
   opacity: 1;
   width: 100%;
   height: 200px;
@@ -503,8 +555,10 @@ table {
 
 .std-description,
 .fc-description {
-  grid-area: desc;
-  display: none;
+  font-weight: 400;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  
 }
 
 .std-label,
@@ -1011,7 +1065,6 @@ fieldset {
   height: 6rem;
   text-align: center;
   position: relative;
-
 }
 
 #booking-date label,
@@ -1469,7 +1522,6 @@ pre {
   border-radius: 1rem;
   padding-left: 1rem;
   height: 200px;
-
 }
 
 #receipt-logo {
@@ -2098,7 +2150,8 @@ hr.dashed {
       "message message message";
   }
 
-  #navbar h3, #navbar2 h3 {
+  #navbar h3,
+  #navbar2 h3 {
     font-size: 3rem;
   }
 }
@@ -2163,7 +2216,6 @@ hr.dashed {
   #book-title {
     width: 60%;
   }
-
 }
 
 @media (max-width: 1009px) {
@@ -2171,6 +2223,7 @@ hr.dashed {
   .fc-description {
     min-width: 400px;
     transition: 0s;
+    overflow-x: hidden;
   }
 }
 
@@ -2264,7 +2317,6 @@ hr.dashed {
   .fc-description p {
     width: 395px;
     height: auto;
-    overflow: hidden;
     margin-top: 1rem;
     box-sizing: border-box;
   }
@@ -2281,15 +2333,16 @@ hr.dashed {
 /* MEDIA MIN 1400PX */
 
 @media (min-width: 1400px) {
+  #parallax-container,
   body {
-    background-image: linear-gradient(
+    background-image: 
+    /* linear-gradient(
         to right,
         transparent,
         black 15%,
         black 85%,
         transparent
-      ),
-      linear-gradient(
+      ), */ linear-gradient(
         to right,
         black,
         transparent 1.25%,
@@ -2309,8 +2362,8 @@ hr.dashed {
         black 8.5%,
         transparent 9%,
         rgb(0, 0, 0, 0.5) 9%,
-        black 12.5%,
-        black 87.5%,
+        transparent 12.5%,
+        transparent 87.5%,
         rgb(0, 0, 0, 0.5) 91%,
         transparent 91%,
         black 91.5%,
@@ -2329,22 +2382,26 @@ hr.dashed {
         transparent 97.5%,
         transparent 98.75%,
         black
-      );
-    background-color: rgb(102, 111, 190);
+      ),
+      linear-gradient(
+        to right,
+        rgb(102, 111, 190),
+        black 10%,
+        transparent 15%,
+        transparent 85%,
+        black 90%,
+        rgb(102, 111, 190)
+      ),
+      url("../../media/starbg-fixed.png");
+
+    /* background-image: url('../../media/starbg-fixed.png'); */
   }
 
   #header-bg {
-    background-position: 80% 0%;
+    background-position: 100% 0%;
     transition: 0.5s;
-    background-image: linear-gradient(
-        to left,
-        black,
-        rgb(0, 0, 0) 8%,
-        transparent 10%,
-        transparent 50%,
-        black 80%
-      ),
-      url("../../media/headerbg.png");
+    background-image: url("../../media/header-large.png");
+
   }
 
   #company-name {
@@ -2368,4 +2425,12 @@ hr.dashed {
     border-top-right-radius: 0.5rem;
     transition: 1s;
   }
+}
+
+section,
+main,
+html,
+body {
+  background-image: none;
+  background-color: transparent;
 }
