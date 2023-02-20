@@ -1,0 +1,264 @@
+
+
+/* --- testModule() styling ---*/
+
+
+#prices-seat-grid {
+    display: grid; 
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    'box1 box2';
+    margin: 2rem auto;
+    width: 1000px;
+    height: 250px; 
+
+}
+
+
+#prices-floating-text {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    z-index:0;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+#prices-floating-text p {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+#std-box {
+    position: absolute;
+    left: 0;
+    grid-area: box1;
+    z-index: 0;
+}
+
+#fc-box {
+    position: absolute;
+    right:0;
+    grid-area: box2;
+    z-index: 0;
+}
+
+/* #std-container, #fc-container {
+
+    display: flex;
+    width: 700px;
+    height: 250px;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 1;
+
+} */
+
+#std-container, #fc-container {
+    display: grid;
+    grid-template-areas:
+    'label desc img';
+}
+
+.std-img {
+    grid-area: img;
+}
+
+.std-description {
+    grid-area: desc;
+    display: none;
+}
+
+.std-label {
+    grid-area: label;
+}
+
+
+
+#fc-container {
+    direction: rtl;
+}
+
+#fc-container p {
+    direction: ltr;
+}
+
+
+.std-description, .fc-description {
+    color: white;
+    /* width: 450px; */
+    /* padding: 1rem 5px 0 60px; */
+    padding: 1rem 0;
+    margin: 0;
+    text-align: justify;
+    box-sizing: border-box; /* -- this is handy -- */
+    height: 250px;
+    transition: width 1s;
+    width: 0;
+    overflow: 0; 
+}
+
+
+
+.std-description p, .fc-description p{
+    width: 395px;
+    height: auto;
+    overflow: hidden;
+    margin-top: 1rem ;
+    box-sizing: border-box;
+}
+
+.std-description p {
+    padding-right: 1rem;
+}
+
+.fc-description p {
+    padding-left: 1rem;
+}
+
+.std-description {
+    /* padding: 1rem 60px 0 5px; */
+    background-image:linear-gradient( to left, #6b6c6c, rgb(102,111,190) 5%);
+    overflow: hidden;
+    
+
+}
+
+.fc-description {
+    background-image:linear-gradient( to right, rgb(125,113,29), rgb(102,111,190) 5%);
+    overflow: hidden;
+}
+
+
+.std-label, .fc-label {
+    position: relative;
+    width: 50px;
+    height: 250px;
+    text-align: center;
+    margin-left: 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    letter-spacing: 0.1rem;
+    font-family: 'Rajdhani', sans-serif;
+    /* text-transform: uppercase; */
+}
+
+.std-label {
+    background-image:linear-gradient(to left, #6b6c6c, #999B9B 30%, #999B9B 70%, #6b6c6c );
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}  
+
+.fc-label {
+    background-image:linear-gradient(to left, rgb(125,113,29), #d4af37 30%, #d4af37 70%, rgb(125,113,29) );
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    
+}
+
+
+.std-label h3, .fc-label h3 {
+    position: absolute;
+    letter-spacing: 2px;
+    color: #fff;
+    line-height: 24px;
+    transform-origin: 0 0;
+    width: 150px;
+}
+
+.std-label h3 {
+    left: 2.25rem;
+    transform: rotate(90deg);
+}
+
+.fc-label h3 {
+    top: 150px;
+    left: 0.75rem;
+    transform: rotate(-90deg);
+}
+
+
+.std-img {
+    width: 250px;
+    height: 250px;
+    background-image: linear-gradient(to left, rgb(102,111,190), transparent 50% );
+}
+
+.fc-img {
+    align-self: right;
+    width: 250px;
+    height: 250px;
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent 50% );
+}
+
+
+
+.std-img:hover {
+    background-image: linear-gradient(to left, rgb(102,111,190), transparent );
+    transition: 1s;
+}
+
+.fc-img:hover {
+    background-image: linear-gradient(to right, rgb(102,111,190), transparent );
+    transition: 1s;
+}
+
+
+.std-img img, .fc-img img{
+    width: 240px;
+    height: auto;
+    padding-top: 1rem;
+}
+
+.fc-img img {
+    padding-top: 3rem;
+}
+
+
+@media (min-width: 710px) {
+    #prices-seat-grid {
+
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        'box1'
+        'box2';
+        height: 500px;
+    }
+
+    #fc-box {
+
+        left:0;
+
+    }
+
+    #fc-container {
+        direction: ltr;
+        margin: 0;
+    }
+
+
+}
+
+
+
+@media (min-width: 1015px) {
+
+
+
+    #prices-seat-grid {
+        border:1px solid red;
+        display: grid;
+    }
+
+
+}
+
+/* -------------------------------------------*/
+

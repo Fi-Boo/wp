@@ -56,7 +56,7 @@ headerModule();
           </iframe>
         </div>
         <div id="movieimg">
-          <img src='<?= $movies[$_GET['movie']]["poster"] ?>' alt='<?= $movies[$_GET['movie']]["title"] ?>'>
+          <img src=<?= $movies[$_GET['movie']]["poster"] ?> alt='<?= $movies[$_GET['movie']]["title"] ?>'>
         </div>
         <div id="movie-synopsis">
           <?= $movies[$_GET['movie']]["synopsis"] ?>

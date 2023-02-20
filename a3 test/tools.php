@@ -285,7 +285,7 @@ function footerModule()
     <div id='footer-container'>
       <div id='footer-flex'>
         <div id ='footer-flex-inner'>
-          <div id='footer-logo'><img src='../../media/logo-blk.png' alt='Lunardo'></div>
+          <div id='footer-logo'><img src='../../media/logo-blk.png' alt='Lunardo logo'></div>
           <div id='company-details'>
             <h2>Lunardo Cinema</h2> 
             1 Mystery Lane <br>
@@ -757,9 +757,9 @@ function sessionSelection($var)
               <li>
                 <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='sessionSelected("$pricing")' $checkedState $radioState required >    
                     <label id="label$counter">
-                  $day
-                  <hr>
-                  $time
+                      $day
+                      <hr>
+                      $time
                 </label> 
               </li>
         SESSIONSELECTION;
@@ -865,7 +865,7 @@ function yourDetailsTr()
 
     echo <<<"STR"
       <tr id="details-tr-{$data[0]}">
-        <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" alt="info" onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
+        <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" alt='info icon' onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
           <input type="{$type}" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
           <div id="details-error-{$data[0]}">$errormsg</div>
