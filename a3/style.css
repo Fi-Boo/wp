@@ -754,14 +754,14 @@ td {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  background-image: linear-gradient(
+  padding-bottom: 4rem;
+    /* background-image: linear-gradient(
     to left,
     transparent,
     rgb(102, 111, 190) 20%,
     rgb(102, 111, 190) 80%,
     transparent
-  );
-  padding-bottom: 4rem;
+  ); */
 }
 
 .movie-single {
