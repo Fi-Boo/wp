@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 validateRequest($_GET['movie']);
-headerModule();
+headerModule('booking');
 
 ?>
 
@@ -137,8 +137,7 @@ headerModule();
                 </table>
               </div>
               <div class="book-tickets-btn">
-                <input type="submit" value="Book Tickets" >
-                <input type="submit" value="no Validation" formnovalidate>
+                <input id='book-tix-btn' type="submit" value="Book Tickets" disabled='true' >
               </div>
             </div>
           </fieldset>

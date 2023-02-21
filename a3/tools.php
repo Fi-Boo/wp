@@ -540,11 +540,20 @@ function getTotalTickets($SESSION)
 //-------------------------------------------------------------------------------------
 
 //  header block. includes doctype and header. Nav not included 
-function headerModule()
+function headerModule($page)
 {
 
   $value = filemtime('style.css');
+  $bgLayers = '';
 
+  if ($page !== 'receipt') {
+    $bgLayers = 
+  "<div id='parallax-container'>
+  <div id='bg-layerA'><div class='bg-layer-img-box'><img src='../../media/starbg-layer1.png'></div></div>
+  <div id='bg-layerB'><div class='bg-layer-img-box'><img src='../../media/starbg-layer2.png'></div></div>
+  <div id='new-main'>
+  <div id='foreground'>";
+  }
 
   echo <<<"HEADER"
     <!DOCTYPE html>
@@ -562,14 +571,9 @@ function headerModule()
         <script src='script.js'></script>
       </head>
 
-      <body>
-        <div id='parallax-container'>
-          <div id='bg-layerA'><div class='bg-layer-img-box'><img src='../../media/starbg-layer1.png'></div></div>
-          <div id='bg-layerB'><div class='bg-layer-img-box'><img src='../../media/starbg-layer2.png'></div></div>
-          <div id='foreground'>
-          <div id='new-main'>
+      <body>     
+          {$bgLayers}   
             <header>
-              
               <div id="company-name">Lunardo</div>
             </header>
   HEADER;
@@ -760,7 +764,7 @@ function sessionSelection($var)
 
         echo <<<"SESSIONSELECTION"
               <li>
-                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick='sessionSelected("$pricing")' $checkedState $radioState required >    
+                <input type="radio" name="day" value="$day" data-pricing="$pricing" onclick="sessionSelected('$pricing'); clientSideValidation()" $checkedState $radioState >    
                     <label id="label$counter">
                       $day
                       <hr>
@@ -821,7 +825,7 @@ function ticketTable()
                 <th><label for="seats[{$seat}]">{$value['desc']} </label></th>
                 <td><div id="price[{$seat}]"></div></td>
                 <td class="priceCell">
-                  <select name="seats[{$seat}]" data-fullprice="{$value['fullprice']}" data-discprice="{$value['discprice']}" onchange='calculateSubTotals()'>
+                  <select name="seats[{$seat}]" data-fullprice="{$value['fullprice']}" data-discprice="{$value['discprice']}" onchange='calculateSubTotals(); clientSideValidation()'>
                     <option value="" ></option>
   TICKETSELECTP1;
     for ($a = 1; $a <= $maxPurchase; $a++) {
@@ -875,7 +879,7 @@ function yourDetailsTr()
       <tr id="details-tr-{$data[0]}">
         <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" alt='info icon' onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
-          <input type="{$type}" name="user[{$data[0]}]" value='{$value}' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
+          <input type="{$type}" name="user[{$data[0]}]" value="{$value}" placeholder="{$data[2]}" onclick="removeDetailsError('{$data[0]}')" required>
           <div id="details-error-{$data[0]}">$errormsg</div>
         </td>
       </tr>

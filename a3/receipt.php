@@ -14,11 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 }
 
-headerModule();
+headerModule('receipt');
 ?>
 
 <script>
     navScroll('receipt'); 
+    removeParallaxEffect();
 </script>
 <nav>
     <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
@@ -32,6 +33,7 @@ headerModule();
         </div>
     </div>
 </nav>
+
 <main>
     <div id='bg-overlay'>
         <div id='filler'></div>
@@ -130,9 +132,10 @@ headerModule();
 footerModule();
 debugModule();
 ?>
-</div>
-</div>
-</div>
+
+
+
+
 </body>
 
 </html>
