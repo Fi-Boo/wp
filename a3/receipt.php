@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         header("Location: error.php");
         exit();
     }
-
 }
 
 headerModule('receipt');
