@@ -95,7 +95,8 @@ headerModule('booking');
               <div id="session-select-error"><?= unsetFB($errorsOut['day']); ?></div>
             </div>
           </fieldset>
-
+        
+        <div id='tickets-selection-box'>
           <div class="sub-section-title">
             <h2>Select your tickets</h2>
           </div>
@@ -122,7 +123,7 @@ headerModule('booking');
             </div>
             <div id="ticket-total"> </div>
           </fieldset>
-
+        </div>
 
         <div id='your-details-box'> 
           <div class="section-title" id='your-details-title'>
@@ -143,7 +144,8 @@ headerModule('booking');
               </div>
             </div>
           </fieldset>
-          </div>
+        </div>
+        
         </form>
       </div>
 

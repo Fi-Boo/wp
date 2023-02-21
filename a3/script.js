@@ -187,8 +187,14 @@ function checkSessionSelection() {
 }
 
 
-
 // clientside validation for session and ticket selection.
+
+
+// reveals ticket selection table once session day has been picked.
+function showTicketSelection() {
+  document.getElementById("tickets-selection-box").style.height ='750px';
+}
+
 // further clientside validation for details could be put in here. Currently using supplied HTML form validation for details component.
 
 function clientSideValidation() {
@@ -210,14 +216,9 @@ function clientSideValidation() {
   console.log(errorCount);
   if (errorCount < 1) {
     document.getElementById("book-tix-btn").disabled = false;
-    document.getElementById("your-details-box").style.height ='450px';
+    document.getElementById("your-details-box").style.height ='500px';
   }
 }
-
-
-
-
-
 
 // Function to display discount or fullprice based on radio menu selection
 var priceCode;

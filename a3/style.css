@@ -324,13 +324,13 @@ nav {
 #logo img:focus,
 #logo img:target {
   opacity: 1;
-  background-image: radial-gradient(rgb(102, 111, 190), black 70%);
+  background-image: radial-gradient(rgb(102, 111, 190), transparent 70%);
   transition: 0.5s;
 }
 
 #logo img:active {
   opacity: 1;
-  background-image: radial-gradient(rgb(102, 111, 190), black 70%);
+  background-image: radial-gradient(rgb(102, 111, 190), transparent 70%);
 }
 
 #navbar-i, #navbar-b,
@@ -344,6 +344,10 @@ nav {
   margin-bottom: 0;
   box-shadow: 0 3px 0.3rem black;
   background-image: linear-gradient(135deg, black 45%, transparent 50%);
+}
+
+#navbar-r {
+  background-image: none;
 }
 
 #navbar-b {
@@ -1270,6 +1274,24 @@ select option:checked {
   color: black;
 }
 
+
+/* Validation box. 
+1. ticket selection only shows when session is selected.
+2. your details and booking button only shows when tickets are selected */
+
+#tickets-selection-box, #your-details-box {
+  height: 0;
+  overflow-y: auto;
+  transition: 1s;
+
+}
+
+#tickets-selection-box::-webkit-scrollbar, #your-details-box::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+
 /* Your Details */
 
 #details-grid {
@@ -1334,6 +1356,7 @@ select option:checked {
 /* book ticket(s) button */
 
 .book-tickets-btn {
+  position: static;
   align-self: center;
   text-align: center;
   width: 15rem;
@@ -1520,6 +1543,8 @@ pre {
       rgb(0, 0, 0, 0.5)
     ),
     linear-gradient(315deg, rgb(102, 111, 190), #d4af37 50%, transparent 80%);
+
+  z-index: -1;
 }
 
 #nav-receipt h3 {
@@ -2526,16 +2551,4 @@ hr.dashed {
 
 
 
-/* testing transitions for clientside validation. Your Details will only appear once session/tickets are selected */
 
-
-#your-details-box {
-  height: 0;
-  overflow-y: auto;
-  transition: 1s;
-
-}
-
-#your-details-box::-webkit-scrollbar {
-  width: 0px;
-}
