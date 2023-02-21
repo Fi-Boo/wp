@@ -186,6 +186,39 @@ function checkSessionSelection() {
   return false;
 }
 
+
+
+// clientside validation for session and ticket selection.
+// further clientside validation for details could be put in here. Currently using supplied HTML form validation for details component.
+
+function clientSideValidation() {
+
+  var errorCount = 0;
+
+  if (!checkSessionSelection()) {
+    document.getElementById("session-select-error").innerHTML = "Please select a session to proceed";
+    alertChange("session", "visible");
+    errorCount++;
+  } 
+
+  if (!checkTicketSelected()) {
+    document.getElementById("tickets-select-error").innerHTML = "Please select at least 1 ticket to proceed";
+    alertChange("tickets","visible");
+    errorCount++;
+  }
+
+  console.log(errorCount);
+  if (errorCount < 1) {
+    document.getElementById("book-tix-btn").disabled = false;
+    document.getElementById("your-details-box").style.height ='450px';
+  }
+}
+
+
+
+
+
+
 // Function to display discount or fullprice based on radio menu selection
 var priceCode;
 

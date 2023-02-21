@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 validateRequest($_GET['movie']);
-headerModule();
+headerModule('booking');
 
 ?>
 
@@ -123,7 +123,9 @@ headerModule();
             <div id="ticket-total"> </div>
           </fieldset>
 
-          <div class="section-title">
+
+        <div id='your-details-box'> 
+          <div class="section-title" id='your-details-title'>
             <h2>Your Details</h2>
           </div>
 
@@ -137,10 +139,11 @@ headerModule();
                 </table>
               </div>
               <div class="book-tickets-btn">
-                <input type="submit" value="Book Tickets" formnovalidate>
+                <input id='book-tix-btn' type="submit" value="Book Tickets" disabled='true' >
               </div>
             </div>
           </fieldset>
+          </div>
         </form>
       </div>
 

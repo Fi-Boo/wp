@@ -2,7 +2,7 @@
 include_once "tools.php";
 
 session_unset();
-headerModule();
+headerModule('index');
 
 ?>
 

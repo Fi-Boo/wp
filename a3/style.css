@@ -3,17 +3,18 @@
 }
 
 /* https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/ */
+/* multi layered parallax via css only */
 
-#parallax-container::-webkit-scrollbar {
+#parallax-container::-webkit-scrollbar, html::-webkit-scrollbar {
   width: 10px;
 }
 
-#parallax-container::-webkit-scrollbar-track {
+#parallax-container::-webkit-scrollbar-track, html::-webkit-scrollbar-track {
   background-image: linear-gradient(to left, black, rgb(125, 113, 29), black);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-#parallax-container::-webkit-scrollbar-thumb {
+#parallax-container::-webkit-scrollbar-thumb, html::-webkit-scrollbar-thumb {
   background-image: linear-gradient(
     to left,
     rgb(125, 113, 29),
@@ -33,13 +34,20 @@ footer {
   overflow-x: hidden;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   color: var(--bg-gold);
   font-size: 1rem;
   font-family: "Rajdhani", sans-serif;
+  background-image: 
+  url("../../media/starbg-layer1.png"),
+  url("../../media/starsbg-fixed.png");
 }
 
 #parallax-container {
@@ -63,6 +71,10 @@ body {
   bottom: 0;
   left: 0;
   min-height: 100vh;
+}
+
+#foreground {
+  position: static;
 }
 
 #bg-layerA {
@@ -250,6 +262,10 @@ footer hr {
 
 /* Navigation bar */
 
+
+/* parent or grandparent container cannot have overflox hidden/auto. EVEN overflow-X
+https://stackoverflow.com/questions/45530235/positionsticky-is-not-working */
+
 nav {
   display: flex;
   position: sticky;
@@ -262,6 +278,7 @@ nav {
   width: 100%;
   height: 200px;
 }
+
 
 #logo {
   width: 50%;
@@ -1382,9 +1399,9 @@ select option:checked {
   background-color: white;
   color: red;
   text-align: center;
-  height: 0.8rem;
+  height: 1rem;
   width: fit-content;
-  padding: 0.25rem 0.25rem 0.5rem 2rem;
+  padding: 0.25rem 0.5rem 0.5rem 2rem;
   border-radius: 0.25rem;
   position: absolute;
   margin: 0 auto;
@@ -1397,7 +1414,7 @@ select option:checked {
   background-position-x: 5px;
   background-repeat: no-repeat;
   box-shadow: 2px 2px red;
-  font-size: 0.9rem !important;
+  font-size: 1rem !important;
 }
 
 #session-select-error {
@@ -1850,9 +1867,14 @@ hr.dashed {
   header,
   nav,
   footer,
-  pre {
+  pre, #bg-layerA, #bg-layerB {
     display: none;
   }
+
+  #parallax-container {
+    background-image: none;
+  }
+
 
   #receipt-grid {
     gap: 1rem;
@@ -2357,16 +2379,9 @@ hr.dashed {
 /* MEDIA MIN 1400PX */
 
 @media (min-width: 1400px) {
-  #parallax-container,
-  body {
+  #parallax-container {
     background-image: 
-    /* linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-      ), */ linear-gradient(
+      linear-gradient(
         to right,
         black,
         transparent 1.25%,
@@ -2417,8 +2432,62 @@ hr.dashed {
         rgb(102, 111, 190)
       ),
       url("../../media/starsbg-fixed.png");
+  }
 
-    /* background-image: url('../../media/starbg-fixed.png'); */
+  body {
+    background-image: 
+      linear-gradient(
+        to right,
+        black,
+        transparent 1.25%,
+        transparent 2.5%,
+        black 2.5%,
+        transparent 3%,
+        transparent 4.5%,
+        black 4.5%,
+        transparent 5%,
+        transparent 6%,
+        black 6%,
+        transparent 6.5%,
+        transparent 7.5%,
+        black 7.5%,
+        transparent 8%,
+        transparent 8.5%,
+        black 8.5%,
+        transparent 9%,
+        rgb(0, 0, 0, 0.5) 9%,
+        transparent 12.5%,
+        transparent 87.5%,
+        rgb(0, 0, 0, 0.5) 91%,
+        transparent 91%,
+        black 91.5%,
+        transparent 91.5%,
+        transparent 92%,
+        black 92.5%,
+        transparent 92.5%,
+        transparent 93.5%,
+        black 94%,
+        transparent 94%,
+        transparent 95%,
+        black 95.5%,
+        transparent 95.5%,
+        transparent 97%,
+        black 97.5%,
+        transparent 97.5%,
+        transparent 98.75%,
+        black
+      ),
+      linear-gradient(
+        to right,
+        rgb(102, 111, 190),
+        black 10%,
+        transparent 15%,
+        transparent 85%,
+        black 90%,
+        rgb(102, 111, 190)
+      ),
+      url("../../media/starbg-layer1.png"),
+      url("../../media/starsbg-fixed.png");
   }
 
   #header-img-inner {
@@ -2455,3 +2524,18 @@ hr.dashed {
   }
 }
 
+
+
+/* testing transitions for clientside validation. Your Details will only appear once session/tickets are selected */
+
+
+#your-details-box {
+  height: 0;
+  overflow-y: auto;
+  transition: 1s;
+
+}
+
+#your-details-box::-webkit-scrollbar {
+  width: 0px;
+}
