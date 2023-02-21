@@ -10,10 +10,10 @@ headerModule();
 <nav>
   <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
   <div id='header-img'><div id="header-img-inner"></div></div>
-  <ul id="navbar">
-    <li><a href="#aboutus">ABOUT US</a></li>
-    <li><a href="#prices">PRICES</a></li>
-    <li><a href="#nowshowing">NOW SHOWING</a></li>
+  <ul id="navbar-i">
+    <li class='index-nav-li'><a href="#aboutus">ABOUT US</a></li>
+    <li class='index-nav-li'><a href="#prices">PRICES</a></li>
+    <li class='index-nav-li'><a href="#nowshowing">NOW SHOWING</a></li>
   </ul>
 </nav>
 

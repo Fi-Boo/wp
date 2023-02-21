@@ -23,7 +23,7 @@ headerModule();
 <nav>
     <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
     <div id='header-img'><div id="header-img-inner"></div></div>
-    <div id="navbar2">
+    <div id="navbar-r">
         <div id='nav-receipt'>
             <h3 id='book-title'> Booking Confirmation</h3>
             <h3 id='book-ref'>

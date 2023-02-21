@@ -316,8 +316,8 @@ nav {
   background-image: radial-gradient(rgb(102, 111, 190), black 70%);
 }
 
-#navbar,
-#navbar2 {
+#navbar-i, #navbar-b,
+#navbar-r {
   position: absolute;
   bottom: 0;
   padding: 0;
@@ -326,10 +326,14 @@ nav {
   margin-top: 100px;
   margin-bottom: 0;
   box-shadow: 0 3px 0.3rem black;
+  background-image: linear-gradient(135deg, black 45%, transparent 50%);
+}
+
+#navbar-b {
   background-color: black;
 }
 
-#navbar li,
+#navbar-i li,
 .nav-li,
 #nav-receipt {
   width: 60%;
@@ -341,7 +345,7 @@ nav {
   background-image: linear-gradient(315deg, transparent 30%, black 80%),
     linear-gradient(to top, transparent 50%, rgb(125, 113, 29)),
     linear-gradient(315deg, #d4af37, #d4af37);
-  /* background-color:#d4af37; */
+  background-color:transparent;
   text-shadow: -1px -1px 0 #d4af37, 1px -1px 0 #d4af37, -1px 1px 0 #d4af37,
     1px 1px 0 #d4af37;
   border-bottom: 2px solid black;
@@ -356,29 +360,31 @@ nav a {
   padding-right: 2rem;
 }
 
-#navbar li:first-child {
+#navbar-i li:first-child, #navbar-b li:first-child {
   width: 50%;
 }
 
-#navbar li:last-child {
+#navbar-i li:last-child, #navbar-b li:last-child {
   width: 70%;
 }
 
-#navbar li:hover {
+#navbar-i li:hover {
   width: 80%;
   transition: 0.3s;
+  background-image: linear-gradient(to left, rgb(102,111,190, 0.3), transparent);
+  background-color: transparent;
 }
 
-#navbar li:first-child:hover {
+#navbar-i li:first-child:hover {
   width: 70%;
 }
 
-#navbar li:last-child:hover {
+#navbar-i li:last-child:hover {
   width: 90%;
 }
 
-#navbar a:link,
-#navbar a:visited {
+#navbar-i a:link,
+#navbar-i a:visited {
   text-decoration: none;
   color: black;
   display: block;
@@ -388,12 +394,12 @@ nav a {
   transition: 0.3s;
 }
 
-#navbar a:hover,
-#navbar a:active,
-#navbar a:focus,
-#navbar a:target {
+#navbar-i a:hover,
+#navbar-i a:active,
+#navbar-i a:focus,
+#navbar-i a:target {
   color: #d4af37;
-  background-image: linear-gradient(315deg, rgb(102, 111, 190) 30%, black 90%);
+  background-image: linear-gradient(315deg, rgb(102, 111, 190) , transparent 90%);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   text-decoration: none;
@@ -406,6 +412,9 @@ nav a.current {
   background-color: transparent;
   transition: 0.3s;
 }
+
+
+
 
 /* section titles bar */
 
@@ -1473,7 +1482,7 @@ pre {
 
 /* ----------------------- RECEIPT PAGE -------------------------*/
 
-#navbar2 {
+#navbar-r {
   box-shadow: none;
   width: 90%;
   z-index: 3;
@@ -2011,8 +2020,8 @@ hr.dashed {
     margin-left: 2rem;
   }
 
-  #navbar,
-  #navbar2 {
+  #navbar-i, #navbar-b,
+  #navbar-r {
     height: 125px;
   }
 
@@ -2165,8 +2174,8 @@ hr.dashed {
       "message message message";
   }
 
-  #navbar h3,
-  #navbar2 h3 {
+  #navbar-i h3,
+  #navbar-r h3 {
     font-size: 3rem;
   }
 }
@@ -2223,7 +2232,7 @@ hr.dashed {
     border: none;
   }
 
-  #navbar2 {
+  #navbar-r {
     width: 80%;
     margin-left: 20%;
   }
