@@ -137,7 +137,8 @@ headerModule();
                 </table>
               </div>
               <div class="book-tickets-btn">
-                <input type="submit" value="Book Tickets" formnovalidate>
+                <input type="submit" value="Book Tickets" >
+                <input type="submit" value="no Validation" formnovalidate>
               </div>
             </div>
           </fieldset>
