@@ -549,10 +549,10 @@ function headerModule($page)
   if ($page !== 'receipt') {
     $bgLayers = 
   "<div id='parallax-container'>
-  <div id='bg-layerA'><div class='bg-layer-img-box'><img src='../../media/starbg-layer1.png'></div></div>
-  <div id='bg-layerB'><div class='bg-layer-img-box'><img src='../../media/starbg-layer2.png'></div></div>
-  <div id='new-main'>
-  <div id='foreground'>";
+    <div id='bg-layerA'><div class='bg-layer-img-box'><img src='../../media/starbg-layer1.png'></div></div>
+    <div id='bg-layerB'><div class='bg-layer-img-box'><img src='../../media/starbg-layer2.png'></div></div>
+    <div id='new-main'>
+      <div id='foreground'>";
   }
 
   echo <<<"HEADER"

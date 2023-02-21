@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
-    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t={$value}">
+    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css?t=   <?= filemtime('style.css') ?>                     ">
     <link
         href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap"
         rel="stylesheet">

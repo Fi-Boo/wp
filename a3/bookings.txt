@@ -18,3 +18,4 @@ Order Date	Name	Email	Mobile	Movie Code	Day of Movie	Time of Movie	#STA	$STA	#ST
 "21-02-2023 23:24"	"phi bui"	pbui@home.com	"0423 445 323"	ACT	Fri	2	$43.00	0	$0.00	0	$0.00	2	$63.00	0	$0.00	0	$0.00	$106.00	$9.64
 "21-02-2023 23:28"	"phi bui"	pbui@home.com	"0423 445 323"	ACT	Fri	2	$43.00	0	$0.00	0	$0.00	2	$63.00	0	$0.00	0	$0.00	$106.00	$9.64
 "21-02-2023 23:40"	"phi bui"	pbui@home.com	"0423 445 323"	ACT	Fri	2	$43.00	0	$0.00	0	$0.00	2	$63.00	0	$0.00	0	$0.00	$106.00	$9.64
+"22-02-2023 07:26"	phi	phi@home.com	0465565656	ACT	Fri	2	$43.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	$43.00	$3.91

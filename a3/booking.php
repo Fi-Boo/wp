@@ -123,7 +123,9 @@ headerModule('booking');
             <div id="ticket-total"> </div>
           </fieldset>
 
-          <div class="section-title">
+
+        <div id='your-details-box'> 
+          <div class="section-title" id='your-details-title'>
             <h2>Your Details</h2>
           </div>
 
@@ -141,6 +143,7 @@ headerModule('booking');
               </div>
             </div>
           </fieldset>
+          </div>
         </form>
       </div>
 

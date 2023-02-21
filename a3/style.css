@@ -3,6 +3,7 @@
 }
 
 /* https://css-tricks.com/classy-and-cool-custom-css-scrollbars-a-showcase/ */
+/* multi layered parallax via css only */
 
 #parallax-container::-webkit-scrollbar, html::-webkit-scrollbar {
   width: 10px;
@@ -35,13 +36,12 @@ footer {
 
 html {
   height: 100vh;
-  overflow-y: auto;
 }
 
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   color: var(--bg-gold);
   font-size: 1rem;
   font-family: "Rajdhani", sans-serif;
@@ -262,6 +262,10 @@ footer hr {
 
 /* Navigation bar */
 
+
+/* parent or grandparent container cannot have overflox hidden/auto. EVEN overflow-X
+https://stackoverflow.com/questions/45530235/positionsticky-is-not-working */
+
 nav {
   display: flex;
   position: sticky;
@@ -273,7 +277,6 @@ nav {
   opacity: 1;
   width: 100%;
   height: 200px;
-  border: 1px solid red;
 }
 
 
@@ -1396,7 +1399,7 @@ select option:checked {
   background-color: white;
   color: red;
   text-align: center;
-  height: 1.2rem;
+  height: 1rem;
   width: fit-content;
   padding: 0.25rem 0.5rem 0.5rem 2rem;
   border-radius: 0.25rem;
@@ -1411,7 +1414,7 @@ select option:checked {
   background-position-x: 5px;
   background-repeat: no-repeat;
   box-shadow: 2px 2px red;
-  font-size: 1.2rem !important;
+  font-size: 1rem !important;
 }
 
 #session-select-error {
@@ -2522,3 +2525,17 @@ hr.dashed {
 }
 
 
+
+/* testing transitions for clientside validation. Your Details will only appear once session/tickets are selected */
+
+
+#your-details-box {
+  height: 0;
+  overflow-y: auto;
+  transition: 1s;
+
+}
+
+#your-details-box::-webkit-scrollbar {
+  width: 0px;
+}

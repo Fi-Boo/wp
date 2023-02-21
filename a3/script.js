@@ -210,6 +210,7 @@ function clientSideValidation() {
   console.log(errorCount);
   if (errorCount < 1) {
     document.getElementById("book-tix-btn").disabled = false;
+    document.getElementById("your-details-box").style.height ='450px';
   }
 }
 
