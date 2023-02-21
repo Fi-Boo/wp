@@ -866,13 +866,16 @@ function yourDetailsTr()
     if ($data[0] == 'email') {
       $type = 'email';
     }
+    if ($data[0] == 'mobile') {
+      $type = 'tel';
+    }
 
 
     echo <<<"STR"
       <tr id="details-tr-{$data[0]}">
         <th><div class="details-info" id="details-{$data[0]}"><img src="../../media/info-icon.png" alt='info icon' onmouseover="showDetailsInfo('{$data[0]}')" onmouseout="hideDetailsInfo('{$data[0]}')" ><label for="user[{$data[0]}]">{$data[1]}:</label></div></th>
         <td>
-          <input type="{$type}" name="user[{$data[0]}]" value='$value' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
+          <input type="{$type}" name="user[{$data[0]}]" value='{$value}' placeholder='{$data[2]}' onclick="removeDetailsError('{$data[0]}')" required>
           <div id="details-error-{$data[0]}">$errormsg</div>
         </td>
       </tr>

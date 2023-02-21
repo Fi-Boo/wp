@@ -1850,9 +1850,14 @@ hr.dashed {
   header,
   nav,
   footer,
-  pre {
+  pre, #bg-layerA, #bg-layerB {
     display: none;
   }
+
+  #parallax-container {
+    background-image: none;
+  }
+
 
   #receipt-grid {
     gap: 1rem;
