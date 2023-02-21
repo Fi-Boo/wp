@@ -9,6 +9,7 @@ headerModule();
 <script> navScroll('index'); </script>
 <nav>
   <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
+  <div id='header-img'><div id="header-img-inner"></div></div>
   <ul id="navbar">
     <li><a href="#aboutus">ABOUT US</a></li>
     <li><a href="#prices">PRICES</a></li>

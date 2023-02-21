@@ -569,7 +569,7 @@ function headerModule()
           <div id='foreground'>
           <div id='new-main'>
             <header>
-              <div id="header-bg"></div>
+              
               <div id="company-name">Lunardo</div>
             </header>
   HEADER;

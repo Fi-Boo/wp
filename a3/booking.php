@@ -26,6 +26,7 @@ headerModule();
 </script>
 <nav>
   <div id="logo"><a href="index.php"><img src="../../media/logo-gold.png" alt="Logo and home button"></a></div>
+  <div id='header-img'><div id="header-img-inner"></div></div>
   <ul id="navbar">
     <li class="nav-li"><a href="#aboutus"></a></li>
     <li class="nav-li"><a href="#prices"></a></li>
