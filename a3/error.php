@@ -1,6 +1,6 @@
 <?php
 include 'tools.php';
-headerModule();
+headerModule('error');
 ?>
 
 <script>
