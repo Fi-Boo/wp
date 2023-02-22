@@ -540,6 +540,8 @@ function getTotalTickets($SESSION)
 //-------------------------------------------------------------------------------------
 
 //  header block. includes doctype and header. Nav not included 
+// adding browser tab icon - https://www.bluehost.com/help/article/whats-a-favicon
+
 function headerModule($page)
 {
 
@@ -569,6 +571,7 @@ function headerModule($page)
         <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
         <script src='../wireframe.js'></script>
         <script src='script.js'></script>
+        <link rel="icon" href="../../media/favicon.ico">
       </head>
 
       <body>     
