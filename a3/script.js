@@ -439,7 +439,7 @@ function toggleDesc(type, status) {
 
 
 // TEST STUFF - rotating background on hover for index.php flip cards.
-// https://www.youtube.com/watch?v=4uL9bAKOaVQ&ab_channel=AdamKhoury
+
 
 function showBG(flipNumber) {
 
@@ -476,7 +476,7 @@ function hideBG(flipNumber) {
  
 }
 
-
+// https://www.youtube.com/watch?v=4uL9bAKOaVQ&ab_channel=AdamKhoury
 
 var looper;
 var degreesA = 0;
