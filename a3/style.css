@@ -917,6 +917,14 @@ td {
   transform: rotateY(180deg);
 }
 
+
+.flip-card-container:has(+ .flip-card:hover) {
+  border: 1px solid red;
+}
+
+
+
+
 .card-front,
 .card-back {
   position: absolute;
@@ -2566,3 +2574,38 @@ hr.dashed {
 
 
 
+#movie-bgstar-1a, #movie-bgstar-2a,
+#movie-bgstar-3a, #movie-bgstar-4a {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  background-image: 
+  radial-gradient(white, transparent 60%);
+  transform: rotate(0deg) skewX(35deg) skewY(35deg);
+  transition: transform 0s; 
+  transition: opacity 3s;
+  opacity: 0;
+  z-index: -2;
+}
+
+#movie-bgstar-1b, #movie-bgstar-2b,
+#movie-bgstar-3b, #movie-bgstar-4b {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  background-image: 
+  radial-gradient(white, transparent 60%);
+  transform: rotate(100deg) skewX(35deg) skewY(35deg);
+  transition: transform 0s; 
+  transition: opacity 3s;
+  opacity: 0;
+  z-index: -2;
+}

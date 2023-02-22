@@ -56,7 +56,7 @@ headerModule('index');
             <cite><strong>
               <div id='discount-banner'>
                 <div class='dollar'>$$</div>  
-                <div class='text'>Discount: Any <?= $discountTime ?> sessions and all day <?= $discountDay ?>day </div>
+                <div class='text'>Discount: Daily <?= $discountTime ?> sessions and all day <?= $discountDay ?>day </div>
                 <div class='dollar'>$$</div>
               </div>
             </strong></cite>

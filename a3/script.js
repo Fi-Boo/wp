@@ -435,3 +435,75 @@ function toggleDesc(type, status) {
     }
   }
 }
+
+
+
+// TEST STUFF - rotating background on hover for index.php flip cards.
+// https://www.youtube.com/watch?v=4uL9bAKOaVQ&ab_channel=AdamKhoury
+
+function showBG(flipNumber) {
+
+  //console.log(flipNumber);
+
+  var stringA ='#movie-bgstar-'+flipNumber+'a';
+  var stringB ='#movie-bgstar-'+flipNumber+'b';
+
+  var eleA = document.querySelector(stringA);
+  var eleB = document.querySelector(stringB);
+
+  eleA.style.opacity ="1";
+  eleB.style.opacity ="1";
+   
+  rotateAnimation(flipNumber, 50);
+ 
+}
+
+
+function hideBG(flipNumber) {
+
+  //console.log(flipNumber);
+
+  var stringA ='#movie-bgstar-'+flipNumber+'a';
+  var stringB ='#movie-bgstar-'+flipNumber+'b';
+
+  var eleA = document.querySelector(stringA);
+  var eleB = document.querySelector(stringB);
+
+  eleA.style.opacity ="0";
+  eleB.style.opacity ="0";
+   
+  clearTimeout(looper);
+ 
+}
+
+
+
+var looper;
+var degreesA = 0;
+var degreesB = 90;
+function rotateAnimation (ele, speed) {
+
+  var stringA ='#movie-bgstar-'+ele+'a';
+  var stringB ='#movie-bgstar-'+ele+'b';
+
+  var elemA = document.querySelector(stringA);
+  var elemB = document.querySelector(stringB);
+
+  //console.log(elem);
+
+  elemA.style.transform = "rotate("+degreesA+"deg) skewX(35deg) skewY(35deg)";
+  elemB.style.transform = "rotate("+degreesB+"deg) skewX(35deg) skewY(35deg)";
+
+
+  looper = setTimeout('rotateAnimation(\''+ele+'\', '+speed+')', speed );
+  degreesA++;
+  degreesB++;
+
+  if (degreesA > 359) {
+    degreesA = 1;
+  }
+  if (degreesB > 359) {
+    degreesB = 1;
+  }
+
+}
