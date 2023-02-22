@@ -51,10 +51,17 @@ headerModule('index');
       </div>
       <table id="pricestable">
         <tr>
-          <td colspan="5"><cite><strong>*Discount Price: Daily
-                <?= $discountTime ?> sessions and all day
-                <?= $discountDay ?>day.
-              </strong></cite></td>
+          <td colspan="5">
+
+            <cite><strong>
+              <div id='discount-banner'>
+                <div class='dollar'>$$</div>  
+                <div class='text'>Discount: Any <?= $discountTime ?> sessions and all day <?= $discountDay ?>day </div>
+                <div class='dollar'>$$</div>
+              </div>
+            </strong></cite>
+
+          </td>
         </tr>
         <tr>
           <th>Ticket</th>
