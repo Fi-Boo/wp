@@ -50,6 +50,9 @@ body {
   background-image: 
   url("../../media/starbg-layer1.png"),
   url("../../media/starsbg-fixed.png");
+
+  /* https://css-tricks.com/using-css-cursors/ */
+  cursor: url('../../media/logo-gold64x64.png'), auto;
 }
 
 #parallax-container {
