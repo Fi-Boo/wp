@@ -596,20 +596,21 @@ function nowShowingMovies()
 {
 
   global $movies;
+  $counter = 1;
 
   foreach ($movies as $movie => $value) {
 
-
-
     echo <<<"CDATA"
       <div class="movie-single">
+        <div id='movie-bgstar-{$counter}a'></div>
+        <div id='movie-bgstar-{$counter}b'></div>
             <div class="movie-detail">
               <div class="movie-title"> {$value["title"]} </div>
               <div class="movie-runtime"> {$value["runtime"]} </div>
               <div class="movie-rating"> {$value["rating"]} </div>
             </div>
             <div class="flip-card-container">
-              <div class="flip-card">
+              <div class="flip-card" onmouseover="showBG('{$counter}')" onmouseout="hideBG('{$counter}')">
                 <div class="flip-card-inner">
                   <div class="card-front">
                     <img src= {$value["poster"]} alt= {$value["title"]} >
@@ -641,6 +642,8 @@ function nowShowingMovies()
             </div>
           </div>
     MOREDATA;
+
+    $counter++;
   }
 }
 
