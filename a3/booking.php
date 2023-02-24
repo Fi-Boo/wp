@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     printToFile('bookings.txt', $_POST);
     generateBR(6);
     header("Location: receipt.php?printType=");
+    exit();
   }
 }
 
