@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     printToFile('bookings.txt', $_POST);
     generateBR(6);
     header("Location: receipt.php?printType=");
+    exit();
   }
 }
 
@@ -135,8 +136,13 @@ headerModule('booking');
 
             <div id="details-grid">
               <div>
+                <div id="remember-me">
+                  <input type="checkbox" name="remember-me" onclick="rememberMe()">
+                  <label for="remember-me"> Remember Me</label>
+                </div>
                 <table id="details-table">
                   <?php yourDetailsTr(); ?>
+                  <script> localStorageFunc("load"); </script>
                 </table>
               </div>
               <div class="book-tickets-btn">

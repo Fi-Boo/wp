@@ -507,3 +507,71 @@ function rotateAnimation (ele, speed) {
   }
 
 }
+
+// remember me function runs when checkbox is checked/unchecked.
+// changes label between forget me/remember me and runs localStoragefunc
+
+function rememberMe() {
+
+  var checkbox = document.querySelector("#remember-me input");
+  var checkboxLabel = document.querySelector("#remember-me label");
+
+  if (checkbox.checked) {
+    checkboxLabel.innerHTML = "Forget Me";
+    localStorageFunc('remember');
+  } else {
+    checkboxLabel.innerHTML = "Remember Me";
+    localStorageFunc('forget');
+  }
+
+}
+
+// will do 3 different things based on parameter
+// remember - stores user input and checkbox status into localStorage. Will run when button is checked and onchange state of any user detail field
+// forget - clears localStorage
+// load - loads localStorage data to input fields.
+
+function localStorageFunc(variable) {
+  //get name/email/mobile
+  var username = document.getElementsByName("user[name]")[0].value;
+  var email = document.getElementsByName("user[email]")[0].value;
+  var mobile = document.getElementsByName("user[mobile]")[0].value;
+
+  if (typeof(Storage) !== "undefined") {
+
+    switch (variable) {
+      case ("remember"):
+        localStorage.setItem("name", username);
+        localStorage.setItem("email", email);
+        localStorage.setItem("number", mobile);
+        localStorage.setItem("status", "remember");
+        break;
+      case ("forget"):
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        localStorage.removeItem("number");
+        localStorage.removeItem("status");
+        break;
+      case ("load"):
+        
+        if (!(localStorage.getItem("name") === null)) {
+          document.getElementsByName("user[name]")[0].value = localStorage.name;
+          console.log(username);
+        } 
+        if (!(localStorage.getItem("email") === null)) {
+          document.getElementsByName("user[email]")[0].value = localStorage.email;
+          console.log(email);
+        } 
+        if (!(localStorage.getItem("number") === null)) {
+          document.getElementsByName("user[mobile]")[0].value = localStorage.number;
+          console.log(mobile);
+        } 
+        if (!(localStorage.getItem("status") === null)) {
+          document.querySelector("#remember-me input").checked = true;
+          document.querySelector("#remember-me label").innerHTML = "Forget Me";
+        }
+        break;
+
+    }
+  }
+}

@@ -1176,7 +1176,7 @@ fieldset {
   border-bottom-right-radius: 0.5rem;
 }
 
-#booking-date input[type="radio"] {
+#booking-date input[type="radio"]  {
   opacity: 0.01;
   z-index: 1;
   height: 100%;
@@ -1188,8 +1188,9 @@ fieldset {
   background: grey;
   box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
     inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
-  color: gold;
+  color: #d4af37;
 }
+
 
 /* ticket select dropdown menu */
 
@@ -1317,9 +1318,61 @@ select option:checked {
   width: 0px;
 }
 
+/* Remember me checkbox */
+
+
+#remember-me {
+  position: relative;
+  display: block;
+  z-index: 0;
+  height: 2rem;
+  width: 9rem;
+  margin: 0 auto 2rem;
+  font-weight: 400;
+}
+
+#remember-me input, #remember-me label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  padding: 1rem 0 0 0;
+  text-align: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+}
+
+#remember-me input {
+  z-index: 0;
+  opacity: 0.01;
+}
+
+#remember-me label {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  z-index: -1;
+}
+
+#remember-me input[type="checkbox"]:checked + label {
+  background: grey;
+  box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
+    inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
+  color: #d4af37;
+}
+
+#remember-me input[type="checkbox"] + label {
+  background: #d4af37;
+  box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
+    inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
+  color: white;
+}
 
 
 /* Your Details */
+
 
 #details-grid {
   display: grid;
@@ -1346,7 +1399,7 @@ select option:checked {
   border-top-left-radius: 0.5rem;
 }
 
-#details-table tr:last-child th {
+#details-tr-mobile th {
   border-bottom-left-radius: 0.5rem;
 }
 
@@ -1429,7 +1482,7 @@ select option:checked {
   background-color: grey;
   box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
     inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
-  color: gold;
+  color: #d4af37;
   opacity: 1;
 }
 
@@ -1800,7 +1853,7 @@ pre {
   background-color: grey;
   box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
     inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
-  color: gold;
+  color: #d4af37;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
     1px 1px 0 black;
 }
@@ -2222,6 +2275,15 @@ hr.dashed {
   }
 
   /* Your Details */
+
+  #remember-me {
+    width: 11rem;
+    height: 2.75rem;
+    font-weight: 700;
+    margin-left: 0;
+  }
+
+
   #details-grid {
     grid-template-columns: 4fr 2fr;
   }
@@ -2614,3 +2676,7 @@ hr.dashed {
   opacity: 0;
   z-index: -2;
 }
+
+
+
+ 
