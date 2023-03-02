@@ -1308,7 +1308,7 @@ select option:checked {
 2. your details and booking button only shows when tickets are selected */
 
 #tickets-selection-box, #your-details-box {
-  height: 0;
+  height: 0rem;
   overflow-y: auto;
   transition: 1s;
 
@@ -2837,4 +2837,5 @@ hr.dashed {
 
 #booking-message {
   text-align: center;
+  padding-bottom: 2rem;
 }
