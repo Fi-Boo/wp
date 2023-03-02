@@ -2833,6 +2833,7 @@ hr.dashed {
   text-align: right;
   width: 7rem;
   position: relative;
+  background: black;
 }
 
 #booking-message {
