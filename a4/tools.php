@@ -933,10 +933,13 @@ function searchBookingFunc($POST) {
   }
 
   if (empty($validBookings)) {
-    echo "<div id=booking-message> You have 0 bookings with the supplied Email and Mobile Number.</div>";
+
+    $errorMessage = "You have 0 bookings with the supplied Email and Mobile Number.";
+
+    echo "<div id='booking-message'><h2>$errorMessage </h2></div>";
   } else {
     echo<<<"TEST"
-      <div> Bookings made with email: {$POST['user']['email']} and Mobile number: {$POST['user']['mobile']} </div>
+    <div id='booking-message'><h2> Bookings made with email: {$POST['user']['email']} and Mobile number: {$POST['user']['mobile']} </h2></div>
     TEST;
     foreach ($validBookings as $booking) {
       echo<<<"test"

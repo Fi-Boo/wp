@@ -2788,10 +2788,53 @@ hr.dashed {
   opacity: 1;
 }
 
-.current-booking-submitBtn input:active {
+.current-booking-submitBtn input:active, #search-button input:active {
   background-color: grey;
   box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
     inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
   color: #d4af37;
   opacity: 1;
+}
+
+#search-bookings th {
+  border-bottom-left-radius: 0.5rem;
+}
+
+#search-fields {
+  display: flex;
+}
+
+#search-fields table {
+  max-width: 50rem;
+}
+
+#search-button {
+  background-color: transparent;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 3.5rem;
+  margin-left: auto;
+  z-index:0;
+}
+
+#search-button input {
+  background-image: url("../../media/search-icon.png");
+  background-color: rgb(102, 111, 190);
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  border-radius: 25%;
+  box-shadow: inset 0 4px 5px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
+}
+
+
+#search-fields table tr:first-child td:last-of-type {
+  text-align: right;
+  width: 7rem;
+  position: relative;
+}
+
+#booking-message {
+  text-align: center;
 }

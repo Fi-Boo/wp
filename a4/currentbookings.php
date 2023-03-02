@@ -29,11 +29,32 @@ headerModule('receipt');
         <div id='filler'></div>
         <section id='booking-search'>
             <form method='post' >
-                <label for="user[email]"> Email: </label>
-                <input type="email" name="user[email]">
-                <label for="user[mobile]"> Mobile Number: </label>
-                <input type="tel" name="user[mobile]">
-                <input type="submit" value="Search...">
+                <div id="search-fields">
+                    <table id="details-table">
+                        <tr>
+                            <th>
+                                <label for="user[email]"> Email: </label>
+                            </th>
+                            <td>
+                                <input type="email" name="user[email]" placeholder="johnsmith@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                            </td>
+                            <td rowspan='2'>
+                                <div id="search-button">  
+                                    <input type="submit" value="Search">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="search-bookings">
+                            <th>          
+                                <label for="user[mobile]"> Mobile Number: </label>
+                            </th>
+                            <td>
+                                <input type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
+                            </td>
+                        </tr>                 
+                    </table>  
+                    
+                </div>
             </form>
             <div>
                 <?php 
