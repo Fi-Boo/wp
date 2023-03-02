@@ -2679,4 +2679,12 @@ hr.dashed {
 
 
 
- 
+#search-booking, #search-booking:visited {
+  text-decoration: none;
+  color: black;
+} 
+
+#search-booking:hover {
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
+}

@@ -1,3 +1,5 @@
-Order Date	Name	Email	Mobile	Movie Code	Day of Movie	Time of Movie	#STA	$STA	#STP	$STP	#STC	$STC	#FCA	$FCA	#FCP	$FCP	#FCC	$FCC	Total	Price	GST
-"22-02-2023 10:13"	phi	phi@home.com	0465565656	ACT	Thu	0	$0.00	0	$0.00	3	$52.50	0	$0.00	0	$0.00	0	$0.00	$52.50	$4.77
-"22-02-2023 10:28"	phi	phi@home.com	0467676767	ACT	Fri	0	$0.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	2	$50.00	$50.00	$4.55
+Order Date	Reference	Name	Email	Mobile	Movie Code	Day of Movie	Time of Movie	#STA	$STA	#STP	$STP	#STC	$STC	#FCA	$FCA	#FCP	$FCP	#FCC	$FCC	Total	Price	GST
+"02-03-2023 16:08"	PzAsrH	home	home@home.com	0434454545	ACT	Thu	6	$129.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	5	$125.00	$254.00	$23.09
+"02-03-2023 16:08"	tSDZLB	home	home@home.com	0434454545	ACT	Thu	6	$129.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	2	$50.00	$179.00	$16.27
+"02-03-2023 16:09"	IWmeG5	home	home@home.com	0434454545	ACT	Thu	6	$129.00	2	$38.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	$167.00	$15.18
+"02-03-2023 16:34"	8VYEsR	home	home@home.com	0434343434	ACT	Thu	1	$21.50	0	$0.00	0	$0.00	0	$0.00	0	$0.00	0	$0.00	$21.50	$1.95

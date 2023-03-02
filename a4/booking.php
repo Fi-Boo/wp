@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $errorsOut = validatePost();
 
   if (empty($errorsOut)) {
+    generateBR(6);
     $_SESSION = $_POST;
     printToFile('bookings.txt', $_POST);
-    generateBR(6);
     header("Location: receipt.php?printType=");
     exit();
   }
@@ -142,7 +142,7 @@ headerModule('booking');
                 </div>
                 <table id="details-table">
                   <?php yourDetailsTr(); ?>
-                  <script> localStorageFunc("load"); </script>
+                  <script> localStorageFunc("load");</script>
                 </table>
               </div>
               <div class="book-tickets-btn">

@@ -294,8 +294,8 @@ function footerModule()
           </div>
         </div>
         <div id='contact-us'>
+          <p><a id="search-booking" href="currentbookings.php">Find Your Booking</a></p>
           <p>Contact Us</p>
-          <p>Lunardo Careers</p>
           <div id='socialmedia'>
             <div class='socialmedia-img'><img src='../../media/facebookblk.png' alt='facebook'></div>
             <div class='socialmedia-img'><img src='../../media/twitter.png' alt='twitter'></div>
@@ -335,7 +335,7 @@ function generateBR($n)
     $index = rand(0, strlen($characters) - 1);
     $randomString .= $characters[$index];
   }
-  $_SESSION['ref'] = $randomString;
+  $_POST['ref'] = $randomString;
 }
 //-------------------------------------------------------------------------------------
 
@@ -675,6 +675,7 @@ function printToFile($var1, $POST)
   // adding order date to printout array
   $orderDate = now();
   array_push($printdata, $orderDate);
+  array_push($printdata, $POST['ref']);
 
   $totalPrice = (float) 0;
 
@@ -907,6 +908,106 @@ function validateRequest($requestTypeValue)
 //-------------------------------------------------------------------------------------   
 
 // 3. Testing Zone - for functions used in test code.
+
+
+function searchBookingFunc($POST) {
+  
+  //stores the email from user email input
+  $email = trim($POST['user']['email']);
+
+  //stores mobile number from user input.
+  //removes (), + and spaces then stores the 9 digits from the right incase user inputs +614 as opposed to 04
+  $mobile = substr(trim(str_replace(array('(',')','+', ' '),'',$POST['user']['mobile'])), -9);
+
+
+  //opens booking to read
+  $file = fopen("bookings.txt", "r") or die("Unable to open file!");
+
+  //takes the first line 
+  $line = fgets($file);
+
+  $bookings =[];
+
+
+
+
+  do {
+
+    //takes 2nd line which should have booking data
+    $line = fgets($file);
+    // https://stackoverflow.com/questions/1792950/explode-string-by-one-or-more-spaces-or-tabs
+    //line is split with a tab delimiter and stored in an array
+    $array = preg_split("/\t+/", $line);
+
+
+    // had an error about undefined array key.
+    // https://stackoverflow.com/questions/4261133/notice-undefined-variable-notice-undefined-index-warning-undefined-arr
+    $formattedArray = [
+      'date' => $array[0],
+      'ref' => isset($array[1]) ? $array[1]: '',
+      'movie' => isset($array[5]) ? $array[5]: '',
+      'day' => isset($array[6]) ? $array[6]: '',
+      'user' => [
+        'name' => isset($array[2]) ? $array[2]: '',
+        'email' => isset($array[3]) ? $array[3]: '',
+        'mobile' => isset($array[4]) ? $array[4]: '',
+      ],
+      'seats' => [
+        'STA' => unsetVal(isset($array[7]) ? $array[7]: '',),
+        'STP' => unsetVal(isset($array[9]) ? $array[9]: '',),
+        'STC' => unsetVal(isset($array[11]) ? $array[11]: '',),
+        'FCA' => unsetVal(isset($array[13]) ? $array[13]: '',),
+        'FCP' => unsetVal(isset($array[15]) ? $array[15]: '',),
+        'FCC' => unsetVal(isset($array[17]) ? $array[17]: '',)
+      ]
+    ];
+
+    if (!empty($formattedArray)) {
+      $lineEmail = trim($formattedArray['user']['email']);
+      // mobile number from array is formatted to match the user input number
+      $lineMobile = substr(trim(str_replace(array('(',')','+', ' '),'',$formattedArray['user']['mobile'])), -9);
+      }
+    
+    if ($lineEmail == $email && $lineMobile == $mobile) {
+      array_push($bookings, $formattedArray);
+    }
+
+  } while ($line != "");
+
+  if (empty($bookings)) {
+    echo "<div id=booking-message> You have 0 bookings with the supplied Email and Mobile Number.</div>";
+  } else {
+    foreach ($bookings as $booking) {
+      echo<<<"TEST"
+      <div> Bookings made with email: {$POST['user']['email']} and Mobile number: {$POST['user']['mobile']} </div>
+    TEST;
+      print_r($booking);
+
+    }
+  }
+  
+}
+ 
+
+
+
+
+function unsetVal($num) {
+  if ($num == '0'){
+    return "";
+  } else {
+    return $num;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 

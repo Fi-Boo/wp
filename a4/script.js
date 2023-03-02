@@ -508,6 +508,10 @@ function rotateAnimation (ele, speed) {
 
 }
 
+
+
+// A4 additions - Part 1
+
 // remember me function runs when checkbox is checked/unchecked.
 // changes label between forget me/remember me and runs localStoragefunc
 
