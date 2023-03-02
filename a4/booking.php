@@ -146,7 +146,7 @@ headerModule('booking');
                 </table>
               </div>
               <div class="book-tickets-btn">
-                <input id='book-tix-btn' type="submit" value="Book Tickets" disabled='true' >
+                <input type="submit" value="Book Tickets" disabled='true' >
               </div>
             </div>
           </fieldset>

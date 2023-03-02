@@ -1435,7 +1435,7 @@ select option:checked {
 
 /* book ticket(s) button */
 
-.book-tickets-btn {
+.book-tickets-btn, .current-booking-submitBtn {
   position: static;
   align-self: center;
   text-align: center;
@@ -2687,4 +2687,111 @@ hr.dashed {
 #search-booking:hover {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
     1px 1px 0 white;
+}
+
+
+#current-booking-box {
+  display: grid;
+  grid-template-areas:
+  'movie submit'
+  'movieTable movieTable';
+  background-image: radial-gradient(transparent, rgb(102, 111, 190, 0.5));
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+#current-booking-submit {
+  grid-area: submit;
+}
+
+#current-booking-movieD {
+  grid-area: movie;
+  text-align: center;
+}
+
+#current-booking-movieTable {
+  grid-area: movieTable;
+}
+
+#current-booking-movieTable table tr td {
+  border: 1px solid  #d4af37;
+  color: #d4af37;
+}
+
+#current-booking-movieTable table tr:first-child td:first-child {
+  border-top-left-radius: 1rem;
+}
+
+#current-booking-movieTable table tr:first-child td:last-child {
+  border-top-right-radius: 1rem;
+}
+
+#current-booking-movieTable table tr:last-child td:first-child {
+  border-bottom-left-radius: 1rem;
+}
+
+#current-booking-movieTable table tr:last-child td:last-child {
+  border-bottom-right-radius: 1rem;
+}
+
+#current-booking-submit {
+  text-align: center;
+}
+
+#booking-search {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* book ticket(s) button */
+
+.current-booking-submitBtn {
+  position: static;
+  align-self: center;
+  text-align: center;
+  width: 16rem;
+  background-repeat: no-repeat;
+  background-color: #d4af37;
+  border-radius: 3rem;
+  box-shadow: inset 0 4px 5px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
+  margin: 0 auto 3rem;
+  margin-top: 20px;
+}
+
+.current-booking-submitBtn,
+.current-booking-submitBtn input:active {
+  background-image: url("../../media/ticket-icon.png");
+  background-size: 30%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.current-booking-submitBtn input {
+  display: inline-block;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 3rem;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  opacity: 0.4;
+  margin: auto;
+}
+
+.current-booking-submitBtn input:hover {
+  opacity: 1;
+}
+
+.current-booking-submitBtn input:active {
+  background-color: grey;
+  box-shadow: inset 0 4px 5px rgba(0, 0, 0, 0.6),
+    inset 0 -4px 5px rgba(0, 0, 0, 0.6), 0 2px 2px rgba(255, 255, 255, 0.9);
+  color: #d4af37;
+  opacity: 1;
 }

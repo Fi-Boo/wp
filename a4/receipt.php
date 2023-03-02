@@ -82,20 +82,7 @@ headerModule('receipt');
                     </div>
                     <div id='receipt-booking-details'>
                         <h3> Session Details </h3>
-                        <br>
-                        - MOVIE -
-                        <h4>
-                            <?= $movies[$_SESSION['movie']]['title']; ?> <br>
-                            (
-                            <?= $movies[$_SESSION['movie']]['rating'] ?>)
-                        </h4>
-                        - DATE & TIME -
-
-                        <!-- YES date is intentional. Page info was looking too bare without a date and so i thought i'd add a meme date to pay homage to Avatars million years between movie releases -->
-                        <h4> 31/2/2512
-                            <?= $_SESSION['day']; ?> @
-                            <?= getSessionTime($_SESSION); ?>
-                        </h4>
+                    <?= generateMovieDetails($_SESSION); ?>
                     </div>
                 </div>
                 <div id='receipt-table'>

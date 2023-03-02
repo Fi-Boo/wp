@@ -1,6 +1,14 @@
 <?php
 include_once 'tools.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST['ref'])) {
+
+        $_SESSION = getSelectedBooking($_POST['ref']);
+        header("Location: receipt.php?printType=");
+    }
+}
+
 headerModule('receipt');
 ?>
 
@@ -28,7 +36,11 @@ headerModule('receipt');
                 <input type="submit" value="Search...">
             </form>
             <div>
-                <?= searchBookingFunc($_POST); ?>
+                <?php 
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        searchBookingFunc($_POST);
+                    }
+                 ?>
             </div>
         </section>        
     </div>

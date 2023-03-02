@@ -909,9 +909,8 @@ function validateRequest($requestTypeValue)
 
 // 3. Testing Zone - for functions used in test code.
 
-
 function searchBookingFunc($POST) {
-  
+
   //stores the email from user email input
   $email = trim($POST['user']['email']);
 
@@ -919,16 +918,116 @@ function searchBookingFunc($POST) {
   //removes (), + and spaces then stores the 9 digits from the right incase user inputs +614 as opposed to 04
   $mobile = substr(trim(str_replace(array('(',')','+', ' '),'',$POST['user']['mobile'])), -9);
 
+  $bookings = getBookingsFromFile('bookings.txt');
 
+  $validBookings = [];
+
+  foreach ($bookings as $booking) {
+    $bookingEmail = trim($booking['user']['email']);
+    $bookingMobile = substr(trim(str_replace(array('(',')','+', ' '),'',$booking['user']['mobile'])), -9);
+
+    if ($email == $bookingEmail && $email != "" && $mobile == $bookingMobile && $mobile != "") {
+      //print_r($booking);
+      array_push($validBookings, $booking);
+    }
+  }
+
+  if (empty($validBookings)) {
+    echo "<div id=booking-message> You have 0 bookings with the supplied Email and Mobile Number.</div>";
+  } else {
+    echo<<<"TEST"
+      <div> Bookings made with email: {$POST['user']['email']} and Mobile number: {$POST['user']['mobile']} </div>
+    TEST;
+    foreach ($validBookings as $booking) {
+      echo<<<"test"
+        <div id="current-booking-box">
+          <div id="current-booking-movieD">
+      test;
+            generateMovieDetails($booking);
+      echo "</div>";
+      echo "<div id='current-booking-movieTable'>";
+            generateSeatTable($booking, 'receipt');
+      echo<<<"test2"
+          </div>
+          <div id="current-booking-submit">
+            <div><h3>
+              <form method="post">
+                <input type="hidden" name="ref" value="{$booking['ref']}">
+                <div class="current-booking-submitBtn">
+                  <input type="submit" value="Reprint #{$booking['ref']}">
+                </div>
+              </form>
+             </h3></div>
+          </div>          
+        </div>
+      test2;
+    }
+  }
+  
+}
+ 
+
+function generateMovieDetails($array) {
+
+  global $movies;
+  $time = getSessionTime($array);
+
+echo<<<"moreTest"
+  
+    <br>
+    - MOVIE -
+    <h4>
+      {$movies[$array['movie']]['title']} <br> 
+      {$movies[$array['movie']]['rating']}
+    </h4>
+    - DATE & TIME -
+
+    <!-- YES date is intentional. Page info was looking too bare without a date and so i thought i'd add a meme date to pay homage to Avatars million years between movie releases -->
+    <h4> 31/2/2512
+        {$array['day']} @{$time} 
+    </h4>
+  
+moreTest;
+
+}
+
+
+
+function unsetVal($num) {
+  if ($num == '0'){
+    return "";
+  } else {
+    return $num;
+  }
+}
+
+
+//returns the booking based on booking reference
+function getSelectedBooking($ref) {
+
+  $bookings = getBookingsFromFile('bookings.txt');
+
+  foreach ($bookings as $booking) {
+    if ($booking['ref'] == $ref) {
+      return $booking;
+    }
+  }
+}
+
+
+
+
+// function to access booking.txt file and return the data as an array similar to POST/SESSION data array
+// easier for using pre-existing functions with data in this array format.
+
+function getBookingsFromFile($bookFile) {
+
+  $bookings =[];
   //opens booking to read
-  $file = fopen("bookings.txt", "r") or die("Unable to open file!");
+  $file = fopen($bookFile, "r") or die("Unable to open file!");
 
   //takes the first line 
   $line = fgets($file);
-
-  $bookings =[];
-
-
 
 
   do {
@@ -943,7 +1042,7 @@ function searchBookingFunc($POST) {
     // had an error about undefined array key.
     // https://stackoverflow.com/questions/4261133/notice-undefined-variable-notice-undefined-index-warning-undefined-arr
     $formattedArray = [
-      'date' => $array[0],
+      'date' => isset($array[0]) ? $array[0]: '',
       'ref' => isset($array[1]) ? $array[1]: '',
       'movie' => isset($array[5]) ? $array[5]: '',
       'day' => isset($array[6]) ? $array[6]: '',
@@ -963,48 +1062,16 @@ function searchBookingFunc($POST) {
     ];
 
     if (!empty($formattedArray)) {
-      $lineEmail = trim($formattedArray['user']['email']);
-      // mobile number from array is formatted to match the user input number
-      $lineMobile = substr(trim(str_replace(array('(',')','+', ' '),'',$formattedArray['user']['mobile'])), -9);
-      }
-    
-    if ($lineEmail == $email && $lineMobile == $mobile) {
       array_push($bookings, $formattedArray);
     }
-
+  
   } while ($line != "");
 
-  if (empty($bookings)) {
-    echo "<div id=booking-message> You have 0 bookings with the supplied Email and Mobile Number.</div>";
-  } else {
-    foreach ($bookings as $booking) {
-      echo<<<"TEST"
-      <div> Bookings made with email: {$POST['user']['email']} and Mobile number: {$POST['user']['mobile']} </div>
-    TEST;
-      print_r($booking);
+  fclose($file);
 
-    }
-  }
-  
+  return $bookings;
+
 }
- 
-
-
-
-
-function unsetVal($num) {
-  if ($num == '0'){
-    return "";
-  } else {
-    return $num;
-  }
-}
-
-
-
-
-
-
 
 
 
