@@ -2679,6 +2679,8 @@ hr.dashed {
 
 
 
+/* A4 related styles */
+
 #search-booking, #search-booking:visited {
   text-decoration: none;
   color: black;
@@ -2743,7 +2745,7 @@ hr.dashed {
   max-width: 1100px;
 }
 
-/* book ticket(s) button */
+/* booking history selection button */
 
 .current-booking-submitBtn {
   position: static;
@@ -2839,4 +2841,11 @@ hr.dashed {
 #booking-message {
   text-align: center;
   padding-bottom: 2rem;
+}
+
+/* TEST */
+
+#booking-search {
+  margin: 0 auto 2rem;
+  border:1px solid red;
 }
