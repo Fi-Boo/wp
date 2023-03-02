@@ -2840,12 +2840,12 @@ hr.dashed {
 
 #booking-message {
   text-align: center;
-  padding-bottom: 2rem;
+
 }
 
 /* TEST */
 
 #booking-search {
   margin: 0 auto 2rem;
-  border:1px solid red;
+  visibility: hidden;
 }

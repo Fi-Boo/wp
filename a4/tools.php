@@ -323,7 +323,7 @@ function footerModule()
           </div>
         </div>
         <div id='contact-us'>
-          <p><a id="search-booking" href="currentbookings.php">Find Your Booking</a></p>
+          <p><a id="search-booking">Find Your Booking</a></p>
           <p>Contact Us</p>
           <div id='socialmedia'>
             <div class='socialmedia-img'><img src='../../media/facebookblk.png' alt='facebook'></div>
@@ -603,7 +603,7 @@ function headerModule($page)
         <link rel="icon" href="../../media/favicon.ico">
       </head>
 
-      <body>     
+      <body onload="loadListeners()">     
           {$bgLayers}   
             <header>
               <div id="company-name">Lunardo</div>

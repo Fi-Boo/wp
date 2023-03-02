@@ -579,3 +579,15 @@ function localStorageFunc(variable) {
     }
   }
 }
+
+
+// trying addEventListener instead of in element Event triggers.
+
+function loadListeners() {
+
+  document.querySelector("#search-booking").addEventListener("click", function() {
+    var searchBox = document.querySelector("#booking-search");
+    searchBox.style.visibility == "hidden" ? searchBox.style.visibility = "visible" : searchBox.style.visibility ="hidden";
+
+  });
+}
