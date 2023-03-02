@@ -53,8 +53,7 @@ headerModule('receipt');
                                 <input type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
                             </td>
                         </tr>                 
-                    </table>  
-                    
+                    </table>    
                 </div>
             </form>
             <div>

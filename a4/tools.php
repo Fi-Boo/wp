@@ -281,6 +281,35 @@ function footerModule()
   $date = date("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
 
   echo <<<"FOOTER"
+  <article id="booking-search">
+    <form method='post' >
+      <div id="search-fields">
+        <table id="details-table">
+          <tr>
+            <th>
+              <label for="user[email]"> Email: </label>
+            </th>
+            <td>
+              <input type="email" name="user[email]" placeholder="johnsmith@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+            </td>
+            <td rowspan='2'>
+              <div id="search-button">  
+                <input type="submit" value="Search">
+              </div>
+            </td>
+          </tr>
+          <tr id="search-bookings">
+            <th>          
+              <label for="user[mobile]"> Mobile Number: </label>
+            </th>
+            <td>
+              <input type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
+            </td>
+          </tr>                 
+        </table>    
+      </div>
+    </form>
+  </article>
   <footer>
     <div id='footer-container'>
       <div id='footer-flex'>
