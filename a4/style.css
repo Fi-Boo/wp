@@ -2764,12 +2764,6 @@ hr.dashed {
   text-align: center;
 }
 
-#booking-search {
-  width: 100%;
-  max-width: 1500px;
-  position: relative;
-
-}
 
 /* booking history selection button */
 
@@ -2841,7 +2835,7 @@ hr.dashed {
   background-color: transparent;
   height: 7rem;
   width: 7rem;
-  border-radius: 3.5rem;
+  border-radius: 3.5rem;F
   margin-left: auto;
   z-index:0;
 }
@@ -2908,8 +2902,11 @@ hr.dashed {
 /* TEST */
 
 #booking-search {
+  width: 100%;
+  max-width: 1500px;
+  position: relative;
   margin: 0 auto 2rem;
-  height: 20rem;
+  height: 12rem;
   visibility: hidden;
 }
 

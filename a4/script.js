@@ -560,15 +560,15 @@ function localStorageFunc(variable) {
         
         if (!(localStorage.getItem("name") === null)) {
           document.getElementsByName("user[name]")[0].value = localStorage.name;
-          console.log(username);
+          //console.log(username);
         } 
         if (!(localStorage.getItem("email") === null)) {
           document.getElementsByName("user[email]")[0].value = localStorage.email;
-          console.log(email);
+          //console.log(email);
         } 
         if (!(localStorage.getItem("number") === null)) {
           document.getElementsByName("user[mobile]")[0].value = localStorage.number;
-          console.log(mobile);
+          //console.log(mobile);
         } 
         if (!(localStorage.getItem("status") === null)) {
           document.querySelector("#remember-me input").checked = true;
@@ -585,11 +585,17 @@ function localStorageFunc(variable) {
 
 function loadListeners() {
 
+  console.log("got this far");
+
   document.querySelector("#search-booking").addEventListener("click", function() {
     var searchBox = document.querySelector("#booking-search");
-    searchBox.style.visibility == "hidden" ? searchBox.style.visibility = "visible" : searchBox.style.visibility ="hidden";
-
+    if (searchBox.style.visibility == "hidden") {
+      searchBox.style.visibility = "visible";
+    } else {
+      searchBox.style.visibility ="hidden";
+    }
   });
+
 }
 
 
