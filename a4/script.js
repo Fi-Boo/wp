@@ -517,10 +517,10 @@ function rotateAnimation (ele, speed) {
 
 function rememberMe() {
 
-  var checkbox = document.querySelector("#remember-me input");
+  var checked = checkRememberMe();
   var checkboxLabel = document.querySelector("#remember-me label");
 
-  if (checkbox.checked) {
+  if (checked) {
     checkboxLabel.innerHTML = "Forget Me";
     localStorageFunc('remember');
   } else {
@@ -528,6 +528,12 @@ function rememberMe() {
     localStorageFunc('forget');
   }
 
+}
+
+// function returns status of remember me checkbox. True if checked.
+function checkRememberMe() {
+  var checkbox = document.querySelector("#remember-me input");
+  return checkbox.checked;
 }
 
 // will do 3 different things based on parameter
@@ -548,13 +554,11 @@ function localStorageFunc(variable) {
         localStorage.setItem("name", username);
         localStorage.setItem("email", email);
         localStorage.setItem("number", mobile);
-        localStorage.setItem("status", "remember");
         break;
       case ("forget"):
         localStorage.removeItem("name");
         localStorage.removeItem("email");
         localStorage.removeItem("number");
-        localStorage.removeItem("status");
         break;
       case ("load"):
         
@@ -570,13 +574,24 @@ function localStorageFunc(variable) {
           document.getElementsByName("user[mobile]")[0].value = localStorage.number;
           //console.log(mobile);
         } 
-        if (!(localStorage.getItem("status") === null)) {
+        if ((!(localStorage.getItem("name") === null)) || (!(localStorage.getItem("email") === null)) || (!(localStorage.getItem("number") === null)) ) {
           document.querySelector("#remember-me input").checked = true;
           document.querySelector("#remember-me label").innerHTML = "Forget Me";
         }
         break;
 
     }
+  }
+}
+
+// function to update localstorage when value in your details is changed. 
+//Still not perfect as user has to hit enter or click on another field before it updates localstorage
+function updateLocalStorage() {
+
+  var checked = checkRememberMe();
+
+  if (checked) {
+    localStorageFunc('remember');
   }
 }
 
