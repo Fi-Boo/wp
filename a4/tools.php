@@ -290,37 +290,37 @@ function footerModule()
   echo <<<"FOOTER"
 
   <div class="filler2">
-  <article id="booking-search">
-    <script> bookings = JSON.parse('$jsonBHVer'); </script>
-    <form method='post' action="currentbookings.php" onsubmit="return checkBookings()">
-      <div id="search-fields">
-        <table id="details-table">
-          <tr>
-            <th>
-              <label for="user[email]"> Email: </label>
-            </th>
-            <td>
-              <input id="search-email" type="email" name="user[email]" placeholder="johnsmith@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-            </td>
-            <td rowspan='2'>
-              <div id="search-button">  
-                <input type="submit" value="Search">
-              </div>
-            </td>
-          </tr>
-          <tr id="search-bookings">
-            <th>          
-              <label for="user[mobile]"> Mobile Number: </label>
-            </th>
-            <td>
-              <input id="search-mobile" type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
-            </td>
-          </tr>                 
-        </table>    
-      </div>
-    </form>
-    <div id="booking-message-footer"></div>
-  </article>
+    <article id="booking-search">
+      <script> bookings = JSON.parse('$jsonBHVer'); </script>
+      <form method='post' action="currentbookings.php" onsubmit="return checkBookings()">
+        <div id="search-fields">
+          <table id="details-table">
+            <tr>
+              <th>
+                <label for="user[email]"> Email: </label>
+              </th>
+              <td>
+                <input id="search-email" type="email" name="user[email]" placeholder="johnsmith@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+              </td>
+              <td rowspan='2'>
+                <div id="search-button">  
+                  <input type="submit" value="Search">
+                </div>
+              </td>
+            </tr>
+            <tr id="search-bookings">
+              <th>          
+                <label for="user[mobile]"> Mobile Number: </label>
+              </th>
+              <td>
+                <input id="search-mobile" type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
+              </td>
+            </tr>                 
+          </table>    
+        </div>
+      </form>
+      <div id="booking-message-footer"></div>
+    </article>
   </div>
   <footer>
     <div id='footer-container'>

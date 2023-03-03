@@ -148,11 +148,11 @@ main {
 .filler2 {
   width: 100%;
   max-width: 1500px;
-  height: 13rem;
+  height: 12rem;
   margin: 0 auto;
   box-shadow: -10px 0px 0.4em black, 10px 0px 0.4em black;
   position: relative;
-  z-index:-1;
+  z-index:0;
 }
 
 section {
@@ -198,13 +198,19 @@ header {
 
 /* Footer */
 
+#booking-message-footer {
+  margin-top: 1rem;
+  text-align: center;
+}
+
 footer {
-  margin-top: -1rem;
+  margin-top: 0rem;
   margin-bottom: -10px;
   background-image: linear-gradient(to bottom, black, #d4af37 3%);
   box-shadow: 0px -5px 0.4em;
   color: black;
   overflow-x: hidden;
+  z-index: 5;
 }
 
 footer hr {
@@ -2171,6 +2177,10 @@ hr.dashed {
 
   /* - FOOTER -*/
 
+  #booking-message-footer { 
+    margin-top: -2rem;
+  }
+
   #footer-flex div {
     padding: 0 1rem;
   }
@@ -2851,6 +2861,7 @@ hr.dashed {
 #search-fields table tr:first-child td:last-of-type {
   text-align: right;
   width: 7rem;
+  height: fit-content;
   position: relative;
   background: black;
 }
@@ -2898,10 +2909,7 @@ hr.dashed {
 
 #booking-search {
   margin: 0 auto 2rem;
+  height: 20rem;
   visibility: hidden;
 }
 
-#booking-message-footer {
-  margin-top: -2rem;
-  text-align: center;
-}
