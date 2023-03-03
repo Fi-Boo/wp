@@ -154,13 +154,13 @@ headerModule('booking');
         
         </form>
       </div>
-
     </section>
+    <script>
+      calculateSubTotals();
+    </script>
   </div>
 </main>
-<script>
-  calculateSubTotals();
-</script>
+
 <?php
 footerModule();
 debugModule();

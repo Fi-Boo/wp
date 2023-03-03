@@ -126,7 +126,7 @@ main {
   z-index: -1;
 }
 
-#bg-overlay {
+#bg-overlay, .filler2 {
   min-height: 100%;
   width: 100%;
   background-image: linear-gradient(
@@ -138,9 +138,20 @@ main {
   );
 }
 
-#filler {
+.filler {
   height: 2rem;
-  margin-top: -2rem;
+  margin-top: -3rem;
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.filler2 {
+  width: 100%;
+  max-width: 1500px;
+  height: 300px;
+  margin: 0 auto;
+  box-shadow: -10px 0px 0.4em black, 10px 0px 0.4em black;
+  position: relative;
 }
 
 section {
@@ -2699,7 +2710,9 @@ hr.dashed {
   'movieTable movieTable';
   background-image: radial-gradient(transparent, rgb(102, 111, 190, 0.5));
   border-radius: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem auto;
+  max-width: 1000px;
+
 }
 
 #current-booking-submit {
@@ -2742,7 +2755,9 @@ hr.dashed {
 
 #booking-search {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1500px;
+  position: relative;
+
 }
 
 /* booking history selection button */
@@ -2839,8 +2854,42 @@ hr.dashed {
 }
 
 #booking-message {
+  display: flex;
   text-align: center;
+  padding: 2rem 0;
+}
 
+#booking-message table {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#booking-message table tr {
+  margin: 0;
+  padding: 0;
+}
+
+#booking-message table th {
+  color: #d4af37;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+#booking-message table td {
+  color: #d4af37;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#booking-message h2, #booking-message h1  {
+  padding: 0.5rem;
+  margin: auto;
+}
+
+#booking-message h2 {
+  font-family: "Oleo Script Swash Caps", cursive;
 }
 
 /* TEST */
@@ -2848,4 +2897,8 @@ hr.dashed {
 #booking-search {
   margin: 0 auto 2rem;
   visibility: hidden;
+}
+
+#booking-message-footer {
+  text-align: center;
 }

@@ -591,3 +591,41 @@ function loadListeners() {
 
   });
 }
+
+
+// checks for a booking that matches the user input email and mobile number. Returns error msgs if no matches or blank
+
+var bookings;
+
+function checkBookings() {
+
+  var searchEmail = document.getElementById("search-email").value.trim();
+  var searchNumber = document.getElementById("search-mobile").value.trim();
+  var formattedSNumber = searchNumber.replace(/\(|\+|\)|\s/g,'').substr(-9,9);
+
+  console.log(searchEmail);
+  console.log(searchNumber);
+
+  for ( var i = 0; i < bookings.length; i++ ) {
+    var bookingEmail = bookings[i]['user']['email'].trim();
+    var bookingNumber = bookings[i]['user']['mobile'].trim();
+    var formattedBNumber = bookingNumber.replace(/\(|\+|\)|\s/g,'').substr(-9,9);
+
+    if (searchEmail == bookingEmail && formattedSNumber == formattedBNumber) {
+      return true;
+    }
+  }
+
+var searchErrMsg;
+
+if (searchEmail == '' || searchNumber == '') {
+  searchErrMsg = "Missing input field. Please check that you have entered both Email and Number.";
+} else {
+  searchErrMsg = "There are no bookings recorded with email: " + searchEmail + " and number: " + searchNumber + ".";
+}
+
+document.querySelector("#booking-message-footer").innerHTML = searchErrMsg;
+
+return false;
+}
+

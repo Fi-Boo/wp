@@ -202,6 +202,8 @@ $seating = [
   ]
 ];
 
+$file = "bookings.txt";
+$bookingsHistory = getBookingsFromFile($file);
 
 
 
@@ -277,12 +279,20 @@ function debugModule()
 // FOOTER CODE
 function footerModule()
 {
+  global $bookingsHistory;
+  $jsonBHVer = json_encode($bookingsHistory);
 
   $date = date("Y F d  H:i", filemtime($_SERVER['SCRIPT_FILENAME']));
 
+  // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //   searchBookingFunc($_POST);
+  // }
   echo <<<"FOOTER"
+
+  <div class="filler2">
   <article id="booking-search">
-    <form method='post' >
+    <script> bookings = JSON.parse('$jsonBHVer'); </script>
+    <form method='post' action="currentbookings.php" onsubmit="return checkBookings()">
       <div id="search-fields">
         <table id="details-table">
           <tr>
@@ -290,7 +300,7 @@ function footerModule()
               <label for="user[email]"> Email: </label>
             </th>
             <td>
-              <input type="email" name="user[email]" placeholder="johnsmith@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+              <input id="search-email" type="email" name="user[email]" placeholder="johnsmith@gmail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
             </td>
             <td rowspan='2'>
               <div id="search-button">  
@@ -303,13 +313,15 @@ function footerModule()
               <label for="user[mobile]"> Mobile Number: </label>
             </th>
             <td>
-              <input type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
+              <input id="search-mobile" type="tel" name="user[mobile]" placeholder="04XXXXXXXX" pattern="(\(04\)|04|\+614)( ?\d){8}">
             </td>
           </tr>                 
         </table>    
       </div>
     </form>
+    <div id="booking-message-footer"></div>
   </article>
+  </div>
   <footer>
     <div id='footer-container'>
       <div id='footer-flex'>
@@ -940,6 +952,8 @@ function validateRequest($requestTypeValue)
 
 function searchBookingFunc($POST) {
 
+  global $bookingsHistory;
+
   //stores the email from user email input
   $email = trim($POST['user']['email']);
 
@@ -947,11 +961,9 @@ function searchBookingFunc($POST) {
   //removes (), + and spaces then stores the 9 digits from the right incase user inputs +614 as opposed to 04
   $mobile = substr(trim(str_replace(array('(',')','+', ' '),'',$POST['user']['mobile'])), -9);
 
-  $bookings = getBookingsFromFile('bookings.txt');
-
   $validBookings = [];
 
-  foreach ($bookings as $booking) {
+  foreach ($bookingsHistory as $booking) {
     $bookingEmail = trim($booking['user']['email']);
     $bookingMobile = substr(trim(str_replace(array('(',')','+', ' '),'',$booking['user']['mobile'])), -9);
 
@@ -961,14 +973,19 @@ function searchBookingFunc($POST) {
     }
   }
 
-  if (empty($validBookings)) {
-
-    $errorMessage = "You have 0 bookings with the supplied Email and Mobile Number.";
-
-    echo "<div id='booking-message'><h2>$errorMessage </h2></div>";
-  } else {
     echo<<<"TEST"
-    <div id='booking-message'><h2> Bookings made with email: {$POST['user']['email']} and Mobile number: {$POST['user']['mobile']} </h2></div>
+    <div id='booking-message'>
+      <table>
+        <tr>
+          <th><h2>Bookings for email: </h2></th>
+          <td><h1>{$POST['user']['email']}</h1></td>
+        </tr>
+        <tr>
+          <th><h2>and mobile number: </h2></th>
+          <td><h1>{$POST['user']['mobile']}</h1></td>
+        </tr>
+      </table>
+    </div>
     TEST;
     foreach ($validBookings as $booking) {
       echo<<<"test"
@@ -993,7 +1010,7 @@ function searchBookingFunc($POST) {
           </div>          
         </div>
       test2;
-    }
+    
   }
   
 }
@@ -1060,53 +1077,50 @@ function getBookingsFromFile($bookFile) {
 
   //takes the first line 
   $line = fgets($file);
+  $line = fgets($file);
 
-
-  do {
-
-    //takes 2nd line which should have booking data
-    $line = fgets($file);
+  while (!empty($line)) {
+    
     // https://stackoverflow.com/questions/1792950/explode-string-by-one-or-more-spaces-or-tabs
     //line is split with a tab delimiter and stored in an array
     $array = preg_split("/\t+/", $line);
 
-
     // had an error about undefined array key.
     // https://stackoverflow.com/questions/4261133/notice-undefined-variable-notice-undefined-index-warning-undefined-arr
     $formattedArray = [
-      'date' => isset($array[0]) ? $array[0]: '',
-      'ref' => isset($array[1]) ? $array[1]: '',
-      'movie' => isset($array[5]) ? $array[5]: '',
-      'day' => isset($array[6]) ? $array[6]: '',
+      // 'date' => (isset($array[0]) ? $array[0]: ''),
+      'ref' => (isset($array[1]) ? $array[1]: ''),
+      'movie' => (isset($array[5]) ? $array[5]: ''),
+      'day' => (isset($array[6]) ? $array[6]: ''),
       'user' => [
-        'name' => isset($array[2]) ? $array[2]: '',
-        'email' => isset($array[3]) ? $array[3]: '',
-        'mobile' => isset($array[4]) ? $array[4]: '',
+        'name' => (isset($array[2]) ? $array[2]: ''),
+        'email' => (isset($array[3]) ? $array[3]: ''),
+        'mobile' => (isset($array[4]) ? $array[4]: '')
       ],
       'seats' => [
-        'STA' => unsetVal(isset($array[7]) ? $array[7]: '',),
-        'STP' => unsetVal(isset($array[9]) ? $array[9]: '',),
-        'STC' => unsetVal(isset($array[11]) ? $array[11]: '',),
-        'FCA' => unsetVal(isset($array[13]) ? $array[13]: '',),
-        'FCP' => unsetVal(isset($array[15]) ? $array[15]: '',),
-        'FCC' => unsetVal(isset($array[17]) ? $array[17]: '',)
+        'STA' => unsetVal(isset($array[7]) ? $array[7]: ''),
+        'STP' => unsetVal(isset($array[9]) ? $array[9]: ''),
+        'STC' => unsetVal(isset($array[11]) ? $array[11]: ''),
+        'FCA' => unsetVal(isset($array[13]) ? $array[13]: ''),
+        'FCP' => unsetVal(isset($array[15]) ? $array[15]: ''),
+        'FCC' => unsetVal(isset($array[17]) ? $array[17]: '')
       ]
     ];
 
-    if (!empty($formattedArray)) {
+    if ($formattedArray['ref'] != '') {
       array_push($bookings, $formattedArray);
     }
+    
+    $line = fgets($file);
   
-  } while ($line != "");
-
+  } 
   fclose($file);
+
+  //print_r($bookings);
 
   return $bookings;
 
 }
-
-
-
 
 
 

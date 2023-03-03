@@ -20,7 +20,7 @@ headerModule('index');
 
 <main>
   <div id='bg-overlay'>
-    <div id='filler'></div>
+    <div class='filler'></div>
     <section id="aboutus">
       <div class="section-title">
         <h2>About Us</h2>
