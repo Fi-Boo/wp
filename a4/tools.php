@@ -981,7 +981,7 @@ function searchBookingFunc($POST) {
           <td><h1>{$POST['user']['email']}</h1></td>
         </tr>
         <tr>
-          <th><h2>and mobile number: </h2></th>
+          <th><h2>& mobile number: </h2></th>
           <td><h1>{$POST['user']['mobile']}</h1></td>
         </tr>
       </table>
