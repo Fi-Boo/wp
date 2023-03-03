@@ -37,7 +37,7 @@ headerModule('booking');
 
 <main>
   <div id='bg-overlay'>
-    <div id='filler'></div>
+    <div class='filler'></div>
     <section id="movie-data">
       <div id="movie-detail">
         <div class="movie-title movie-title-bp">

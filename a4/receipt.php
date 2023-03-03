@@ -33,7 +33,7 @@ headerModule('receipt');
 
 <main>
     <div id='bg-overlay'>
-        <div id='filler'></div>
+        <div class='filler'></div>
         <section id='sec-receipt'>
             <div id='receipt-grid'>
                 <div id='receipt-print-head'>
