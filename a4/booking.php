@@ -137,7 +137,7 @@ headerModule('booking');
             <div id="details-grid">
               <div>
                 <div id="remember-me">
-                  <input type="checkbox" name="remember-me" onclick="rememberMe()">
+                  <input type="checkbox" name="remember-me" onclick="rememberMe('checkbox')">
                   <label for="remember-me"> Remember Me</label>
                 </div>
                 <table id="details-table">

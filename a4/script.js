@@ -514,27 +514,22 @@ function rotateAnimation (ele, speed) {
 
 // remember me function runs when checkbox is checked/unchecked.
 // changes label between forget me/remember me and runs localStoragefunc
+// tweaked to incorporate other function that updated localstorage when user input field changes.
 
-function rememberMe() {
+function rememberMe(source) {
 
-  var checked = checkRememberMe();
+  var checkbox = document.querySelector("#remember-me input");
   var checkboxLabel = document.querySelector("#remember-me label");
 
-  if (checked) {
+  if (checkbox.checked && (source == "checkbox" || source == "field")) {
     checkboxLabel.innerHTML = "Forget Me";
     localStorageFunc('remember');
-  } else {
+  } else if (!checkbox.checked && source =="checkbox") {
     checkboxLabel.innerHTML = "Remember Me";
     localStorageFunc('forget');
   }
-
 }
 
-// function returns status of remember me checkbox. True if checked.
-function checkRememberMe() {
-  var checkbox = document.querySelector("#remember-me input");
-  return checkbox.checked;
-}
 
 // will do 3 different things based on parameter
 // remember - stores user input and checkbox status into localStorage. Will run when button is checked and onchange state of any user detail field
@@ -581,17 +576,6 @@ function localStorageFunc(variable) {
         break;
 
     }
-  }
-}
-
-// function to update localstorage when value in your details is changed. 
-//Still not perfect as user has to hit enter or click on another field before it updates localstorage
-function updateLocalStorage() {
-
-  var checked = checkRememberMe();
-
-  if (checked) {
-    localStorageFunc('remember');
   }
 }
 
