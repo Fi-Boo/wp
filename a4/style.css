@@ -124,6 +124,7 @@ main {
   margin: -10px auto 0;
   box-shadow: -10px 0px 0.4em black, 10px 0px 0.4em black;
   z-index: -1;
+
 }
 
 #bg-overlay, .filler2 {
@@ -148,10 +149,11 @@ main {
 .filler2 {
   width: 100%;
   max-width: 1500px;
-  height: 300px;
+  height: 13rem;
   margin: 0 auto;
   box-shadow: -10px 0px 0.4em black, 10px 0px 0.4em black;
   position: relative;
+  z-index:-1;
 }
 
 section {
@@ -2819,6 +2821,7 @@ hr.dashed {
 
 #search-fields {
   display: flex;
+  padding-top: 0.5rem;
 }
 
 #search-fields table {
@@ -2900,5 +2903,6 @@ hr.dashed {
 }
 
 #booking-message-footer {
+  margin-top: -2rem;
   text-align: center;
 }
